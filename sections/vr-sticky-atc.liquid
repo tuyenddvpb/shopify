@@ -21,8 +21,8 @@
       var bar = document.getElementById('VrStickyAtc');
       var btn = document.getElementById('VrStickyAtcButton');
       if (!bar || !btn) return;
-      var form = document.querySelector('product-info form[action*="/cart/add"], form[action*="/cart/add"][id^="product-form"]');
-      var mainBtn = form && form.querySelector('[type="submit"][name="add"]');
+      var mainBtn = document.querySelector('product-info product-form [type="submit"][name="add"]') ||
+        document.querySelector('product-form [type="submit"][name="add"]');
       if (!mainBtn) return;
       var show = function (visible) {
         bar.classList.toggle('is-visible', visible);
