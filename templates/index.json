@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -266,7 +275,8 @@
           }
         },
         "email_form": {
-          "type": "email_form"
+          "type": "email_form",
+          "settings": {}
         }
       },
       "block_order": [
@@ -327,8 +337,8 @@
       "settings": {
         "product": "vitalray-wrist",
         "color_scheme": "scheme-5",
-        "media_position": "left",
         "media_size": "large",
+        "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "padding_top": 60,
