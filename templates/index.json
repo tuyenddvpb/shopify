@@ -3,67 +3,117 @@
     "hero": {
       "type": "vr-hero",
       "blocks": {
-        "b1": { "type": "badge", "settings": { "icon": "⏱", "text": "15-minute sessions" } },
-        "b2": { "type": "badge", "settings": { "icon": "🔋", "text": "Cordless & rechargeable" } },
-        "b3": { "type": "badge", "settings": { "icon": "🚚", "text": "Free shipping" } }
+        "b1": {
+          "type": "badge",
+          "settings": {
+            "icon": "⏱",
+            "text": "15-minute sessions"
+          }
+        },
+        "b2": {
+          "type": "badge",
+          "settings": {
+            "icon": "🔋",
+            "text": "Cordless & rechargeable"
+          }
+        },
+        "b3": {
+          "type": "badge",
+          "settings": {
+            "icon": "🚚",
+            "text": "Free tracked shipping"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
         "background": "cream",
         "trust_text": "Designed for everyday hand & wrist comfort",
         "heading": "Gentle red light care for <em>hard-working hands</em>",
         "subheading": "<p>A cordless red & near-infrared light wrap you can use at home, at your desk or on the couch — just 15 minutes a day.</p>",
         "button_label": "Shop VitalRay",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://products/vitalray-wrist"
       }
     },
     "trust": {
       "type": "vr-trust-bar",
       "blocks": {
-        "i1": { "type": "item", "settings": { "icon": "↺", "text": "90-day money-back guarantee" } },
-        "i2": { "type": "item", "settings": { "icon": "🚚", "text": "Free shipping" } },
-        "i3": { "type": "item", "settings": { "icon": "🔒", "text": "Secure checkout" } },
-        "i4": { "type": "item", "settings": { "icon": "💬", "text": "Real human support" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "↺",
+            "text": "90-day money-back guarantee"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "🚚",
+            "text": "Free tracked shipping"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "🔒",
+            "text": "Secure checkout"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "icon": "💬",
+            "text": "Real human support"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4"],
-      "settings": { "background": "white" }
-    },
-    "featured": {
-      "type": "featured-collection",
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
       "settings": {
-        "title": "Meet VitalRay",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "1",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "background": "white"
       }
     },
     "features": {
       "type": "vr-features",
       "blocks": {
-        "f1": { "type": "feature", "settings": { "icon": "💡", "title": "Two wavelengths", "text": "<p>Red (660nm) and near-infrared (850nm) light in one wrap.</p>" } },
-        "f2": { "type": "feature", "settings": { "icon": "🔋", "title": "Cordless", "text": "<p>Charge with USB-C, then use it anywhere — no outlet needed.</p>" } },
-        "f3": { "type": "feature", "settings": { "icon": "🤲", "title": "Fits either hand", "text": "<p>Adjustable strap and thumb loop for a snug, comfortable fit.</p>" } }
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "💡",
+            "title": "Two wavelengths",
+            "text": "<p>Red (660nm) and near-infrared (850nm) light in one wrap.</p>"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔋",
+            "title": "Cordless",
+            "text": "<p>Charge with USB-C, then use it anywhere — no outlet needed.</p>"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "🤲",
+            "title": "Fits either hand",
+            "text": "<p>Adjustable strap and thumb loop for a snug, comfortable fit.</p>"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
       "settings": {
         "background": "sage",
         "eyebrow": "Why VitalRay",
@@ -72,18 +122,51 @@
         "columns": "3",
         "numbered": false,
         "button_label": "Shop now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://products/vitalray-wrist"
       }
     },
     "stats": {
       "type": "vr-stats",
       "blocks": {
-        "s1": { "type": "stat", "settings": { "value": "660 + 850", "label": "Nanometer wavelengths", "note": "Red & near-infrared" } },
-        "s2": { "type": "stat", "settings": { "value": "15 min", "label": "Per session", "note": "Auto shut-off timer" } },
-        "s3": { "type": "stat", "settings": { "value": "3", "label": "Intensity levels", "note": "Pick what feels right" } },
-        "s4": { "type": "stat", "settings": { "value": "90 days", "label": "To try it risk-free", "note": "Money-back guarantee" } }
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "660 + 850",
+            "label": "Nanometer wavelengths",
+            "note": "Red & near-infrared"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "15 min",
+            "label": "Per session",
+            "note": "Auto shut-off timer"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "3",
+            "label": "Intensity levels",
+            "note": "Pick what feels right"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "90 days",
+            "label": "To try it risk-free",
+            "note": "Money-back guarantee"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "settings": {
         "background": "dark",
         "eyebrow": "At a glance",
@@ -96,18 +179,66 @@
     },
     "reviews": {
       "type": "vr-testimonials",
-      "settings": { "background": "white", "eyebrow": "Reviews", "heading": "What customers say" }
+      "settings": {
+        "background": "white",
+        "eyebrow": "Reviews",
+        "heading": "What customers say"
+      }
     },
     "faq": {
       "type": "vr-faq",
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What is red light therapy?", "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "How often should I use it?", "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Who should not use it?", "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "What's your return policy?", "answer": "<p>Every order comes with a 90-day money-back guarantee. See our refund policy for details.</p>" } },
-        "q5": { "type": "question", "settings": { "question": "How long does shipping take?", "answer": "<p>Shipping is free and every order includes tracking. Delivery times are shown at checkout.</p>" } }
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is red light therapy?",
+            "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Who should not use it?",
+            "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>Every order comes with a 90-day money-back guarantee. See our refund policy for details.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are processed in 1–3 business days and usually arrive in 7–15 business days, with free tracking to the US, Canada, UK and Australia. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a>.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We ship to the United States, Canada, the United Kingdom and Australia. Shipping is always free and tracked.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
       "settings": {
         "background": "cream",
         "eyebrow": "FAQ",
@@ -120,13 +251,93 @@
     "newsletter": {
       "type": "newsletter",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Join the VitalRay list", "heading_size": "h1" } },
-        "paragraph": { "type": "paragraph", "settings": { "text": "<p>Routine tips, new products and members-only offers. No spam.</p>" } },
-        "email_form": { "type": "email_form" }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the VitalRay list",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Routine tips, new products and members-only offers. No spam.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form"
+        }
       },
-      "block_order": ["heading", "paragraph", "email_form"],
-      "settings": { "color_scheme": "scheme-2", "full_width": true, "padding_top": 60, "padding_bottom": 60 }
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured": {
+      "type": "featured-product",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "VitalRay · Red light therapy",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "perks": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"vr-pdp-perks\"><li>Red (660nm) + near-infrared (850nm) light</li><li>Cordless & USB-C rechargeable</li><li>Free tracked shipping · 90-day guarantee</li></ul>"
+          }
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "title",
+        "price",
+        "perks",
+        "buy"
+      ],
+      "settings": {
+        "product": "vitalray-wrist",
+        "color_scheme": "scheme-5",
+        "media_position": "left",
+        "media_size": "large",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
-  "order": ["hero", "trust", "featured", "features", "stats", "reviews", "faq", "newsletter"]
+  "order": [
+    "hero",
+    "trust",
+    "featured",
+    "features",
+    "stats",
+    "reviews",
+    "faq",
+    "newsletter"
+  ]
 }

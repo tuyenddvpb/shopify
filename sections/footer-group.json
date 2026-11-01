@@ -15,13 +15,21 @@
         "links": {
           "type": "link_list",
           "settings": {
-            "heading": "Help",
+            "heading": "Help & policies",
             "menu": "footer"
+          }
+        },
+        "shop": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
           }
         }
       },
       "block_order": [
         "about",
+        "shop",
         "links"
       ],
       "settings": {

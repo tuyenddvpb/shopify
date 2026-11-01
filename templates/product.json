@@ -44,7 +44,7 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "truck",
-            "heading_1": "Free shipping",
+            "heading_1": "Free tracked shipping",
             "icon_2": "return",
             "heading_2": "90-day guarantee",
             "icon_3": "lock",
@@ -81,7 +81,7 @@
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p>Free shipping on every order, with tracking. 90-day money-back guarantee — see our refund policy for details.</p>"
+            "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
           }
         },
         "disclaimer": {
@@ -126,12 +126,45 @@
     "stats": {
       "type": "vr-stats",
       "blocks": {
-        "s1": { "type": "stat", "settings": { "value": "660 + 850", "label": "Nanometer wavelengths", "note": "Red & near-infrared" } },
-        "s2": { "type": "stat", "settings": { "value": "15 min", "label": "Per session", "note": "Auto shut-off timer" } },
-        "s3": { "type": "stat", "settings": { "value": "3", "label": "Intensity levels", "note": "Pick what feels right" } },
-        "s4": { "type": "stat", "settings": { "value": "USB-C", "label": "Rechargeable", "note": "No cords while in use" } }
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "660 + 850",
+            "label": "Nanometer wavelengths",
+            "note": "Red & near-infrared"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "15 min",
+            "label": "Per session",
+            "note": "Auto shut-off timer"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "3",
+            "label": "Intensity levels",
+            "note": "Pick what feels right"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "USB-C",
+            "label": "Rechargeable",
+            "note": "No cords while in use"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "settings": {
         "background": "dark",
         "eyebrow": "Inside the wrap",
@@ -145,11 +178,33 @@
     "steps": {
       "type": "vr-features",
       "blocks": {
-        "f1": { "type": "feature", "settings": { "title": "Wrap it on", "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>" } },
-        "f2": { "type": "feature", "settings": { "title": "Press start", "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>" } },
-        "f3": { "type": "feature", "settings": { "title": "Relax & repeat", "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>" } }
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "title": "Wrap it on",
+            "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "title": "Press start",
+            "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "title": "Relax & repeat",
+            "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
       "settings": {
         "background": "cream",
         "eyebrow": "Easy as it gets",
@@ -164,11 +219,36 @@
     "timeline": {
       "type": "vr-timeline",
       "blocks": {
-        "t1": { "type": "step", "settings": { "when": "Day 1", "title": "Find your fit", "text": "<ul><li>Charge the wrap fully</li><li>Start on the lowest intensity</li></ul>" } },
-        "t2": { "type": "step", "settings": { "when": "Week 1–2", "title": "Make it a habit", "text": "<ul><li>Pair it with something you already do — coffee, TV, reading</li><li>One 15-minute session a day</li></ul>" } },
-        "t3": { "type": "step", "settings": { "when": "Week 3+", "title": "Keep it going", "text": "<ul><li>Stay consistent — that's what matters most</li><li>Adjust intensity and mode to what feels best</li></ul>" } }
+        "t1": {
+          "type": "step",
+          "settings": {
+            "when": "Day 1",
+            "title": "Find your fit",
+            "text": "<ul><li>Charge the wrap fully</li><li>Start on the lowest intensity</li></ul>"
+          }
+        },
+        "t2": {
+          "type": "step",
+          "settings": {
+            "when": "Week 1–2",
+            "title": "Make it a habit",
+            "text": "<ul><li>Pair it with something you already do — coffee, TV, reading</li><li>One 15-minute session a day</li></ul>"
+          }
+        },
+        "t3": {
+          "type": "step",
+          "settings": {
+            "when": "Week 3+",
+            "title": "Keep it going",
+            "text": "<ul><li>Stay consistent — that's what matters most</li><li>Adjust intensity and mode to what feels best</li></ul>"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
         "background": "sage",
         "eyebrow": "Your routine",
@@ -180,13 +260,54 @@
     "compare": {
       "type": "vr-comparison",
       "blocks": {
-        "r1": { "type": "row", "settings": { "feature": "Red + near-infrared light", "us": true, "them": false } },
-        "r2": { "type": "row", "settings": { "feature": "Cordless, use anywhere", "us": true, "them": false } },
-        "r3": { "type": "row", "settings": { "feature": "Adjustable intensity", "us": true, "them": false } },
-        "r4": { "type": "row", "settings": { "feature": "Built-in session timer", "us": true, "them": false } },
-        "r5": { "type": "row", "settings": { "feature": "Reusable every day", "us": true, "them": true } }
+        "r1": {
+          "type": "row",
+          "settings": {
+            "feature": "Red + near-infrared light",
+            "us": true,
+            "them": false
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "feature": "Cordless, use anywhere",
+            "us": true,
+            "them": false
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "feature": "Adjustable intensity",
+            "us": true,
+            "them": false
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "feature": "Built-in session timer",
+            "us": true,
+            "them": false
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "feature": "Reusable every day",
+            "us": true,
+            "them": true
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
       "settings": {
         "background": "cream",
         "eyebrow": "Compare",
@@ -217,15 +338,73 @@
     "faq": {
       "type": "vr-faq",
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What is red light therapy?", "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "How often should I use it?", "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Does it get hot?", "answer": "<p>You may feel gentle warmth. If it ever feels uncomfortable, lower the intensity or stop the session.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "Does it fit both hands?", "answer": "<p>Yes. The adjustable strap and thumb loop fit the left or right hand and most adult hand sizes.</p>" } },
-        "q5": { "type": "question", "settings": { "question": "Who should not use it?", "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>" } },
-        "q6": { "type": "question", "settings": { "question": "How does the 90-day guarantee work?", "answer": "<p>If you're not happy within 90 days of delivery, email us with your order number and we'll refund you. See our refund policy for details.</p>" } },
-        "q7": { "type": "question", "settings": { "question": "How long does shipping take?", "answer": "<p>Shipping is free and every order includes tracking. Delivery times are shown at checkout.</p>" } }
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is red light therapy?",
+            "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Does it get hot?",
+            "answer": "<p>You may feel gentle warmth. If it ever feels uncomfortable, lower the intensity or stop the session.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Does it fit both hands?",
+            "answer": "<p>Yes. The adjustable strap and thumb loop fit the left or right hand and most adult hand sizes.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Who should not use it?",
+            "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "How does the 90-day guarantee work?",
+            "answer": "<p>If you're not happy within 90 days of delivery, email us with your order number and we'll refund you. See our refund policy for details.</p>"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are processed in 1–3 business days and usually arrive in 7–15 business days, with free tracking to the US, Canada, UK and Australia. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a>.</p>"
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We ship to the United States, Canada, the United Kingdom and Australia. Shipping is always free and tracked.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ],
       "settings": {
         "background": "white",
         "eyebrow": "FAQ",
@@ -243,5 +422,15 @@
       }
     }
   },
-  "order": ["main", "stats", "steps", "timeline", "compare", "reviews", "guarantee", "faq", "sticky"]
+  "order": [
+    "main",
+    "stats",
+    "steps",
+    "timeline",
+    "compare",
+    "reviews",
+    "guarantee",
+    "faq",
+    "sticky"
+  ]
 }
