@@ -21,19 +21,32 @@
       var bar = document.getElementById('VrStickyAtc');
       var btn = document.getElementById('VrStickyAtcButton');
       if (!bar || !btn) return;
-      var mainBtn = document.querySelector('product-info product-form [type="submit"][name="add"]') ||
-        document.querySelector('product-form [type="submit"][name="add"]');
-      if (!mainBtn) return;
+      // Dawn re-renders the buy box after load, so always look up the current button.
+      var getMainBtn = function () {
+        return document.querySelector('product-info product-form [type="submit"][name="add"]') ||
+          document.querySelector('product-form [type="submit"][name="add"]');
+      };
       var show = function (visible) {
         bar.classList.toggle('is-visible', visible);
         bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
         btn.tabIndex = visible ? 0 : -1;
       };
-      new IntersectionObserver(function (entries) {
-        var e = entries[0];
-        show(!e.isIntersecting && e.boundingClientRect.top < 0);
-      }).observe(mainBtn);
-      btn.addEventListener('click', function () { mainBtn.click(); });
+      var ticking = false;
+      var update = function () {
+        ticking = false;
+        var mainBtn = getMainBtn();
+        show(!!mainBtn && mainBtn.getBoundingClientRect().bottom < 0);
+      };
+      var onScroll = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+      btn.addEventListener('click', function () {
+        var mainBtn = getMainBtn();
+        if (mainBtn) mainBtn.click();
+      });
     })();
   </script>
 {%- endif -%}
