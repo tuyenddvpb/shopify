@@ -46,7 +46,8 @@
         "subheading": "<p>A cordless red & near-infrared light wrap you can use at home, at your desk or on the couch — just 15 minutes a day.</p>",
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist",
-        "product": "vitalray-wrist"
+        "product": "vitalray-wrist",
+        "image": "shopify://shop_images/vitalray-hero-hands.png"
       }
     },
     "trust": {
@@ -344,6 +345,62 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "lifestyle": {
+      "type": "image-with-text",
+      "blocks": {
+        "cap": {
+          "type": "caption",
+          "settings": {
+            "caption": "Everyday comfort",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fits into the moments you already have",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Wear it while you read, watch TV or unwind after work. One 15-minute session a day — no appointments, no cords, no fuss.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop VitalRay",
+            "button_link": "shopify://products/vitalray-wrist",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "cap",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -351,6 +408,7 @@
     "trust",
     "featured",
     "features",
+    "lifestyle",
     "stats",
     "reviews",
     "faq",

@@ -464,11 +464,59 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "lifestyle": {
+      "type": "image-with-text",
+      "blocks": {
+        "cap": {
+          "type": "caption",
+          "settings": {
+            "caption": "Everyday comfort",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Made for hard-working hands",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "cap",
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "main",
     "stats",
+    "lifestyle",
     "steps",
     "timeline",
     "compare",
