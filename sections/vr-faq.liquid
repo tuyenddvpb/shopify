@@ -1,0 +1,77 @@
+<section class="vr-section vr-section--{{ section.settings.background }}">
+  <div class="vr-container vr-faq__grid">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }} <span aria-hidden="true">→</span></a>
+      {%- endif -%}
+    </div>
+    <div>
+      {%- for block in section.blocks -%}
+        <details class="vr-faq__item" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="vr-faq__answer">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- if section.blocks.size > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in section.blocks -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.question | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VR FAQ",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, answered" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Can't find what you need? Our team replies within one business day." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Contact us" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "limit": 12,
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Question?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer.</p>" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "VR FAQ" }]
+}
+{% endschema %}

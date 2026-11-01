@@ -1,0 +1,56 @@
+<section class="vr-section vr-section--tight vr-section--{{ section.settings.background }} vr-trustbar">
+  <div class="vr-container">
+    <ul class="vr-trustbar__list">
+      {%- for block in section.blocks -%}
+        <li class="vr-trustbar__item" {{ block.shopify_attributes }}>
+          <span class="vr-icon" aria-hidden="true">{{ block.settings.icon }}</span>
+          <span>{{ block.settings.text }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Trust bar",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "white",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "✓" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Free shipping" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VR Trust bar",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "↺", "text": "90-day money-back guarantee" } },
+        { "type": "item", "settings": { "icon": "🚚", "text": "Free US shipping" } },
+        { "type": "item", "settings": { "icon": "🔒", "text": "Secure checkout" } },
+        { "type": "item", "settings": { "icon": "💬", "text": "Real human support" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

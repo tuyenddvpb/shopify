@@ -1,0 +1,52 @@
+{%- if product and section.settings.enable -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  <div class="vr-sticky-atc" id="VrStickyAtc" aria-hidden="true">
+    <div class="vr-sticky-atc__inner">
+      <div class="vr-sticky-atc__info">
+        {%- if product.featured_image -%}
+          {{ product.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', alt: product.title }}
+        {%- endif -%}
+        <div style="min-width:0">
+          <div class="vr-sticky-atc__title">{{ product.title }}</div>
+          <div class="vr-sticky-atc__price">{{ current_variant.price | money }}</div>
+        </div>
+      </div>
+      <button type="button" class="vr-btn" id="VrStickyAtcButton" tabindex="-1" {% unless current_variant.available %}disabled{% endunless %}>
+        {%- if current_variant.available -%}{{ section.settings.label }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}
+      </button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var bar = document.getElementById('VrStickyAtc');
+      var btn = document.getElementById('VrStickyAtcButton');
+      if (!bar || !btn) return;
+      var form = document.querySelector('product-info form[action*="/cart/add"], form[action*="/cart/add"][id^="product-form"]');
+      var mainBtn = form && form.querySelector('[type="submit"][name="add"]');
+      if (!mainBtn) return;
+      var show = function (visible) {
+        bar.classList.toggle('is-visible', visible);
+        bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        btn.tabIndex = visible ? 0 : -1;
+      };
+      new IntersectionObserver(function (entries) {
+        var e = entries[0];
+        show(!e.isIntersecting && e.boundingClientRect.top < 0);
+      }).observe(mainBtn);
+      btn.addEventListener('click', function () { mainBtn.click(); });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VR Sticky add to cart",
+  "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "enable", "label": "Enable", "default": true },
+    { "type": "text", "id": "label", "label": "Button label", "default": "Add to cart" }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "VR Sticky add to cart" }]
+}
+{% endschema %}
