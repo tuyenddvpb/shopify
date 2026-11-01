@@ -36,7 +36,8 @@
         "heading": "Gentle red light care for <em>hard-working hands</em>",
         "subheading": "<p>A cordless red & near-infrared light wrap you can use at home, at your desk or on the couch — just 15 minutes a day.</p>",
         "button_label": "Shop VitalRay",
-        "button_link": "shopify://products/vitalray-wrist"
+        "button_link": "shopify://products/vitalray-wrist",
+        "product": "vitalray-wrist"
       }
     },
     "trust": {
@@ -309,11 +310,16 @@
           "settings": {
             "show_dynamic_checkout": true
           }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
         }
       },
       "block_order": [
         "text",
         "title",
+        "rating",
         "price",
         "perks",
         "buy"

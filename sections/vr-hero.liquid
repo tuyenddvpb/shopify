@@ -31,6 +31,12 @@
           | image_url: width: 1400
           | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400'
         }}
+      {%- elsif section.settings.product != blank and section.settings.product.featured_image -%}
+        {{
+          section.settings.product.featured_image
+          | image_url: width: 1400
+          | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400', alt: section.settings.product.title
+        }}
       {%- else -%}
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
@@ -66,7 +72,13 @@
     },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop VitalRay" },
     { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Fallback product",
+      "info": "If no image is selected, the product's main image is shown."
+    }
   ],
   "blocks": [
     {

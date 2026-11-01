@@ -89,11 +89,16 @@
           "settings": {
             "custom_liquid": "<p class=\"vr-disclaimer\">*This product is not intended to diagnose, treat, cure or prevent any disease. Consult your doctor if you have a medical condition, are pregnant, or have a pacemaker.</p>"
           }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
         }
       },
       "block_order": [
         "eyebrow",
         "title",
+        "rating",
         "price",
         "perks",
         "variant_picker",
