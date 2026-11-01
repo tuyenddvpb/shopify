@@ -262,3 +262,6 @@
 }
 
 .vr-disclaimer { font-size: 1.2rem; color: var(--vr-muted); line-height: 1.6; }
+
+/* Keep page bottom (footer) clear of the sticky add-to-cart bar */
+body:has(.vr-sticky-atc.is-visible) { padding-bottom: 76px; }
