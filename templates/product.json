@@ -23,6 +23,10 @@
           "type": "title",
           "settings": {}
         },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -78,7 +82,8 @@
           "settings": {
             "heading": "What's in the box",
             "icon": "box",
-            "content": "<ul><li>1 × VitalRay wrist wrap</li><li>1 × USB-C charging cable</li><li>1 × Quick-start guide</li></ul>"
+            "content": "<ul><li>1 × VitalRay wrist wrap</li><li>1 × USB-C charging cable</li><li>1 × Quick-start guide</li></ul>",
+            "page": ""
           }
         },
         "tab_use": {
@@ -86,7 +91,8 @@
           "settings": {
             "heading": "How to use",
             "icon": "stopwatch",
-            "content": "<ol><li>Slip your thumb through the loop and fasten the strap.</li><li>Press the button to start a 15-minute session and pick your intensity.</li><li>Relax — the wrap turns off automatically. Use once a day.</li></ol>"
+            "content": "<ol><li>Slip your thumb through the loop and fasten the strap.</li><li>Press the button to start a 15-minute session and pick your intensity.</li><li>Relax — the wrap turns off automatically. Use once a day.</li></ol>",
+            "page": ""
           }
         },
         "tab_shipping": {
@@ -94,7 +100,8 @@
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
+            "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
           }
         },
         "disclaimer": {
@@ -102,10 +109,6 @@
           "settings": {
             "custom_liquid": "<p class=\"vr-disclaimer\">*This product is not intended to diagnose, treat, cure or prevent any disease. Consult your doctor if you have a medical condition, are pregnant, or have a pacemaker.</p>"
           }
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {}
         }
       },
       "block_order": [
@@ -199,6 +202,7 @@
         "f1": {
           "type": "feature",
           "settings": {
+            "icon": "✦",
             "title": "Wrap it on",
             "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
           }
@@ -206,6 +210,7 @@
         "f2": {
           "type": "feature",
           "settings": {
+            "icon": "✦",
             "title": "Press start",
             "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
           }
@@ -213,6 +218,7 @@
         "f3": {
           "type": "feature",
           "settings": {
+            "icon": "✦",
             "title": "Relax & repeat",
             "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
           }
@@ -438,6 +444,26 @@
         "enable": true,
         "label": "Add to cart"
       }
+    },
+    "179355318790bddd23": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Tdjkhj": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Tdjkhj"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -449,6 +475,7 @@
     "reviews",
     "guarantee",
     "faq",
-    "sticky"
+    "sticky",
+    "179355318790bddd23"
   ]
 }
