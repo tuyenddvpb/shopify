@@ -265,3 +265,16 @@
 
 /* Keep page bottom (footer) clear of the sticky add-to-cart bar */
 body:has(.vr-sticky-atc.is-visible) { padding-bottom: 76px; }
+
+/* Logo */
+.vr-logo { display: inline-flex; align-items: center; gap: calc(var(--vr-logo-size) * 0.3); line-height: 1; }
+.vr-logo__mark { flex: none; }
+.vr-logo__word {
+  font-family: var(--font-heading-family);
+  font-size: var(--vr-logo-size);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--vr-logo-ink);
+}
+.vr-logo__ray { font-style: italic; font-weight: 500; color: var(--vr-logo-ray); }
+@media screen and (max-width: 749px) { .vr-logo { --vr-logo-size: 24px !important; } .vr-logo__mark { width: 26px; height: 26px; } }

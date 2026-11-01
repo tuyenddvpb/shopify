@@ -9,6 +9,9 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/png" href="{{ 'vitalray-favicon.png' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'vitalray-favicon.png' | asset_url }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -280,6 +283,14 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'vitalray.css' | asset_url | stylesheet_tag }}
+    {%- liquid
+      assign vr_logo_font = settings.type_header_font | font_modify: 'weight', '600'
+      assign vr_logo_italic = settings.type_header_font | font_modify: 'style', 'italic'
+    -%}
+    <style>
+      {{ vr_logo_font | font_face: font_display: 'swap' }}
+      {{ vr_logo_italic | font_face: font_display: 'swap' }}
+    </style>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}

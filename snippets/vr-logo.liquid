@@ -1,0 +1,31 @@
+{%- comment -%}
+  VitalRay logo: sunrise mark (inline SVG) + "Vital" + italic coral "Ray".
+  Accepts: variant ('dark' default | 'light'), size (font size in px, default 30)
+{%- endcomment -%}
+{%- liquid
+  assign size = size | default: 30
+  assign mark = size | times: 1.05 | round
+  assign ink = '#1F2A27'
+  assign ray = '#C4502F'
+  if variant == 'light'
+    assign ink = '#F5F3EE'
+    assign ray = '#E2674A'
+  endif
+-%}
+<span class="vr-logo" style="--vr-logo-size: {{ size }}px; --vr-logo-ink: {{ ink }}; --vr-logo-ray: {{ ray }};">
+  <svg class="vr-logo__mark" viewBox="0 0 64 64" width="{{ mark }}" height="{{ mark }}" aria-hidden="true" focusable="false">
+    <g fill="none" stroke-linecap="round">
+      <path d="M14 44 A18 18 0 0 1 50 44" stroke="#C4502F" stroke-width="5"/>
+      <g stroke="#E2674A" stroke-width="4">
+        <line x1="32" y1="18" x2="32" y2="9"/>
+        <line x1="18.4" y1="23.6" x2="12.7" y2="17.9"/>
+        <line x1="45.6" y1="23.6" x2="51.3" y2="17.9"/>
+        <line x1="10.5" y1="34.5" x2="3.5" y2="32"/>
+        <line x1="53.5" y1="34.5" x2="60.5" y2="32"/>
+      </g>
+      <line x1="6" y1="52" x2="58" y2="52" stroke="#5E7D6A" stroke-width="4"/>
+    </g>
+  </svg>
+  <span class="vr-logo__word">Vital<span class="vr-logo__ray">Ray</span></span>
+  <span class="visually-hidden">{{ shop.name }}</span>
+</span>
