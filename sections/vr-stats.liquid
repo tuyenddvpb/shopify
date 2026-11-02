@@ -3,15 +3,23 @@
 {%- endcomment -%}
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container">
-    <div class="vr-center">
+    <div class="vr-center" data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       {%- if section.settings.heading != blank -%}<h2 class="vr-heading">{{ section.settings.heading }}</h2>{%- endif -%}
       {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
-    <div class="vr-grid vr-grid--{{ section.blocks.size | at_most: 4 | at_least: 1 }}">
+    <div class="vr-grid vr-grid--{{ section.blocks.size | at_most: 4 | at_least: 1 }} vr-stats" data-vr-reveal-group>
       {%- for block in section.blocks -%}
-        <div class="vr-stat" {{ block.shopify_attributes }}>
-          <div class="vr-stat__value">{{ block.settings.value }}</div>
+        <div class="vr-stat" {{ block.shopify_attributes }} data-vr-reveal>
+          <div class="vr-stat__value">
+            {%- assign words = block.settings.value | split: ' ' -%}
+            {%- for w in words -%}
+              {%- assign n = w | plus: 0 -%}
+              {%- assign ns = n | append: '' -%}
+              {%- if ns == w and w != '0' -%}<span data-vr-count="{{ w }}">{{ w }}</span>{%- else -%}{{ w }}{%- endif -%}
+              {%- unless forloop.last %} {% endunless -%}
+            {%- endfor -%}
+          </div>
           <div class="vr-stat__label">{{ block.settings.label }}</div>
           {%- if block.settings.note != blank -%}<div class="vr-stat__note">{{ block.settings.note }}</div>{%- endif -%}
         </div>
@@ -22,7 +30,7 @@
     {%- endif -%}
     {%- if section.settings.button_label != blank -%}
       <p class="vr-center" style="margin-top:32px">
-        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} <span aria-hidden="true">→</span></a>
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} {% render 'vr-icon', name: 'arrow', size: 18 %}</a>
       </p>
     {%- endif -%}
   </div>

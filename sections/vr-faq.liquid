@@ -1,11 +1,11 @@
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container vr-faq__grid">
-    <div>
+    <div data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 class="vr-heading">{{ section.settings.heading }}</h2>
       {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
       {%- if section.settings.button_label != blank -%}
-        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }} <span aria-hidden="true">→</span></a>
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }} {% render 'vr-icon', name: 'arrow', size: 18 %}</a>
       {%- endif -%}
     </div>
     <div>

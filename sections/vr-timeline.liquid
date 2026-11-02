@@ -1,13 +1,13 @@
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container" style="max-width:900px">
-    <div class="vr-center">
+    <div class="vr-center" data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 class="vr-heading">{{ section.settings.heading }}</h2>
       {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
-    <div class="vr-timeline">
+    <div class="vr-timeline" data-vr-reveal-group>
       {%- for block in section.blocks -%}
-        <div class="vr-card vr-timeline__item" {{ block.shopify_attributes }}>
+        <div class="vr-card vr-timeline__item" {{ block.shopify_attributes }} data-vr-reveal>
           <div class="vr-timeline__when">{{ block.settings.when }}</div>
           <div class="vr-timeline__body">
             <h3 class="vr-timeline__title">{{ block.settings.title }}</h3>

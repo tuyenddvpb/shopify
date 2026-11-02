@@ -4,13 +4,13 @@
 {%- if section.blocks.size > 0 -%}
   <section class="vr-section vr-section--{{ section.settings.background }}">
     <div class="vr-container">
-      <div class="vr-center">
+      <div class="vr-center" data-vr-reveal>
         {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
         <h2 class="vr-heading">{{ section.settings.heading }}</h2>
       </div>
-      <div class="vr-grid vr-grid--3">
+      <div class="vr-grid vr-grid--3" data-vr-reveal-group>
         {%- for block in section.blocks -%}
-          <figure class="vr-card" style="margin:0" {{ block.shopify_attributes }}>
+          <figure class="vr-card" style="margin:0" {{ block.shopify_attributes }} data-vr-reveal>
             <div class="vr-review__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
               {%- for i in (1..block.settings.rating) -%}★{%- endfor -%}
             </div>

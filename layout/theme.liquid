@@ -282,15 +282,12 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&display=swap" rel="stylesheet">
     {{ 'vitalray.css' | asset_url | stylesheet_tag }}
-    {%- liquid
-      assign vr_logo_font = settings.type_header_font | font_modify: 'weight', '600'
-      assign vr_logo_italic = settings.type_header_font | font_modify: 'style', 'italic'
-    -%}
-    <style>
-      {{ vr_logo_font | font_face: font_display: 'swap' }}
-      {{ vr_logo_italic | font_face: font_display: 'swap' }}
-    </style>
+    <script>document.documentElement.classList.add('vr-js');</script>
+    <script src="{{ 'vitalray.js' | asset_url }}" defer="defer"></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}

@@ -1,13 +1,13 @@
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container">
-    <div class="vr-center">
+    <div class="vr-center" data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       {%- if section.settings.heading != blank -%}<h2 class="vr-heading">{{ section.settings.heading }}</h2>{%- endif -%}
       {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
-    <div class="vr-grid vr-grid--{{ section.settings.columns }}">
+    <div class="vr-grid vr-grid--{{ section.settings.columns }}" data-vr-reveal-group>
       {%- for block in section.blocks -%}
-        <div class="vr-card" {{ block.shopify_attributes }}>
+        <div class="vr-card" {{ block.shopify_attributes }} data-vr-reveal>
           {%- if section.settings.numbered -%}
             <div class="vr-step__num">{{ forloop.index }}</div>
           {%- elsif block.settings.image != blank -%}
@@ -15,7 +15,7 @@
               {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', style: 'width:100%;height:auto;border-radius:10px' }}
             </div>
           {%- elsif block.settings.icon != blank -%}
-            <div class="vr-feature__icon"><span class="vr-icon" aria-hidden="true">{{ block.settings.icon }}</span></div>
+            <div class="vr-feature__icon"><span class="vr-icon" aria-hidden="true">{% render 'vr-icon', name: block.settings.icon, size: 22 %}</span></div>
           {%- endif -%}
           <h3 class="vr-feature__title">{{ block.settings.title }}</h3>
           <div class="vr-feature__text">{{ block.settings.text }}</div>
@@ -24,7 +24,7 @@
     </div>
     {%- if section.settings.button_label != blank -%}
       <p class="vr-center" style="margin-top:36px">
-        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} <span aria-hidden="true">→</span></a>
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} {% render 'vr-icon', name: 'arrow', size: 18 %}</a>
       </p>
     {%- endif -%}
   </div>

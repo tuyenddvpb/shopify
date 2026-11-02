@@ -15,29 +15,21 @@
         "b1": {
           "type": "badge",
           "settings": {
-            "icon": "⏱",
-            "text": "15-minute sessions"
+            "icon": "check",
+            "text": "Cordless & rechargeable"
           }
         },
         "b2": {
           "type": "badge",
           "settings": {
-            "icon": "🔋",
-            "text": "Cordless & rechargeable"
-          }
-        },
-        "b3": {
-          "type": "badge",
-          "settings": {
-            "icon": "🚚",
-            "text": "Free tracked shipping"
+            "icon": "check",
+            "text": "90-day guarantee"
           }
         }
       },
       "block_order": [
         "b1",
-        "b2",
-        "b3"
+        "b2"
       ],
       "settings": {
         "background": "cream",
@@ -47,7 +39,11 @@
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist",
         "product": "vitalray-wrist",
-        "image": "shopify://shop_images/vitalray-hero-hands.png"
+        "image": "shopify://shop_images/vitalray-hero-hands.png",
+        "card_icon": "clock",
+        "card_title": "15 min",
+        "card_text": "Daily session",
+        "pill_text": "Free tracked shipping"
       }
     },
     "trust": {
@@ -56,29 +52,33 @@
         "i1": {
           "type": "item",
           "settings": {
-            "icon": "↺",
-            "text": "90-day money-back guarantee"
+            "icon": "shield",
+            "text": "90-Day",
+            "subtext": "Money-back guarantee"
           }
         },
         "i2": {
           "type": "item",
           "settings": {
-            "icon": "🚚",
-            "text": "Free tracked shipping"
+            "icon": "truck",
+            "text": "Free tracked",
+            "subtext": "US, CA, UK & AU shipping"
           }
         },
         "i3": {
           "type": "item",
           "settings": {
-            "icon": "🔒",
-            "text": "Secure checkout"
+            "icon": "lock",
+            "text": "Secure",
+            "subtext": "Encrypted checkout"
           }
         },
         "i4": {
           "type": "item",
           "settings": {
-            "icon": "💬",
-            "text": "Real human support"
+            "icon": "chat",
+            "text": "Real humans",
+            "subtext": "Reply within 1 business day"
           }
         }
       },
@@ -89,7 +89,7 @@
         "i4"
       ],
       "settings": {
-        "background": "white"
+        "background": "cream"
       }
     },
     "features": {
@@ -98,7 +98,7 @@
         "f1": {
           "type": "feature",
           "settings": {
-            "icon": "💡",
+            "icon": "light",
             "title": "Two wavelengths",
             "text": "<p>Red (660nm) and near-infrared (850nm) light in one wrap.</p>"
           }
@@ -106,7 +106,7 @@
         "f2": {
           "type": "feature",
           "settings": {
-            "icon": "🔋",
+            "icon": "battery",
             "title": "Cordless",
             "text": "<p>Charge with USB-C, then use it anywhere — no outlet needed.</p>"
           }
@@ -114,7 +114,7 @@
         "f3": {
           "type": "feature",
           "settings": {
-            "icon": "🤲",
+            "icon": "hand",
             "title": "Fits either hand",
             "text": "<p>Adjustable strap and thumb loop for a snug, comfortable fit.</p>"
           }
@@ -295,45 +295,48 @@
     "featured": {
       "type": "featured-product",
       "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "VitalRay · Red light therapy",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
         "perks": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"vr-pdp-perks\"><li>Red (660nm) + near-infrared (850nm) light</li><li>Cordless & USB-C rechargeable</li><li>Free tracked shipping · 90-day guarantee</li></ul>"
+            "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'light', size: 18 %}<span><strong>Red + near-infrared</strong> 660nm &amp; 850nm in one wrap</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Cordless</strong> USB-C rechargeable, use it anywhere</span></li><li>{% render 'vr-icon', name: 'clock', size: 18 %}<span><strong>15-minute sessions</strong> with auto shut-off</span></li></ul>"
           }
         },
         "buy": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true
+            "show_dynamic_checkout": false
           }
         },
         "rating": {
           "type": "rating",
           "settings": {}
+        },
+        "vr_title": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'title', tag: 'h2' %}"
+          }
+        },
+        "vr_price": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'price' %}"
+          }
+        },
+        "vr_stock": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'stock' %}"
+          }
         }
       },
       "block_order": [
-        "text",
-        "title",
         "rating",
-        "price",
+        "vr_title",
         "perks",
-        "buy"
+        "vr_price",
+        "buy",
+        "vr_stock"
       ],
       "settings": {
         "product": "vitalray-wrist",
@@ -398,8 +401,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     }
   },

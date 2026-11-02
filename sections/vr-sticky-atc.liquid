@@ -7,8 +7,15 @@
           {{ product.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', alt: product.title }}
         {%- endif -%}
         <div style="min-width:0">
-          <div class="vr-sticky-atc__title">{{ product.title }}</div>
-          <div class="vr-sticky-atc__price">{{ current_variant.price | money }}</div>
+          <div class="vr-sticky-atc__title">{% render 'vr-buybox', product: product, part: 'short' %}</div>
+          <div class="vr-sticky-atc__price">
+            <strong>{{ current_variant.price | money }}</strong>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              {%- assign save = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
+              <s>{{ current_variant.compare_at_price | money }}</s>
+              <span class="vr-save vr-save--sm">Save {{ save }}%</span>
+            {%- endif -%}
+          </div>
         </div>
       </div>
       <button type="button" class="vr-btn" id="VrStickyAtcButton" tabindex="-1" {% unless current_variant.available %}disabled{% endunless %}>

@@ -1,10 +1,10 @@
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container" style="max-width:900px">
-    <div class="vr-center">
+    <div class="vr-center" data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 class="vr-heading">{{ section.settings.heading }}</h2>
     </div>
-    <div style="overflow-x:auto">
+    <div style="overflow-x:auto" data-vr-reveal>
       <table class="vr-compare">
         <thead>
           <tr>
@@ -30,7 +30,7 @@
     </div>
     {%- if section.settings.button_label != blank -%}
       <p class="vr-center" style="margin-top:32px">
-        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} <span aria-hidden="true">→</span></a>
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} {% render 'vr-icon', name: 'arrow', size: 18 %}</a>
       </p>
     {%- endif -%}
   </div>

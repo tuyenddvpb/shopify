@@ -1,6 +1,6 @@
 <section class="vr-section vr-section--{{ section.settings.background }}">
   <div class="vr-container">
-    <div class="vr-center">
+    <div class="vr-center" data-vr-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 class="vr-heading">{{ section.settings.heading }}</h2>
       {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
@@ -8,7 +8,7 @@
     <div class="vr-grid vr-grid--{{ section.blocks.size | at_most: 3 | at_least: 1 }}">
       {%- for block in section.blocks -%}
         {%- assign card_link = block.settings.link | default: routes.all_products_collection_url -%}
-        <a class="vr-card vr-catcard" href="{{ card_link }}" {{ block.shopify_attributes }}>
+        <a class="vr-card vr-catcard" href="{{ card_link }}" {{ block.shopify_attributes }} data-vr-reveal>
           <div class="vr-catcard__media">
             {%- if block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw' }}

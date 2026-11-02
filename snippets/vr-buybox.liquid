@@ -1,0 +1,40 @@
+{%- comment -%}
+  Short product title + price line for VitalRay buy boxes.
+  Usage:
+    {% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}
+    {% render 'vr-buybox', product: product, part: 'price' %}
+    {% render 'vr-buybox', product: product, part: 'stock' %}
+  The product title is split on " – ": the first part is the short name,
+  the rest becomes the subtitle.
+{%- endcomment -%}
+{%- liquid
+  assign tag = tag | default: 'h2'
+  assign title_parts = product.title | split: ' – '
+  assign short_title = title_parts | first
+  assign subtitle = ''
+  if title_parts.size > 1
+    assign subtitle = title_parts | last
+  endif
+  assign v = product.selected_or_first_available_variant
+-%}
+{%- case part -%}
+  {%- when 'title' -%}
+    <div class="vr-pdp-head">
+      <{{ tag }} class="vr-pdp-title">{{ short_title }}</{{ tag }}>
+      {%- if subtitle != '' -%}<p class="vr-pdp-subtitle">{{ subtitle }}</p>{%- endif -%}
+    </div>
+  {%- when 'price' -%}
+    <div class="vr-price">
+      <span class="vr-price__now">{{ v.price | money }}</span>
+      {%- if v.compare_at_price > v.price -%}
+        {%- assign save = v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price -%}
+        <s class="vr-price__was">{{ v.compare_at_price | money }}</s>
+        <span class="vr-save">Save {{ save }}%</span>
+      {%- endif -%}
+    </div>
+    <p class="vr-price__note">{% render 'vr-icon', name: 'truck', size: 16 %} Free tracked shipping · 90-day guarantee</p>
+  {%- when 'stock' -%}
+    <p class="vr-stock"><span class="vr-stock__dot" aria-hidden="true"></span><strong>In stock</strong> · Ships in 1–3 business days</p>
+  {%- when 'short' -%}
+    {{- short_title -}}
+{%- endcase -%}

@@ -12,29 +12,14 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "settings": {
-            "text": "VitalRay · Red light therapy",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
         "rating": {
           "type": "rating",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
           "settings": {}
         },
         "perks": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"vr-pdp-perks\"><li>Red (660nm) + near-infrared (850nm) light in one wrap</li><li>Cordless & USB-C rechargeable — use it anywhere</li><li>15-minute sessions with built-in auto shut-off</li></ul>"
+            "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'light', size: 18 %}<span><strong>Red + near-infrared</strong> 660nm &amp; 850nm in one wrap</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Cordless</strong> USB-C rechargeable, use it anywhere</span></li><li>{% render 'vr-icon', name: 'clock', size: 18 %}<span><strong>15-minute sessions</strong> with auto shut-off</span></li></ul>"
           }
         },
         "variant_picker": {
@@ -44,33 +29,17 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "icons": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "truck",
-            "heading_1": "Free tracked shipping",
-            "icon_2": "return",
-            "heading_2": "90-day guarantee",
-            "icon_3": "lock",
-            "heading_3": "Secure checkout"
           }
         },
         "guarantee": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\" aria-hidden=\"true\">↺</span><div><strong>90-day money-back guarantee</strong>Not happy within 90 days of delivery? Contact us for a full refund.</div></div>"
+            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>90-day money-back guarantee</strong>Not happy within 90 days of delivery? Email us for a full refund.</div></div>"
           }
         },
         "description": {
@@ -109,18 +78,34 @@
           "settings": {
             "custom_liquid": "<p class=\"vr-disclaimer\">*This product is not intended to diagnose, treat, cure or prevent any disease. Consult your doctor if you have a medical condition, are pregnant, or have a pacemaker.</p>"
           }
+        },
+        "vr_title": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}"
+          }
+        },
+        "vr_price": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'price' %}"
+          }
+        },
+        "vr_stock": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free tracked shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}90-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
+          }
         }
       },
       "block_order": [
-        "eyebrow",
-        "title",
         "rating",
-        "price",
+        "vr_title",
         "perks",
+        "vr_price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "icons",
+        "vr_stock",
         "guarantee",
         "description",
         "tab_box",
@@ -132,8 +117,8 @@
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
         "media_position": "left",
@@ -508,8 +493,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-2",
         "color_scheme": "scheme-2",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     }
   },
