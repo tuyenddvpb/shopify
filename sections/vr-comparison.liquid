@@ -9,7 +9,7 @@
         <thead>
           <tr>
             <th scope="col"><span class="visually-hidden">Feature</span></th>
-            <th scope="col" class="vr-compare__us">{{ section.settings.us_label }}</th>
+            <th scope="col" class="vr-compare__us">{%- if section.settings.us_label == 'VitalRay' -%}{% render 'vr-logo', variant: 'light', size: 22 %}{%- else -%}{{ section.settings.us_label }}{%- endif -%}</th>
             <th scope="col">{{ section.settings.them_label }}</th>
           </tr>
         </thead>
@@ -18,10 +18,10 @@
             <tr {{ block.shopify_attributes }}>
               <th scope="row" style="font-weight:600">{{ block.settings.feature }}</th>
               <td class="vr-compare__us">
-                {%- if block.settings.us -%}<span class="vr-yes" aria-label="Yes">✓</span>{%- else -%}<span class="vr-no" aria-label="No">✗</span>{%- endif -%}
+                {%- if block.settings.us -%}<span class="vr-yes" role="img" aria-label="Yes">{% render 'vr-icon', name: 'check', size: 16 %}</span>{%- else -%}<span class="vr-no" role="img" aria-label="No"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>{%- endif -%}
               </td>
               <td>
-                {%- if block.settings.them -%}<span class="vr-yes" aria-label="Yes">✓</span>{%- else -%}<span class="vr-no" aria-label="No">✗</span>{%- endif -%}
+                {%- if block.settings.them -%}<span class="vr-yes" role="img" aria-label="Yes">{% render 'vr-icon', name: 'check', size: 16 %}</span>{%- else -%}<span class="vr-no" role="img" aria-label="No"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>{%- endif -%}
               </td>
             </tr>
           {%- endfor -%}

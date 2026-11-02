@@ -1,0 +1,127 @@
+{%- liquid
+  assign img = section.settings.image
+  if img == blank and section.settings.use_product_image and product
+    assign img = product.media[1].preview_image | default: product.featured_image
+  endif
+-%}
+<section class="vr-section vr-section--{{ section.settings.background }} vr-mt{% if section.settings.pattern %} vr-section--dots{% endif %}">
+  <div class="vr-container vr-mt__grid vr-mt__grid--{{ section.settings.layout }}">
+    <div class="vr-mt__visual" data-vr-reveal>
+      <div class="vr-mt__media">
+        {%- if img != blank -%}
+          {{ img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400' }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      {%- if section.settings.card_title != blank -%}
+        <div class="vr-float vr-float--{{ section.settings.card_position }}">
+          <span class="vr-float__icon">{% render 'vr-icon', name: section.settings.card_icon, size: 20 %}</span>
+          <span>
+            <strong class="vr-float__title">{{ section.settings.card_title }}</strong>
+            <span class="vr-float__text">{{ section.settings.card_text }}</span>
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="vr-mt__content" data-vr-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="vr-heading">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.use_product_description and product -%}
+        <div class="vr-mt__rte rte">{{ product.description }}</div>
+      {%- elsif section.settings.text != blank -%}
+        <div class="vr-sub">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="vr-mt__list" role="list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="vr-icon">{% render 'vr-icon', name: block.settings.icon, size: 20 %}</span>
+              <span>
+                <strong>{{ block.settings.title }}</strong>
+                {%- if block.settings.text != blank -%}<span>{{ block.settings.text }}</span>{%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          <span>{{ section.settings.button_label }}</span>{% render 'vr-icon', name: 'arrow', size: 18 %}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Media + text",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "blush", "label": "Blush" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "checkbox", "id": "pattern", "label": "Dot pattern", "default": false },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Image position",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "checkbox", "id": "use_product_image", "label": "Use product image when empty (product pages)", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "checkbox", "id": "use_product_description", "label": "Show product description (product pages)", "default": false },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Floating card" },
+    { "type": "text", "id": "card_icon", "label": "Card icon", "default": "sparkle" },
+    { "type": "text", "id": "card_title", "label": "Card title" },
+    { "type": "text", "id": "card_text", "label": "Card text" },
+    {
+      "type": "select",
+      "id": "card_position",
+      "label": "Card position",
+      "default": "bottom",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon name", "default": "check" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Benefit" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "VR Media + text" }]
+}
+{% endschema %}

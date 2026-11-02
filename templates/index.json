@@ -92,50 +92,6 @@
         "background": "cream"
       }
     },
-    "features": {
-      "type": "vr-features",
-      "blocks": {
-        "f1": {
-          "type": "feature",
-          "settings": {
-            "icon": "light",
-            "title": "Two wavelengths",
-            "text": "<p>Red (660nm) and near-infrared (850nm) light in one wrap.</p>"
-          }
-        },
-        "f2": {
-          "type": "feature",
-          "settings": {
-            "icon": "battery",
-            "title": "Cordless",
-            "text": "<p>Charge with USB-C, then use it anywhere — no outlet needed.</p>"
-          }
-        },
-        "f3": {
-          "type": "feature",
-          "settings": {
-            "icon": "hand",
-            "title": "Fits either hand",
-            "text": "<p>Adjustable strap and thumb loop for a snug, comfortable fit.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3"
-      ],
-      "settings": {
-        "background": "sage",
-        "eyebrow": "Why VitalRay",
-        "heading": "Made for real routines",
-        "subheading": "Simple enough to use every day — that's the whole point.",
-        "columns": "3",
-        "numbered": false,
-        "button_label": "Shop now",
-        "button_link": "shopify://products/vitalray-wrist"
-      }
-    },
     "stats": {
       "type": "vr-stats",
       "blocks": {
@@ -350,59 +306,71 @@
       }
     },
     "lifestyle": {
-      "type": "image-with-text",
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "background": "cream",
+        "pattern": true,
+        "layout": "right",
+        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
+        "eyebrow": "Everyday comfort",
+        "heading": "Fits into the moments <em>you already have</em>",
+        "text": "<p>Wear it while you read, watch TV or unwind after work. One 15-minute session a day — no appointments, no cords, no fuss.</p>",
+        "card_icon": "sparkle",
+        "card_title": "No cords",
+        "card_text": "Use it anywhere at home",
+        "card_position": "top",
+        "button_label": "Shop VitalRay",
+        "button_link": "shopify://products/vitalray-wrist"
+      }
+    },
+    "why": {
+      "type": "vr-media-text",
       "blocks": {
-        "cap": {
-          "type": "caption",
+        "b1": {
+          "type": "benefit",
           "settings": {
-            "caption": "Everyday comfort",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "icon": "light",
+            "title": "Two wavelengths",
+            "text": "Red (660nm) and near-infrared (850nm) light in one wrap."
           }
         },
-        "heading": {
-          "type": "heading",
+        "b2": {
+          "type": "benefit",
           "settings": {
-            "heading": "Fits into the moments you already have",
-            "heading_size": "h1"
+            "icon": "battery",
+            "title": "Cordless",
+            "text": "Charge with USB-C, then use it anywhere — no outlet needed."
           }
         },
-        "text": {
-          "type": "text",
+        "b3": {
+          "type": "benefit",
           "settings": {
-            "text": "<p>Wear it while you read, watch TV or unwind after work. One 15-minute session a day — no appointments, no cords, no fuss.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop VitalRay",
-            "button_link": "shopify://products/vitalray-wrist",
-            "button_style_secondary": false
+            "icon": "hand",
+            "title": "Fits either hand",
+            "text": "Adjustable strap and thumb loop for a snug, comfortable fit."
           }
         }
       },
       "block_order": [
-        "cap",
-        "heading",
-        "text",
-        "button"
+        "b1",
+        "b2",
+        "b3"
       ],
       "settings": {
-        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "background": "white",
+        "layout": "left",
+        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
+        "eyebrow": "Why VitalRay",
+        "heading": "Made for <em>real</em> routines",
+        "text": "<p>Simple enough to use every day — that's the whole point.</p>",
+        "card_icon": "clock",
+        "card_title": "15 min",
+        "card_text": "A day is all it takes",
+        "card_position": "bottom",
+        "button_label": "Shop VitalRay",
+        "button_link": "shopify://products/vitalray-wrist"
       }
     }
   },
@@ -410,9 +378,9 @@
     "hero",
     "trust",
     "featured",
-    "features",
-    "lifestyle",
+    "why",
     "stats",
+    "lifestyle",
     "reviews",
     "faq",
     "newsletter"

@@ -42,10 +42,6 @@
             "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>90-day money-back guarantee</strong>Not happy within 90 days of delivery? Email us for a full refund.</div></div>"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "tab_box": {
           "type": "collapsible_tab",
           "settings": {
@@ -90,6 +86,18 @@
           "settings": {
             "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free tracked shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}90-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
           }
+        },
+        "vr_bundle": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'bundle' %}"
+          }
+        },
+        "vr_specs": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'specs' %}"
+          }
         }
       },
       "block_order": [
@@ -97,11 +105,12 @@
         "vr_title",
         "perks",
         "vr_price",
+        "vr_bundle",
         "variant_picker",
         "buy_buttons",
         "vr_stock",
+        "vr_specs",
         "guarantee",
-        "description",
         "tab_box",
         "tab_use",
         "tab_shipping"
@@ -252,7 +261,7 @@
         "t3"
       ],
       "settings": {
-        "background": "sage",
+        "background": "cream",
         "eyebrow": "Your routine",
         "heading": "Building the habit",
         "subheading": "Consistency matters more than intensity.",
@@ -444,55 +453,42 @@
       }
     },
     "lifestyle": {
-      "type": "image-with-text",
-      "blocks": {
-        "cap": {
-          "type": "caption",
-          "settings": {
-            "caption": "Everyday comfort",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Made for hard-working hands",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "cap",
-        "heading",
-        "text"
-      ],
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
       "settings": {
+        "background": "sage",
+        "layout": "right",
         "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-2",
-        "color_scheme": "scheme-2",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "eyebrow": "Everyday comfort",
+        "heading": "Made for <em>hard-working</em> hands",
+        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
+        "card_icon": "hand",
+        "card_title": "Either hand",
+        "card_text": "Adjustable strap & thumb loop",
+        "card_position": "top"
+      }
+    },
+    "details": {
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "background": "white",
+        "layout": "left",
+        "use_product_image": true,
+        "use_product_description": true,
+        "eyebrow": "Meet VitalRay Wrist",
+        "card_icon": "light",
+        "card_title": "660 + 850nm",
+        "card_text": "Red & near-infrared",
+        "card_position": "bottom"
       }
     }
   },
   "order": [
     "main",
+    "details",
     "stats",
     "lifestyle",
     "steps",

@@ -63,4 +63,66 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* Bundle picker: sets the quantity sent by the product form */
+  document.querySelectorAll('[data-vr-bundle]').forEach(function (box) {
+    var info = box.closest('.product__info-container, .product') || document;
+    function apply() {
+      var checked = box.querySelector('input[name="vr-bundle"]:checked');
+      var qty = checked ? checked.value : '1';
+      box.querySelectorAll('.vr-bundle__opt').forEach(function (o) {
+        o.classList.toggle('is-active', o.querySelector('input').checked);
+      });
+      info.querySelectorAll('product-form form[action*="/cart/add"]').forEach(function (form) {
+        var input = form.querySelector('input[name="quantity"]');
+        if (!input) {
+          input = document.createElement('input');
+          input.type = 'hidden'; input.name = 'quantity';
+          form.appendChild(input);
+        }
+        input.value = qty;
+      });
+    }
+    box.addEventListener('change', apply);
+    apply();
+    /* Dawn may re-render the buy box; re-apply after it does */
+    setTimeout(apply, 1500);
+  });
+
+  /* FAQ accordion: smooth open/close */
+  document.querySelectorAll('.vr-faq__item').forEach(function (d) {
+    var summary = d.querySelector('summary');
+    var body = d.querySelector('.vr-faq__answer');
+    if (!summary || !body || reduce) return;
+    summary.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (d.open) {
+        body.style.height = body.scrollHeight + 'px';
+        requestAnimationFrame(function () { body.style.height = '0px'; });
+        d.classList.remove('is-open');
+        setTimeout(function () { d.open = false; body.style.height = ''; }, 300);
+      } else {
+        d.open = true;
+        body.style.height = '0px';
+        requestAnimationFrame(function () { body.style.height = body.scrollHeight + 'px'; d.classList.add('is-open'); });
+        setTimeout(function () { body.style.height = ''; }, 320);
+      }
+    });
+  });
+
+  /* Timeline line fills as you scroll */
+  var tracks = document.querySelectorAll('[data-vr-progress]');
+  function progress() {
+    var vh = window.innerHeight;
+    tracks.forEach(function (t) {
+      var r = t.getBoundingClientRect();
+      var p = (vh * 0.65 - r.top) / r.height;
+      t.style.setProperty('--vr-progress', Math.max(0, Math.min(1, p)).toFixed(3));
+    });
+  }
+  if (tracks.length) {
+    window.addEventListener('scroll', function () { requestAnimationFrame(progress); }, { passive: true });
+    progress();
+  }
 })();
+

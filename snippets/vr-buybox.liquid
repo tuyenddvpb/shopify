@@ -35,6 +35,40 @@
     <p class="vr-price__note">{% render 'vr-icon', name: 'truck', size: 16 %} Free tracked shipping · 90-day guarantee</p>
   {%- when 'stock' -%}
     <p class="vr-stock"><span class="vr-stock__dot" aria-hidden="true"></span><strong>In stock</strong> · Ships in 1–3 business days</p>
+  {%- when 'bundle' -%}
+    {%- liquid
+      assign one = v.price
+      assign two_full = v.price | times: 2
+      assign two = two_full | times: 0.85 | round
+      assign two_each = two | divided_by: 2
+      assign two_was = v.compare_at_price | times: 2
+      if two_was < two_full
+        assign two_was = two_full
+      endif
+    -%}
+    <fieldset class="vr-bundle" data-vr-bundle>
+      <legend class="vr-bundle__legend">Choose your bundle</legend>
+      <label class="vr-bundle__opt">
+        <input type="radio" name="vr-bundle" value="1" checked>
+        <span class="vr-bundle__radio" aria-hidden="true"></span>
+        <span class="vr-bundle__main"><strong>1 × VitalRay Wrist</strong><small>Treat one hand</small></span>
+        <span class="vr-bundle__price"><strong>{{ one | money }}</strong>{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}</span>
+      </label>
+      <label class="vr-bundle__opt">
+        <input type="radio" name="vr-bundle" value="2">
+        <span class="vr-bundle__radio" aria-hidden="true"></span>
+        <span class="vr-bundle__tag">Most popular</span>
+        <span class="vr-bundle__main"><strong>2 × VitalRay Wrist</strong><small>Both hands · {{ two_each | money }} each · extra 15% off</small></span>
+        <span class="vr-bundle__price"><strong>{{ two | money }}</strong><s>{{ two_was | money }}</s></span>
+      </label>
+    </fieldset>
+  {%- when 'specs' -%}
+    <ul class="vr-specs" role="list">
+      <li>{% render 'vr-icon', name: 'light', size: 22 %}<span>660 + 850<br>nm</span></li>
+      <li>{% render 'vr-icon', name: 'clock', size: 22 %}<span>15-min<br>sessions</span></li>
+      <li>{% render 'vr-icon', name: 'bolt', size: 22 %}<span>3 intensity<br>levels</span></li>
+      <li>{% render 'vr-icon', name: 'battery', size: 22 %}<span>Cordless<br>USB-C</span></li>
+    </ul>
   {%- when 'short' -%}
     {{- short_title -}}
 {%- endcase -%}
