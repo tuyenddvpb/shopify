@@ -668,3 +668,9 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
   .vr-specs .vr-svg { width: 44px; height: 44px; padding: 11px; }
   .vr-section { padding: 56px 0; }
 }
+/* Announcement bar must never widen the page */
+.announcement-bar, .announcement-bar-slider, .announcement-bar-slider .slider { max-width: 100%; min-width: 0; }
+@media screen and (max-width: 749px) {
+  .announcement-bar__message { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.35; }
+}
+html, body { overflow-x: clip; }
