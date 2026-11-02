@@ -679,3 +679,4 @@ html, body { overflow-x: clip; }
   .vr-compare th:first-child, .vr-compare td:first-child { width: 52%; }
   .vr-compare tbody th { font-size: 1.3rem; }
 }
+.vr-mt__rte > h2:first-child { display: none; }
