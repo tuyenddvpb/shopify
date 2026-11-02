@@ -1,0 +1,42 @@
+{
+  "01-welcome-1-hello.html": {
+    "subject": "Welcome to VitalRay ☀️",
+    "preheader": "Gentle red light care for hard-working hands — here’s what to expect."
+  },
+  "02-welcome-2-how-to.html": {
+    "subject": "How to use VitalRay in 3 simple steps",
+    "preheader": "15 minutes a day. No appointments, no setup."
+  },
+  "03-welcome-3-guarantee.html": {
+    "subject": "Try it for 90 days — on us",
+    "preheader": "Free tracked shipping, a 90-day money-back guarantee and 15% off two."
+  },
+  "04-checkout-1-reminder.html": {
+    "subject": "You left something behind",
+    "preheader": "Your VitalRay is still in your cart."
+  },
+  "05-checkout-2-questions.html": {
+    "subject": "Any questions before you order?",
+    "preheader": "Quick answers about using VitalRay, shipping and returns."
+  },
+  "06-checkout-3-bundle.html": {
+    "subject": "Last reminder: your cart + 15% off two",
+    "preheader": "Treat both hands and save 15% automatically."
+  },
+  "07-browse-1.html": {
+    "subject": "Still thinking about {{ event.ProductName|default:\"VitalRay Wrist\" }}?",
+    "preheader": "Cordless red light care, 15 minutes a day."
+  },
+  "08-post-1-thank-you.html": {
+    "subject": "Thank you! Here’s what happens next",
+    "preheader": "Your order is in. Here’s the timeline."
+  },
+  "09-post-2-getting-started.html": {
+    "subject": "Getting the most out of your VitalRay",
+    "preheader": "A few tips for your first two weeks."
+  },
+  "10-post-3-feedback.html": {
+    "subject": "How’s it going with your VitalRay?",
+    "preheader": "We’d love to hear from you."
+  }
+}

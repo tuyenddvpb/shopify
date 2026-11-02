@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="x-apple-disable-message-reformatting">
+<title>You left something behind</title>
+<style>
+  @media only screen and (max-width:620px) {
+    .vr-wrap { width:100% !important; }
+    .vr-pad { padding-left:22px !important; padding-right:22px !important; }
+    h1 { font-size:27px !important; }
+  }
+  a { color:#C4502F; }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F5F3EE;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#F5F3EE;">Your VitalRay is still in your cart.&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F5F3EE">
+<tr><td align="center" style="padding:24px 12px;">
+  <table role="presentation" class="vr-wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+    <tr><td align="center" style="padding:6px 0 18px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;color:#5B6662;">Free tracked shipping to the US, CA, UK &amp; AU &middot; {% web_view %}</td></tr>
+    <tr><td align="center" style="padding:0 0 20px;"><a href="https://vitalray.shop" target="_blank"><img src="https://cdn.shopify.com/s/files/1/1092/4212/2609/files/vitalray-logo-email.png?v=1793618315" width="170" alt="VitalRay" style="display:block;width:170px;height:auto;border:0;"></a></td></tr>
+    <tr><td bgcolor="#ffffff" style="background:#ffffff;border-radius:18px;overflow:hidden;">
+      
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="vr-pad" style="padding:34px 40px 26px;">
+        <p style="margin:0 0 10px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#C4502F;text-align:left;">Your cart</p><h1 style="margin:0 0 14px;font-family:Georgia, 'Times New Roman', serif;font-size:32px;line-height:1.2;font-weight:normal;color:#1F2A27;text-align:left;">Still thinking it over?</h1><p style="margin:0 0 16px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#1F2A27;text-align:left;">Hi {{ first_name|default:"there" }},</p><p style="margin:0 0 16px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#5B6662;text-align:left;">You left this in your cart. We’ve saved it for you — pick up right where you left off.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 22px;border:1px solid #E3DED5;border-radius:14px;">
+{% for item in event.extra.line_items %}
+<tr>
+  <td width="88" style="padding:14px 0 14px 14px;"><img src="{{ item.product.images.0.src }}" width="72" alt="{{ item.product.title }}" style="display:block;width:72px;height:72px;object-fit:cover;border-radius:10px;border:0;"></td>
+  <td style="padding:14px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;line-height:1.45;color:#1F2A27;"><strong>{{ item.product.title|truncatechars:48 }}</strong><br><span style="color:#5B6662;font-size:13px;">Qty {{ item.quantity|floatformat:0 }}</span></td>
+  <td align="right" style="padding:14px 16px 14px 0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;color:#1F2A27;white-space:nowrap;">{{ item.line_price|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+</table><table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:8px auto 4px;">
+  <tr><td align="center" bgcolor="#C4502F" style="border-radius:10px;">
+    <a href="{{ event.extra.checkout_url }}" target="_blank" style="display:inline-block;padding:16px 34px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:.5px;color:#ffffff;text-decoration:none;border-radius:10px;">Return to checkout &rarr;</a>
+  </td></tr></table><p style="margin:0 0 0px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:13px;line-height:1.6;color:#5B6662;text-align:center;">Free tracked shipping &middot; 90-day money-back guarantee</p>
+      </td></tr></table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E3DED5;">
+<tr>
+<td width="33%" align="center" style="padding:18px 6px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:1.4;color:#1F2A27;"><strong>Free tracked</strong><br><span style="color:#5B6662;">shipping</span></td>
+<td width="34%" align="center" style="padding:18px 6px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:1.4;color:#1F2A27;border-left:1px solid #E3DED5;border-right:1px solid #E3DED5;"><strong>90-day</strong><br><span style="color:#5B6662;">money-back guarantee</span></td>
+<td width="33%" align="center" style="padding:18px 6px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:1.4;color:#1F2A27;"><strong>Real humans</strong><br><span style="color:#5B6662;">reply in 1 business day</span></td>
+</tr></table>
+    </td></tr>
+    <tr><td align="center" style="padding:26px 20px 8px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:1.7;color:#5B6662;">
+      Questions? Just reply to this email or write to <a href="mailto:support@vitalray.shop" style="color:#C4502F;">support@vitalray.shop</a><br>
+      <a href="https://vitalray.shop/pages/faq" style="color:#5B6662;">FAQ</a> &nbsp;&middot;&nbsp; <a href="https://vitalray.shop/pages/track-order" style="color:#5B6662;">Track order</a> &nbsp;&middot;&nbsp; <a href="https://vitalray.shop/policies/refund-policy" style="color:#5B6662;">Returns</a><br><br>
+      <span style="font-size:11px;">*VitalRay products are not intended to diagnose, treat, cure or prevent any disease.</span><br>
+      <span style="font-size:11px;">{{ organization.name }} &middot; {{ organization.full_address }}</span><br>
+      <span style="font-size:11px;">{% unsubscribe 'Unsubscribe' %} &nbsp;&middot;&nbsp; {% manage_preferences 'Email preferences' %}</span>
+    </td></tr>
+  </table>
+</td></tr></table>
+</body></html>
