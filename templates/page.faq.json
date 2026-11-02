@@ -1,0 +1,192 @@
+{
+  "sections": {
+    "hero": {
+      "type": "vr-page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Help center",
+        "heading": "Questions, <em>answered</em>",
+        "text": "<p>Everything you need to know about VitalRay, shipping and returns. Can't find it? Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a>.</p>"
+      }
+    },
+    "product": {
+      "type": "vr-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is red light therapy?",
+            "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay Wrist combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Does it get hot?",
+            "answer": "<p>You may feel gentle warmth. If it ever feels uncomfortable, lower the intensity or stop the session.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Does it fit both hands?",
+            "answer": "<p>Yes. The adjustable strap and thumb loop fit the left or right hand and most adult hand sizes.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "How do I charge it?",
+            "answer": "<p>Use the included USB-C cable with any standard USB wall adapter or computer port.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Who should not use it?",
+            "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition. VitalRay is not intended to diagnose, treat, cure or prevent any disease.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "01",
+        "heading": "The product",
+        "subheading": "How it works, how to use it and who it's for.",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "shipping": {
+      "type": "vr-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We ship to the United States, Canada, the United Kingdom and Australia. Shipping is free and tracked.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are processed in 1–3 business days and usually arrive in 7–15 business days. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a>.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p>Use the tracking link in your shipping confirmation email, or visit <a href=\"/pages/track-order\">Track Your Order</a>.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Yes, as long as it hasn't shipped yet. Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> as soon as possible.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer a bundle?",
+            "answer": "<p>Yes — buy 2 VitalRay Wrists and get an extra 15% off automatically at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "02",
+        "heading": "Orders & shipping",
+        "subheading": "Free tracked shipping to the US, CA, UK & AU.",
+        "button_label": "Track your order",
+        "button_link": "shopify://pages/track-order"
+      }
+    },
+    "returns": {
+      "type": "vr-faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>Every order includes a 90-day money-back guarantee. See our <a href=\"/policies/refund-policy\">Refund Policy</a> for details.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I start a return?",
+            "answer": "<p>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> with your order number. We'll reply within 1 business day with return instructions.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "My item arrived damaged. What should I do?",
+            "answer": "<p>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> within 30 days of delivery with your order number and a photo. We'll send a free replacement or a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "03",
+        "heading": "Returns",
+        "subheading": "Try it for 90 days, risk-free.",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "help": {
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "background": "blush",
+        "layout": "right",
+        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
+        "eyebrow": "Still need help?",
+        "heading": "Real people, <em>real answers</em>",
+        "text": "<p>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> — we reply within one business day, Monday to Friday.</p>",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "product",
+    "shipping",
+    "returns",
+    "help"
+  ]
+}

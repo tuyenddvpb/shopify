@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "hero": {
+      "type": "vr-page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Our story",
+        "heading": "Care for the hands that <em>do everything</em>",
+        "text": "<p>Our hands type, cook, carry, build and hold the people we love. VitalRay started with a simple idea: looking after them should be easy enough to do every single day.</p>",
+        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
+        "button_label": "Shop VitalRay Wrist",
+        "button_link": "shopify://products/vitalray-wrist"
+      }
+    },
+    "story": {
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "background": "white",
+        "layout": "right",
+        "image": "shopify://shop_images/vitalray-hero-hands.png",
+        "eyebrow": "Why we made it",
+        "heading": "Simple enough to use <em>every day</em>",
+        "text": "<p>We designed the VitalRay Wrist to fit into real life — a cordless red and near-infrared light wrap you can wear at your desk, on the couch or before bed. No appointments, no complicated setup. Just wrap, press start, and relax for 15 minutes.</p>",
+        "card_icon": "clock",
+        "card_title": "15 min",
+        "card_text": "A day is all it takes",
+        "card_position": "bottom"
+      }
+    },
+    "values": {
+      "type": "vr-features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Simple routines",
+            "text": "<p>Products that fit into real life, not the other way around.</p>"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Honest information",
+            "text": "<p>Clear specs, real reviews and no miracle promises.</p>"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Risk-free shopping",
+            "text": "<p>Free tracked shipping and a 90-day money-back guarantee.</p>"
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "chat",
+            "title": "Real people",
+            "text": "<p>Questions? We reply to every email within one business day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "background": "sage",
+        "eyebrow": "What we stand for",
+        "heading": "Small brand. Big promises we keep.",
+        "subheading": "",
+        "columns": "4",
+        "numbered": false,
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "guarantee": {
+      "type": "vr-guarantee",
+      "settings": {
+        "background": "cream",
+        "days": 90,
+        "heading": "Try it for 90 days, risk-free",
+        "text": "<p>Use VitalRay every day. If you're not happy with it within 90 days of delivery, email us for a full refund. See our refund policy for details.</p>"
+      }
+    },
+    "cta": {
+      "type": "vr-media-text",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "background": "white",
+        "layout": "left",
+        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
+        "eyebrow": "Ready when you are",
+        "heading": "Give your hands <em>15 quiet minutes</em>",
+        "text": "<p>Free tracked shipping to the US, Canada, UK and Australia.</p>",
+        "button_label": "Shop VitalRay Wrist",
+        "button_link": "shopify://products/vitalray-wrist"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "values",
+    "guarantee",
+    "cta"
+  ]
+}
