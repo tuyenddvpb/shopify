@@ -124,5 +124,44 @@
     window.addEventListener('scroll', function () { requestAnimationFrame(progress); }, { passive: true });
     progress();
   }
+
+  /* Video reviews: autoplay muted in view, tap to toggle sound */
+  var vcards = document.querySelectorAll('[data-vr-vcard]');
+  if (vcards.length) {
+    var vio = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target.querySelector('video');
+        if (!v) return;
+        if (e.isIntersecting && !reduce) {
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+          e.target.classList.add('is-playing');
+        } else {
+          v.pause(); e.target.classList.remove('is-playing');
+        }
+      });
+    }, { threshold: 0.55 }) : null;
+    vcards.forEach(function (card) {
+      var v = card.querySelector('video');
+      if (!v) return;
+      v.muted = true; v.setAttribute('playsinline', '');
+      if (vio) vio.observe(card);
+      var btn = card.querySelector('[data-vr-sound]');
+      function toggleSound(ev) {
+        if (ev) ev.stopPropagation();
+        var on = v.muted;
+        /* only one card plays with sound at a time */
+        vcards.forEach(function (c) {
+          var ov = c.querySelector('video');
+          if (ov && ov !== v) { ov.muted = true; c.classList.remove('is-sound'); var b = c.querySelector('[data-vr-sound]'); if (b) { b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Turn sound on'); } }
+        });
+        v.muted = !on;
+        if (on) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); card.classList.add('is-playing'); }
+        card.classList.toggle('is-sound', on);
+        if (btn) { btn.setAttribute('aria-pressed', on ? 'true' : 'false'); btn.setAttribute('aria-label', on ? 'Turn sound off' : 'Turn sound on'); }
+      }
+      if (btn) btn.addEventListener('click', toggleSound);
+      card.querySelector('.vr-vcard__media').addEventListener('click', function () { toggleSound(); });
+    });
+  }
 })();
 

@@ -776,3 +776,46 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
 }
 .vr-sub a:hover, .vr-mt__rte a:hover, .vr-faq__answer a:hover { color: var(--vr-coral-hover); }
 .vr-section--dark .vr-sub a { color: var(--vr-coral); }
+
+/* Video reviews */
+.vr-vreviews__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.vr-vreviews__head .vr-sub { margin-bottom: 0; }
+.vr-vreviews__track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.vr-vcard__media { position: relative; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: var(--vr-ink);
+  box-shadow: 0 24px 48px -28px rgba(31,42,39,.55); cursor: pointer; transform: translateZ(0); transition: transform .35s var(--vr-ease), box-shadow .35s; }
+.vr-vcard__media:hover { transform: translateY(-4px); box-shadow: 0 30px 56px -26px rgba(31,42,39,.6); }
+.vr-vcard__video, .vr-vcard__media video, .vr-vcard__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.vr-vcard__media::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(31,42,39,0) 45%, rgba(31,42,39,.82) 100%); }
+.vr-vcard__info { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 18px 16px 16px; color: #fff; }
+.vr-vcard__stars { color: #f0a58f; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 6px; }
+.vr-vcard__stars .is-off { opacity: .3; }
+.vr-vcard__quote { margin: 0 0 8px; font-family: var(--font-heading-family); font-size: 1.7rem; line-height: 1.3; font-weight: 400;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.vr-vcard__name { margin: 0; font-size: 1.3rem; font-weight: 700; }
+.vr-vcard__name span { font-weight: 400; opacity: .75; }
+.vr-vcard__badge { position: absolute; top: 12px; left: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.92); color: var(--vr-sage-strong); font-size: 1.1rem; font-weight: 700; padding: 5px 9px; border-radius: 999px; }
+.vr-vcard__sound { position: absolute; top: 10px; right: 10px; z-index: 3; width: 36px; height: 36px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(31,42,39,.55); color: #fff; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); transition: background .2s; }
+.vr-vcard__sound:hover { background: var(--vr-coral-strong); }
+.vr-vcard__icon-on { display: none; }
+.vr-vcard.is-sound .vr-vcard__icon-on { display: block; }
+.vr-vcard.is-sound .vr-vcard__icon-off { display: none; }
+.vr-vcard__play { position: absolute; z-index: 2; left: 50%; top: 45%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%;
+  background: rgba(255,255,255,.9); color: var(--vr-coral-strong); display: flex; align-items: center; justify-content: center; padding-left: 3px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25); transition: opacity .3s, transform .3s var(--vr-ease); }
+.vr-vcard.is-playing .vr-vcard__play { opacity: 0; transform: scale(.8); }
+.vr-vcard--empty .vr-vcard__media { background: var(--vr-bg-sage); box-shadow: inset 0 0 0 2px rgba(94,125,106,.35); }
+.vr-vcard--empty .vr-vcard__media::after { background: none; }
+.vr-vcard--empty .vr-vcard__info { color: var(--vr-ink); }
+.vr-vcard__placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: var(--vr-sage-strong); text-align: center; font-weight: 600; font-size: 1.4rem; padding-bottom: 30%; }
+.vr-vcard__placeholder small { font-weight: 400; color: var(--vr-muted); }
+@media screen and (max-width: 989px) {
+  .vr-vreviews__head { flex-direction: column; align-items: flex-start; }
+  .vr-vreviews__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 4px 20px 16px; margin: 0 -20px; scrollbar-width: none; }
+  .vr-vreviews__track::-webkit-scrollbar { display: none; }
+  .vr-vcard { flex: 0 0 62%; scroll-snap-align: center; }
+}
+@media screen and (min-width: 750px) and (max-width: 989px) { .vr-vcard { flex-basis: 34%; } }

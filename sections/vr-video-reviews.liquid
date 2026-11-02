@@ -1,0 +1,112 @@
+{%- comment -%}
+  Video reviews. Use only real customer videos you have permission to publish.
+  The section is hidden on the live store until at least one block has a video.
+{%- endcomment -%}
+{%- liquid
+  assign has_video = false
+  for block in section.blocks
+    if block.settings.video != blank
+      assign has_video = true
+    endif
+  endfor
+-%}
+{%- if has_video or request.design_mode -%}
+  <section class="vr-section vr-section--{{ section.settings.background }} vr-vreviews">
+    <div class="vr-container">
+      <div class="vr-vreviews__head" data-vr-reveal>
+        <div>
+          {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+          <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+          {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+        </div>
+        {%- if section.settings.button_label != blank -%}
+          <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+            <span>{{ section.settings.button_label }}</span>{% render 'vr-icon', name: 'arrow', size: 18 %}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="vr-vreviews__track" data-vr-reveal-group>
+        {%- for block in section.blocks -%}
+          <article class="vr-vcard{% if block.settings.video == blank %} vr-vcard--empty{% endif %}" {{ block.shopify_attributes }} data-vr-reveal data-vr-vcard>
+            <div class="vr-vcard__media">
+              {%- if block.settings.video != blank -%}
+                {{ block.settings.video | video_tag: autoplay: false, loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', image_size: '720x', class: 'vr-vcard__video' }}
+                <button type="button" class="vr-vcard__sound" aria-label="Turn sound on" aria-pressed="false" data-vr-sound>
+                  <svg class="vr-vcard__icon-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></svg>
+                  <svg class="vr-vcard__icon-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13"/></svg>
+                </button>
+                <span class="vr-vcard__play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+              {%- else -%}
+                <div class="vr-vcard__placeholder">
+                  {% render 'vr-icon', name: 'sparkle', size: 28 %}
+                  <span>Add a customer video<br><small>9:16 vertical, under 60s</small></span>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.verified -%}
+                <span class="vr-vcard__badge">{% render 'vr-icon', name: 'check', size: 12 %} Verified buyer</span>
+              {%- endif -%}
+              <div class="vr-vcard__info">
+                <div class="vr-vcard__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                  {%- for i in (1..5) -%}<span{% if i > block.settings.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}
+                </div>
+                {%- if block.settings.quote != blank -%}<p class="vr-vcard__quote">“{{ block.settings.quote }}”</p>{%- endif -%}
+                <p class="vr-vcard__name">{{ block.settings.name }}{% if block.settings.location != blank %} <span>· {{ block.settings.location }}</span>{% endif %}</p>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VR Video reviews",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Use only real customer videos you have permission to publish. Vertical 9:16 MP4, under 60 seconds and under 20 MB works best. The section stays hidden on the store until a video is added."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "white",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "blush", "label": "Blush" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real customers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real people, real routines" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Short videos from VitalRay customers. Tap a video to turn the sound on." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop VitalRay" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video review",
+      "limit": 8,
+      "settings": [
+        { "type": "video", "id": "video", "label": "Video" },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Customer name" },
+        { "type": "text", "id": "location", "label": "Location", "info": "Optional, e.g. Texas, US" },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "quote", "label": "Short quote", "info": "Keep it to one line from the customer's own words." },
+        { "type": "checkbox", "id": "verified", "label": "Show Verified buyer badge", "default": true, "info": "Only for customers who actually bought from VitalRay." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "VR Video reviews", "blocks": [{ "type": "video" }, { "type": "video" }, { "type": "video" }, { "type": "video" }] }
+  ]
+}
+{% endschema %}
