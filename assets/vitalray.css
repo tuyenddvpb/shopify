@@ -493,8 +493,6 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
 /* Wave 1 fixes */
 .vr-stock { flex-wrap: wrap; }
 .vr-stock strong { white-space: nowrap; }
-.announcement-bar__message { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.announcement-bar-slider .slider__slide { overflow: hidden; }
 @media screen and (max-width: 749px) {
   .announcement-bar__message { font-size: 1.2rem; letter-spacing: .02em; }
   .vr-sticky-atc .vr-btn { white-space: nowrap; font-size: 1.3rem; letter-spacing: .06em; padding: 14px 18px; }
@@ -671,6 +669,6 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
 /* Announcement bar must never widen the page */
 .announcement-bar, .announcement-bar-slider, .announcement-bar-slider .slider { max-width: 100%; min-width: 0; }
 @media screen and (max-width: 749px) {
-  .announcement-bar__message { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.35; }
+  .announcement-bar__message { line-height: 1.35; }
 }
 html, body { overflow-x: clip; }

@@ -482,7 +482,8 @@
         "card_icon": "light",
         "card_title": "660 + 850nm",
         "card_text": "Red & near-infrared",
-        "card_position": "bottom"
+        "card_position": "bottom",
+        "product_image_index": 4
       }
     }
   },
