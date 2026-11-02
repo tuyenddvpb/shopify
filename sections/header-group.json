@@ -17,7 +17,7 @@
         "a1": {
           "type": "announcement",
           "settings": {
-            "text": "Free tracked shipping to the US, Canada, UK & Australia",
+            "text": "Free tracked shipping to US, CA, UK & AU",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""

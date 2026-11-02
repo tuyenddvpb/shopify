@@ -17,7 +17,7 @@
               {%- assign n = w | plus: 0 -%}
               {%- assign ns = n | append: '' -%}
               {%- if ns == w and w != '0' -%}<span data-vr-count="{{ w }}">{{ w }}</span>{%- else -%}{{ w }}{%- endif -%}
-              {%- unless forloop.last %} {% endunless -%}
+              {%- unless forloop.last -%}{{ ' ' }}{%- endunless -%}
             {%- endfor -%}
           </div>
           <div class="vr-stat__label">{{ block.settings.label }}</div>

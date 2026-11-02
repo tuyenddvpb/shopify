@@ -11,7 +11,7 @@
           <div class="vr-sticky-atc__price">
             <strong>{{ current_variant.price | money }}</strong>
             {%- if current_variant.compare_at_price > current_variant.price -%}
-              {%- assign save = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
+              {%- assign save = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round -%}
               <s>{{ current_variant.compare_at_price | money }}</s>
               <span class="vr-save vr-save--sm">Save {{ save }}%</span>
             {%- endif -%}

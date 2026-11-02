@@ -73,12 +73,6 @@
             "page": ""
           }
         },
-        "disclaimer": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<p class=\"vr-disclaimer\">*This product is not intended to diagnose, treat, cure or prevent any disease. Consult your doctor if you have a medical condition, are pregnant, or have a pacemaker.</p>"
-          }
-        },
         "vr_title": {
           "type": "custom_liquid",
           "settings": {
@@ -110,8 +104,7 @@
         "description",
         "tab_box",
         "tab_use",
-        "tab_shipping",
-        "disclaimer"
+        "tab_shipping"
       ],
       "settings": {
         "enable_sticky_info": true,

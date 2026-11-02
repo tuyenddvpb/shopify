@@ -341,7 +341,7 @@
       "settings": {
         "product": "vitalray-wrist",
         "color_scheme": "scheme-5",
-        "media_size": "large",
+        "media_size": "medium",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,

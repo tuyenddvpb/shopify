@@ -489,3 +489,19 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
 
 /* Image-with-text breathing room */
 .image-with-text .image-with-text__media { border-radius: 20px; overflow: hidden; }
+
+/* Wave 1 fixes */
+.vr-stock { flex-wrap: wrap; }
+.vr-stock strong { white-space: nowrap; }
+.announcement-bar__message { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.announcement-bar-slider .slider__slide { overflow: hidden; }
+@media screen and (max-width: 749px) {
+  .announcement-bar__message { font-size: 1.2rem; letter-spacing: .02em; }
+  .vr-sticky-atc .vr-btn { white-space: nowrap; font-size: 1.3rem; letter-spacing: .06em; padding: 14px 18px; }
+  .vr-sticky-atc__price { flex-wrap: wrap; }
+  .vr-compare th, .vr-compare td { padding: 12px 10px; font-size: 1.3rem; }
+  .vr-compare thead th { font-size: 1.4rem; line-height: 1.25; }
+  .vr-compare th:first-child, .vr-compare td:first-child { width: 46%; }
+  .vr-trustbar__text strong { font-size: 1.3rem; }
+  .vr-trustbar__text span { font-size: 1.15rem; }
+}

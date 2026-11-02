@@ -27,7 +27,7 @@
     <div class="vr-price">
       <span class="vr-price__now">{{ v.price | money }}</span>
       {%- if v.compare_at_price > v.price -%}
-        {%- assign save = v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price -%}
+        {%- assign save = v.compare_at_price | minus: v.price | times: 100.0 | divided_by: v.compare_at_price | round -%}
         <s class="vr-price__was">{{ v.compare_at_price | money }}</s>
         <span class="vr-save">Save {{ save }}%</span>
       {%- endif -%}
