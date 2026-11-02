@@ -672,3 +672,10 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
   .announcement-bar__message { line-height: 1.35; }
 }
 html, body { overflow-x: clip; }
+@media screen and (max-width: 749px) {
+  .vr-compare thead th.vr-compare__us { padding: 14px 8px; }
+  .vr-compare .vr-logo { --vr-logo-size: 15px !important; gap: 4px; }
+  .vr-compare .vr-logo__mark { width: 16px; height: 16px; }
+  .vr-compare th:first-child, .vr-compare td:first-child { width: 52%; }
+  .vr-compare tbody th { font-size: 1.3rem; }
+}
