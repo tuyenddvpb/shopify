@@ -39,8 +39,12 @@
     {%- liquid
       assign one = v.price
       assign two_full = v.price | times: 2
-      assign two = two_full | times: 0.85 | round
-      assign two_each = two | divided_by: 2
+      comment
+        Match Shopify's automatic discount: 15% off each unit, rounded down to the cent.
+      endcomment
+      assign unit_off = v.price | times: 15 | divided_by: 100
+      assign two_each = v.price | minus: unit_off
+      assign two = two_each | times: 2
       assign two_was = v.compare_at_price | times: 2
       if two_was < two_full
         assign two_was = two_full
