@@ -680,3 +680,92 @@ html, body { overflow-x: clip; }
   .vr-compare tbody th { font-size: 1.3rem; }
 }
 .vr-mt__rte > h2:first-child { display: none; }
+
+/* =====================================================================
+   VitalRay design layer v2 (wave 3) — inner pages
+   ===================================================================== */
+/* D — Page header */
+.vr-pagehero { position: relative; overflow: hidden; padding: 64px 0 56px; }
+.vr-pagehero__glow { position: absolute; width: 560px; height: 560px; right: -160px; top: -220px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(226,103,74,.28), transparent 70%); pointer-events: none; }
+.vr-pagehero__grid { position: relative; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+.vr-pagehero--image .vr-pagehero__grid { grid-template-columns: 1.1fr 1fr; }
+.vr-pagehero__title { font-size: clamp(3.6rem, 5vw, 5.8rem); font-weight: 340; margin-bottom: 14px; }
+.vr-pagehero .vr-sub { margin-bottom: 26px; }
+.vr-pagehero__media { border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px -28px rgba(31,42,39,.4); aspect-ratio: 5 / 4; }
+.vr-pagehero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vr-crumbs { display: flex; gap: 8px; font-size: 1.25rem; color: var(--vr-muted); margin-bottom: 18px; }
+.vr-crumbs a { color: var(--vr-muted); text-decoration: none; }
+.vr-crumbs a:hover { color: var(--vr-coral-strong); }
+@media screen and (max-width: 989px) {
+  .vr-pagehero--image .vr-pagehero__grid { grid-template-columns: 1fr; }
+  .vr-pagehero { padding: 40px 0; }
+}
+
+/* D3 — Contact */
+.vr-contact__grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: start; }
+.vr-contact__form { padding: clamp(24px, 4vw, 40px); }
+.vr-contact__title { font-family: var(--font-heading-family); font-weight: 400; font-size: 2.8rem; margin: 0 0 6px; }
+.vr-contact__lead { color: var(--vr-muted); margin: 0 0 24px; }
+.vr-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.vr-field { display: flex; flex-direction: column; gap: 6px; }
+.vr-field--full { grid-column: 1 / -1; }
+.vr-field label { font-size: 1.3rem; font-weight: 600; color: var(--vr-ink); }
+.vr-field label small { font-weight: 400; color: var(--vr-muted); }
+.vr-field input, .vr-field select, .vr-field textarea {
+  font: inherit; font-size: 1.5rem; color: var(--vr-ink); background: var(--vr-bg); border: 1.5px solid var(--vr-line);
+  border-radius: 12px; padding: 13px 14px; transition: border-color .2s, box-shadow .2s, background .2s; width: 100%;
+}
+.vr-field textarea { resize: vertical; min-height: 140px; }
+.vr-field input:focus, .vr-field select:focus, .vr-field textarea:focus { outline: none; border-color: var(--vr-coral-strong); background: #fff; box-shadow: 0 0 0 4px rgba(196,80,47,.12); }
+.vr-contact__submit { width: 100%; justify-content: center; }
+.vr-form-msg { display: flex; gap: 10px; align-items: center; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; font-size: 1.4rem; }
+.vr-form-msg--ok { background: rgba(94,125,106,.12); color: var(--vr-sage-strong); }
+.vr-form-msg--err { background: rgba(196,80,47,.1); color: #9a3a2a; }
+.vr-contact__side { display: grid; gap: 12px; }
+.vr-infocard { display: flex; gap: 14px; align-items: center; background: var(--vr-surface); border: 1px solid var(--vr-line); border-radius: 16px;
+  padding: 18px; text-decoration: none; color: inherit; transition: transform .25s var(--vr-ease), box-shadow .25s, border-color .25s; }
+a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,.35); box-shadow: 0 14px 30px -20px rgba(31,42,39,.45); }
+.vr-infocard strong { display: block; font-size: 1.5rem; color: var(--vr-ink); }
+.vr-infocard span span { display: block; font-size: 1.3rem; color: var(--vr-muted); margin-top: 2px; }
+.vr-infocard--accent { background: var(--vr-ink); border-color: var(--vr-ink); }
+.vr-infocard--accent strong { color: #fff; }
+.vr-infocard--accent span span { color: rgba(245,243,238,.75); }
+.vr-infocard--accent .vr-icon { background: rgba(226,103,74,.18); color: var(--vr-coral); box-shadow: none; }
+@media screen and (max-width: 989px) {
+  .vr-contact__grid { grid-template-columns: 1fr; }
+  .vr-fields { grid-template-columns: 1fr; }
+}
+
+/* D5 — Policy pages */
+.shopify-policy__container { max-width: 760px !important; padding: 56px 20px 72px !important; }
+.shopify-policy__title { text-align: left; margin-bottom: 28px; }
+.shopify-policy__title h1 { font-family: var(--font-heading-family); font-weight: 340; font-size: clamp(3.6rem, 5vw, 5.2rem); letter-spacing: -0.02em;
+  padding-bottom: 20px; border-bottom: 1px solid var(--vr-line); }
+.shopify-policy__body { color: var(--vr-muted); font-size: 1.6rem; line-height: 1.75; }
+.shopify-policy__body h2 { font-family: var(--font-heading-family); font-weight: 420; font-size: 2.4rem; color: var(--vr-ink); margin: 40px 0 12px; }
+.shopify-policy__body h3 { font-family: var(--font-heading-family); font-weight: 420; font-size: 1.9rem; color: var(--vr-ink); margin: 28px 0 8px; }
+.shopify-policy__body a { color: var(--vr-coral-strong); }
+.shopify-policy__body strong { color: var(--vr-ink); }
+.shopify-policy__body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0 24px; background: #fff;
+  border: 1px solid var(--vr-line); border-radius: 14px; overflow: hidden; font-size: 1.45rem; }
+.shopify-policy__body th, .shopify-policy__body td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--vr-line); }
+.shopify-policy__body thead th { background: var(--vr-bg-sage); color: var(--vr-ink); }
+.shopify-policy__body tr:last-child td { border-bottom: 0; }
+.shopify-policy__body ol, .shopify-policy__body ul { padding-left: 22px; }
+.shopify-policy__body li::marker { color: var(--vr-coral); }
+
+/* Generic page body (main-page) */
+.main-page-title { font-family: var(--font-heading-family); font-weight: 340; letter-spacing: -0.02em; }
+
+/* C11 — Judge.me review widget, brand styling */
+.jdgm-widget { --jdgm-primary-color: #c4502f; font-family: var(--font-body-family) !important; }
+.jdgm-rev-widg { background: transparent !important; }
+.jdgm-rev-widg__title { font-family: var(--font-heading-family) !important; font-weight: 380 !important; font-size: clamp(2.8rem, 3.6vw, 4.2rem) !important; text-align: center; }
+.jdgm-star { color: #e2674a !important; }
+.jdgm-rev { background: #fff; border: 1px solid var(--vr-line) !important; border-radius: 16px; padding: 20px 22px !important; margin-bottom: 14px;
+  box-shadow: 0 14px 30px -24px rgba(31,42,39,.4); }
+.jdgm-rev__title { font-weight: 700; color: var(--vr-ink); }
+.jdgm-rev__body { color: var(--vr-muted); line-height: 1.65; }
+.jdgm-write-rev-link, .jdgm-btn { background: var(--vr-coral-grad) !important; color: #fff !important; border-radius: 10px !important; border: 0 !important; }
+.jdgm-histogram__bar-content { background: var(--vr-coral) !important; }

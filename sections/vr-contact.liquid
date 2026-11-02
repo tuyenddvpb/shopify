@@ -1,0 +1,102 @@
+<section class="vr-section vr-section--{{ section.settings.background }} vr-contact">
+  <div class="vr-container vr-contact__grid">
+    <div class="vr-contact__form vr-card" data-vr-reveal>
+      <h2 class="vr-contact__title">{{ section.settings.form_heading }}</h2>
+      {%- if section.settings.form_text != blank -%}<p class="vr-contact__lead">{{ section.settings.form_text }}</p>{%- endif -%}
+      {%- form 'contact', id: 'VrContactForm' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="vr-form-msg vr-form-msg--ok" role="status" tabindex="-1" autofocus>
+            {% render 'vr-icon', name: 'check', size: 18 %}
+            <span>Thanks! Your message is on its way — we'll reply within 1 business day.</span>
+          </div>
+        {%- elsif form.errors -%}
+          <div class="vr-form-msg vr-form-msg--err" role="alert" tabindex="-1" autofocus>
+            <span>{{ 'templates.contact.form.error_heading' | t }} {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+          </div>
+        {%- endif -%}
+        <div class="vr-fields">
+          <div class="vr-field">
+            <label for="VrContact-name">Name</label>
+            <input id="VrContact-name" type="text" name="contact[Name]" autocomplete="name"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          </div>
+          <div class="vr-field">
+            <label for="VrContact-email">Email <span aria-hidden="true">*</span></label>
+            <input id="VrContact-email" type="email" name="contact[email]" autocomplete="email" required spellcheck="false" autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+          </div>
+          <div class="vr-field">
+            <label for="VrContact-order">Order number <small>(optional)</small></label>
+            <input id="VrContact-order" type="text" name="contact[Order number]" placeholder="#1001" value="{{ form['Order number'] }}">
+          </div>
+          <div class="vr-field">
+            <label for="VrContact-topic">Topic</label>
+            <select id="VrContact-topic" name="contact[Topic]">
+              <option>Question about the product</option>
+              <option>Where is my order?</option>
+              <option>Return or refund</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="vr-field vr-field--full">
+            <label for="VrContact-body">Message</label>
+            <textarea id="VrContact-body" name="contact[body]" rows="6">{{ form.body }}</textarea>
+          </div>
+        </div>
+        <button type="submit" class="vr-btn vr-contact__submit"><span>Send message</span>{% render 'vr-icon', name: 'arrow', size: 18 %}</button>
+      {%- endform -%}
+    </div>
+
+    <aside class="vr-contact__side" data-vr-reveal-group>
+      <a class="vr-infocard" href="mailto:{{ section.settings.email }}" data-vr-reveal>
+        <span class="vr-icon">{% render 'vr-icon', name: 'mail', size: 20 %}</span>
+        <span><strong>Email us</strong><span>{{ section.settings.email }}</span></span>
+      </a>
+      <div class="vr-infocard" data-vr-reveal>
+        <span class="vr-icon">{% render 'vr-icon', name: 'clock', size: 20 %}</span>
+        <span><strong>Fast replies</strong><span>{{ section.settings.hours }}</span></span>
+      </div>
+      <a class="vr-infocard" href="{{ section.settings.track_link | default: '/pages/track-order' }}" data-vr-reveal>
+        <span class="vr-icon">{% render 'vr-icon', name: 'truck', size: 20 %}</span>
+        <span><strong>Track your order</strong><span>Tracking link is in your shipping email</span></span>
+      </a>
+      <a class="vr-infocard" href="{{ section.settings.faq_link | default: '/pages/faq' }}" data-vr-reveal>
+        <span class="vr-icon">{% render 'vr-icon', name: 'chat', size: 20 %}</span>
+        <span><strong>Read the FAQ</strong><span>Quick answers to common questions</span></span>
+      </a>
+      <div class="vr-infocard vr-infocard--accent" data-vr-reveal>
+        <span class="vr-icon">{% render 'vr-icon', name: 'shield', size: 20 %}</span>
+        <span><strong>90-day money-back guarantee</strong><span>Free tracked shipping to the US, CA, UK &amp; AU</span></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Contact",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "white",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "sage", "label": "Sage" }
+      ]
+    },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Send us a message" },
+    { "type": "text", "id": "form_text", "label": "Form text", "default": "Include your order number for order questions so we can help faster." },
+    { "type": "text", "id": "email", "label": "Support email", "default": "support@vitalray.shop" },
+    { "type": "text", "id": "hours", "label": "Response time", "default": "We reply within 1 business day (Mon–Fri)" },
+    { "type": "url", "id": "track_link", "label": "Track order link" },
+    { "type": "url", "id": "faq_link", "label": "FAQ link" }
+  ],
+  "presets": [{ "name": "VR Contact" }]
+}
+{% endschema %}
