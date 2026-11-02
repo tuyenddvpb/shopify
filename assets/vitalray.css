@@ -769,3 +769,10 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
 .jdgm-rev__body { color: var(--vr-muted); line-height: 1.65; }
 .jdgm-write-rev-link, .jdgm-btn { background: var(--vr-coral-grad) !important; color: #fff !important; border-radius: 10px !important; border: 0 !important; }
 .jdgm-histogram__bar-content { background: var(--vr-coral) !important; }
+/* Inline links inside VitalRay copy */
+.vr-sub a, .vr-mt__rte a, .vr-faq__answer a, .vr-tl__text a, .vr-feature__text a {
+  color: var(--vr-coral-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+  transition: color .2s;
+}
+.vr-sub a:hover, .vr-mt__rte a:hover, .vr-faq__answer a:hover { color: var(--vr-coral-hover); }
+.vr-section--dark .vr-sub a { color: var(--vr-coral); }
