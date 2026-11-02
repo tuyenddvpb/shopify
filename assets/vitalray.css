@@ -505,3 +505,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading {
   .vr-trustbar__text strong { font-size: 1.3rem; }
   .vr-trustbar__text span { font-size: 1.15rem; }
 }
+@media screen and (max-width: 749px) {
+  .announcement-bar-slider .slider-button { display: none; }
+  .announcement-bar-slider .announcement-bar__message { padding-left: 12px; padding-right: 12px; }
+}
