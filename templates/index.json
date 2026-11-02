@@ -372,6 +372,61 @@
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist"
       }
+    },
+    "video_reviews": {
+      "type": "vr-video-reviews",
+      "blocks": {
+        "v1": {
+          "type": "video",
+          "settings": {
+            "name": "Customer name",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "name": "Customer name",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "name": "Customer name",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v4": {
+          "type": "video",
+          "settings": {
+            "name": "Customer name",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Real customers",
+        "heading": "Real people, <em>real routines</em>",
+        "subheading": "Short videos from VitalRay customers. Tap a video to turn the sound on.",
+        "button_label": "Shop VitalRay",
+        "button_link": "shopify://products/vitalray-wrist"
+      }
     }
   },
   "order": [
@@ -379,6 +434,7 @@
     "trust",
     "featured",
     "why",
+    "video_reviews",
     "stats",
     "lifestyle",
     "reviews",
