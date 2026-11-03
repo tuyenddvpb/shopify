@@ -161,49 +161,67 @@
           "type": "benefit",
           "settings": {
             "icon": "light",
-            "title": "Two wavelengths",
-            "text": "Red (660nm) and near-infrared (850nm) light in one wrap."
+            "title": "Dual-wavelength LEDs",
+            "text": "660nm red and 850nm near-infrared light across the whole wrist."
           }
         },
         "b2": {
           "type": "benefit",
           "settings": {
-            "icon": "battery",
-            "title": "Cordless",
-            "text": "Charge with USB-C, then use it anywhere — no outlet needed."
+            "icon": "bolt",
+            "title": "3 intensity levels",
+            "text": "Start low and adjust to what feels comfortable."
           }
         },
         "b3": {
           "type": "benefit",
           "settings": {
+            "icon": "clock",
+            "title": "15-minute timer",
+            "text": "Each session switches off automatically — nothing to watch."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "battery",
+            "title": "Cordless, USB-C",
+            "text": "Charge it like your phone, then use it anywhere."
+          }
+        },
+        "b5": {
+          "type": "benefit",
+          "settings": {
             "icon": "hand",
             "title": "Fits either hand",
-            "text": "Adjustable strap and thumb loop for a snug, comfortable fit."
+            "text": "Soft adjustable strap with a thumb loop for a secure fit."
           }
         }
       },
       "block_order": [
         "b1",
         "b2",
-        "b3"
+        "b3",
+        "b4",
+        "b5"
       ],
       "settings": {
         "background": "white",
         "pattern": false,
         "layout": "left",
-        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
-        "use_product_image": false,
-        "product_image_index": 2,
-        "eyebrow": "Why VitalRay",
-        "heading": "Made for <em>real</em> routines",
-        "text": "<p>Simple enough to use every day — that's the whole point.</p>",
+        "use_product_image": true,
+        "product_image_index": 6,
+        "eyebrow": "What's inside",
+        "heading": "Everything you need, <em>in one wrap</em>",
+        "text": "<p>A lightweight, cordless wrap designed for at-home red light sessions.</p>",
         "use_product_description": false,
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist",
-        "card_icon": "clock",
-        "card_title": "15 min",
-        "card_text": "A day is all it takes",
-        "card_position": "bottom"
+        "card_icon": "light",
+        "card_title": "660 + 850nm",
+        "card_text": "Red & near-infrared light",
+        "card_position": "bottom",
+        "source_product": "vitalray-wrist"
       }
     },
     "video_reviews": {
@@ -329,20 +347,51 @@
         "background": "cream",
         "pattern": true,
         "layout": "right",
-        "image": "shopify://shop_images/vitalray-lifestyle-reading.png",
-        "use_product_image": false,
-        "product_image_index": 2,
+        "use_product_image": true,
+        "product_image_index": 5,
         "eyebrow": "Everyday comfort",
-        "heading": "Fits into the moments <em>you already have</em>",
-        "text": "<p>Wear it while you read, watch TV or unwind after work. One 15-minute session a day — no appointments, no cords, no fuss.</p>",
+        "heading": "Your 15 minutes, <em>wherever you are</em>",
+        "text": "<p>Wear it while you cook, read or unwind after work. Slip it on, press start, and carry on with your day.</p>",
         "use_product_description": false,
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist",
-        "card_icon": "sparkle",
-        "card_title": "No cords",
-        "card_text": "Use it anywhere at home",
-        "card_position": "top"
-      }
+        "card_icon": "clock",
+        "card_title": "Auto shut-off",
+        "card_text": "After every 15-minute session",
+        "card_position": "top",
+        "source_product": "vitalray-wrist"
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "hand",
+            "title": "Slip it on",
+            "text": "Thumb through the loop, fasten the strap — done in seconds."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "bolt",
+            "title": "Press start",
+            "text": "One button starts a session at your chosen intensity."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Relax",
+            "text": "Keep reading, cooking or watching TV while it works."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
     },
     "reviews": {
       "type": "vr-testimonials",
