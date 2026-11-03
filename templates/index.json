@@ -209,44 +209,40 @@
     "video_reviews": {
       "type": "vr-video-reviews",
       "blocks": {
-        "v1": {
+        "video_AJTwCL": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4",
-            "name": "Customer name",
+            "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
             "verified": true
           }
         },
-        "v2": {
+        "video_tNhbt6": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4",
-            "name": "Customer name",
+            "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
             "verified": true
           }
         },
-        "v3": {
+        "video_7AzptF": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4",
-            "name": "Customer name",
+            "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
             "verified": true
           }
         },
-        "v4": {
+        "video_cXaqcY": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4",
-            "name": "Customer name",
+            "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
@@ -255,10 +251,10 @@
         }
       },
       "block_order": [
-        "v1",
-        "v2",
-        "v3",
-        "v4"
+        "video_AJTwCL",
+        "video_tNhbt6",
+        "video_7AzptF",
+        "video_cXaqcY"
       ],
       "settings": {
         "background": "cream",
