@@ -212,45 +212,45 @@
         "video_AJTwCL": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4",
             "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": false,
-            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4"
+            "verified": false
           }
         },
         "video_tNhbt6": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4",
             "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": false,
-            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4"
+            "verified": false
           }
         },
         "video_7AzptF": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4",
             "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": false,
-            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4"
+            "verified": false
           }
         },
         "video_cXaqcY": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4",
             "name": "",
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": false,
-            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4"
+            "verified": false
           }
         }
       },
@@ -260,11 +260,12 @@
         "video_7AzptF",
         "video_cXaqcY"
       ],
+      "disabled": true,
       "settings": {
         "background": "white",
         "show_ratings": false,
         "eyebrow": "Watch",
-        "heading": "See VitalRay <em>in action</em>",
+        "heading": "See VitalRay in action",
         "subheading": "Short videos about VitalRay. Tap a video to play.",
         "button_label": "Shop VitalRay",
         "button_link": "shopify://products/vitalray-wrist"
