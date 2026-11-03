@@ -162,7 +162,7 @@
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": true
+            "verified": false
           }
         },
         "v2": {
@@ -173,7 +173,7 @@
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": true
+            "verified": false
           }
         },
         "v3": {
@@ -184,7 +184,7 @@
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": true
+            "verified": false
           }
         },
         "v4": {
@@ -195,7 +195,7 @@
             "location": "",
             "rating": 5,
             "quote": "",
-            "verified": true
+            "verified": false
           }
         }
       },
@@ -208,9 +208,9 @@
       "settings": {
         "background": "white",
         "show_ratings": false,
-        "eyebrow": "Real customers",
-        "heading": "Real people, <em>real routines</em>",
-        "subheading": "Short videos from VitalRay customers. Tap a video to turn the sound on.",
+        "eyebrow": "Watch",
+        "heading": "See VitalRay <em>in action</em>",
+        "subheading": "Short videos about VitalRay. Tap a video to play.",
         "button_label": "",
         "button_link": "shopify://products/vitalray-wrist"
       }
