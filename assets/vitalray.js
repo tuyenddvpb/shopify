@@ -163,5 +163,37 @@
       card.querySelector('.vr-vcard__media').addEventListener('click', function () { toggleSound(); });
     });
   }
+
+  /* Product gallery videos: autoplay muted + loop when scrolled into view */
+  var mediaVideos = document.querySelectorAll('.product__media-list deferred-media, .product-media-modal deferred-media, .featured-product deferred-media');
+  function prepTemplate(dm) {
+    var tpl = dm.querySelector('template');
+    var v = tpl && tpl.content.querySelector('video');
+    if (!v) return false;
+    v.muted = true;
+    ['muted', 'playsinline', 'loop', 'autoplay'].forEach(function (a) { v.setAttribute(a, ''); });
+    v.setAttribute('preload', 'auto');
+    return true;
+  }
+  function startVideo(dm) {
+    if (!dm.getAttribute('loaded') && typeof dm.loadContent === 'function') dm.loadContent(false);
+    var v = dm.querySelector('video');
+    if (!v) return;
+    v.muted = true; v.loop = true; v.playsInline = true;
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  }
+  if (mediaVideos.length && !reduce && 'IntersectionObserver' in window) {
+    var mio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var dm = e.target;
+        if (e.isIntersecting) { startVideo(dm); }
+        else { var v = dm.querySelector('video'); if (v) v.pause(); }
+      });
+    }, { threshold: 0.5 });
+    mediaVideos.forEach(function (dm) {
+      if (dm.closest('.product-media-modal')) return; /* lightbox keeps normal controls */
+      if (prepTemplate(dm)) mio.observe(dm);
+    });
+  }
 })();
 

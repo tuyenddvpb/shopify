@@ -302,7 +302,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "enable_video_looping": true
       }
     },
     "lifestyle": {
