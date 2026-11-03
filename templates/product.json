@@ -16,10 +16,28 @@
           "type": "rating",
           "settings": {}
         },
+        "vr_title": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}"
+          }
+        },
         "perks": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'light', size: 18 %}<span><strong>Red + near-infrared</strong> 660nm &amp; 850nm in one wrap</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Cordless</strong> USB-C rechargeable, use it anywhere</span></li><li>{% render 'vr-icon', name: 'clock', size: 18 %}<span><strong>15-minute sessions</strong> with auto shut-off</span></li></ul>"
+          }
+        },
+        "vr_price": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'price' %}"
+          }
+        },
+        "vr_bundle": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'bundle' %}"
           }
         },
         "variant_picker": {
@@ -34,6 +52,18 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
+          }
+        },
+        "vr_stock": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free tracked shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}90-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
+          }
+        },
+        "vr_specs": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'specs' %}"
           }
         },
         "guarantee": {
@@ -68,36 +98,6 @@
             "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
             "page": ""
           }
-        },
-        "vr_title": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}"
-          }
-        },
-        "vr_price": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'price' %}"
-          }
-        },
-        "vr_stock": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free tracked shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}90-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
-          }
-        },
-        "vr_bundle": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'bundle' %}"
-          }
-        },
-        "vr_specs": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'specs' %}"
-          }
         }
       },
       "block_order": [
@@ -129,6 +129,90 @@
         "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "details": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "use_product_image": true,
+        "product_image_index": 4,
+        "eyebrow": "Meet VitalRay Wrist",
+        "heading": "Gentle red light care for <em>hard-working hands</em>",
+        "text": "",
+        "use_product_description": true,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "light",
+        "card_title": "660 + 850nm",
+        "card_text": "Red & near-infrared",
+        "card_position": "bottom"
+      }
+    },
+    "video_reviews": {
+      "type": "vr-video-reviews",
+      "blocks": {
+        "v1": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4",
+            "name": "Customer name",
+            "location": "",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4",
+            "name": "Customer name",
+            "location": "",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4",
+            "name": "Customer name",
+            "location": "",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        },
+        "v4": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4",
+            "name": "Customer name",
+            "location": "",
+            "rating": 5,
+            "quote": "",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "settings": {
+        "background": "white",
+        "show_ratings": false,
+        "eyebrow": "Real customers",
+        "heading": "Real people, <em>real routines</em>",
+        "subheading": "Short videos from VitalRay customers. Tap a video to turn the sound on.",
+        "button_label": "",
+        "button_link": "shopify://products/vitalray-wrist"
       }
     },
     "stats": {
@@ -181,6 +265,27 @@
         "footnote": "",
         "button_label": "",
         "button_link": ""
+      }
+    },
+    "lifestyle": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "sage",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
+        "use_product_image": false,
+        "product_image_index": 2,
+        "eyebrow": "Everyday comfort",
+        "heading": "Made for <em>hard-working</em> hands",
+        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
+        "use_product_description": false,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "hand",
+        "card_title": "Either hand",
+        "card_text": "Adjustable strap & thumb loop",
+        "card_position": "top"
       }
     },
     "steps": {
@@ -450,98 +555,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "lifestyle": {
-      "type": "vr-media-text",
-      "blocks": {},
-      "block_order": [],
-      "settings": {
-        "background": "sage",
-        "layout": "right",
-        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
-        "eyebrow": "Everyday comfort",
-        "heading": "Made for <em>hard-working</em> hands",
-        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
-        "card_icon": "hand",
-        "card_title": "Either hand",
-        "card_text": "Adjustable strap & thumb loop",
-        "card_position": "top"
-      }
-    },
-    "details": {
-      "type": "vr-media-text",
-      "blocks": {},
-      "block_order": [],
-      "settings": {
-        "background": "white",
-        "layout": "left",
-        "use_product_image": true,
-        "use_product_description": true,
-        "eyebrow": "Meet VitalRay Wrist",
-        "card_icon": "light",
-        "card_title": "660 + 850nm",
-        "card_text": "Red & near-infrared",
-        "card_position": "bottom",
-        "product_image_index": 4,
-        "heading": "Gentle red light care for <em>hard-working hands</em>",
-        "pattern": false
-      }
-    },
-    "video_reviews": {
-      "type": "vr-video-reviews",
-      "blocks": {
-        "v1": {
-          "type": "video",
-          "settings": {
-            "name": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v2": {
-          "type": "video",
-          "settings": {
-            "name": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v3": {
-          "type": "video",
-          "settings": {
-            "name": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v4": {
-          "type": "video",
-          "settings": {
-            "name": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        }
-      },
-      "block_order": [
-        "v1",
-        "v2",
-        "v3",
-        "v4"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "Watch",
-        "heading": "See VitalRay <em>in action</em>",
-        "subheading": "Short videos about VitalRay. Tap a video to turn the sound on.",
-        "button_label": "",
-        "button_link": "shopify://products/vitalray-wrist",
-        "show_ratings": false
       }
     }
   },
