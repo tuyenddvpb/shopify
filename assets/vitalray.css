@@ -840,3 +840,7 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
 .vr-vcard__media:hover .vr-vcard__play { transform: scale(1.08); }
 .vr-vcard.is-playing .vr-vcard__info { opacity: 0; transition: opacity .3s; }
 .vr-vcard__media:focus-visible { outline: 3px solid var(--vr-coral-strong); outline-offset: 3px; }
+/* Media + text: selectable image shape */
+.vr-mt__media--square { aspect-ratio: 1 / 1; }
+.vr-mt__media--landscape { aspect-ratio: 4 / 3; }
+@media screen and (max-width: 989px) { .vr-mt__media--square { aspect-ratio: 1 / 1; } }

@@ -10,7 +10,7 @@
 <section class="vr-section vr-section--{{ section.settings.background }} vr-mt{% if section.settings.pattern %} vr-section--dots{% endif %}">
   <div class="vr-container vr-mt__grid vr-mt__grid--{{ section.settings.layout }}">
     <div class="vr-mt__visual" data-vr-reveal>
-      <div class="vr-mt__media">
+      <div class="vr-mt__media vr-mt__media--{{ section.settings.image_ratio | default: 'portrait' }}">
         {%- if img != blank -%}
           {{ img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400' }}
         {%- else -%}
@@ -91,6 +91,17 @@
       ]
     },
     { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image shape",
+      "default": "portrait",
+      "options": [
+        { "value": "portrait", "label": "Portrait (4:5)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "landscape", "label": "Landscape (4:3)" }
+      ]
+    },
     { "type": "checkbox", "id": "use_product_image", "label": "Use a product image when no image is selected", "default": false },
     {
       "type": "product",
