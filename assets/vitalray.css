@@ -834,3 +834,9 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
   .product__media-list .media-type-video deferred-media.deferred-media { display: block; }
   .product__media-list .media-type-video .product__modal-opener { display: none; }
 }
+/* Video reviews: click-to-play */
+.vr-vcard__sound { display: none !important; }
+.vr-vcard__play { top: 50%; width: 68px; height: 68px; margin: -34px 0 0 -34px; z-index: 3; }
+.vr-vcard__media:hover .vr-vcard__play { transform: scale(1.08); }
+.vr-vcard.is-playing .vr-vcard__info { opacity: 0; transition: opacity .3s; }
+.vr-vcard__media:focus-visible { outline: 3px solid var(--vr-coral-strong); outline-offset: 3px; }

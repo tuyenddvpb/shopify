@@ -125,42 +125,42 @@
     progress();
   }
 
-  /* Video reviews: autoplay muted in view, tap to toggle sound */
+  /* Video reviews: click-to-play with sound, one at a time, pause when scrolled away */
   var vcards = document.querySelectorAll('[data-vr-vcard]');
   if (vcards.length) {
+    function stopCard(c) {
+      var ov = c.querySelector('video');
+      if (ov && !ov.paused) ov.pause();
+      c.classList.remove('is-playing');
+    }
     var vio = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        var v = e.target.querySelector('video');
-        if (!v) return;
-        if (e.isIntersecting && !reduce) {
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
-          e.target.classList.add('is-playing');
-        } else {
-          v.pause(); e.target.classList.remove('is-playing');
-        }
-      });
-    }, { threshold: 0.55 }) : null;
+      entries.forEach(function (e) { if (!e.isIntersecting) stopCard(e.target); });
+    }, { threshold: 0.2 }) : null;
     vcards.forEach(function (card) {
       var v = card.querySelector('video');
       if (!v) return;
-      v.muted = true; v.setAttribute('playsinline', '');
+      v.removeAttribute('autoplay'); v.pause();
+      v.muted = false; v.loop = false; v.setAttribute('playsinline', '');
       if (vio) vio.observe(card);
-      var btn = card.querySelector('[data-vr-sound]');
-      function toggleSound(ev) {
-        if (ev) ev.stopPropagation();
-        var on = v.muted;
-        /* only one card plays with sound at a time */
-        vcards.forEach(function (c) {
-          var ov = c.querySelector('video');
-          if (ov && ov !== v) { ov.muted = true; c.classList.remove('is-sound'); var b = c.querySelector('[data-vr-sound]'); if (b) { b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Turn sound on'); } }
-        });
-        v.muted = !on;
-        if (on) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); card.classList.add('is-playing'); }
-        card.classList.toggle('is-sound', on);
-        if (btn) { btn.setAttribute('aria-pressed', on ? 'true' : 'false'); btn.setAttribute('aria-label', on ? 'Turn sound off' : 'Turn sound on'); }
+      v.addEventListener('ended', function () { card.classList.remove('is-playing'); v.currentTime = 0; });
+      var media = card.querySelector('.vr-vcard__media');
+      media.setAttribute('role', 'button');
+      media.setAttribute('tabindex', '0');
+      media.setAttribute('aria-label', 'Play video');
+      function toggle() {
+        if (v.paused) {
+          vcards.forEach(function (c) { if (c !== card) stopCard(c); });
+          v.muted = false;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+          card.classList.add('is-playing');
+          media.setAttribute('aria-label', 'Pause video');
+        } else {
+          v.pause(); card.classList.remove('is-playing');
+          media.setAttribute('aria-label', 'Play video');
+        }
       }
-      if (btn) btn.addEventListener('click', toggleSound);
-      card.querySelector('.vr-vcard__media').addEventListener('click', function () { toggleSound(); });
+      media.addEventListener('click', toggle);
+      media.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
     });
   }
 
