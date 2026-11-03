@@ -43,15 +43,19 @@
                   <span>Add a customer video<br><small>9:16 vertical, under 60s</small></span>
                 </div>
               {%- endif -%}
-              {%- if block.settings.verified -%}
+              {%- if block.settings.verified and section.settings.show_ratings -%}
                 <span class="vr-vcard__badge">{% render 'vr-icon', name: 'check', size: 12 %} Verified buyer</span>
               {%- endif -%}
               <div class="vr-vcard__info">
-                <div class="vr-vcard__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
-                  {%- for i in (1..5) -%}<span{% if i > block.settings.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}
-                </div>
+                {%- if section.settings.show_ratings -%}
+                  <div class="vr-vcard__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                    {%- for i in (1..5) -%}<span{% if i > block.settings.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}
+                  </div>
+                {%- endif -%}
                 {%- if block.settings.quote != blank -%}<p class="vr-vcard__quote">“{{ block.settings.quote }}”</p>{%- endif -%}
-                <p class="vr-vcard__name">{{ block.settings.name }}{% if block.settings.location != blank %} <span>· {{ block.settings.location }}</span>{% endif %}</p>
+                {%- if block.settings.name != blank -%}
+                  <p class="vr-vcard__name">{{ block.settings.name }}{% if block.settings.location != blank %} <span>· {{ block.settings.location }}</span>{% endif %}</p>
+                {%- endif -%}
               </div>
             </div>
           </article>
@@ -84,7 +88,14 @@
         { "value": "dark", "label": "Dark" }
       ]
     },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real customers" },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "Show star ratings and Verified buyer badges",
+      "default": false,
+      "info": "Turn on only for videos from real, verified customers. Leave off for brand or AI-presenter videos."
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Watch" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Real people, real routines" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Short videos from VitalRay customers. Tap a video to turn the sound on." },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop VitalRay" },
@@ -97,7 +108,7 @@
       "limit": 8,
       "settings": [
         { "type": "video", "id": "video", "label": "Video" },
-        { "type": "text", "id": "name", "label": "Customer name", "default": "Customer name" },
+        { "type": "text", "id": "name", "label": "Name (optional)" },
         { "type": "text", "id": "location", "label": "Location", "info": "Optional, e.g. Texas, US" },
         { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
         { "type": "text", "id": "quote", "label": "Short quote", "info": "Keep it to one line from the customer's own words." },
