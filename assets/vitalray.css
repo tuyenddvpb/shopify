@@ -821,3 +821,16 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
 @media screen and (min-width: 750px) and (max-width: 989px) { .vr-vcard { flex-basis: 34%; } }
 /* Autoplaying gallery video fills its frame */
 .product__media-list deferred-media video, .featured-product deferred-media video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Keep each gallery image/video fully visible on desktop (no scrolling to see it all) */
+@media screen and (min-width: 990px) {
+  .product__media-list .product-media-container {
+    max-width: min(100%, calc((100vh - 200px) * var(--ratio, 1)));
+    margin-left: auto; margin-right: auto;
+  }
+}
+/* Mobile: show gallery videos inline (Dawn hides them and opens a modal instead) so they can autoplay */
+@media screen and (max-width: 749px) {
+  .product__media-list .media-type-video deferred-media.deferred-media { display: block; }
+  .product__media-list .media-type-video .product__modal-opener { display: none; }
+}
