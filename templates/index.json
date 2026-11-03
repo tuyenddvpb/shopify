@@ -221,7 +221,8 @@
         "card_title": "660 + 850nm",
         "card_text": "Red & near-infrared light",
         "card_position": "bottom",
-        "source_product": "vitalray-wrist"
+        "source_product": "vitalray-wrist",
+        "image_ratio": "square"
       }
     },
     "video_reviews": {
