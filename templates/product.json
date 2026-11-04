@@ -134,7 +134,7 @@
     "details": {
       "type": "vr-media-text",
       "settings": {
-        "background": "white",
+        "background": "cream",
         "pattern": false,
         "layout": "left",
         "image_ratio": "portrait",
@@ -329,7 +329,7 @@
         "f3"
       ],
       "settings": {
-        "background": "cream",
+        "background": "white",
         "eyebrow": "Easy as it gets",
         "heading": "Three simple steps",
         "subheading": "No appointments, no setup. Just wrap, press and relax.",
@@ -564,21 +564,69 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "wavelengths": {
+      "type": "vr-wavelengths",
+      "blocks": {
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "title": "48 LED chips",
+            "text": "— red and near-infrared, spread across the wrist"
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "title": "3 intensity levels",
+            "text": "— start low, adjust to what feels comfortable"
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "title": "15-minute sessions",
+            "text": "— switches off automatically"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "The technology",
+        "heading": "Two wavelengths. <em>One wrap.</em>",
+        "subheading": "VitalRay pairs the two most-studied wavelengths in red light therapy research.",
+        "source_product": "vitalray-wrist",
+        "product_image_index": 3,
+        "badge_title": "Red + near-infrared",
+        "badge_text": "Dual-chip LEDs across the wrist",
+        "red_nm": "660nm",
+        "red_label": "Red light",
+        "red_text": "Visible red light that works close to the skin's surface.",
+        "nir_nm": "850nm",
+        "nir_label": "Near-infrared",
+        "nir_text": "Invisible near-infrared light that travels deeper into tissue than visible red light."
+      }
     }
   },
   "order": [
     "main",
     "details",
-    "video_reviews",
     "stats",
+    "wavelengths",
     "lifestyle",
-    "steps",
     "timeline",
+    "steps",
     "compare",
+    "video_reviews",
+    "179355318790bddd23",
     "reviews",
     "guarantee",
     "faq",
-    "sticky",
-    "179355318790bddd23"
+    "sticky"
   ]
 }
