@@ -195,5 +195,22 @@
       if (prepTemplate(dm)) mio.observe(dm);
     });
   }
+
+  /* Silent looping videos in feature/step cards: play only while visible */
+  var autoVids = document.querySelectorAll('[data-vr-autoplay] video');
+  autoVids.forEach(function (v) {
+    v.muted = true; v.loop = true; v.playsInline = true;
+    v.removeAttribute('controls'); v.setAttribute('playsinline', ''); v.setAttribute('muted', '');
+  });
+  if (autoVids.length && 'IntersectionObserver' in window) {
+    var aio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting && !reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.25 });
+    autoVids.forEach(function (v) { aio.observe(v); });
+  }
 })();
 

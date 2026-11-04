@@ -7,7 +7,12 @@
     </div>
     <div class="vr-grid vr-grid--{{ section.settings.columns }}" data-vr-reveal-group>
       {%- for block in section.blocks -%}
-        <div class="vr-card" {{ block.shopify_attributes }} data-vr-reveal>
+        <div class="vr-card{% if block.settings.video != blank %} vr-card--video{% endif %}" {{ block.shopify_attributes }} data-vr-reveal>
+          {%- if block.settings.video != blank -%}
+            <div class="vr-feature__video vr-feature__video--{{ section.settings.video_ratio | default: 'portrait' }}" data-vr-autoplay>
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', image_size: '800x' }}
+            </div>
+          {%- endif -%}
           {%- if section.settings.numbered -%}
             <div class="vr-step__num">{{ forloop.index }}</div>
           {%- elsif block.settings.image != blank -%}
@@ -63,6 +68,17 @@
       ]
     },
     { "type": "checkbox", "id": "numbered", "label": "Show step numbers instead of icons", "default": false },
+    {
+      "type": "select",
+      "id": "video_ratio",
+      "label": "Video shape",
+      "default": "portrait",
+      "options": [
+        { "value": "portrait", "label": "Portrait (4:5)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "vertical", "label": "Vertical (9:16)" }
+      ]
+    },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "url", "id": "button_link", "label": "Button link" }
   ],
@@ -74,6 +90,7 @@
       "settings": [
         { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "✦" },
         { "type": "image_picker", "id": "image", "label": "Image (optional, replaces icon)" },
+        { "type": "video", "id": "video", "label": "Video (plays automatically, muted, looping)", "info": "Short clip, 3–8 seconds, under 5 MB. No sound is played." },
         { "type": "text", "id": "title", "label": "Title", "default": "Feature title" },
         { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Describe the benefit in one or two short sentences.</p>" }
       ]
