@@ -893,3 +893,20 @@ html:not(.vr-js) .vr-wl__beam i { transform: scaleY(1); }
   .vr-wl .vr-float--bottom { left: 12px; bottom: 12px; }
   .vr-wl__diagram { height: 160px; }
 }
+
+/* About the science */
+.vr-learn__grid { margin-top: 8px; }
+.vr-learn__card { position: relative; background: var(--vr-surface); border: 1px solid var(--vr-line); border-radius: 18px; padding: 28px 26px 26px;
+  box-shadow: 0 16px 36px -28px rgba(31,42,39,.4); transition: transform .3s var(--vr-ease), box-shadow .3s; }
+.vr-learn__card:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -28px rgba(31,42,39,.5); }
+.vr-learn__num { position: absolute; top: 18px; right: 22px; font-family: var(--font-heading-family); font-size: 3.2rem; font-weight: 300; color: rgba(196,80,47,.18); line-height: 1; }
+.vr-learn__title { font-family: var(--font-heading-family); font-weight: 420; font-size: 2.2rem; margin: 18px 0 10px; color: var(--vr-ink); }
+.vr-learn__text { color: var(--vr-muted); font-size: 1.5rem; line-height: 1.65; }
+.vr-learn__text p { margin: 0 0 10px; }
+.vr-learn__foot { margin-top: 32px; display: grid; gap: 16px; justify-items: center; text-align: center; }
+.vr-learn__sources { background: var(--vr-surface); border: 1px dashed rgba(94,125,106,.5); border-radius: 14px; padding: 16px 22px; max-width: 720px; width: 100%; }
+.vr-learn__sources-title { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 0 8px; font-weight: 700; color: var(--vr-ink); font-size: 1.4rem; }
+.vr-learn__sources-title .vr-svg { color: var(--vr-coral-strong); }
+.vr-learn__sources ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 1.4rem; color: var(--vr-muted); }
+.vr-learn__sources a { color: var(--vr-coral-strong); text-underline-offset: 3px; }
+.vr-learn__disclaimer { margin: 0; max-width: 720px; font-size: 1.2rem; line-height: 1.6; color: var(--vr-muted); }

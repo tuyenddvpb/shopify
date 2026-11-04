@@ -1,0 +1,101 @@
+{%- liquid
+  assign cards = section.blocks | where: 'type', 'card'
+  assign sources = section.blocks | where: 'type', 'source'
+-%}
+<section class="vr-section vr-section--{{ section.settings.background }} vr-learn">
+  <div class="vr-container">
+    <div class="vr-center" data-vr-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+
+    {%- if cards.size > 0 -%}
+      <div class="vr-learn__grid vr-grid vr-grid--3" data-vr-reveal-group>
+        {%- for block in cards -%}
+          <article class="vr-learn__card" {{ block.shopify_attributes }} data-vr-reveal>
+            <span class="vr-learn__num">0{{ forloop.index }}</span>
+            <span class="vr-icon">{% render 'vr-icon', name: block.settings.icon, size: 22 %}</span>
+            <h3 class="vr-learn__title">{{ block.settings.title }}</h3>
+            <div class="vr-learn__text">{{ block.settings.text }}</div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if sources.size > 0 or section.settings.disclaimer != blank -%}
+      <div class="vr-learn__foot" data-vr-reveal>
+        {%- if sources.size > 0 -%}
+          <div class="vr-learn__sources">
+            <p class="vr-learn__sources-title">{% render 'vr-icon', name: 'sparkle', size: 16 %} {{ section.settings.sources_heading }}</p>
+            <ul role="list">
+              {%- for block in sources -%}
+                <li {{ block.shopify_attributes }}>
+                  <a href="{{ block.settings.url }}" target="_blank" rel="noopener nofollow">{{ block.settings.label }}</a>
+                  {%- if block.settings.note != blank -%}<span> — {{ block.settings.note }}</span>{%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.disclaimer != blank -%}
+          <p class="vr-learn__disclaimer">{{ section.settings.disclaimer }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR About the science",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Keep this educational. Describe the technology and link to public sources — don't promise to treat or cure any condition."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "blush", "label": "Blush" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The science" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "About red light therapy" },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "sources_heading", "label": "Sources heading", "default": "Want to read more?" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Info card",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon name", "default": "light" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Text</p>" }
+      ]
+    },
+    {
+      "type": "source",
+      "name": "Source link",
+      "limit": 5,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Link text", "default": "Source" },
+        { "type": "url", "id": "url", "label": "Link" },
+        { "type": "text", "id": "note", "label": "Short note" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "VR About the science" }]
+}
+{% endschema %}
