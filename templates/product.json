@@ -137,7 +137,9 @@
         "background": "white",
         "pattern": false,
         "layout": "left",
+        "image_ratio": "portrait",
         "use_product_image": true,
+        "source_product": "",
         "product_image_index": 4,
         "eyebrow": "Meet VitalRay Wrist",
         "heading": "Gentle red light care for <em>hard-working hands</em>",
@@ -274,7 +276,9 @@
         "pattern": false,
         "layout": "right",
         "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
+        "image_ratio": "portrait",
         "use_product_image": false,
+        "source_product": "",
         "product_image_index": 2,
         "eyebrow": "Everyday comfort",
         "heading": "Made for <em>hard-working</em> hands",
@@ -295,6 +299,7 @@
           "type": "feature",
           "settings": {
             "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step1.mp4",
             "title": "Wrap it on",
             "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
           }
@@ -303,6 +308,7 @@
           "type": "feature",
           "settings": {
             "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step2.mp4",
             "title": "Press start",
             "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
           }
@@ -311,6 +317,7 @@
           "type": "feature",
           "settings": {
             "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step3.mp4",
             "title": "Relax & repeat",
             "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
           }
@@ -328,6 +335,7 @@
         "subheading": "No appointments, no setup. Just wrap, press and relax.",
         "columns": "3",
         "numbered": true,
+        "video_ratio": "portrait",
         "button_label": "",
         "button_link": ""
       }
