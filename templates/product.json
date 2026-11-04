@@ -153,6 +153,278 @@
         "card_position": "bottom"
       }
     },
+    "stats": {
+      "type": "vr-stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "660 + 850",
+            "label": "Nanometer wavelengths",
+            "note": "Red & near-infrared"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "15 min",
+            "label": "Per session",
+            "note": "Auto shut-off timer"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "3",
+            "label": "Intensity levels",
+            "note": "Pick what feels right"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "USB-C",
+            "label": "Rechargeable",
+            "note": "No cords while in use"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "background": "dark",
+        "eyebrow": "Inside the wrap",
+        "heading": "Small device. Thoughtful design.",
+        "subheading": "",
+        "footnote": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "wavelengths": {
+      "type": "vr-wavelengths",
+      "blocks": {
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "title": "48 LED chips",
+            "text": "— red and near-infrared, spread across the wrist"
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "title": "3 intensity levels",
+            "text": "— start low, adjust to what feels comfortable"
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "title": "15-minute sessions",
+            "text": "— switches off automatically"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "The technology",
+        "heading": "Two wavelengths. <em>One wrap.</em>",
+        "subheading": "VitalRay pairs the two most-studied wavelengths in red light therapy research.",
+        "source_product": "vitalray-wrist",
+        "product_image_index": 3,
+        "badge_title": "Red + near-infrared",
+        "badge_text": "Dual-chip LEDs across the wrist",
+        "red_nm": "660nm",
+        "red_label": "Red light",
+        "red_text": "Visible red light that works close to the skin's surface.",
+        "nir_nm": "850nm",
+        "nir_label": "Near-infrared",
+        "nir_text": "Invisible near-infrared light that travels deeper into tissue than visible red light."
+      }
+    },
+    "lifestyle": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "sage",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/composite.png",
+        "image_ratio": "portrait",
+        "use_product_image": false,
+        "source_product": "",
+        "product_image_index": 2,
+        "eyebrow": "Everyday comfort",
+        "heading": "Made for hard-working hands",
+        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
+        "use_product_description": false,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "hand",
+        "card_title": "Either hand",
+        "card_text": "Adjustable strap & thumb loop",
+        "card_position": "top"
+      }
+    },
+    "timeline": {
+      "type": "vr-timeline",
+      "blocks": {
+        "t1": {
+          "type": "step",
+          "settings": {
+            "when": "Day 1",
+            "title": "Find your fit",
+            "text": "<ul><li>Charge the wrap fully</li><li>Start on the lowest intensity</li></ul>"
+          }
+        },
+        "t2": {
+          "type": "step",
+          "settings": {
+            "when": "Week 1–2",
+            "title": "Make it a habit",
+            "text": "<ul><li>Pair it with something you already do — coffee, TV, reading</li><li>One 15-minute session a day</li></ul>"
+          }
+        },
+        "t3": {
+          "type": "step",
+          "settings": {
+            "when": "Week 3+",
+            "title": "Keep it going",
+            "text": "<ul><li>Stay consistent — that's what matters most</li><li>Adjust intensity and mode to what feels best</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Your routine",
+        "heading": "Building the habit",
+        "subheading": "Consistency matters more than intensity.",
+        "footnote": "Everyone is different. Talk to your doctor if you have a medical condition."
+      }
+    },
+    "steps": {
+      "type": "vr-features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step1.mp4",
+            "title": "Wrap it on",
+            "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step2.mp4",
+            "title": "Press start",
+            "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "✦",
+            "video": "shopify://files/videos/VitalRay step3.mp4",
+            "title": "Relax & repeat",
+            "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "Easy as it gets",
+        "heading": "Three simple steps",
+        "subheading": "No appointments, no setup. Just wrap, press and relax.",
+        "columns": "3",
+        "numbered": true,
+        "video_ratio": "portrait",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "compare": {
+      "type": "vr-comparison",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "feature": "Red + near-infrared light",
+            "us": true,
+            "them": false
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "feature": "Cordless, use anywhere",
+            "us": true,
+            "them": false
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "feature": "Adjustable intensity",
+            "us": true,
+            "them": false
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "feature": "Built-in session timer",
+            "us": true,
+            "them": false
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "feature": "Reusable every day",
+            "us": true,
+            "them": true
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Compare",
+        "heading": "Why choose VitalRay?",
+        "us_label": "VitalRay",
+        "them_label": "Heat packs & braces",
+        "button_label": "Try it risk-free",
+        "button_link": ""
+      }
+    },
     "video_reviews": {
       "type": "vr-video-reviews",
       "blocks": {
@@ -217,229 +489,24 @@
         "button_link": "shopify://products/vitalray-wrist"
       }
     },
-    "stats": {
-      "type": "vr-stats",
+    "179355318790bddd23": {
+      "type": "apps",
       "blocks": {
-        "s1": {
-          "type": "stat",
+        "judge_me_reviews_review_widget_Tdjkhj": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "value": "660 + 850",
-            "label": "Nanometer wavelengths",
-            "note": "Red & near-infrared"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "15 min",
-            "label": "Per session",
-            "note": "Auto shut-off timer"
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "value": "3",
-            "label": "Intensity levels",
-            "note": "Pick what feels right"
-          }
-        },
-        "s4": {
-          "type": "stat",
-          "settings": {
-            "value": "USB-C",
-            "label": "Rechargeable",
-            "note": "No cords while in use"
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
       "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
+        "judge_me_reviews_review_widget_Tdjkhj"
       ],
       "settings": {
-        "background": "dark",
-        "eyebrow": "Inside the wrap",
-        "heading": "Small device. Thoughtful design.",
-        "subheading": "",
-        "footnote": "",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "lifestyle": {
-      "type": "vr-media-text",
-      "settings": {
-        "background": "sage",
-        "pattern": false,
-        "layout": "right",
-        "image": "shopify://shop_images/vitalray-lifestyle-desk.png",
-        "image_ratio": "portrait",
-        "use_product_image": false,
-        "source_product": "",
-        "product_image_index": 2,
-        "eyebrow": "Everyday comfort",
-        "heading": "Made for <em>hard-working</em> hands",
-        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
-        "use_product_description": false,
-        "button_label": "",
-        "button_link": "",
-        "card_icon": "hand",
-        "card_title": "Either hand",
-        "card_text": "Adjustable strap & thumb loop",
-        "card_position": "top"
-      }
-    },
-    "steps": {
-      "type": "vr-features",
-      "blocks": {
-        "f1": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step1.mp4",
-            "title": "Wrap it on",
-            "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
-          }
-        },
-        "f2": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step2.mp4",
-            "title": "Press start",
-            "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
-          }
-        },
-        "f3": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step3.mp4",
-            "title": "Relax & repeat",
-            "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "Easy as it gets",
-        "heading": "Three simple steps",
-        "subheading": "No appointments, no setup. Just wrap, press and relax.",
-        "columns": "3",
-        "numbered": true,
-        "video_ratio": "portrait",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "timeline": {
-      "type": "vr-timeline",
-      "blocks": {
-        "t1": {
-          "type": "step",
-          "settings": {
-            "when": "Day 1",
-            "title": "Find your fit",
-            "text": "<ul><li>Charge the wrap fully</li><li>Start on the lowest intensity</li></ul>"
-          }
-        },
-        "t2": {
-          "type": "step",
-          "settings": {
-            "when": "Week 1–2",
-            "title": "Make it a habit",
-            "text": "<ul><li>Pair it with something you already do — coffee, TV, reading</li><li>One 15-minute session a day</li></ul>"
-          }
-        },
-        "t3": {
-          "type": "step",
-          "settings": {
-            "when": "Week 3+",
-            "title": "Keep it going",
-            "text": "<ul><li>Stay consistent — that's what matters most</li><li>Adjust intensity and mode to what feels best</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "Your routine",
-        "heading": "Building the habit",
-        "subheading": "Consistency matters more than intensity.",
-        "footnote": "Everyone is different. Talk to your doctor if you have a medical condition."
-      }
-    },
-    "compare": {
-      "type": "vr-comparison",
-      "blocks": {
-        "r1": {
-          "type": "row",
-          "settings": {
-            "feature": "Red + near-infrared light",
-            "us": true,
-            "them": false
-          }
-        },
-        "r2": {
-          "type": "row",
-          "settings": {
-            "feature": "Cordless, use anywhere",
-            "us": true,
-            "them": false
-          }
-        },
-        "r3": {
-          "type": "row",
-          "settings": {
-            "feature": "Adjustable intensity",
-            "us": true,
-            "them": false
-          }
-        },
-        "r4": {
-          "type": "row",
-          "settings": {
-            "feature": "Built-in session timer",
-            "us": true,
-            "them": false
-          }
-        },
-        "r5": {
-          "type": "row",
-          "settings": {
-            "feature": "Reusable every day",
-            "us": true,
-            "them": true
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "Compare",
-        "heading": "Why choose VitalRay?",
-        "us_label": "VitalRay",
-        "them_label": "Heat packs & braces",
-        "button_label": "Try it risk-free",
-        "button_link": ""
+        "include_margins": true
       }
     },
     "reviews": {
@@ -543,73 +610,6 @@
       "settings": {
         "enable": true,
         "label": "Add to cart"
-      }
-    },
-    "179355318790bddd23": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_Tdjkhj": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_Tdjkhj"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "wavelengths": {
-      "type": "vr-wavelengths",
-      "blocks": {
-        "s1": {
-          "type": "spec",
-          "settings": {
-            "title": "48 LED chips",
-            "text": "— red and near-infrared, spread across the wrist"
-          }
-        },
-        "s2": {
-          "type": "spec",
-          "settings": {
-            "title": "3 intensity levels",
-            "text": "— start low, adjust to what feels comfortable"
-          }
-        },
-        "s3": {
-          "type": "spec",
-          "settings": {
-            "title": "15-minute sessions",
-            "text": "— switches off automatically"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "The technology",
-        "heading": "Two wavelengths. <em>One wrap.</em>",
-        "subheading": "VitalRay pairs the two most-studied wavelengths in red light therapy research.",
-        "source_product": "vitalray-wrist",
-        "product_image_index": 3,
-        "badge_title": "Red + near-infrared",
-        "badge_text": "Dual-chip LEDs across the wrist",
-        "red_nm": "660nm",
-        "red_label": "Red light",
-        "red_text": "Visible red light that works close to the skin's surface.",
-        "nir_nm": "850nm",
-        "nir_label": "Near-infrared",
-        "nir_text": "Invisible near-infrared light that travels deeper into tissue than visible red light."
       }
     }
   },
