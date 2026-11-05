@@ -252,6 +252,57 @@
         "nir_text": "Invisible near-infrared light that travels deeper into tissue than visible red light."
       }
     },
+    "science": {
+      "type": "vr-learn",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "light",
+            "title": "What it is",
+            "text": "<p>Red light therapy — also called <strong>photobiomodulation (PBM)</strong> — uses low-level red and near-infrared light from LEDs or lasers. It contains no UV light.</p>"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "sparkle",
+            "title": "How it's studied",
+            "text": "<p>Researchers have studied red and near-infrared light for decades. Much of that work looks at how these wavelengths interact with cells, especially the <strong>mitochondria</strong> — the parts of cells that produce energy. Research is ongoing and results vary between studies.</p>"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "hand",
+            "title": "At home",
+            "text": "<p>LED wraps like VitalRay use wavelengths common in research in a simple at-home format: low intensity, short sessions, used consistently. Check with your doctor first if you have a medical condition, are pregnant, or have an implanted device.</p>"
+          }
+        },
+        "s1": {
+          "type": "source",
+          "settings": {
+            "label": "Search PubMed for “photobiomodulation”",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=photobiomodulation",
+            "note": "the U.S. National Library of Medicine's research database"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "s1"
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "The science",
+        "heading": "About red light therapy",
+        "subheading": "A quick, plain-English look at the technology inside VitalRay Wrist.",
+        "sources_heading": "Want to read more?",
+        "disclaimer": "This information is educational and is not medical advice. VitalRay is not intended to diagnose, treat, cure or prevent any disease."
+      }
+    },
     "lifestyle": {
       "type": "vr-media-text",
       "settings": {
@@ -610,57 +661,6 @@
       "settings": {
         "enable": true,
         "label": "Add to cart"
-      }
-    },
-    "science": {
-      "type": "vr-learn",
-      "blocks": {
-        "c1": {
-          "type": "card",
-          "settings": {
-            "icon": "light",
-            "title": "What it is",
-            "text": "<p>Red light therapy — also called <strong>photobiomodulation (PBM)</strong> — uses low-level red and near-infrared light from LEDs or lasers. It contains no UV light.</p>"
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "icon": "sparkle",
-            "title": "How it's studied",
-            "text": "<p>Researchers have studied red and near-infrared light for decades. Much of that work looks at how these wavelengths interact with cells, especially the <strong>mitochondria</strong> — the parts of cells that produce energy. Research is ongoing and results vary between studies.</p>"
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "icon": "hand",
-            "title": "At home",
-            "text": "<p>LED wraps like VitalRay use wavelengths common in research in a simple at-home format: low intensity, short sessions, used consistently. Check with your doctor first if you have a medical condition, are pregnant, or have an implanted device.</p>"
-          }
-        },
-        "s1": {
-          "type": "source",
-          "settings": {
-            "label": "Search PubMed for “photobiomodulation”",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=photobiomodulation",
-            "note": "the U.S. National Library of Medicine's research database"
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "s1"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "The science",
-        "heading": "About red light therapy",
-        "subheading": "A quick, plain-English look at the technology inside VitalRay Wrist.",
-        "sources_heading": "Want to read more?",
-        "disclaimer": "This information is educational and is not medical advice. VitalRay is not intended to diagnose, treat, cure or prevent any disease."
       }
     }
   },
