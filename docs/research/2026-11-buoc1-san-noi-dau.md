@@ -111,3 +111,64 @@ Gửi mình, mình sẽ chấm điểm sản phẩm và chuyển sang bước 3 
 - Mãn kinh: [AP/US News, 04/2026](https://www.usnews.com/news/business/articles/2026-04-06/menopause-products-are-having-a-hot-minute-but-doctors-urge-women-to-be-wary-of-the-marketing-surge), [HealthCentral sleep products](https://www.healthcentral.com/condition/menopause/science-backed-products-for-better-sleep-during-menopause), [GoodRx](https://www.goodrx.com/conditions/menopause/supplements-and-otc-meds)
 - Bàn chân / gối / lưng / cổ: [WWD foot complaints](https://wwd.com/footwear-news/shoe-industry-news/consumer-insights-issues-buying-shoes-foot-complaints-1239065842/), [Doctronic plantar fasciitis](https://www.doctronic.ai/blog/plantar-fasciitis-treatment-at-home-what-works-and-what-doesnt/), [Grand View knee braces](https://www.grandviewresearch.com/industry-analysis/knee-braces-market), [Verified knee pain market](https://www.verifiedmarketresearch.com/product/knee-pain-management-market/), [PubMed WFH neck pain](https://pubmed.ncbi.nlm.nih.gov/41772768/), [Lin Health sciatica 2026](https://www.lin.health/insights/best-evidence-based-therapies-sciatica)
 - Khác: [Tom's Guide snoring 2026](https://www.tomsguide.com/wellness/sleep-problems/forget-mouth-taping-these-3-things-will-actually-help-you-stop-snoring-in-2026), [NPR SAD light therapy](https://www.npr.org/2025/09/29/nx-s1-5546611/seasonal-depression-light-therapy-mental-health), [OSU SAD](https://health.osu.edu/health/mental-health/sad-light-therapy), [Audiology & Neurotology tinnitus survey](https://karger.com/aud/article/31/2/103/938780/What-People-with-Tinnitus-Want-A-Survey-of-Desired), [Trendtrack Meta 2026](https://www.trendtrack.io/blog-post/the-best-products-on-meta-for-dropshipping-in-2026), [AdMake Meta Nov 2026 changelog](https://admakeai.com/blog/meta-ads-updates-november-2026), [Walmart de-icer listing](https://www.walmart.com/ip/18740606463)
+
+---
+
+## Cập nhật: dữ liệu Reddit thật (06/11/2026)
+
+**Cách quét:** đọc RSS công khai của Reddit (không cần API), 9 lượt tìm kiếm cho các top post trong 12 tháng qua, và đọc comment của 6 thread top mỗi ngách. Tổng cộng **1.315 bài và comment**.
+
+**Hạn chế:**
+- Mẫu nhỏ.
+- Sắp xếp theo "top" nên lệch về các bài nhiều cảm xúc.
+
+### Đếm chủ đề (số bài/comment có nhắc tới)
+
+| Ngách | Chủ đề nổi bật |
+|---|---|
+| Chó già đau khớp (409) | tiễn biệt / an tử 20 · cầu thang, nhảy lên sofa/xe 17 · **trượt sàn** 17 · giường chỉnh hình 13 · chân sau yếu 10 · tội lỗi 9 · thuốc (Galliprant, Librela) 8 · đai nâng 4 · thực phẩm chức năng 1 |
+| Tay chân lạnh / Raynaud (183) | **đi làm, văn phòng** 38 · găng 32 · **đồ sưởi pin sạc** 30 · bác sĩ/thuốc 27 · đau 19 · tất 14 · cước chân tay 10 · không ai thông cảm 8 |
+| Mãn kinh (403) | **HRT (liệu pháp hormone) 137** · mất ngủ 62 · đổ mồ hôi đêm 42 · bốc hỏa 32 · bị bác sĩ gạt đi 28 · sương mù não 28 · chồng 19 · đồ làm mát 11 |
+| Đau gót chân (320) | **giày** 71 · đau **nhiều năm** 36 · giãn cơ 35 · lăn/massage 31 · buổi sáng 30 · lót giày 30 · nẹp đêm 13 |
+
+### Câu khách nói nguyên văn (dùng làm hook)
+
+**Chó già:**
+- "He slipped tonight and was limping on his right back leg"
+- "multiple falls down the stairs, inability to hold a squat to potty"
+- "We did get the Help 'Em Up harness and that's the **only reason we made it almost 3 more months**"
+- "I tried the paw stickers and the grip socks."
+- "her legs have gotten weaker… she has trouble on wooden floors"
+
+**Raynaud:**
+- "thanks to the **electric hand warmers** we have now, I rarely have to worry about them anymore"
+- "I want to find something that works and **won't explode**"
+- "I work in a grocery store… if I start my day working with cold items, my fingers react"
+- "I often need my **hands completely free**… constantly taking the gloves off"
+- "toe warmers… would get too hot and burn with sneakers"
+
+**Mãn kinh:**
+- "tried so many things, magnesium, **cooling sheets**, sleep hygiene… all the usual advice"
+- "HRT (both P&E) is the **only thing** that stopped my night sweats"
+- "we're told to try yoga and dress in layers like that's gonna solve waking up drenched every single night"
+
+**Gót chân:**
+- "Calf and foot massage machine – really nice, but **no measurable relief**"
+- "night splint… was the most effective thing to control symptoms"
+- "Sitting on my couch at 7pm on a Tuesday feeling like I'm 80 years old"
+
+### Rút ra và xếp hạng lại
+
+1. **Tay chân lạnh / Raynaud: lên số 1.** Cộng đồng **đang tự mua** đồ sưởi pin sạc và nói chúng hiệu quả, tức là sản phẩm giải quyết đúng nỗi đau. Khoảng trống để làm tốt hơn đối thủ:
+   - pin **an toàn, có chứng nhận** (sợ cháy nổ, từng có đợt thu hồi),
+   - **găng lót mỏng, hở đầu ngón hoặc chạm cảm ứng** để vẫn làm việc được (nhân viên siêu thị, văn phòng),
+   - nhiệt độ ổn định, không bỏng như miếng dán dùng một lần.
+
+   Khách: **nữ 25–60** đi làm (không chỉ người già như giả định ban đầu), cộng thêm người lớn tuổi. Rất hợp mùa Nov–Feb.
+2. **Chó già: vẫn đáng làm, nhưng đổi góc sản phẩm.** Nỗi đau số 1 là **trượt sàn, cầu thang, không tự đứng dậy được**, không phải "đau" chung chung. Sản phẩm được khen thật là **đai nâng hông** ("made it 3 more months"). Tất chống trượt thì có người thử nhưng chưa ưng, nên đây là chỗ làm tốt hơn được.
+   - Hướng mới: bộ **đai nâng + thảm/tất chống trượt**. Đèn đỏ cho chó để thành sản phẩm upsell.
+   - Ad nên đánh vào **"thêm nhiều ngày tốt đẹp bên nhau"**, tránh đụng nỗi đau tiễn biệt.
+3. **Đau gót chân: hạ xuống.** Khách đau nhiều năm và có tiền, nhưng tin giày, lót và giãn cơ. Máy massage bị chê "không giảm thật". Nếu làm thì chọn **nẹp/tất đêm + con lăn** (rẻ, bão hoà).
+4. **Mãn kinh: loại khỏi top.** Giải pháp thật là **HRT** (thuốc kê đơn). Ga làm mát đã thử mà không đủ. Sản phẩm vật lý khó thắng và dễ bị hoàn tiền.
+
+**Đề xuất mới:** nếu muốn kịp mùa đông thì chạy **găng/tất sưởi pin sạc cho người bị Raynaud và người làm việc trong môi trường lạnh** trước. Song song nghiên cứu sâu **dụng cụ hỗ trợ vận động cho chó già** làm thương hiệu dài hạn.
