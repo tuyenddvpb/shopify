@@ -53,6 +53,13 @@
         <span class="vr-icon">{% render 'vr-icon', name: 'mail', size: 20 %}</span>
         <span><strong>Email us</strong><span>{{ section.settings.email }}</span></span>
       </a>
+      {%- if section.settings.phone != blank -%}
+        {%- assign tel = section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' -%}
+        <a class="vr-infocard" href="tel:{{ tel }}" data-vr-reveal>
+          <span class="vr-icon">{% render 'vr-icon', name: 'chat', size: 20 %}</span>
+          <span><strong>Call us</strong><span>{{ section.settings.phone }}</span></span>
+        </a>
+      {%- endif -%}
       <div class="vr-infocard" data-vr-reveal>
         <span class="vr-icon">{% render 'vr-icon', name: 'clock', size: 20 %}</span>
         <span><strong>Fast replies</strong><span>{{ section.settings.hours }}</span></span>
@@ -65,6 +72,12 @@
         <span class="vr-icon">{% render 'vr-icon', name: 'chat', size: 20 %}</span>
         <span><strong>Read the FAQ</strong><span>Quick answers to common questions</span></span>
       </a>
+      {%- if section.settings.address != blank -%}
+        <div class="vr-infocard" data-vr-reveal>
+          <span class="vr-icon">{% render 'vr-icon', name: 'box', size: 20 %}</span>
+          <span><strong>Business address</strong><span>{{ section.settings.address }}</span></span>
+        </div>
+      {%- endif -%}
       <div class="vr-infocard vr-infocard--accent" data-vr-reveal>
         <span class="vr-icon">{% render 'vr-icon', name: 'shield', size: 20 %}</span>
         <span><strong>90-day money-back guarantee</strong><span>Free tracked shipping to the US, CA, UK &amp; AU</span></span>
@@ -93,6 +106,8 @@
     { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Send us a message" },
     { "type": "text", "id": "form_text", "label": "Form text", "default": "Include your order number for order questions so we can help faster." },
     { "type": "text", "id": "email", "label": "Support email", "default": "support@vitalray.shop" },
+    { "type": "text", "id": "phone", "label": "Phone" },
+    { "type": "text", "id": "address", "label": "Business address", "info": "Not a return address — returns go through email first." },
     { "type": "text", "id": "hours", "label": "Response time", "default": "We reply within 1 business day (Mon–Fri)" },
     { "type": "url", "id": "track_link", "label": "Track order link" },
     { "type": "url", "id": "faq_link", "label": "FAQ link" }
