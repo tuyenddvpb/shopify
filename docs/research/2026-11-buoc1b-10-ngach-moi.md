@@ -1,7 +1,7 @@
 # Bước 1b: 10 ngách mới, quét Reddit (06/11/2026)
 
 > Đã loại trừ 4 ngách của đợt trước: tay lạnh, chó già, mãn kinh, viêm cân gan chân.
-> Trạng thái: **luồng Reddit đã xong.** Luồng Google Trends đợt 2 đang chờ CSV, xem mục 4.
+> Trạng thái: **đã xong cả 2 luồng** (Reddit và Google Trends đợt 2, cập nhật 07/11/2026). Bảng xếp hạng ở mục 2 là bản chốt.
 
 ## 1. Cách quét
 
@@ -21,22 +21,39 @@
   - Thời điểm 10%
   - Rủi ro chính sách và hoàn hàng 10% (điểm cao nghĩa là ít rủi ro)
 
-## 2. Bảng xếp hạng
+## 2. Bảng xếp hạng chốt (Reddit kết hợp Trends)
 
-| Hạng | Ngách | Sản phẩm mồi | Đau | Quy mô | Fit | Cạnh tranh | Thời điểm | Rủi ro | **Điểm** |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | Bạn đời ngáy | Tai nghe ngủ hoặc băng đô che tiếng ồn, kèm combo băng dán miệng | 5 | 5 | 4 | 2 | 4 | 3 | **4.05** |
-| 2 | Lông thú rụng | Lược deshedding và con lăn lông tái sử dụng | 4 | 4 | 5 | 2 | 3 | 5 | **3.90** |
-| 3 | Đau tay và cổ tay ban đêm | Nẹp cổ tay ban đêm không dùng velcro, găng nén | 4 | 3 | 5 | 3 | 4 | 4 | **3.85** |
-| 4 | Remote lật trang Kindle | Remote Bluetooth kèm giá kẹp | 3 | 3 | 5 | 3 | 4 | 5 | **3.70** |
-| 5 | Phục hồi sau sinh | Bộ kit: bình rửa peri dốc ngược, túi chườm lạnh tái sử dụng, gối donut | 5 | 3 | 4 | 3 | 3 | 3 | **3.65** |
-| 6 | Gối bầu cho giường nhỏ | Gối nêm hoặc gối chữ U gọn, lật người được | 4 | 4 | 4 | 2 | 3 | 4 | **3.60** |
-| 7 | Đài nước cho mèo dễ vệ sinh | Đài inox không cần lõi lọc, tháo rửa nhanh | 4 | 4 | 4 | 2 | 3 | 4 | **3.60** |
-| 8 | Người ngủ nóng | Gối hoặc chăn làm mát | 5 | 4 | 3 | 2 | 2 | 3 | **3.45** |
-| 9 | Đau nửa đầu do ánh sáng | Kính lọc FL-41, mũ chườm lạnh | 4 | 3 | 4 | 3 | 3 | 3 | **3.45** |
-| 10 | Tắm cho người đau mãn tính và cha mẹ già | Ghế tắm kèm vòi sen cầm tay, cọ cán dài | 4 | 3 | 3 | 3 | 3 | 3 | **3.25** |
+"Quy mô" là lượng tìm kiếm tại Mỹ trong 5 năm, so với mốc `heated gloves` = 1.0. "YoY" so sánh 52 tuần gần nhất với 52 tuần trước đó.
 
-**Dự bị:** máy TENS cho đau lưng (Trends đợt 1: ×3.0, +16%), bếp và tủ lạnh 12V cho tài xế xe tải, ghế quỳ làm vườn, gối kê gối cho người đau lưng nằm nghiêng.
+| Hạng | Ngách | Sản phẩm mồi | Trends: quy mô · YoY · mùa | Điểm |
+|---|---|---|---|---|
+| 1 | Ngủ cạnh người ngáy hoặc ngủ nông | Băng đô tai nghe ngủ, mặt nạ ngủ che sáng | sleep mask ×2.7 · +73% · đỉnh T12; sleep headphones ×0.67 · +210% | **4.25** |
+| 2 | Gối bầu cho giường nhỏ | Gối nêm hoặc chữ J gọn, lật người được | ×1.70 · +30% · đỉnh T12 và T4–5 | **4.00** |
+| 3 | Đau tay và cổ tay ban đêm | Nẹp đêm không velcro, găng nén | wrist brace ×1.65 · +32%; compression gloves ×0.45 · +56% | **3.95** |
+| 4 | Tắm cho người đau mãn tính và cha mẹ già | Vòi sen cầm tay có công tắc ngắt nước, cọ cán dài | shower chair ×1.98 · +85%; handheld shower head ×0.92 · +88% · đỉnh T4–6 | **3.85** |
+| 5 | Đau cổ, đã thử đủ loại gối *(mới, thay ngách migraine)* | Gối cổ cervical có thể chỉnh độ cao | ×0.82 · **+152%** · đỉnh T4–6 | **3.85** |
+| 6 | Remote lật trang Kindle | Remote kèm giá kẹp, bán bundle quà | ×0.09 · +23% · 8 tuần gần nhất +90% · đỉnh T12–2 | **3.60** |
+| 7 | Phục hồi sau sinh | Kit quà: bình rửa peri, túi chườm lạnh, gối donut | peri bottle ×0.29 · +22% | **3.50** |
+| 8 | Đài nước cho mèo dễ vệ sinh | Đài inox không cần lõi lọc | ×1.02 · +84% · đỉnh T5–6 | **3.50** |
+| 9 | Lông thú rụng | Lược deshedding, con lăn lông | dog shedding brush ×0.09 · +6% (đi ngang) | **3.50** |
+| 10 | Người ngủ nóng | Gối hoặc chăn làm mát | cooling sheets ×0.79 · +65% · đỉnh T6–7 | **3.35** |
+
+**Trends làm thay đổi thứ hạng ở những điểm sau:**
+- **Băng dán miệng −24%/năm:** đỉnh đã qua từ 12/2024. Không dùng làm sản phẩm chính cho ngách ngáy. Chuyển sang tai nghe ngủ (+210%) và mặt nạ ngủ (+73%, đỉnh tháng 12).
+- **Đẩy lên:**
+  - Ghế tắm và vòi sen cầm tay (+85–88%).
+  - Gối bầu (đỉnh tháng 12, đúng mùa hiện tại).
+  - Gối cổ (+152%). Reddit cũng có nhiều tín hiệu cho ngách này, ví dụ *"tried Purple, Coop, latex… nothing works"* và các thread hỏi gối trên r/backpain, r/migraine.
+- **Loại ngách đau nửa đầu:** "migraine ice cap" gần như bằng 0 (−50%). FL-41 tăng +200% nhưng quy mô chỉ ×0.05. Chuyển xuống dự bị.
+- **Lông thú tụt hạng:** từ khoá đi ngang, có lẽ người dùng tìm bằng từ khác ("deshedding tool", "pet hair roller"). Đợt 1 chỉ bắt được 1 đợt viral.
+- **Lưu ý dữ liệu:** rất nhiều từ khoá có tuần cao nhất trùng nhau vào 05–12/04/2026. Có thể đây là bất thường của Google, không phải nhu cầu thật. Vì vậy YoY của những từ đỉnh tháng 4–6 có thể bị phóng đại một phần.
+
+**Dự bị:**
+- Máy TENS cho đau lưng (×3.0, +16%)
+- Kính FL-41
+- Hộp hâm cơm 12V cho tài xế (quá nhỏ)
+- Ghế quỳ làm vườn (×0.10, +108%, đỉnh tháng 5)
+- Laminator (×1.46, nhưng khách là giáo viên mua mùa tựu trường, không hợp dropship)
 
 ## 3. Chi tiết từng ngách
 
@@ -123,27 +140,41 @@
 - **Góc cải tiến:** ghế tắm thì nhiều người đã có. Khoảng trống là **bộ dụng cụ quanh ghế**: vòi sen cầm tay có công tắc ngắt nước, cọ lưng cán dài, kệ treo tầm với.
 - **Rủi ro:** ghế cồng kềnh, phí vận chuyển cao. Nên bán phụ kiện nhỏ, không bán ghế.
 
-## 4. Google Trends đợt 2 (đang chờ dữ liệu)
+## 4. Bản đồ bang (Trends đợt 2)
 
-Đã gửi 5 link so sánh. Mỗi link có mốc `heated gloves`, khung 5 năm, tại Mỹ:
+| Ngách | Top bang |
+|---|---|
+| Găng sưởi (mốc) | VT, AK, WI, ME, ND |
+| Gối bầu | HI, FL, TX, CA, LA |
+| Bình rửa peri | LA, FL, TX, TN, DC |
+| Ghế tắm | FL, TX, SC, HI, AZ (vùng có nhiều người về hưu) |
+| Vòi sen cầm tay | FL, DE, NJ, HI, NV |
+| Nẹp cổ tay | HI, VA, CA, WA, NV |
+| Gối cổ | WY, DC, CA, TX, NV |
+| Mặt nạ ngủ | DC, HI, CA, TX, GA |
+| Ga mát | MS, LA, SC, FL, TX (miền Nam nóng ẩm) |
+| Đài nước cho mèo | WV, OR, RI, PA, NV |
+| Remote Kindle | DC, WV, OK, KY, VA |
 
-1. shower chair, wrist brace, compression gloves, cervical pillow
-2. peri bottle, pregnancy pillow, migraine ice cap, fl-41 glasses
-3. sleep headphones, cooling sheets, mouth tape, cat water fountain
-4. kindle page turner, garden kneeler, laminator, 12v lunch box
-5. reacher grabber, handheld shower head, sleep mask, dog shedding brush
+Với từ khoá nhỏ (dưới ×0.1), bản đồ bang có nhiều nhiễu. Chỉ nên dùng bản đồ của những từ khoá có quy mô từ ×0.5 trở lên.
 
-Khi có CSV, mục này sẽ bổ sung cho từng ngách: quy mô so với găng sưởi, % tăng theo năm, mùa vụ, top bang và related queries. Sau đó chốt lại thứ hạng.
+## 5. Khuyến nghị
 
-## 5. Khuyến nghị tạm thời (trước khi có Trends)
-
-- **Ghép với găng sưởi ngay mùa này:** ngách 3 (đau tay ban đêm). Cùng tệp khách và cùng mùa, nên chi phí lấy khách giảm.
-- **Store mới, test nhanh, rủi ro thấp:** ngách 2 (lông thú) và ngách 4 (Kindle). Hàng nhẹ, rẻ, không claim y tế, dễ làm video.
-- **Có quy mô lớn nhất:** ngách 1 (ngáy). Mùa cao điểm tháng 12–2 khớp với thời điểm hiện tại. Cần viết copy cẩn thận để tránh claim y tế.
-- **Bước 2 (Meta Ad Library):** tìm các từ khoá sau:
-  - `sleep headphones`, `snoring partner`
-  - `deshedding`, `pet hair roller`
-  - `night wrist brace`
-  - `kindle page turner`
-  - `postpartum kit`
-  - `cat fountain stainless`
+1. **Bán ngay mùa này (tháng 11–1):**
+   - **Ngách 1 (tai nghe ngủ và mặt nạ ngủ):** đỉnh tháng 12, mua làm quà được. Không đụng tới claim chữa ngáy.
+   - **Ngách 2 (gối bầu):** đỉnh tháng 12.
+   - **Ngách 6 (remote Kindle):** quà Giáng sinh, đỉnh tháng 12–2.
+2. **Ghép với găng sưởi:** ngách 3 (nẹp cổ tay, găng nén). Cùng tệp khách đau tay, chạy upsell chéo.
+3. **Chuẩn bị từ bây giờ cho mùa xuân (bán từ tháng 3):**
+   - Ngách 4 (vòi sen và dụng cụ tắm): target FL, TX, AZ, giống ngách chó già.
+   - Ngách 5 (gối cổ).
+   - Ngách 8 (đài nước cho mèo).
+4. **Từ khoá cho bước 2 (Meta Ad Library):**
+   - `sleep headphones`, `sleep mask`, `snoring partner`
+   - `pregnancy pillow`
+   - `night wrist brace`, `compression gloves`
+   - `handheld shower head`, `shower chair`
+   - `cervical pillow`
+   - `kindle page turner`
+   - `postpartum kit`
+   - `cat fountain stainless`
