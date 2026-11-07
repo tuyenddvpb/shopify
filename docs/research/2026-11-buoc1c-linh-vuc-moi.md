@@ -1,6 +1,6 @@
 # Bước 1c: Ngách ở các lĩnh vực mới (07/11/2026)
 
-> Lần quét này mở rộng ra ngoài sức khoẻ, giấc ngủ, mẹ bé và thú cưng. Đã có dữ liệu Reddit, **đang chờ Google Trends đợt 3**, xem mục 4.
+> Lần quét này mở rộng ra ngoài sức khoẻ, giấc ngủ, mẹ bé và thú cưng. **Đã xong cả Reddit lẫn Google Trends đợt 3.** Bảng xếp hạng chốt nằm ở mục 2b.
 
 ## 1. Phạm vi quét
 
@@ -75,10 +75,58 @@
 - *"Is it worth overpaying to get the Meater+?"*
 - Mùa bán: Lễ Tạ ơn, Giáng sinh và mùa BBQ hè.
 
-## 4. Google Trends đợt 3 (chờ CSV)
+## 2b. Bảng xếp hạng chốt (Reddit kết hợp Trends đợt 3)
 
-Đã gửi 4 link, mỗi link có từ khoá mốc là heated gloves:
-1. bike radar, golf push cart, fungus gnats, car dryer blower
-2. curly hair diffuser, satin bonnet, crochet hook, gravel vacuum
-3. wireless meat thermometer, blackout tent, packing cubes, travel pillow
-4. sticky traps, microfiber drying towel, electric golf caddy, finger guard crochet
+Quy mô tính trong 5 năm tại Mỹ, so với mốc `heated gloves` = 1.0. Điểm gồm 6 tiêu chí: đau 25%, quy mô 20%, hợp dropship 20%, cạnh tranh 15%, thời điểm 10%, rủi ro 10%.
+
+| Hạng | Ngách | Sản phẩm mồi | Trends | Điểm |
+|---|---|---|---|---|
+| 1 | **Đan móc bị đau tay, quà cho người mới** | Bộ kim móc công thái học kèm kit cho người mới tập | crochet hook ×2.0 · +8% · **đỉnh T12–1**; "woobles" (kit tập móc) đang bùng | **4.25** |
+| 2 | **Ngủ trên chuyến bay dài** | Gối kê cằm hoặc gối công thái học, thay cho gối chữ U | travel pillow ×2.0 · **+150%** · nhiều thương hiệu mới nổi (Cushion Lab, Sleeper Hold, Pluto Pod) | **4.10** |
+| 3 | **Ruồi nấm ở cây trong nhà** | Bẫy dính + phủ mặt chậu + hướng dẫn 21 ngày | fungus gnats ×1.08 · +12% · đỉnh T5–7; sticky traps ×0.44 · +41%; "bti for fungus gnats" +180% | **4.10** |
+| 4 | **Dụng cụ cho người tóc xoăn** | Đầu khuếch tán lắp vừa mọi máy sấy, mũ satin | diffuser ×0.33 · +29% · **đỉnh T11–12**; satin bonnet ×0.37 · +81% (Kitsch +1.400%) | **4.05** |
+| 5 | Sấy khô xe | Máy thổi sấy xe cầm tay, khăn sấy microfiber | car dryer blower ×0.04 · +163% ("handheld car dryer" +500%); drying towel ×0.06 · +426% | **3.45** |
+| 6 | Túi nén đồ du lịch | Túi nén có khoá kéo | ×1.72 · +85% · đỉnh hè · nhiều thương hiệu lớn | **3.45** |
+| 7 | Nhiệt kế thịt không dây | Que đo 2 đầu, không rớt kết nối | ×0.31 · +121% · đỉnh T11–12 · rất đông đối thủ (ThermoPro, Meater, Typhur, Chef iQ) | **3.20** |
+| 8 | Máy hút sỏi hồ cá | Máy hút sỏi điện | ×0.14 · +189%; "electric gravel vacuum" +110% | **3.10** |
+| 9 | Lều chắn sáng | Lều ngủ chắn sáng cho em bé khi đi du lịch, kiểu SlumberPod | blackout tent ×0.13 · +74%; slumberpod +200%, crib tent +80% | **3.05** |
+| 10 | Radar xe đạp | Đèn hậu kèm radar | ×0.16 · +125% · Garmin Varia gần như độc chiếm | **2.80** |
+
+**Loại:**
+- Xe đẩy golf điện: ×0.57 · +32%. Hàng cồng kềnh, giá cao, không hợp dropship.
+- "Finger guard crochet": lượng tìm bằng 0. Gộp vào ngách 1 thành phụ kiện kèm theo.
+- Ngồi lâu khi làm ở nhà: chưa có dữ liệu Trends, để dự bị.
+
+**Những điểm đáng chú ý:**
+- **Ngách 1 và ngách 4 đạt đỉnh đúng tháng 11–1.** Kim móc len và máy khuếch tán tóc xoăn đều là món quà Giáng sinh. Ngách 1 còn cùng tệp khách với nẹp cổ tay (ngách 3 của bước 1b), nên có thể gộp thành một store "đau tay".
+- **Ngách 2:** thị trường lớn và tăng mạnh, khách đang tìm thương hiệu mới. Reddit phàn nàn gối chữ U làm đau cổ, nên góc tiếp thị rõ ràng là "gối không phải chữ U".
+- **Ngách 3:** thận trọng với BTI vì đây là thuốc trừ sâu sinh học, có hạn chế khi vận chuyển và đăng ký. Chỉ bán bẫy dính, cát phủ và dụng cụ tưới đáy. Không tự pha chế thuốc.
+- **Lưu ý dữ liệu:** nhiều từ khoá có tuần cao nhất trùng nhau vào 05–12/04/2026, giống đợt 2. Đây có thể là bất thường của Google, nên coi YoY của các ngách đỉnh tháng 4–6 là ước lượng.
+
+## 4. Top bang (Trends đợt 3)
+
+| Ngách | Top bang |
+|---|---|
+| Kim móc | HI, AZ, OR, NM, FL |
+| Gối du lịch | HI, FL, CA, WY, NV |
+| Ruồi nấm | DC, AZ, FL, NV, TX |
+| Khuếch tán tóc xoăn | DC, FL, CA, TX, NJ |
+| Mũ satin | LA, WY, DC, MS, GA |
+| Sấy xe | HI, FL, DE, WY, TX |
+| Nhiệt kế thịt | WY, OK, NE, SD, MO |
+
+## 5. Khuyến nghị
+
+1. **Chạy ngay mùa lễ:**
+   - Ngách 1: bộ quà kim móc công thái học.
+   - Ngách 4: bộ dụng cụ tóc xoăn.
+   - Ngách 2: gối du lịch cho mùa bay lễ tháng 12.
+2. **Chuẩn bị cho mùa xuân và hè:**
+   - Ngách 3: ruồi nấm, đỉnh tháng 5–7.
+   - Ngách 5: sấy xe.
+3. **Từ khoá cho Meta Ad Library:**
+   - `ergonomic crochet hook`, `crochet kit beginner`
+   - `travel pillow`, `neck pillow travel`
+   - `fungus gnats`, `sticky traps`
+   - `curly hair diffuser`, `satin bonnet`
+   - `car dryer blower`
