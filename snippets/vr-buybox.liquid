@@ -53,13 +53,13 @@
       <label class="vr-bundle__opt">
         <input type="radio" name="vr-bundle" value="1" checked>
         <span class="vr-bundle__radio" aria-hidden="true"></span>
-        <span class="vr-bundle__main"><strong>1 × VitalRay Wrist</strong><small>Treat one hand</small></span>
+        <span class="vr-bundle__main"><strong>1 × VitalRay Wrist</strong><small>For one hand</small></span>
         <span class="vr-bundle__price"><strong>{{ one | money }}</strong>{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}</span>
       </label>
       <label class="vr-bundle__opt">
         <input type="radio" name="vr-bundle" value="2">
         <span class="vr-bundle__radio" aria-hidden="true"></span>
-        <span class="vr-bundle__tag">Most popular</span>
+        <span class="vr-bundle__tag">Best value</span>
         <span class="vr-bundle__main"><strong>2 × VitalRay Wrist</strong><small>Both hands · {{ two_each | money }} each · extra 15% off</small></span>
         <span class="vr-bundle__price"><strong>{{ two | money }}</strong><s>{{ two_was | money }}</s></span>
       </label>
