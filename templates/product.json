@@ -14,7 +14,8 @@
       "blocks": {
         "rating": {
           "type": "rating",
-          "settings": {}
+          "settings": {},
+          "disabled": true
         },
         "vr_title": {
           "type": "custom_liquid",
@@ -558,7 +559,8 @@
       ],
       "settings": {
         "include_margins": true
-      }
+      },
+      "disabled": true
     },
     "reviews": {
       "type": "vr-testimonials",
