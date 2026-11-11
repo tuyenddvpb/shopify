@@ -1,3 +1,4 @@
+/* VitalRay theme scripts */
 /* VitalRay storefront effects: scroll reveal, number count-up, header shadow. */
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
