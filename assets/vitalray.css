@@ -927,3 +927,39 @@ html:not(.vr-js) .vr-wl__beam i { transform: scaleY(1); }
 .vr-support { display: flex; gap: 8px; align-items: flex-start; justify-content: center; margin: 0; font-size: 1.25rem; color: var(--vr-muted); text-align: left; }
 .vr-support .vr-svg { color: var(--vr-sage-strong, #4A6656); flex: none; margin-top: 2px; }
 .vr-support a { color: var(--vr-ink); text-underline-offset: 3px; }
+
+/* Welcome popup */
+.vr-wp[hidden] { display: none; }
+.vr-wp { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; }
+.vr-wp__backdrop { position: absolute; inset: 0; background: rgba(31, 42, 39, .55); animation: vr-wp-fade .25s ease; }
+.vr-wp__dialog { position: relative; width: 100%; max-width: 440px; background: var(--vr-bg); border-radius: 20px; padding: 36px 30px 26px; text-align: center;
+  box-shadow: 0 30px 80px rgba(31, 42, 39, .35); overflow: hidden; animation: vr-wp-up .3s ease; }
+.vr-wp__dialog::before { content: ''; position: absolute; left: 50%; top: -140px; width: 320px; height: 220px; transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(226, 103, 74, .28), transparent); pointer-events: none; }
+.vr-wp__close { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; background: transparent; font-size: 26px; line-height: 1; color: var(--vr-muted); cursor: pointer; border-radius: 50%; }
+.vr-wp__close:hover { background: var(--vr-bg-sage); color: var(--vr-ink); }
+.vr-wp__mark { position: relative; margin-bottom: 6px; }
+.vr-wp__eyebrow { position: relative; margin: 0 0 6px; font-size: 1.15rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--vr-sage-strong); }
+.vr-wp__title { position: relative; margin: 0 0 10px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 2.8rem; line-height: 1.1; color: var(--vr-ink); }
+.vr-wp__text { margin: 0 0 18px; font-size: 1.45rem; color: var(--vr-muted); line-height: 1.5; }
+.vr-wp__row { display: flex; gap: 8px; }
+.vr-wp__row input { flex: 1; min-width: 0; height: 48px; padding: 0 14px; border: 1px solid var(--vr-line); border-radius: var(--vr-radius-sm); background: #fff; font: inherit; font-size: 1.5rem; color: var(--vr-ink); }
+.vr-wp__row input:focus { outline: 2px solid var(--vr-coral); outline-offset: 1px; }
+.vr-wp__submit { height: 48px; padding: 0 18px; white-space: nowrap; }
+.vr-wp__err { margin: 8px 0 0; font-size: 1.3rem; color: var(--vr-coral-strong); }
+.vr-wp__fine { margin: 12px 0 0; font-size: 1.1rem; color: var(--vr-muted); line-height: 1.45; }
+.vr-wp__nothanks { margin-top: 10px; border: 0; background: none; font: inherit; font-size: 1.25rem; color: var(--vr-muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.vr-wp__code { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 16px; padding: 10px 10px 10px 18px;
+  border: 2px dashed var(--vr-coral); border-radius: 12px; background: #fff; }
+.vr-wp__code span { font-weight: 800; font-size: 2rem; letter-spacing: .12em; color: var(--vr-ink); }
+.vr-wp__copy { border: 0; border-radius: 8px; padding: 8px 14px; background: var(--vr-bg-sage); color: var(--vr-sage-strong); font: inherit; font-weight: 700; font-size: 1.3rem; cursor: pointer; }
+.vr-wp__cta { width: 100%; justify-content: center; }
+@media (max-width: 480px) {
+  .vr-wp { align-items: end; padding: 0; }
+  .vr-wp__dialog { max-width: none; border-radius: 20px 20px 0 0; padding: 30px 20px 22px; }
+  .vr-wp__row { flex-direction: column; }
+  .vr-wp__title { font-size: 2.5rem; }
+}
+@keyframes vr-wp-fade { from { opacity: 0; } }
+@keyframes vr-wp-up { from { opacity: 0; transform: translateY(16px); } }
+@media (prefers-reduced-motion: reduce) { .vr-wp__backdrop, .vr-wp__dialog { animation: none; } }

@@ -213,6 +213,63 @@
     autoVids.forEach(function (v) { aio.observe(v); });
   }
 
+  /* Welcome popup: email signup → first-order code. Shown at most once a week; never again after signup. */
+  (function () {
+    var wp = document.querySelector('[data-vr-welcome]');
+    if (!wp) return;
+    var KEY = 'vrWelcome';
+    var store = {
+      get: function () { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } },
+      set: function (v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
+    };
+    var state = store.get() || {};
+    var done = wp.querySelector('[data-vr-welcome-done]');
+    var hasError = !!wp.querySelector('.vr-wp__err');
+    var lastFocus = null, isOpen = false;
+
+    function open() {
+      if (isOpen) return;
+      isOpen = true; lastFocus = document.activeElement;
+      wp.hidden = false; document.documentElement.style.overflow = 'hidden';
+      var f = wp.querySelector('input[type=email], [data-vr-welcome-copy], .vr-wp__close');
+      if (f) setTimeout(function () { f.focus(); }, 60);
+    }
+    function close() {
+      wp.hidden = true; isOpen = false; document.documentElement.style.overflow = '';
+      if (state.s !== 'subscribed') { state = { s: 'dismissed', t: Date.now() }; store.set(state); }
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    wp.querySelectorAll('[data-vr-welcome-close]').forEach(function (b) { b.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) { if (isOpen && e.key === 'Escape') close(); });
+
+    var form = wp.querySelector('form');
+    if (form) form.addEventListener('submit', function () { state.pending = Date.now(); store.set(state); });
+
+    var copy = wp.querySelector('[data-vr-welcome-copy]');
+    if (copy) copy.addEventListener('click', function () {
+      var code = wp.querySelector('[data-vr-welcome-code]').textContent.trim();
+      var ok = function () { copy.textContent = 'Copied'; };
+      if (navigator.clipboard) navigator.clipboard.writeText(code).then(ok, ok); else ok();
+    });
+
+    var justPosted = state.pending && Date.now() - state.pending < 10 * 60 * 1000;
+    if (justPosted && done) { state = { s: 'subscribed', t: Date.now() }; store.set(state); open(); return; }
+    if (justPosted && hasError) { delete state.pending; store.set(state); open(); return; }
+    if (state.s === 'subscribed') return;
+    if (state.s === 'dismissed' && Date.now() - state.t < 7 * 24 * 3600 * 1000) return;
+
+    var delay = (parseInt(wp.getAttribute('data-delay'), 10) || 12) * 1000;
+    var timer = setTimeout(open, delay);
+    var onScroll = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h > 0 && window.scrollY / h > 0.45) { window.removeEventListener('scroll', onScroll); clearTimeout(timer); open(); }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget && e.clientY <= 0 && window.innerWidth >= 990) { clearTimeout(timer); open(); }
+    });
+  })();
+
   /* Delivery estimate: business-day ranges from data attributes, shown as dates */
   document.querySelectorAll('[data-vr-eta]').forEach(function (el) {
     function addBiz(d, n) {

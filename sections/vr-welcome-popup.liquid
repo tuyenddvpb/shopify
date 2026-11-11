@@ -1,0 +1,74 @@
+{%- comment -%}
+  Email-signup popup with a first-order discount code.
+  Rendered once from layout/theme.liquid. Signups go to Shopify customers with
+  "accepts marketing" (Klaviyo picks them up through its Shopify sync).
+  The code is only revealed after a successful signup.
+{%- endcomment -%}
+{%- liquid
+  assign skip = false
+  if template.name == 'cart' or template.name contains 'customers' or template.name == 'password' or template.name == 'policy' or request.design_mode
+    assign skip = true
+  endif
+  assign code = section.settings.code | strip | upcase
+  assign shop_url = section.settings.redirect | default: '/products/vitalray-wrist'
+-%}
+{%- if section.settings.enabled and code != blank and skip == false -%}
+  <div class="vr-wp" data-vr-welcome data-delay="{{ section.settings.delay | default: 12 }}" hidden>
+    <div class="vr-wp__backdrop" data-vr-welcome-close></div>
+    <div class="vr-wp__dialog" role="dialog" aria-modal="true" aria-labelledby="VrWelcomeTitle">
+      <button type="button" class="vr-wp__close" data-vr-welcome-close aria-label="Close">&times;</button>
+      <div class="vr-wp__mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="44" height="44"><g fill="none" stroke-linecap="round"><path d="M14 44 A18 18 0 0 1 50 44" stroke="#C4502F" stroke-width="5"/><g stroke="#E2674A" stroke-width="4"><line x1="32" y1="18" x2="32" y2="9"/><line x1="18.4" y1="23.6" x2="12.7" y2="17.9"/><line x1="45.6" y1="23.6" x2="51.3" y2="17.9"/><line x1="10.5" y1="34.5" x2="3.5" y2="32"/><line x1="53.5" y1="34.5" x2="60.5" y2="32"/></g><line x1="6" y1="52" x2="58" y2="52" stroke="#5E7D6A" stroke-width="4"/></g></svg>
+      </div>
+      {%- form 'customer', id: 'VrWelcomeForm', class: 'vr-wp__form' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="vr-wp__done" data-vr-welcome-done>
+            <p class="vr-wp__eyebrow">You're in</p>
+            <h2 class="vr-wp__title" id="VrWelcomeTitle">Here's your {{ section.settings.offer }}</h2>
+            <p class="vr-wp__text">Use this code at checkout on your first order.</p>
+            <div class="vr-wp__code">
+              <span data-vr-welcome-code>{{ code }}</span>
+              <button type="button" class="vr-wp__copy" data-vr-welcome-copy>Copy</button>
+            </div>
+            <a class="vr-btn vr-wp__cta" href="/discount/{{ code | url_encode }}?redirect={{ shop_url | url_encode }}"><span>Apply code &amp; shop</span>{% render 'vr-icon', name: 'arrow', size: 18 %}</a>
+          </div>
+        {%- else -%}
+          <p class="vr-wp__eyebrow">{{ section.settings.eyebrow }}</p>
+          <h2 class="vr-wp__title" id="VrWelcomeTitle">{{ section.settings.heading }}</h2>
+          <p class="vr-wp__text">{{ section.settings.text }}</p>
+          <input type="hidden" name="contact[tags]" value="newsletter,welcome-popup">
+          <label class="visually-hidden" for="VrWelcomeEmail">Email</label>
+          <div class="vr-wp__row">
+            <input id="VrWelcomeEmail" type="email" name="contact[email]" required autocomplete="email" placeholder="Your email address" autocapitalize="off" spellcheck="false"
+              {% if form.errors %}aria-invalid="true" aria-describedby="VrWelcomeErr"{% endif %}>
+            <button type="submit" class="vr-btn vr-wp__submit"><span>{{ section.settings.button }}</span></button>
+          </div>
+          {%- if form.errors -%}
+            <p class="vr-wp__err" id="VrWelcomeErr" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+          {%- endif -%}
+          <p class="vr-wp__fine">{{ section.settings.fine_print }}</p>
+          <button type="button" class="vr-wp__nothanks" data-vr-welcome-close>No thanks</button>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VR Welcome popup",
+  "class": "vr-welcome-section",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Show popup", "default": true },
+    { "type": "text", "id": "code", "label": "Discount code", "default": "WELCOME10", "info": "Must match an active discount code in Discounts." },
+    { "type": "text", "id": "offer", "label": "Offer (shown after signup)", "default": "10% off" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Welcome to VitalRay" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get 10% off your first order" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Join our list for your code, plus simple tips for your 15-minute routine. No spam — unsubscribe anytime." },
+    { "type": "text", "id": "button", "label": "Button", "default": "Get my code" },
+    { "type": "text", "id": "fine_print", "label": "Consent text", "default": "By signing up you agree to receive marketing emails from VitalRay. One code per customer, first order only." },
+    { "type": "range", "id": "delay", "label": "Open after (seconds)", "min": 3, "max": 60, "step": 1, "default": 12 },
+    { "type": "text", "id": "redirect", "label": "Shop link after signup", "default": "/products/vitalray-wrist" }
+  ]
+}
+{% endschema %}
