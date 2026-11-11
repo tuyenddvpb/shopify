@@ -212,5 +212,23 @@
     }, { threshold: 0.25 });
     autoVids.forEach(function (v) { aio.observe(v); });
   }
+
+  /* Delivery estimate: business-day ranges from data attributes, shown as dates */
+  document.querySelectorAll('[data-vr-eta]').forEach(function (el) {
+    function addBiz(d, n) {
+      var r = new Date(d.getTime());
+      while (n > 0) { r.setDate(r.getDate() + 1); var w = r.getDay(); if (w !== 0 && w !== 6) n--; }
+      return r;
+    }
+    var fmt;
+    try { fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }); } catch (e) { return; }
+    var f = function (d) { return fmt.format(d); };
+    var now = new Date();
+    var n = function (k) { return parseInt(el.getAttribute('data-' + k), 10) || 0; };
+    var set = function (sel, txt) { var t = el.querySelector(sel); if (t) t.textContent = txt; };
+    set('[data-vr-eta-today]', f(now));
+    set('[data-vr-eta-ship]', f(addBiz(now, n('ship-min'))) + ' – ' + f(addBiz(now, n('ship-max'))));
+    set('[data-vr-eta-arrive]', f(addBiz(now, n('arrive-min'))) + ' – ' + f(addBiz(now, n('arrive-max'))));
+  });
 })();
 

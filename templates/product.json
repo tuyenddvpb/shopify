@@ -70,7 +70,7 @@
         "guarantee": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>90-day money-back guarantee</strong>Not happy within 90 days of delivery? Email us for a full refund.</div></div>"
+            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>Try it for 90 days — risk-free</strong>Use it at home for up to 90 days after delivery. Not for you? Email us and send it back for a full refund of your purchase price. <a href=\"/policies/refund-policy\">Refund policy</a></div></div>"
           }
         },
         "tab_box": {
@@ -99,6 +99,21 @@
             "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
             "page": ""
           }
+        },
+        "vr_assurance": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'assurance' %}"
+          }
+        },
+        "tab_faq": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Common questions",
+            "icon": "question_mark",
+            "content": "<p><strong>When will my order arrive?</strong><br>Orders ship within 1–3 business days and usually arrive 7–15 business days after shipping. You'll get a tracking link by email.</p><p><strong>What if it's not for me?</strong><br>You have 90 days from delivery to return it for a full refund of the purchase price. Email us first and we'll send return instructions.</p><p><strong>Is it safe to use at home?</strong><br>VitalRay uses red and near-infrared LEDs with no UV light, and every session switches off automatically after 15 minutes. If you're pregnant, have a medical condition or are sensitive to light, check with your doctor first.</p><p><strong>Can I use it on both hands?</strong><br>One wrap covers one hand and wrist at a time. Many people choose the 2-pack so both hands can have a session together.</p><p><strong>Still have a question?</strong><br>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> — we reply within 1 business day.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -110,8 +125,10 @@
         "variant_picker",
         "buy_buttons",
         "vr_stock",
-        "vr_specs",
         "guarantee",
+        "vr_assurance",
+        "vr_specs",
+        "tab_faq",
         "tab_box",
         "tab_use",
         "tab_shipping"

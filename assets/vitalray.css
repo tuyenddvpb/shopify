@@ -910,3 +910,18 @@ html:not(.vr-js) .vr-wl__beam i { transform: scaleY(1); }
 .vr-learn__sources ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 1.4rem; color: var(--vr-muted); }
 .vr-learn__sources a { color: var(--vr-coral-strong); text-underline-offset: 3px; }
 .vr-learn__disclaimer { margin: 0; max-width: 720px; font-size: 1.2rem; line-height: 1.6; color: var(--vr-muted); }
+
+/* PDP assurance: delivery estimate, payment icons, support line */
+.vr-assure { display: grid; gap: 12px; }
+.vr-eta { list-style: none; margin: 0; padding: 14px 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  background: var(--vr-surface, #fff); border: 1px solid var(--vr-line); border-radius: 14px; position: relative; }
+.vr-eta li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px; font-size: 1.2rem; color: var(--vr-muted); position: relative; }
+.vr-eta li + li::before { content: ''; position: absolute; top: 13px; right: calc(50% + 18px); width: calc(100% - 30px); border-top: 1px dashed var(--vr-line); }
+.vr-eta strong { color: var(--vr-ink); font-size: 1.3rem; }
+.vr-eta__icon { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--vr-bg-sage, #E4EBE3); color: var(--vr-sage-strong, #4A6656); position: relative; z-index: 1; }
+.vr-eta__note { margin: -4px 0 0; text-align: center; font-size: 1.15rem; color: var(--vr-muted); }
+.vr-paylist { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.vr-paylist .icon { width: 38px; height: 24px; }
+.vr-support { display: flex; gap: 8px; align-items: flex-start; justify-content: center; margin: 0; font-size: 1.25rem; color: var(--vr-muted); text-align: left; }
+.vr-support .vr-svg { color: var(--vr-sage-strong, #4A6656); flex: none; margin-top: 2px; }
+.vr-support a { color: var(--vr-ink); text-underline-offset: 3px; }
