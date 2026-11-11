@@ -1,0 +1,89 @@
+<section class="vr-section vr-section--{{ section.settings.background }}">
+  <div class="vr-container" style="max-width:900px">
+    <div class="vr-center" data-vr-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div style="overflow-x:auto" data-vr-reveal>
+      <table class="vr-compare">
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">Feature</span></th>
+            <th scope="col" class="vr-compare__us">{%- if section.settings.us_label == 'Kindhand' -%}{% render 'vr-logo', variant: 'light', size: 22 %}{%- else -%}{{ section.settings.us_label }}{%- endif -%}</th>
+            <th scope="col">{{ section.settings.them_label }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row" style="font-weight:600">{{ block.settings.feature }}</th>
+              <td class="vr-compare__us">
+                {%- if block.settings.us -%}<span class="vr-yes" role="img" aria-label="Yes">{% render 'vr-icon', name: 'check', size: 16 %}</span>{%- else -%}<span class="vr-no" role="img" aria-label="No"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>{%- endif -%}
+              </td>
+              <td>
+                {%- if block.settings.them -%}<span class="vr-yes" role="img" aria-label="Yes">{% render 'vr-icon', name: 'check', size: 16 %}</span>{%- else -%}<span class="vr-no" role="img" aria-label="No"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>{%- endif -%}
+              </td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+    {%- if section.settings.button_label != blank -%}
+      <p class="vr-center" style="margin-top:32px">
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }} {% render 'vr-icon', name: 'arrow', size: 18 %}</a>
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Comparison",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Compare" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why choose Kindhand?" },
+    { "type": "text", "id": "us_label", "label": "Our column label", "default": "Kindhand" },
+    { "type": "text", "id": "them_label", "label": "Other column label", "default": "Heat packs & braces" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Try it risk-free" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "limit": 10,
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Feature" },
+        { "type": "checkbox", "id": "us", "label": "We have it", "default": true },
+        { "type": "checkbox", "id": "them", "label": "They have it", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VR Comparison",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Red + near-infrared light" } },
+        { "type": "row", "settings": { "feature": "Cordless, use anywhere" } },
+        { "type": "row", "settings": { "feature": "Adjustable intensity" } },
+        { "type": "row", "settings": { "feature": "Built-in session timer" } },
+        { "type": "row", "settings": { "feature": "Reusable every day", "them": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

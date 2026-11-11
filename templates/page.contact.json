@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "vr-page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Contact",
+        "heading": "We're here to help",
+        "text": "<p>Questions about sizing, an order or a gift? Email <a href=\"mailto:support@kindhandco.com\">support@kindhandco.com</a> and a real person will reply within one business day.</p>"
+      }
+    },
+    "contact": {
+      "type": "vr-contact",
+      "settings": {
+        "background": "white",
+        "form_heading": "Send us a message",
+        "form_text": "Include your order number for order questions so we can help faster.",
+        "email": "support@kindhandco.com",
+        "hours": "We reply within 1 business day (Mon–Fri)",
+        "track_link": "shopify://pages/track-order",
+        "faq_link": "shopify://pages/faq",
+        "phone": "",
+        "address": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "contact"
+  ]
+}

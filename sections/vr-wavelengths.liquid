@@ -1,0 +1,126 @@
+{%- liquid
+  assign img = section.settings.image
+  assign src_product = section.settings.source_product | default: product
+  if img == blank and src_product
+    assign idx = section.settings.product_image_index | minus: 1
+    assign img = src_product.media[idx].preview_image | default: src_product.featured_image
+  endif
+-%}
+<section class="vr-section vr-section--{{ section.settings.background }} vr-wl">
+  <div class="vr-container">
+    <div class="vr-center vr-wl__head" data-vr-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+
+    <div class="vr-wl__grid">
+      <div class="vr-wl__visual" data-vr-reveal>
+        <div class="vr-wl__media">
+          {%- if img != blank -%}
+            {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '600, 900, 1200' }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="vr-float vr-float--bottom">
+          <span class="vr-float__icon">{% render 'vr-icon', name: 'light', size: 20 %}</span>
+          <span>
+            <strong class="vr-float__title">{{ section.settings.badge_title }}</strong>
+            <span class="vr-float__text">{{ section.settings.badge_text }}</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="vr-wl__content" data-vr-reveal>
+        <div class="vr-wl__diagram" aria-hidden="true">
+          <div class="vr-wl__layers">
+            <span>Skin surface</span>
+            <span></span>
+            <span>Deeper tissue</span>
+          </div>
+          <div class="vr-wl__beam vr-wl__beam--red"><i></i></div>
+          <div class="vr-wl__beam vr-wl__beam--nir"><i></i></div>
+        </div>
+
+        <ul class="vr-wl__list" role="list">
+          <li>
+            <span class="vr-wl__swatch vr-wl__swatch--red"></span>
+            <div>
+              <p class="vr-wl__nm">{{ section.settings.red_nm }} <small>{{ section.settings.red_label }}</small></p>
+              <p class="vr-wl__desc">{{ section.settings.red_text }}</p>
+            </div>
+          </li>
+          <li>
+            <span class="vr-wl__swatch vr-wl__swatch--nir"></span>
+            <div>
+              <p class="vr-wl__nm">{{ section.settings.nir_nm }} <small>{{ section.settings.nir_label }}</small></p>
+              <p class="vr-wl__desc">{{ section.settings.nir_text }}</p>
+            </div>
+          </li>
+        </ul>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="vr-wl__specs" role="list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>
+                <span class="vr-wl__check">{% render 'vr-icon', name: 'check', size: 14 %}</span>
+                <span><strong>{{ block.settings.title }}</strong> {{ block.settings.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Wavelengths",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "white",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "blush", "label": "Blush" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The technology" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Two wavelengths. <em>One wrap.</em>" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "VitalRay pairs the two most-studied wavelengths in red light therapy research." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "product", "id": "source_product", "label": "Product to take the image from (when no image)" },
+    { "type": "range", "id": "product_image_index", "label": "Product image number", "min": 1, "max": 10, "step": 1, "default": 3 },
+    { "type": "text", "id": "badge_title", "label": "Image badge title", "default": "Red + near-infrared" },
+    { "type": "text", "id": "badge_text", "label": "Image badge text", "default": "Dual-chip LEDs across the wrist" },
+    { "type": "header", "content": "Red light" },
+    { "type": "text", "id": "red_nm", "label": "Wavelength", "default": "660nm" },
+    { "type": "text", "id": "red_label", "label": "Label", "default": "Red light" },
+    { "type": "text", "id": "red_text", "label": "Text", "default": "Visible red light that works close to the skin's surface." },
+    { "type": "header", "content": "Near-infrared light" },
+    { "type": "text", "id": "nir_nm", "label": "Wavelength", "default": "850nm" },
+    { "type": "text", "id": "nir_label", "label": "Label", "default": "Near-infrared" },
+    { "type": "text", "id": "nir_text", "label": "Text", "default": "Invisible near-infrared light that travels deeper into tissue than visible red light." }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec",
+      "limit": 5,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "48 LED chips" },
+        { "type": "text", "id": "text", "label": "Text", "default": "red + near-infrared" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "VR Wavelengths" }]
+}
+{% endschema %}

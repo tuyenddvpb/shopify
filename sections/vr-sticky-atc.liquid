@@ -1,0 +1,72 @@
+{%- if product and section.settings.enable -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  <div class="vr-sticky-atc" id="VrStickyAtc" aria-hidden="true">
+    <div class="vr-sticky-atc__inner">
+      <div class="vr-sticky-atc__info">
+        {%- if product.featured_image -%}
+          {{ product.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', alt: product.title }}
+        {%- endif -%}
+        <div style="min-width:0">
+          <div class="vr-sticky-atc__title">{% render 'vr-buybox', product: product, part: 'short' %}</div>
+          <div class="vr-sticky-atc__price">
+            <strong>{{ current_variant.price | money }}</strong>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              {%- assign save = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round -%}
+              <s>{{ current_variant.compare_at_price | money }}</s>
+              <span class="vr-save vr-save--sm">Save {{ save }}%</span>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      <button type="button" class="vr-btn" id="VrStickyAtcButton" tabindex="-1" {% unless current_variant.available %}disabled{% endunless %}>
+        {%- if current_variant.available -%}{{ section.settings.label }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}
+      </button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var bar = document.getElementById('VrStickyAtc');
+      var btn = document.getElementById('VrStickyAtcButton');
+      if (!bar || !btn) return;
+      // Dawn re-renders the buy box after load, so always look up the current button.
+      var getMainBtn = function () {
+        return document.querySelector('product-info product-form [type="submit"][name="add"]') ||
+          document.querySelector('product-form [type="submit"][name="add"]');
+      };
+      var show = function (visible) {
+        bar.classList.toggle('is-visible', visible);
+        bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        btn.tabIndex = visible ? 0 : -1;
+      };
+      var ticking = false;
+      var update = function () {
+        ticking = false;
+        var mainBtn = getMainBtn();
+        show(!!mainBtn && mainBtn.getBoundingClientRect().bottom < 0);
+      };
+      var onScroll = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+      btn.addEventListener('click', function () {
+        var mainBtn = getMainBtn();
+        if (mainBtn) mainBtn.click();
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VR Sticky add to cart",
+  "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "enable", "label": "Enable", "default": true },
+    { "type": "text", "id": "label", "label": "Button label", "default": "Add to cart" }
+  ],
+  "enabled_on": { "templates": ["product"] },
+  "presets": [{ "name": "VR Sticky add to cart" }]
+}
+{% endschema %}

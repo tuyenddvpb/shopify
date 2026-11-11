@@ -1,0 +1,394 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating": {
+          "type": "rating",
+          "settings": {},
+          "disabled": true
+        },
+        "vr_title": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}"
+          }
+        },
+        "perks": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'hand', size: 18 %}<span><strong>Warm to the fingertips</strong> warming wires along every finger</span></li><li>{% render 'vr-icon', name: 'check', size: 18 %}<span><strong>Thin &amp; touchscreen</strong> type, text and knit with them on</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Rechargeable</strong> 3 warmth levels</span></li></ul>"
+          }
+        },
+        "vr_price": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'price' %}"
+          }
+        },
+        "vr_bundle": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'bundle' %}"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "vr_stock": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free US shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}60-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
+          }
+        },
+        "vr_specs": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'specs' %}"
+          }
+        },
+        "guarantee": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>60-day comfort guarantee</strong>Not happy within 60 days of delivery? Email us and we'll make it right.</div></div>"
+          }
+        },
+        "tab_box": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's in the box",
+            "icon": "box",
+            "content": "<ul><li>1 pair of WarmLiners heated gloves</li><li>2 rechargeable batteries</li><li>1 charging cable</li><li>1 care card</li></ul><p><em>Please confirm the box contents against your supplier's packing list before launch.</em></p>",
+            "page": ""
+          }
+        },
+        "tab_use": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to use",
+            "icon": "stopwatch",
+            "content": "<ol><li>Charge both batteries fully before first use.</li><li>Connect a battery to each glove and press the button to turn on.</li><li>Start on the lowest warmth level and go up only if you need to.</li><li>Turn off and unplug the batteries before washing or storing.</li></ol>",
+            "page": ""
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free tracked shipping</strong> across the US.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>60-day comfort guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "tab_safety": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Safety",
+            "icon": "heart",
+            "page": "",
+            "content": "<ul><li>Start on the lowest level and check your skin often.</li><li>If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, ask your doctor before using heated products.</li><li>Do not sleep in heated gloves.</li><li>Not for children.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "rating",
+        "vr_title",
+        "perks",
+        "vr_price",
+        "vr_bundle",
+        "variant_picker",
+        "buy_buttons",
+        "vr_stock",
+        "vr_specs",
+        "guarantee",
+        "tab_box",
+        "tab_use",
+        "tab_shipping",
+        "tab_safety"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "details": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "image_ratio": "portrait",
+        "use_product_image": true,
+        "source_product": "",
+        "product_image_index": 2,
+        "eyebrow": "Meet WarmLiners",
+        "heading": "Warm hands, <em>all the way to your fingertips</em>",
+        "text": "",
+        "use_product_description": true,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "hand",
+        "card_title": "Fingertip warmth",
+        "card_text": "Wires along every finger",
+        "card_position": "bottom"
+      }
+    },
+    "lifestyle": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "sage",
+        "pattern": false,
+        "layout": "right",
+        "image": "",
+        "image_ratio": "portrait",
+        "use_product_image": false,
+        "source_product": "",
+        "product_image_index": 2,
+        "eyebrow": "Everyday comfort",
+        "heading": "Wear them all day, everywhere",
+        "text": "<p>Morning dog walks, a chilly office, the bleachers, the garden, an evening of knitting. WarmLiners are thin enough to wear on their own or under your favorite gloves.</p>",
+        "use_product_description": false,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "check",
+        "card_title": "Touchscreen",
+        "card_text": "Text without taking them off",
+        "card_position": "top"
+      }
+    },
+    "steps": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "How it works",
+        "heading": "Warm in three easy steps",
+        "subheading": "",
+        "columns": "3",
+        "numbered": true,
+        "video_ratio": "square",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "title": "Charge",
+            "text": "<p>Charge both batteries with the included cable.</p>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand",
+            "title": "Slip them on",
+            "text": "<p>Connect a battery to each glove and put them on like regular gloves.</p>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "title": "Pick your warmth",
+            "text": "<p>Press the button to choose from three warmth levels.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ]
+    },
+    "compare": {
+      "type": "vr-comparison",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Compare",
+        "heading": "WarmLiners vs. bulky heated gloves",
+        "us_label": "Kindhand",
+        "them_label": "Bulky ski gloves",
+        "button_label": "Shop WarmLiners",
+        "button_link": "/collections/all"
+      },
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature": "Warms the fingers, not only the palm",
+            "us": true,
+            "them": true
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature": "Thin enough to type and text",
+            "us": true,
+            "them": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "Fits under your everyday gloves",
+            "us": true,
+            "them": false
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature": "Sizes for smaller hands",
+            "us": true,
+            "them": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature": "Rechargeable batteries",
+            "us": true,
+            "them": true
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5"
+      ]
+    },
+    "guarantee": {
+      "type": "vr-guarantee",
+      "settings": {
+        "background": "cream",
+        "days": 60,
+        "heading": "Our 60-day comfort guarantee",
+        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
+      }
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "FAQ",
+        "heading": "Questions, answered",
+        "subheading": "Can't find what you need? Email support@kindhandco.com. We reply within one business day.",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Who are WarmLiners for?",
+            "answer": "<p>Anyone whose hands get cold first: people who feel the cold in their fingers, people with stiff hands on chilly mornings, knitters, gardeners and dog walkers. Many customers buy them as a gift for a mom or grandmother.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Will my fingertips really get warm?",
+            "answer": "<p>Yes. The warming wires run along the fingers, not only the back of the hand, so the warmth reaches your fingertips. Choose from three warmth levels.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I type and use my phone while wearing them?",
+            "answer": "<p>Yes. WarmLiners are thin and close-fitting, with touchscreen fingertips, so you can type, text and hold a coffee cup without taking them off.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "<p>It depends on the warmth level you choose: lower levels last longer. You'll find the run time for each level on the product page. Recharge the batteries with the included cable.</p>"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you have small sizes?",
+            "answer": "<p>Yes. Check the size guide on the product page and measure around your palm. If the size isn't right, email us and we'll help you exchange.</p>"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is this a medical device?",
+            "answer": "<p>No. Kindhand products are comfort wear, not medical devices. If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, please check with your doctor before using heated products, and always start on the lowest level.</p>"
+          }
+        },
+        "question_7": {
+          "type": "question",
+          "settings": {
+            "question": "What if they're not right for me?",
+            "answer": "<p>You have 60 days from delivery to try them. If you're not happy, email support@kindhandco.com and we'll help you return them for a refund. See our refund policy for details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_6",
+        "question_7"
+      ]
+    },
+    "sticky": {
+      "type": "vr-sticky-atc",
+      "settings": {
+        "enable": true,
+        "label": "Add to cart"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "details",
+    "steps",
+    "lifestyle",
+    "compare",
+    "guarantee",
+    "faq",
+    "sticky"
+  ]
+}

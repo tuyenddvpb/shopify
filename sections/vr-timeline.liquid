@@ -1,0 +1,66 @@
+<section class="vr-section vr-section--{{ section.settings.background }} vr-section--dots vr-tl">
+  <div class="vr-container" style="max-width:1000px">
+    <div class="vr-center" data-vr-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="vr-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="vr-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="vr-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <div class="vr-tl__wrap" data-vr-progress>
+    <span class="vr-tl__line" aria-hidden="true"><span class="vr-tl__fill"></span></span>
+    <ol class="vr-tl__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="vr-tl__item vr-tl__item--{% cycle 'right', 'left' %}" {{ block.shopify_attributes }} data-vr-reveal>
+          <span class="vr-tl__dot" aria-hidden="true">{% render 'vr-icon', name: 'check', size: 16 %}</span>
+          <div class="vr-tl__body">
+            <p class="vr-tl__when">{{ block.settings.when }}</p>
+            <h3 class="vr-tl__title">{{ block.settings.title }}</h3>
+            <div class="vr-tl__text">{{ block.settings.text }}</div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+    </div>
+    {%- if section.settings.footnote != blank -%}
+      <p class="vr-footnote vr-center">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Timeline",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "blush", "label": "Blush" }
+      ]
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your routine" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Building the habit" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Consistency matters more than intensity. Here's a simple way to make Kindhand part of your day." },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Everyone is different. Talk to your doctor if you have a medical condition." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "when", "label": "When", "default": "Week 1" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Get started" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<ul><li>Point one</li><li>Point two</li></ul>" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "VR Timeline" }]
+}
+{% endschema %}

@@ -1,0 +1,44 @@
+<section class="vr-section vr-section--{{ section.settings.background }}">
+  <div class="vr-container" style="max-width:900px">
+    <div class="vr-guarantee" data-vr-reveal>
+      <div class="vr-guarantee__seal" aria-hidden="true">
+        <strong>{{ section.settings.days }}</strong><span>day</span><span>guarantee</span>
+      </div>
+      <div>
+        <h2 class="vr-heading" style="font-size:clamp(2.4rem,3vw,3.2rem)">{{ section.settings.heading }}</h2>
+        <div class="vr-sub" style="margin-bottom:0">{{ section.settings.text }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Guarantee",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "number", "id": "days", "label": "Guarantee days", "default": 90, "info": "Must match your refund policy." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Try it for 90 days, risk-free" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, contact us for a full refund. See our refund policy for details.</p>"
+    }
+  ],
+  "presets": [{ "name": "VR Guarantee" }]
+}
+{% endschema %}

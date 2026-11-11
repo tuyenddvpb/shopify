@@ -1,0 +1,26 @@
+{%- comment -%}
+  Kindhand Co. logo: terracotta mitten mark with a small heart + "Kindhand" + small "CO.".
+  (Snippet keeps the vr- name so existing header/footer/comparison code keeps working.)
+  Accepts: variant ('dark' default | 'light'), size (font size in px, default 30)
+{%- endcomment -%}
+{%- liquid
+  assign size = size | default: 30
+  assign mark = size | times: 1.15 | round
+  assign ink = '#3B2A33'
+  assign ray = '#C4673F'
+  assign cuff = '#3B2A33'
+  if variant == 'light'
+    assign ink = '#FBF6EF'
+    assign ray = '#E9C9B8'
+    assign cuff = '#E9C9B8'
+  endif
+-%}
+<span class="vr-logo" style="--vr-logo-size: {{ size }}px; --vr-logo-ink: {{ ink }}; --vr-logo-ray: {{ ray }};">
+  <svg class="vr-logo__mark" viewBox="12 10 38 48" width="{{ mark }}" height="{{ mark }}" aria-hidden="true" focusable="false">
+    <ellipse cx="19" cy="35" rx="5.5" ry="10" transform="rotate(-28 19 35)" fill="#C4673F"/>
+    <path d="M22 50 V27 C22 12 44 12 44 27 V50 Z" fill="#C4673F"/>
+    <rect x="20" y="47" width="26" height="9" rx="3" fill="{{ cuff }}"/>
+    <path d="M33 38.5 C26.5 34 27.5 27.5 33 30.2 C38.5 27.5 39.5 34 33 38.5 Z" fill="#FBF6EF"/>
+  </svg>
+  <span class="vr-logo__word">Kindhand<span class="vr-logo__ray">CO.</span></span>
+</span>

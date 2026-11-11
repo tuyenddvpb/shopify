@@ -1,0 +1,66 @@
+<section class="vr-section vr-section--tight vr-section--{{ section.settings.background }} vr-trustbar">
+  <div class="vr-container">
+    <ul class="vr-trustbar__list" role="list" data-vr-reveal-group>
+      {%- for block in section.blocks -%}
+        <li class="vr-trustbar__item" {{ block.shopify_attributes }} data-vr-reveal>
+          <span class="vr-icon">{% render 'vr-icon', name: block.settings.icon, size: 20 %}</span>
+          <span class="vr-trustbar__text">
+            <strong>{{ block.settings.text }}</strong>
+            {%- if block.settings.subtext != blank -%}<span>{{ block.settings.subtext }}</span>{%- endif -%}
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Trust bar",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon name",
+          "default": "shield",
+          "info": "shield, truck, lock, chat, clock, battery, hand, light, return, check, star, leaf, box, heart, bolt, sparkle, mail"
+        },
+        { "type": "text", "id": "text", "label": "Title", "default": "Free shipping" },
+        { "type": "text", "id": "subtext", "label": "Subtitle" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VR Trust bar",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "shield", "text": "90-Day", "subtext": "Money-back guarantee" } },
+        { "type": "item", "settings": { "icon": "truck", "text": "Free tracked", "subtext": "Shipping" } },
+        { "type": "item", "settings": { "icon": "lock", "text": "Secure", "subtext": "Checkout" } },
+        { "type": "item", "settings": { "icon": "chat", "text": "Real human", "subtext": "Support" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

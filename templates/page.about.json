@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "vr-page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Our story",
+        "heading": "Kind to hands that do so much",
+        "text": "<p>Kindhand started with a simple question: why are heated gloves made for ski slopes, when so many of us just want warm fingers on a morning walk or at our desk?</p>",
+        "button_label": "Shop WarmLiners",
+        "button_link": "/collections/all"
+      }
+    },
+    "mission": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "image_ratio": "portrait",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "eyebrow": "What we make",
+        "heading": "Thin, gentle comfort wear",
+        "text": "<p>We design everyday comfort wear for hands that get cold, stiff or tired: heated glove liners thin enough to type in, soft compression gloves for busy days and gentle sleeves for restful nights.</p><p>Everything is chosen to be simple to use, comfortable to wear for hours and easy to give as a gift.</p>",
+        "use_product_description": false,
+        "button_label": "",
+        "button_link": "",
+        "card_icon": "heart",
+        "card_title": "Made to be worn",
+        "card_text": "Every day, all winter",
+        "card_position": "bottom"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "promise": {
+      "type": "vr-features",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Why Kindhand",
+        "heading": "Made for hands that feel the cold first",
+        "subheading": "Most heated gloves are built for ski slopes. WarmLiners are built for everyday life.",
+        "columns": "3",
+        "numbered": false,
+        "video_ratio": "square",
+        "button_label": "Shop WarmLiners",
+        "button_link": "/collections/all"
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand",
+            "title": "Warmth to the fingertips",
+            "text": "<p>Warming wires run along every finger, so the warmth reaches the places that get cold first.</p>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Thin enough to type",
+            "text": "<p>A slim, close fit with touchscreen fingertips. Wear them at your desk, on a walk or with your knitting.</p>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Sized for real hands",
+            "text": "<p>Sizes from extra small, so they fit smaller hands without baggy fingertips.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ]
+    },
+    "guarantee": {
+      "type": "vr-guarantee",
+      "settings": {
+        "background": "cream",
+        "days": 60,
+        "heading": "Our 60-day comfort guarantee",
+        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "mission",
+    "promise",
+    "guarantee"
+  ]
+}

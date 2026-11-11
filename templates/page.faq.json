@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "vr-page-hero",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Help",
+        "heading": "Frequently asked questions",
+        "text": "<p>Quick answers about WarmLiners, sizing, shipping and returns. Still stuck? Email <a href=\"mailto:support@kindhandco.com\">support@kindhandco.com</a>.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "white",
+        "eyebrow": "FAQ",
+        "heading": "Everything you need to know",
+        "subheading": "Can't find what you need? Email support@kindhandco.com. We reply within one business day.",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      },
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Who are WarmLiners for?",
+            "answer": "<p>Anyone whose hands get cold first: people who feel the cold in their fingers, people with stiff hands on chilly mornings, knitters, gardeners and dog walkers. Many customers buy them as a gift for a mom or grandmother.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Will my fingertips really get warm?",
+            "answer": "<p>Yes. The warming wires run along the fingers, not only the back of the hand, so the warmth reaches your fingertips. Choose from three warmth levels.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I type and use my phone while wearing them?",
+            "answer": "<p>Yes. WarmLiners are thin and close-fitting, with touchscreen fingertips, so you can type, text and hold a coffee cup without taking them off.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "<p>It depends on the warmth level you choose: lower levels last longer. You'll find the run time for each level on the product page. Recharge the batteries with the included cable.</p>"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you have small sizes?",
+            "answer": "<p>Yes. Check the size guide on the product page and measure around your palm. If the size isn't right, email us and we'll help you exchange.</p>"
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "Is this a medical device?",
+            "answer": "<p>No. Kindhand products are comfort wear, not medical devices. If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, please check with your doctor before using heated products, and always start on the lowest level.</p>"
+          }
+        },
+        "question_7": {
+          "type": "question",
+          "settings": {
+            "question": "What if they're not right for me?",
+            "answer": "<p>You have 60 days from delivery to try them. If you're not happy, email support@kindhandco.com and we'll help you return them for a refund. See our refund policy for details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_6",
+        "question_7"
+      ]
+    },
+    "guarantee": {
+      "type": "vr-guarantee",
+      "settings": {
+        "background": "cream",
+        "days": 60,
+        "heading": "Our 60-day comfort guarantee",
+        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "faq",
+    "guarantee"
+  ]
+}

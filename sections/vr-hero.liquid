@@ -1,0 +1,134 @@
+<section class="vr-section vr-section--{{ section.settings.background }} vr-hero">
+  <div class="vr-container vr-hero__grid">
+    <div class="vr-hero__content" data-vr-reveal>
+      {%- if section.settings.trust_text != blank -%}
+        <div class="vr-hero__trust"><span class="vr-hero__trust-dot" aria-hidden="true"></span>{{ section.settings.trust_text }}</div>
+      {%- endif -%}
+      <h1 class="vr-heading vr-hero__title">{{ section.settings.heading }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <div class="vr-sub">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="vr-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          <span>{{ section.settings.button_label }}</span>{% render 'vr-icon', name: 'arrow', size: 18 %}
+        </a>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="vr-hero__checks" role="list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="vr-hero__check-icon">{% render 'vr-icon', name: block.settings.icon, size: 16 %}</span>
+              {{ block.settings.text }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <div class="vr-hero__visual" data-vr-reveal>
+      <div class="vr-hero__glow" aria-hidden="true"></div>
+      <div class="vr-hero__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400'
+          }}
+        {%- elsif section.settings.product != blank and section.settings.product.featured_image -%}
+          {{
+            section.settings.product.featured_image
+            | image_url: width: 1400
+            | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', widths: '600, 900, 1200, 1400', alt: section.settings.product.title
+          }}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.card_title != blank -%}
+        <div class="vr-float vr-float--top">
+          <span class="vr-float__icon">{% render 'vr-icon', name: section.settings.card_icon, size: 20 %}</span>
+          <span>
+            <strong class="vr-float__title">{{ section.settings.card_title }}</strong>
+            <span class="vr-float__text">{{ section.settings.card_text }}</span>
+          </span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.pill_text != blank -%}
+        <div class="vr-float vr-float--pill">
+          <span class="vr-float__dot" aria-hidden="true"></span>{{ section.settings.pill_text }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VR Hero",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "default": "cream",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "sage", "label": "Sage" },
+        { "value": "white", "label": "White" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    { "type": "text", "id": "trust_text", "label": "Trust line", "default": "Designed for everyday hand & wrist comfort" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Gentle red light care for <em>hard-working hands</em>" },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>A cordless red & near-infrared light wrap you can use at home, at your desk or on the couch — just 15 minutes a day.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Kindhand" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Fallback product",
+      "info": "If no image is selected, the product's main image is shown."
+    },
+    { "type": "header", "content": "Floating cards" },
+    {
+      "type": "text",
+      "id": "card_icon",
+      "label": "Card icon",
+      "default": "clock",
+      "info": "shield, truck, lock, chat, clock, battery, hand, light, return, check, star, leaf, box, heart, bolt, sparkle, mail"
+    },
+    { "type": "text", "id": "card_title", "label": "Card title", "default": "15 min" },
+    { "type": "text", "id": "card_text", "label": "Card text", "default": "Daily session" },
+    { "type": "text", "id": "pill_text", "label": "Pill text", "default": "Free tracked shipping" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Check item",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon name", "default": "check" },
+        { "type": "text", "id": "text", "label": "Text", "default": "90-day guarantee" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VR Hero",
+      "blocks": [
+        { "type": "badge", "settings": { "icon": "check", "text": "Cordless & rechargeable" } },
+        { "type": "badge", "settings": { "icon": "check", "text": "90-day guarantee" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
