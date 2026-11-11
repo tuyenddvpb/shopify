@@ -759,10 +759,10 @@ a.vr-infocard:hover { transform: translateY(-2px); border-color: rgba(196,80,47,
 .main-page-title { font-family: var(--font-heading-family); font-weight: 340; letter-spacing: -0.02em; }
 
 /* C11 — Judge.me review widget, brand styling */
-.jdgm-widget { --jdgm-primary-color: #c4502f; font-family: var(--font-body-family) !important; }
+.jdgm-widget { --jdgm-primary-color: #C4673F; font-family: var(--font-body-family) !important; }
 .jdgm-rev-widg { background: transparent !important; }
 .jdgm-rev-widg__title { font-family: var(--font-heading-family) !important; font-weight: 380 !important; font-size: clamp(2.8rem, 3.6vw, 4.2rem) !important; text-align: center; }
-.jdgm-star { color: #e2674a !important; }
+.jdgm-star { color: #C4673F !important; }
 .jdgm-rev { background: #fff; border: 1px solid var(--vr-line) !important; border-radius: 16px; padding: 20px 22px !important; margin-bottom: 14px;
   box-shadow: 0 14px 30px -24px rgba(31,42,39,.4); }
 .jdgm-rev__title { font-weight: 700; color: var(--vr-ink); }
