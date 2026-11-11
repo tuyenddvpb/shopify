@@ -145,6 +145,7 @@
     },
     "shop": {
       "type": "vr-category-cards",
+      "disabled": true,
       "settings": {
         "background": "sage",
         "eyebrow": "Shop",

@@ -924,3 +924,10 @@ body { font-size: 1.7rem; }
 .vr-sub, .rte p { line-height: 1.65; }
 .vr-logo__word { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-style: normal; letter-spacing: 0.005em; }
 .vr-logo__ray { font-style: normal; font-size: 0.55em; letter-spacing: 0.12em; margin-left: 0.3em; vertical-align: 0.15em; }
+
+/* Kindhand: keep the wordmark on one line on small screens */
+.vr-logo__word { white-space: nowrap; }
+@media screen and (max-width: 749px) {
+  .header .vr-logo { --vr-logo-size: 21px !important; gap: 5px; }
+  .header .vr-logo__mark { width: 22px; height: 22px; }
+}
