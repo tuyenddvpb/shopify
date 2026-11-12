@@ -931,3 +931,15 @@ body { font-size: 1.7rem; }
   .header .vr-logo { --vr-logo-size: 21px !important; gap: 5px; }
   .header .vr-logo__mark { width: 22px; height: 22px; }
 }
+
+/* Kindhand: Judge.me (new "jm-" widget) in brand colors */
+.jdgm-review-widget, .jdgm-review-widget * {
+  --jm-review-widget-button-color: #B0562F !important;
+  --jm-review-widget-button-text-color: #FFFFFF !important;
+  --jm-review-widget-form-button-color: #B0562F !important;
+  --jm-review-widget-star-and-histogram-color: #C4673F !important;
+  --jm-review-widget-text-color: #3B2A33 !important;
+}
+.jdgm-review-widget .jm-review-widget-minimal-header__title {
+  font-family: var(--font-heading-family) !important; font-size: clamp(2.6rem, 3.4vw, 3.8rem) !important; color: #3B2A33;
+}
