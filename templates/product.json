@@ -104,8 +104,8 @@
           "settings": {
             "heading": "Safety",
             "icon": "heart",
-            "page": "",
-            "content": "<ul><li>Start on the lowest level and check your skin often.</li><li>If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, ask your doctor before using heated products.</li><li>Do not sleep in heated gloves.</li><li>Not for children.</li></ul>"
+            "content": "<ul><li>Start on the lowest level and check your skin often.</li><li>If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, ask your doctor before using heated products.</li><li>Do not sleep in heated gloves.</li><li>Not for children.</li></ul>",
+            "page": ""
           }
         }
       },
@@ -188,17 +188,6 @@
     },
     "steps": {
       "type": "vr-features",
-      "settings": {
-        "background": "white",
-        "eyebrow": "How it works",
-        "heading": "Warm in three easy steps",
-        "subheading": "",
-        "columns": "3",
-        "numbered": true,
-        "video_ratio": "square",
-        "button_label": "",
-        "button_link": ""
-      },
       "blocks": {
         "feature_1": {
           "type": "feature",
@@ -229,19 +218,21 @@
         "feature_1",
         "feature_2",
         "feature_3"
-      ]
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "How it works",
+        "heading": "Warm in three easy steps",
+        "subheading": "",
+        "columns": "3",
+        "numbered": true,
+        "video_ratio": "square",
+        "button_label": "",
+        "button_link": ""
+      }
     },
     "compare": {
       "type": "vr-comparison",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Compare",
-        "heading": "WarmLiners vs. bulky heated gloves",
-        "us_label": "Kindhand",
-        "them_label": "Bulky ski gloves",
-        "button_label": "Shop WarmLiners",
-        "button_link": "/collections/all"
-      },
       "blocks": {
         "row_1": {
           "type": "row",
@@ -290,7 +281,16 @@
         "row_3",
         "row_4",
         "row_5"
-      ]
+      ],
+      "settings": {
+        "background": "white",
+        "eyebrow": "Compare",
+        "heading": "WarmLiners vs. bulky heated gloves",
+        "us_label": "Kindhand",
+        "them_label": "Bulky ski gloves",
+        "button_label": "Shop WarmLiners",
+        "button_link": "/collections/all"
+      }
     },
     "guarantee": {
       "type": "vr-guarantee",
@@ -303,14 +303,6 @@
     },
     "faq": {
       "type": "vr-faq",
-      "settings": {
-        "background": "cream",
-        "eyebrow": "FAQ",
-        "heading": "Questions, answered",
-        "subheading": "Can't find what you need? Email support@kindhandco.com. We reply within one business day.",
-        "button_label": "Contact us",
-        "button_link": "shopify://pages/contact"
-      },
       "blocks": {
         "question_1": {
           "type": "question",
@@ -370,23 +362,18 @@
         "question_5",
         "question_6",
         "question_7"
-      ]
+      ],
+      "settings": {
+        "background": "cream",
+        "eyebrow": "FAQ",
+        "heading": "Questions, answered",
+        "subheading": "Can't find what you need? Email support@kindhandco.com. We reply within one business day.",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      }
     },
     "reviews": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_Kh01": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_Kh01"
-      ],
       "settings": {
         "include_margins": true
       }
