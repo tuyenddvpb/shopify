@@ -6,9 +6,9 @@
         "background": "cream",
         "eyebrow": "Orders",
         "heading": "Track your <em>order</em>",
-        "text": "<p>Your tracking link is in your shipping confirmation email. You can also log in to see your order status anytime.</p>",
-        "button_label": "Log in to your account",
-        "button_link": "/account"
+        "text": "<p>Enter your order number and email, or your tracking number, to see where your package is. Your tracking number is also in your shipping confirmation email.</p>",
+        "button_label": "Track my order",
+        "button_link": "/apps/17TRACK"
       }
     },
     "steps": {
