@@ -6,7 +6,7 @@ import time
 import urllib.request
 from collections import OrderedDict
 
-from .util import domain_of, is_excluded, log
+from .util import Watch, domain_of, is_excluded, log
 
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -85,19 +85,33 @@ def _with_deadline(fn, arg, seconds):
     return box["v"]
 
 
+PROBE_JS = "() => ({shop: (" + SHOPIFY_JS.strip() + ")(), mys: (" + MYSHOPIFY_JS + ")()})"
+
+
 def chrome_check(context, url, timeout_ms=20000):
     page = context.new_page()
+    page.set_default_timeout(timeout_ms)
+    page.on("dialog", _dismiss)
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
         page.wait_for_timeout(2000)
-        shop = bool(page.evaluate(SHOPIFY_JS))
-        mys = (page.evaluate(MYSHOPIFY_JS) or "").lower() if shop else ""
+        # wait_for_function honours the timeout; a plain evaluate() can wait forever
+        probe = page.wait_for_function(PROBE_JS, timeout=timeout_ms).json_value()
+        shop = bool(probe.get("shop"))
+        mys = (probe.get("mys") or "").lower() if shop else ""
         return page.url, shop, "kiểm tra bằng Chrome", mys
     finally:
         try:
-            page.close()
+            page.close(run_before_unload=False)
         except Exception:  # noqa: BLE001
             pass
+
+
+def _dismiss(dialog):
+    try:
+        dialog.dismiss()
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def check(url, context=None):
@@ -159,7 +173,7 @@ def resolve_all(db, groups, cfg, context):
                 break
             except queue.Empty:  # short waits keep Ctrl+C working
                 continue
-        if needs_chrome and context is not None:
+        if needs_chrome and context is not None and cfg.get("store_check_chrome", True):
             chrome_queue.append((d, url, final, shop, note))
             log(f"  [{i}/{len(todo)}] {d}: chưa rõ ({note}), sẽ thử bằng Chrome")
             continue
@@ -169,7 +183,8 @@ def resolve_all(db, groups, cfg, context):
     for j, (d, url, final, shop, note) in enumerate(chrome_queue, 1):
         log(f"  Chrome [{j}/{len(chrome_queue)}] {d}...")
         try:
-            final, shop, note, mys = chrome_check(context, url, cfg["store_check_timeout"] * 1000)
+            with Watch(f"mở {d} bằng Chrome"):
+                final, shop, note, mys = chrome_check(context, url, cfg["store_check_timeout"] * 1000)
         except Exception as e:  # noqa: BLE001
             shop = shop if shop is False else None
             note, mys = f"{note}; Chrome: {e.__class__.__name__}", ""

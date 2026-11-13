@@ -8,7 +8,8 @@ from pathlib import Path
 
 from . import config as config_mod
 from .db import DB
-from .util import domain_of, log, pause
+from . import util
+from .util import Watch, domain_of, log, pause
 
 
 def _open(path):
@@ -58,6 +59,9 @@ def cmd_run(args, cfg):
         cfg["max_stores_per_run"] = args.max_stores
 
     data = Path(cfg["data_dir"])
+    util.DEBUG_DIR = data / "debug"
+    if args.no_chrome_check:
+        cfg["store_check_chrome"] = False
     db = DB(data)
     done = set()
     if args.resume:
@@ -87,7 +91,8 @@ def cmd_run(args, cfg):
                 for i, kw in enumerate(todo_kw, 1):
                     log(f"[{len(done) + i}/{len(keywords)}]")
                     try:
-                        ads = adlibrary.search(page, kw, cfg, data / "shots", data / "debug")
+                        with Watch(f"Ad Library '{kw}'"):
+                            ads = adlibrary.search(page, kw, cfg, data / "shots", data / "debug")
                     except Exception as e:  # noqa: BLE001
                         log(f"  Lỗi khi tìm '{kw}': {e} (chạy lại với --resume để thử lại)")
                         continue
@@ -119,8 +124,9 @@ def cmd_run(args, cfg):
                             continue
                         target = domain_of(info[d]["final_url"] or "") or d
                         log(f"ShopHunter: {target} ({len(groups[d])} ad)")
-                        res = shophunter.analyze(context, target, cfg, data / "shophunter", data / "debug",
-                                                 myshopify=info[d].get("myshopify") or "")
+                        with Watch(f"ShopHunter {target}", dump_after=cfg["shophunter_wait_seconds"] + 120):
+                            res = shophunter.analyze(context, target, cfg, data / "shophunter", data / "debug",
+                                                     myshopify=info[d].get("myshopify") or "")
                         db.save_shophunter(d, res)
                         log(f"  -> {res['status']}" + (f" ({res['error']})" if res.get("error") else ""))
                         done += 1
@@ -185,6 +191,8 @@ def main(argv=None):
     r.add_argument("--max-ads", type=int, help="số ad tối đa mỗi từ khóa")
     r.add_argument("--max-stores", type=int, help="số store tối đa tra ShopHunter")
     r.add_argument("--no-shophunter", action="store_true", help="chỉ lấy ads, không tra ShopHunter")
+    r.add_argument("--no-chrome-check", action="store_true",
+                   help="không mở Chrome khi kiểm tra store lỗi (store đó ghi 'chưa rõ')")
     r.add_argument("--refresh", action="store_true", help="tra lại ShopHunter dù đã có dữ liệu gần đây")
     r.add_argument("--no-open", action="store_true", help="không tự mở report")
     r.set_defaults(func=cmd_run)

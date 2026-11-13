@@ -29,6 +29,7 @@ DEFAULTS = {
     "store_check_hours": 72,
     "store_check_workers": 8,            # parallel HTTP checks
     "store_check_timeout": 20,           # seconds per store, hard limit
+    "store_check_chrome": True,          # open Chrome for stores the plain check couldn't load
     "exclude_domains": [
         "facebook.com", "fb.com", "fb.me", "instagram.com", "messenger.com",
         "whatsapp.com", "amazon.com", "amzn.to", "walmart.com", "ebay.com",

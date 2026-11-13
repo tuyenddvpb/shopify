@@ -1,13 +1,54 @@
 """Small helpers shared by the pipeline steps."""
+import faulthandler
 import random
 import re
+import threading
 import time
 from datetime import date, datetime
+from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 
 def log(msg):
     print(f"[{datetime.now():%H:%M:%S}] {msg}", flush=True)
+
+
+DEBUG_DIR = None  # set by the CLI; where hang reports go
+
+
+class Watch:
+    """Log every 30s while a step runs; after 3 minutes save all stack traces
+    to data/debug/hang-*.txt so we can see exactly where it is stuck."""
+
+    def __init__(self, label, every=30, dump_after=180):
+        self.label, self.every, self.dump_after = label, every, dump_after
+        self._stop = threading.Event()
+
+    def __enter__(self):
+        self._t0 = time.monotonic()
+        threading.Thread(target=self._run, daemon=True).start()
+        return self
+
+    def __exit__(self, *exc):
+        self._stop.set()
+        return False
+
+    def _run(self):
+        dumped = False
+        while not self._stop.wait(self.every):
+            secs = int(time.monotonic() - self._t0)
+            log(f"  ... vẫn đang chờ: {self.label} ({secs}s)")
+            if not dumped and secs >= self.dump_after and DEBUG_DIR:
+                dumped = True
+                try:
+                    Path(DEBUG_DIR).mkdir(parents=True, exist_ok=True)
+                    path = Path(DEBUG_DIR) / f"hang-{datetime.now():%Y%m%d-%H%M%S}.txt"
+                    with open(path, "w", encoding="utf-8") as f:
+                        f.write(f"Treo ở: {self.label} ({secs}s)\n\n")
+                        faulthandler.dump_traceback(file=f, all_threads=True)
+                    log(f"  Đã lưu vị trí treo vào {path}. Gửi file này để sửa.")
+                except Exception as e:  # noqa: BLE001
+                    log(f"  Không lưu được vị trí treo: {e}")
 
 
 def pause(cfg):

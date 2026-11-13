@@ -89,6 +89,7 @@ Tùy chọn hay dùng:
 | `--refresh` | tra lại ShopHunter dù store đã tra trong 24 giờ qua |
 | `--file keywords.txt` | đọc từ khóa từ file |
 | `--resume` | chạy tiếp lượt gần nhất |
+| `--no-chrome-check` | không mở Chrome để kiểm tra store lỗi (nhanh hơn, store đó ghi "chưa rõ") |
 | `python -m adsfinder report` | xuất lại report lượt gần nhất (`--run 5` cho lượt số 5) |
 | `python -m adsfinder report --days 7` | gộp các lượt trong 7 ngày qua |
 | `report --embed` / `--no-embed` | nhúng ảnh vào HTML / lưu ảnh ra `reports\assets\` |
@@ -116,6 +117,8 @@ Nhấn `Ctrl+C` để dừng giữa chừng: app vẫn xuất report với dữ 
 ## Khi có lỗi
 
 Mỗi khi không đọc được trang, app lưu ảnh chụp và HTML của trang vào `data/debug/`. Facebook và ShopHunter hay đổi giao diện: gửi các file đó để sửa phần đọc trang. Phần này nằm trong `adsfinder/adlibrary.py` (`EXTRACT_JS`) và `adsfinder/shophunter.py` (`STATE_JS`, `BOXES_JS`).
+
+Nếu một bước chạy lâu, cứ 30 giây app in dòng `... vẫn đang chờ: ...`. Sau 3 phút ở cùng một bước, app ghi file `data/debug/hang-*.txt` cho biết chính xác chỗ đang kẹt. Gửi file đó để sửa, rồi dừng bằng `Ctrl+C` và chạy `--resume`.
 
 Gặp yêu cầu đăng nhập hoặc captcha, app dừng lại và chờ bạn xử lý trong cửa sổ Chrome rồi nhấn Enter.
 
