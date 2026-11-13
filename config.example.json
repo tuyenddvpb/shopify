@@ -1,0 +1,12 @@
+{
+  "country": "US",
+  "keywords": ["posture corrector", "pet hair remover"],
+  "media_type": "video",
+  "max_ads_per_keyword": 40,
+  "min_days_running": 0,
+  "max_stores_per_run": 15,
+  "shophunter_wait_seconds": 180,
+  "shophunter_cache_hours": 24,
+  "delay_seconds": [2, 5],
+  "cdp_url": "http://127.0.0.1:9222"
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><body>
+<h1>Track a shop</h1>
+<form id="f"><label for="u">Shopify Store URL</label> <input id="u" type="text" placeholder="https://example.com"> <button type="submit">Track shop</button></form>
+<table id="t"><tr><td>other-shop.com</td><td><button>Tracked</button></td><td><a href="/shop/999">View shop</a></td></tr></table>
+<div id="status"></div>
+<script>
+document.getElementById('f').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = document.getElementById('u').value.replace(/^https?:\/\//,'').replace(/\/.*$/,'');
+  if (document.getElementById('status').textContent) return;
+  document.getElementById('status').textContent = 'Analyzing...';
+  setTimeout(() => {
+    document.getElementById('status').textContent = '';
+    document.getElementById('t').insertAdjacentHTML('afterbegin', `<tr><td>${v}</td><td><button>Tracked</button></td><td><a href="/shop/1" target="_blank">View shop</a></td></tr>`);
+  }, 2500);
+});
+</script></body></html>

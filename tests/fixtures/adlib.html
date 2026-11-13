@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><body>
+<div id="root"><div class="results">~3 results</div><div id="grid"></div></div>
+<script>
+const ads = [
+  {id:'1111111111', d:'Sep 1, 2026', page:'Comfy Posture', v:3, u:'STORE/products/posture-pro'},
+  {id:'2222222222', d:'Oct 20, 2026', page:'Comfy Posture', v:1, u:'STORE/products/posture-pro?utm=fb'},
+  {id:'3333333333', d:'Nov 10, 2026', page:'Big Mall', v:1, u:'https://www.amazon.com/dp/X'},
+];
+const store = location.origin + '/store';
+function card(a){
+  return `<div class="x1"><div class="x2"><div><span>Active</span></div>
+   <div><span>Library ID: ${a.id}</span></div>
+   <div><span>Started running on ${a.d}</span></div>
+   ${a.v>1?`<div><span>${a.v} ads use this creative and text</span></div>`:''}
+   <div><a href="https://www.facebook.com/ads/library/?id=${a.id}">See ad details</a></div></div>
+   <div class="x3"><a href="https://www.facebook.com/100${a.id}/">${a.page}</a><div>Sponsored</div>
+   <div>Fix your posture in 7 days. ${a.page} best seller.</div>
+   <video src="data:video/mp4;base64,AAAA" poster="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="300" height="300"></video>
+   <a href="https://l.facebook.com/l.php?u=${encodeURIComponent(a.u.replace('STORE', store))}&h=abc">Shop now</a></div></div>`;
+}
+let shown = 0;
+function more(n){ const g=document.getElementById('grid'); for(let i=0;i<n && shown<ads.length;i++) g.insertAdjacentHTML('beforeend', card(ads[shown++])); }
+setTimeout(() => more(2), 300);
+addEventListener('scroll', () => setTimeout(() => more(5), 200));
+</script>
+<div style="height:3000px"></div>
+</body></html>
