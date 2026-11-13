@@ -30,12 +30,28 @@ class UtilTests(unittest.TestCase):
 
 
 class ParseTests(unittest.TestCase):
-    def test_box_pairs(self):
+    def test_box_pairs_label_first(self):
         text = "Revenue Performance\nMonthly Revenue\n$45.2K\n+12%\nDaily Revenue\n$1,507\nStatus: Active\nGrowing fast"
         self.assertEqual(
             box_pairs(text, "Revenue Performance"),
-            [["Monthly Revenue", "$45.2K (+12%)"], ["Daily Revenue", "$1,507"], ["Status", "Active"], ["", "Growing fast"]],
+            [["Monthly Revenue", "$45.2K", "+12%"], ["Daily Revenue", "$1,507", ""], ["Status", "Active", ""],
+             ["", "Growing fast", ""]],
         )
+
+    def test_box_pairs_value_first(self):
+        # what ShopHunter's View Shop page actually prints
+        text = ("Revenue Performance\n$2197.60\n+109.7 (+5.3%)\nDay\n$15K\n-40K (-71.5%)\nWeek\n"
+                "$159K\n-6747.1 (-4%)\nMonth")
+        self.assertEqual(box_pairs(text, "Revenue Performance"), [
+            ["Day", "$2197.60", "+109.7 (+5.3%)"], ["Week", "$15K", "-40K (-71.5%)"], ["Month", "$159K", "-6747.1 (-4%)"]])
+        text = "Store Overview\nUS\nCountry\n6/12/2024\nStore Creation Date\n9\nSKUs\n7 users\nTracked by"
+        self.assertEqual(box_pairs(text, "Store Overview"), [
+            ["Country", "US", ""], ["Store Creation Date", "6/12/2024", ""], ["SKUs", "9", ""], ["Tracked by", "7 users", ""]])
+
+    def test_revenue_pick(self):
+        from adsfinder.report import _revenue
+        self.assertEqual(_revenue({"Revenue Performance": [["Day", "$2197.60", ""], ["Week", "$15K", ""], ["Month", "$159K", ""]]}), 159000)
+        self.assertAlmostEqual(_revenue({"Revenue Performance": [["Day", "$100", ""]]}), 3000)
 
     def test_shopify_detection(self):
         self.assertTrue(stores.shopify_in('<script src="https://cdn.shopify.com/x.js">', {}))

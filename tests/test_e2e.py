@@ -138,14 +138,18 @@ class EndToEnd(unittest.TestCase):
         self.assertTrue(nb["shop_url"].endswith("/shop/nobtn.test"), nb["shop_url"])
 
         boxes = json.loads(sh["boxes_json"])
-        self.assertIn(["Monthly Revenue", "$45.2K (+12%)"], boxes["Revenue Performance"]["pairs"])
-        self.assertIn(["Products", "24"], boxes["Store Overview"]["pairs"])
+        self.assertIn(["Month", "$45.2K", "+5K (+12%)"], boxes["Revenue Performance"]["pairs"])
+        self.assertIn(["Country", "US", ""], boxes["Store Overview"]["pairs"])
+        self.assertIn(["SKUs", "24", ""], boxes["Store Overview"]["pairs"])
         self.assertNotIn("Top Products", boxes["Revenue Trends"]["text"])
         self.assertIn("Revenue Trends", json.loads(sh["images_json"]))
 
         report = Path(db.get_run(1)["report_path"])
         html = report.read_text(encoding="utf-8")
         self.assertIn("45.2K", html)
+        data = json.loads(html.split('id="data">')[1].split("</script>")[0].replace("<\\/", "</"))
+        self.assertEqual({s["domain"] for s in data["stores"]}, {"posture.test", "zenblux.test", "nobtn.test"})
+        self.assertEqual(next(s for s in data["stores"] if s["domain"] == "posture.test")["revenue"], 45200)
         self.assertIn("data:image", html)
         if os.environ.get("REPORT_OUT"):
             shutil.copy(report, os.environ["REPORT_OUT"])

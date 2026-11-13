@@ -4,9 +4,10 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from .textparse import box_pairs
 from .util import days_since, money_to_float
 
-ADS_PER_STORE = 3
+ADS_PER_STORE = 4
 
 
 def _b64_file(path):
@@ -17,53 +18,61 @@ def _b64_file(path):
 
 
 def _revenue(boxes):
-    """Best guess at monthly revenue for sorting."""
-    best = None
-    for box in (boxes or {}).values():
-        for label, value in box.get("pairs", []):
-            if "revenue" in label.lower() and "$" in value:
-                v = money_to_float(value)
-                if v is not None:
-                    if "month" in label.lower() or "30" in label:
-                        return v
-                    best = best if best is not None else v
-    return best
+    """Monthly revenue for sorting: 'Month' in a revenue box, else week x 4.3, else day x 30."""
+    found = {}
+    for name, rows in boxes.items():
+        for label, value, *_ in rows:
+            lab = label.lower()
+            if "revenue" not in name.lower() and "revenue" not in lab:
+                continue
+            v = money_to_float(value) if "$" in value else None
+            if v is None:
+                continue
+            for key, mult in (("month", 1), ("week", 4.3), ("day", 30), ("daily", 30)):
+                if key in lab:
+                    found.setdefault(key, v * mult)
+                    break
+    for key in ("month", "week", "day", "daily"):
+        if key in found:
+            return found[key]
+    return None
 
 
-def collect(db, run_id):
+def collect(db, run_id, shopify_only=True):
     ads = [dict(a) for a in db.run_ads(run_id)]
     stores = {}
     for ad in ads:
-        d = ad["domain"] or ""
-        stores.setdefault(d, []).append(ad)
+        if ad["domain"]:
+            stores.setdefault(ad["domain"], []).append(ad)
     out = []
     for domain, items in stores.items():
+        store = db.get_store(domain)
+        if shopify_only and not (store and store["is_shopify"] == 1):
+            continue
         items.sort(key=lambda a: a["started"] or "9999")
-        store = db.get_store(domain) if domain else None
-        sh = db.get_shophunter(domain) if domain else None
-        boxes = json.loads(sh["boxes_json"]) if sh and sh["boxes_json"] else {}
+        sh = db.get_shophunter(domain)
+        raw = json.loads(sh["boxes_json"]) if sh and sh["boxes_json"] else {}
+        # re-parse stored text so parser fixes apply to old runs too
+        boxes = {k: box_pairs(v.get("text", ""), k) for k, v in raw.items()}
         images = json.loads(sh["images_json"]) if sh and sh["images_json"] else {}
         earliest = items[0]["started"]
         kws = sorted({k for a in items for k in (a["run_keywords"] or "").split("|") if k})
         out.append({
             "domain": domain,
             "store_url": (store["final_url"] if store else None) or (items[0]["link_url"] or ""),
-            "is_shopify": store["is_shopify"] if store else None,
             "keywords": kws,
             "pages": sorted({a["page_name"] for a in items if a["page_name"]}),
             "ads_count": len(items),
             "versions": sum(a["versions"] or 1 for a in items),
             "earliest": earliest,
             "days": days_since(earliest) if earliest else None,
+            "body": next((a["body"] for a in items if a["body"]), ""),
+            "link": items[0]["link_url"],
             "ads": [
                 {
                     "id": a["library_id"],
-                    "page": a["page_name"],
-                    "started": a["started"],
                     "days": days_since(a["started"]) if a["started"] else None,
                     "versions": a["versions"],
-                    "body": a["body"],
-                    "link": a["link_url"],
                     "shot": _b64_file(a["shot_path"]) if i < ADS_PER_STORE else None,
                 }
                 for i, a in enumerate(items)
@@ -73,7 +82,7 @@ def collect(db, run_id):
                 "shop_url": sh["shop_url"],
                 "error": sh["error"],
                 "fetched_at": sh["fetched_at"],
-                "boxes": {k: v.get("pairs", []) for k, v in boxes.items()},
+                "boxes": boxes,
                 "images": images,
             } if sh else None,
             "revenue": _revenue(boxes),
@@ -90,6 +99,7 @@ def build(db, run_id, cfg):
         "country": cfg["country"],
         "generated": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "boxes": cfg["shophunter_boxes"],
+        "image_boxes": cfg["shophunter_image_boxes"],
     }
     payload = json.dumps({"meta": meta, "stores": stores}, ensure_ascii=False).replace("</", "<\\/")
     html = TEMPLATE.replace("__DATA__", payload)
@@ -109,79 +119,87 @@ TEMPLATE = r"""<!DOCTYPE html>
 <title>Ads Finder Report</title>
 <style>
 :root {
-  --bg: #f6f7f9; --card: #ffffff; --text: #1b1f24; --muted: #5f6b7a; --line: #e3e7ec;
-  --accent: #2f6fdf; --good: #1d8a4e; --warn: #b26b00; --bad: #c0392b; --chip: #eef2f7;
+  --bg: #f4f6f9; --card: #ffffff; --text: #1b1f24; --muted: #667281; --line: #e3e7ec;
+  --accent: #2f6fdf; --up: #1d8a4e; --down: #c0392b; --chip: #eef2f7; --rank: #1b1f24;
 }
 @media (prefers-color-scheme: dark) {
   :root { --bg: #111418; --card: #1a1f25; --text: #e7ebf0; --muted: #98a3b1; --line: #2b323b;
-          --accent: #6ea0ff; --good: #4cc38a; --warn: #f0b04a; --bad: #ff7a6b; --chip: #242b34; }
+          --accent: #6ea0ff; --up: #4cc38a; --down: #ff7a6b; --chip: #242b34; --rank: #e7ebf0; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text);
-       font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-header { padding: 20px 16px 8px; max-width: 1280px; margin: 0 auto; }
-h1 { font-size: 22px; margin: 0 0 4px; }
+       font: 13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.wrap { max-width: 1600px; margin: 0 auto; padding: 0 16px; }
+header { padding: 16px 0 6px; }
+h1 { font-size: 20px; margin: 0 0 2px; }
 .sub { color: var(--muted); }
 .bar { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
-.bar .in { max-width: 1280px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar .wrap { padding-top: 8px; padding-bottom: 8px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 input, select { font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--line);
-                border-radius: 8px; padding: 6px 10px; }
-input[type=search] { flex: 1 1 220px; }
+                border-radius: 8px; padding: 5px 9px; }
+input[type=search] { flex: 1 1 200px; }
 label.chk { display: flex; gap: 6px; align-items: center; color: var(--muted); }
-main { max-width: 1280px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
-.store { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
-.top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
-.top h2 { margin: 0; font-size: 18px; word-break: break-all; }
-.top h2 a { color: var(--text); text-decoration: none; }
-.top h2 a:hover { text-decoration: underline; }
-.stats { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
-.chip { background: var(--chip); border-radius: 999px; padding: 2px 10px; font-size: 12.5px; color: var(--muted); }
-.chip b { color: var(--text); }
-.chip.good b { color: var(--good); } .chip.warn b { color: var(--warn); } .chip.bad b { color: var(--bad); }
-.cols { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 16px; }
-@media (max-width: 860px) { .cols { grid-template-columns: minmax(0, 1fr); } }
-.ads { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
-.ad { flex: 0 0 160px; font-size: 12px; color: var(--muted); }
-.ad img { width: 160px; height: 240px; object-fit: contain; object-position: top; border-radius: 8px;
-          border: 1px solid var(--line); display: block; background: var(--chip); }
-.ad .noimg { width: 160px; height: 60px; border-radius: 8px; background: var(--chip); display: grid; place-items: center; }
-.ad a { color: var(--accent); }
-.more { font-size: 12px; color: var(--muted); margin-top: 6px; }
-.boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.box { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
-.box h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
-.box table { width: 100%; border-collapse: collapse; }
-.box td { padding: 3px 0; border-bottom: 1px dashed var(--line); vertical-align: top; }
-.box td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
-.box tr:last-child td { border-bottom: 0; }
-.trend { grid-column: 1 / -1; }
-.trend img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
-.note { color: var(--muted); font-size: 13px; }
-.err { color: var(--bad); font-size: 13px; }
-.links a { color: var(--accent); margin-right: 12px; font-size: 13px; }
-.empty { text-align: center; color: var(--muted); padding: 40px; }
-dialog { border: 0; padding: 0; background: transparent; max-width: 95vw; }
-dialog img { max-width: 95vw; max-height: 92vh; border-radius: 8px; }
-dialog::backdrop { background: rgba(0,0,0,.75); }
+main { display: grid; gap: 12px; padding: 12px 0 24px; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
+@media (max-width: 1250px) { main { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 940px)  { main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px)  { main { grid-template-columns: minmax(0, 1fr); } }
+.store { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px;
+         display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.hd { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.rank { font-weight: 700; color: var(--muted); }
+.hd h2 { margin: 0; font-size: 15px; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hd h2 a { color: var(--text); text-decoration: none; }
+.hd h2 a:hover { text-decoration: underline; }
+.links { display: flex; gap: 10px; font-size: 12px; }
+.links a { color: var(--accent); text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip { background: var(--chip); border-radius: 999px; padding: 1px 8px; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.chip b { color: var(--text); font-weight: 600; }
+.rev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 8px; }
+.rev > div { padding: 6px 8px; min-width: 0; }
+.rev > div + div { border-left: 1px solid var(--line); }
+.rev .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.rev .v { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rev .c { font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.up { color: var(--up); } .down { color: var(--down); }
+.chart img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); cursor: zoom-in; }
+.kv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 10px; }
+.kv div { min-width: 0; }
+.kv .l { font-size: 11px; color: var(--muted); }
+.kv .v { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.ad { min-width: 0; font-size: 11px; color: var(--muted); text-align: center; }
+.ad img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: top; display: block;
+          border-radius: 6px; border: 1px solid var(--line); background: var(--chip); cursor: zoom-in; }
+.ad a { color: var(--accent); text-decoration: none; }
+.body { color: var(--muted); font-size: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.note { color: var(--muted); font-size: 12px; }
+.err { color: var(--down); font-size: 12px; }
+.sec { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+.empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; }
+dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; }
+dialog img { max-width: 96vw; max-height: 92vh; border-radius: 8px; display: block; }
+dialog::backdrop { background: rgba(0,0,0,.78); }
 </style>
 </head>
 <body>
-<header>
+<div class="wrap"><header>
   <h1>Ads Finder Report</h1>
   <div class="sub" id="sub"></div>
-</header>
-<div class="bar"><div class="in">
+</header></div>
+<div class="bar"><div class="wrap">
   <input type="search" id="q" placeholder="Tìm store, page, nội dung ad...">
   <select id="kw"><option value="">Tất cả từ khóa</option></select>
   <select id="sort">
-    <option value="revenue">Sắp xếp: doanh thu</option>
+    <option value="revenue">Sắp xếp: doanh thu tháng</option>
     <option value="ads">Sắp xếp: số ad</option>
     <option value="days">Sắp xếp: chạy lâu nhất</option>
   </select>
-  <label class="chk"><input type="checkbox" id="onlysh"> Chỉ store có dữ liệu ShopHunter</label>
+  <label class="chk"><input type="checkbox" id="onlysh" checked> Chỉ store có dữ liệu ShopHunter</label>
   <span class="sub" id="count"></span>
 </div></div>
-<main id="list"></main>
+<div class="wrap"><main id="list"></main></div>
 <dialog id="zoom"><img alt=""></dialog>
 <script type="application/json" id="data">__DATA__</script>
 <script>
@@ -189,68 +207,61 @@ const DATA = JSON.parse(document.getElementById('data').textContent);
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money = (v) => v == null ? '—' : '$' + (v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : v.toFixed(0));
+const trend = (c) => /^\s*[-−▼↓]/.test(c) ? 'down' : /^\s*[+▲↑]/.test(c) ? 'up' : '';
 
-$('#sub').textContent = `Từ khóa: ${DATA.meta.keywords.join(', ')} · Quốc gia: ${DATA.meta.country} · Tạo lúc ${DATA.meta.generated} · ${DATA.stores.length} store`;
+$('#sub').textContent = `Từ khóa: ${DATA.meta.keywords.join(', ')} · ${DATA.meta.country} · ${DATA.meta.generated} · ${DATA.stores.length} store Shopify`;
 for (const k of DATA.meta.keywords) $('#kw').insertAdjacentHTML('beforeend', `<option>${esc(k)}</option>`);
+
+function revenueBlock(rows) {
+  const pick = ['Day', 'Week', 'Month'].map(k => rows.find(r => r[0].toLowerCase().includes(k.toLowerCase())));
+  const cells = pick.every(Boolean) ? pick : rows.filter(r => r[0]).slice(0, 3);
+  if (!cells.length) return '';
+  return '<div class="rev">' + cells.map(([l, v, c]) =>
+    `<div><div class="l">${esc(l)}</div><div class="v" title="${esc(v)}">${esc(v)}</div>` +
+    `<div class="c ${trend(c || '')}" title="${esc(c)}">${esc(c || ' ')}</div></div>`).join('') + '</div>';
+}
+
+function kvBlock(title, rows) {
+  const items = rows.filter(r => r[0]);
+  if (!items.length) return '';
+  return `<div><div class="sec">${esc(title)}</div><div class="kv">` + items.map(([l, v, c]) =>
+    `<div><div class="l">${esc(l)}</div><div class="v" title="${esc(v)} ${esc(c)}">${esc(v)}${c ? ` <span class="${trend(c)}">${esc(c)}</span>` : ''}</div></div>`).join('') +
+    '</div></div>';
+}
 
 function shBlock(s) {
   const sh = s.sh;
-  if (!s.domain) return '<p class="note">Ad không có link store.</p>';
-  if (!sh) return `<p class="note">${s.is_shopify === 0 ? 'Không phải store Shopify, bỏ qua ShopHunter.' : 'Chưa tra ShopHunter (vượt giới hạn số store mỗi lượt hoặc lượt chạy bị dừng).'}</p>`;
+  if (!sh) return '<p class="note">Chưa tra ShopHunter (vượt giới hạn số store mỗi lượt).</p>';
   let h = '';
-  if (sh.error) h += `<p class="err">ShopHunter: ${esc(sh.error)}</p>`;
-  const boxes = DATA.meta.boxes.filter(b => sh.boxes[b] && sh.boxes[b].length && !sh.images[b]);
-  if (boxes.length || Object.keys(sh.images).length) {
-    h += '<div class="boxes">';
-    for (const b of boxes) {
-      h += `<div class="box"><h3>${esc(b)}</h3><table>` +
-        sh.boxes[b].map(([k, v]) => k ? `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>` : `<tr><td colspan="2">${esc(v)}</td></tr>`).join('') +
-        '</table></div>';
-    }
-    for (const [b, img] of Object.entries(sh.images)) {
-      h += `<div class="box trend"><h3>${esc(b)}</h3><img loading="lazy" src="data:image/png;base64,${img}" alt="${esc(b)} ${esc(s.domain)}" data-zoom></div>`;
-    }
-    h += '</div>';
-  }
-  h += `<p class="note">Cập nhật ShopHunter: ${esc(sh.fetched_at || '')}</p>`;
+  const revName = DATA.meta.boxes.find(b => /revenue/i.test(b) && !DATA.meta.image_boxes.includes(b) && sh.boxes[b]);
+  if (revName) h += revenueBlock(sh.boxes[revName]);
+  for (const [b, img] of Object.entries(sh.images))
+    h += `<div class="chart"><img loading="lazy" src="data:image/png;base64,${img}" alt="${esc(b)} ${esc(s.domain)}" data-zoom></div>`;
+  for (const b of DATA.meta.boxes)
+    if (b !== revName && sh.boxes[b] && !sh.images[b]) h += kvBlock(b, sh.boxes[b]);
+  if (sh.error) h += `<p class="err">${esc(sh.error)}</p>`;
   return h;
 }
 
-function card(s) {
-  const ads = s.ads.filter(a => a.shot).map(a => `
-    <div class="ad">
-      <img loading="lazy" src="data:image/jpeg;base64,${a.shot}" alt="Ad ${esc(a.id)}" data-zoom>
-      <div>${a.days != null ? a.days + ' ngày' : ''}${a.versions > 1 ? ' · ' + a.versions + ' phiên bản' : ''}</div>
-      <a href="https://www.facebook.com/ads/library/?id=${esc(a.id)}" target="_blank" rel="noopener">Xem ad</a>
-    </div>`).join('') || s.ads.slice(0, 3).map(a => `
-    <div class="ad"><div class="noimg">Không có ảnh</div>
-      <a href="https://www.facebook.com/ads/library/?id=${esc(a.id)}" target="_blank" rel="noopener">Xem ad</a></div>`).join('');
-  const rest = s.ads.length - Math.min(3, s.ads.length);
-  const shop = s.is_shopify === 1 ? '<span class="chip good"><b>Shopify</b></span>' :
-               s.is_shopify === 0 ? '<span class="chip bad"><b>Không phải Shopify</b></span>' : '';
-  const daysCls = s.days >= 30 ? 'good' : s.days >= 7 ? 'warn' : '';
+function card(s, i) {
+  const shots = s.ads.filter(a => a.shot).slice(0, 4).map(a => `
+    <div class="ad"><img loading="lazy" src="data:image/jpeg;base64,${a.shot}" alt="Ad ${esc(a.id)}" data-zoom>
+      <a href="https://www.facebook.com/ads/library/?id=${esc(a.id)}" target="_blank" rel="noopener">${a.days != null ? a.days + 'n' : 'Ad'}</a></div>`).join('');
   return `<section class="store">
-    <div class="top">
-      <h2>${s.domain ? `<a href="${esc(s.store_url || 'https://' + s.domain)}" target="_blank" rel="noopener">${esc(s.domain)}</a>` : 'Không rõ store'}</h2>
-      <div class="links">
-        ${s.sh && s.sh.shop_url ? `<a href="${esc(s.sh.shop_url)}" target="_blank" rel="noopener">Mở trên ShopHunter</a>` : ''}
-        ${s.ads[0] && s.ads[0].link ? `<a href="${esc(s.ads[0].link)}" target="_blank" rel="noopener">Trang đích của ad</a>` : ''}
-      </div>
+    <div class="hd"><span class="rank">#${i + 1}</span>
+      <h2 title="${esc(s.domain)}"><a href="${esc(s.store_url || 'https://' + s.domain)}" target="_blank" rel="noopener">${esc(s.domain)}</a></h2>
+      <div class="links">${s.sh && s.sh.shop_url ? `<a href="${esc(s.sh.shop_url)}" target="_blank" rel="noopener">ShopHunter</a>` : ''}
+        ${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">Trang ad</a>` : ''}</div>
     </div>
-    <div class="stats">
-      ${shop}
-      <span class="chip">Doanh thu <b>${money(s.revenue)}</b></span>
+    <div class="chips">
+      <span class="chip">Tháng <b>${money(s.revenue)}</b></span>
       <span class="chip">Ads <b>${s.ads_count}</b></span>
-      <span class="chip">Phiên bản <b>${s.versions}</b></span>
-      <span class="chip ${daysCls}">Ad lâu nhất <b>${s.days ?? '—'} ngày</b></span>
-      ${s.pages.length ? `<span class="chip">Page <b>${esc(s.pages.join(', '))}</b></span>` : ''}
-      ${s.keywords.map(k => `<span class="chip">#${esc(k)}</span>`).join('')}
+      <span class="chip">Lâu nhất <b>${s.days ?? '—'} ngày</b></span>
+      ${s.versions > s.ads_count ? `<span class="chip">Phiên bản <b>${s.versions}</b></span>` : ''}
     </div>
-    <div class="cols">
-      <div><div class="ads">${ads}</div>${rest > 0 ? `<div class="more">+${rest} ad khác</div>` : ''}
-        ${s.ads[0] && s.ads[0].body ? `<p class="note">“${esc(s.ads[0].body)}”</p>` : ''}</div>
-      <div>${shBlock(s)}</div>
-    </div>
+    ${shBlock(s)}
+    ${shots ? `<div><div class="sec">Ads (${s.ads_count})${s.pages.length ? ' · ' + esc(s.pages.join(', ')) : ''}</div><div class="ads">${shots}</div></div>` : ''}
+    ${s.body ? `<div class="body" title="${esc(s.body)}">“${esc(s.body)}”</div>` : ''}
   </section>`;
 }
 
@@ -259,7 +270,7 @@ function render() {
   let list = DATA.stores.filter(s =>
     (!kw || s.keywords.includes(kw)) &&
     (!only || (s.sh && s.sh.status === 'ok')) &&
-    (!q || (s.domain + ' ' + s.pages.join(' ') + ' ' + s.ads.map(a => a.body).join(' ')).toLowerCase().includes(q)));
+    (!q || (s.domain + ' ' + s.pages.join(' ') + ' ' + s.body).toLowerCase().includes(q)));
   const key = { revenue: s => s.revenue ?? -1, ads: s => s.ads_count, days: s => s.days ?? -1 }[sort];
   list.sort((a, b) => key(b) - key(a) || b.ads_count - a.ads_count);
   $('#count').textContent = `${list.length} / ${DATA.stores.length} store`;
