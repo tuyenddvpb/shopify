@@ -60,7 +60,7 @@ def cmd_run(args, cfg):
 
     data = Path(cfg["data_dir"])
     util.DEBUG_DIR = data / "debug"
-    if args.no_chrome_check:
+    if getattr(args, "no_chrome_check", False):
         cfg["store_check_chrome"] = False
     db = DB(data)
     done = set()
