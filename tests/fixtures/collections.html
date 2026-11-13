@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><body style="font-family:sans-serif">
+<aside><h3>Shop Collections</h3><div>Tracked Shops</div><div>Nuora</div><div>NoBtn Store</div></aside>
+<main id="grid" style="display:grid;grid-template-columns:repeat(3,300px);gap:12px"></main>
+<script>
+const shops = [['Nuora','mynuora.com'],['norbbshop','norbbshop.com'],['Anaconda Performance','anacondaperformance.com'],
+  ['Koprez®','koprez.com'],['Megelin','megelin.com'],['Packuum Bags','packuumbags.com'],['NoBtn Store','nobtn.test']];
+function card([name, dom]) {
+  return `<div class="shop" style="height:700px;border:1px solid #ccc"><div class="hd"><img alt="" width="40" height="40">
+    <div><a href="/shop/${dom}">${name}</a><div>${dom}</div></div><span>⋮</span></div>
+    <div>Shop Ads 0</div><div>Revenue - Day/Week</div><div>Day $933.50</div><a href="/shop/${dom}/ads">Ads</a></div>`;
+}
+let shown = 0;
+const grid = document.getElementById('grid');
+function more(n) { for (let i = 0; i < n && shown < shops.length; i++) grid.insertAdjacentHTML('beforeend', card(shops[shown++])); }
+more(3);
+addEventListener('scroll', () => setTimeout(() => more(3), 300));
+</script></body></html>

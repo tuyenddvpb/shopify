@@ -1,17 +1,28 @@
-<!DOCTYPE html><html><body>
-<h1>Track a shop</h1>
-<form id="f"><label for="u">Shopify Store URL</label> <input id="u" type="text" placeholder="https://example.com"> <button type="submit">Track shop</button></form>
-<table id="t"><tr><td>other-shop.com</td><td><button>Tracked</button></td><td><a href="/shop/999">View shop</a></td></tr></table>
-<div id="status"></div>
+<!DOCTYPE html><html><body style="background:#1e2633;color:#eee;font-family:sans-serif">
+<div class="card">
+  <p>Enter the URL of a Shopify store you want to add to Shophunter.</p>
+  <label for="u">Shopify Store URL</label>
+  <div><input id="u" type="text" placeholder="https://example.com"></div>
+  <div class="tip"><b>Tip:</b> For best results, use the store's MyShopify URL (e.g., store.myshopify.com)</div>
+  <button id="go">+ Track Store</button>
+</div>
+<div class="card"><h2>Recent Activity</h2><div id="list">
+  <div class="row"><div><div class="name">www.zenblux.com</div><div>Added 4 minutes ago</div></div>
+    <div><span class="bad">Not a Shopify Store</span></div></div>
+  <div class="row"><div><div class="name">axzenia.com</div><div>Added 9 minutes ago</div><div>3 seconds</div></div>
+    <div><span class="ok">Tracked</span><a href="/shop/axzenia.com">View Shop</a><a href="/collections/shops">Collections</a></div></div>
+</div></div>
 <script>
-document.getElementById('f').addEventListener('submit', e => {
-  e.preventDefault();
-  const v = document.getElementById('u').value.replace(/^https?:\/\//,'').replace(/\/.*$/,'');
-  if (document.getElementById('status').textContent) return;
-  document.getElementById('status').textContent = 'Analyzing...';
+document.getElementById('go').addEventListener('click', () => {
+  const v = document.getElementById('u').value.replace(/^https?:\/\//, '').replace(/[:\/].*$/, '');
+  const list = document.getElementById('list');
+  list.insertAdjacentHTML('afterbegin', `<div class="row" id="new"><div><div class="name">${v}</div><div>Added just now</div></div><div class="st"><span>Analyzing...</span></div></div>`);
   setTimeout(() => {
-    document.getElementById('status').textContent = '';
-    document.getElementById('t').insertAdjacentHTML('afterbegin', `<tr><td>${v}</td><td><button>Tracked</button></td><td><a href="/shop/1" target="_blank">View shop</a></td></tr>`);
+    const st = document.querySelector('#new .st');
+    document.getElementById('new').removeAttribute('id');
+    if (v.includes('zenblux')) st.innerHTML = '<span class="bad">Not a Shopify Store</span>';
+    else if (v.includes('nobtn')) st.innerHTML = '<span class="ok">Tracked</span>';
+    else st.innerHTML = `<span class="ok">Tracked</span><button onclick="location.href='/shop/${v}'">View Shop</button><a href="/collections/shops">Collections</a>`;
   }, 2500);
 });
 </script></body></html>

@@ -5,8 +5,11 @@ const ads = [
   {id:'1111111111', d:'Sep 1, 2026', page:'Comfy Posture', v:3, u:'STORE/products/posture-pro'},
   {id:'2222222222', d:'Oct 20, 2026', page:'Comfy Posture', v:1, u:'STORE/products/posture-pro?utm=fb'},
   {id:'3333333333', d:'Nov 10, 2026', page:'Big Mall', v:1, u:'https://www.amazon.com/dp/X'},
+  {id:'4444444444', d:'Oct 1, 2026', page:'Zen Blux', v:1, u:'HOST:zenblux.test/products/a'},
+  {id:'5555555555', d:'Oct 5, 2026', page:'No Btn', v:1, u:'HOST:nobtn.test/products/b'},
 ];
-const store = location.origin + '/store';
+const store = 'http://posture.test:' + location.port + '/store';
+const host = (h) => 'http://' + h + ':' + location.port + '/store';
 const VI = location.pathname.includes('/vi');
 const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const T = VI ? {
@@ -25,7 +28,7 @@ function card(a){
    <div class="x3"><a href="https://www.facebook.com/100${a.id}/">${a.page}</a><div>${T.sponsored}</div>
    <div>Fix your posture in 7 days. ${a.page} best seller.</div>
    <video src="data:video/mp4;base64,AAAA" poster="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="300" height="300"></video>
-   <a href="https://l.facebook.com/l.php?u=${encodeURIComponent(a.u.replace('STORE', store))}&h=abc">Shop now</a></div></div>`;
+   <a href="https://l.facebook.com/l.php?u=${encodeURIComponent((a.u.startsWith('HOST:') ? host(a.u.slice(5).split('/')[0]) + '/' + a.u.slice(5).split('/').slice(1).join('/') : a.u.replace('STORE', store)))}&h=abc">Shop now</a></div></div>`;
 }
 let shown = 0;
 function more(n){ const g=document.getElementById('grid'); for(let i=0;i<n && shown<ads.length;i++) g.insertAdjacentHTML('beforeend', card(ads[shown++])); }

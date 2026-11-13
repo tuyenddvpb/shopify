@@ -1,4 +1,5 @@
 """Follow ad links to the real store and check whether it runs on Shopify."""
+import re
 import urllib.request
 from collections import OrderedDict
 
@@ -22,6 +23,17 @@ def shopify_in(html, headers):
     return "cdn.shopify.com" in html or "Shopify.theme" in html or "myshopify.com" in html
 
 
+MYSHOPIFY_JS = "() => (window.Shopify && window.Shopify.shop) || ''"
+_MYSHOPIFY = re.compile(
+    r'(?:Shopify\.shop\s*=\s*|"myshopify_?domain"\s*:\s*|"shop"\s*:\s*)["\']([a-z0-9-]+\.myshopify\.com)', re.I)
+
+
+def myshopify_in(html):
+    """The store's xxx.myshopify.com name, from Shopify.shop = "..." in the page."""
+    m = _MYSHOPIFY.search(html or "")
+    return m.group(1).lower() if m else ""
+
+
 def fetch(url, timeout=15):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 - http(s) store links
@@ -30,24 +42,26 @@ def fetch(url, timeout=15):
 
 
 def check(url, context=None):
-    """Return (final_url, is_shopify or None, note)."""
+    """Return (final_url, is_shopify or None, note, myshopify_domain)."""
     try:
         final, html, headers = fetch(url)
         if shopify_in(html, headers):
-            return final, True, ""
+            return final, True, "", myshopify_in(html)
         note = "không thấy dấu hiệu Shopify"
     except Exception as e:  # noqa: BLE001
         final, note = url, f"lỗi tải trang: {e.__class__.__name__}"
     if context is None:
-        return final, None if note.startswith("lỗi") else False, note
+        return final, None if note.startswith("lỗi") else False, note, ""
     # Some stores block plain HTTP clients or redirect with JS: retry in Chrome.
     page = context.new_page()
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=45000)
         page.wait_for_timeout(2500)
-        return page.url, bool(page.evaluate(SHOPIFY_JS)), "kiểm tra bằng Chrome"
+        shop = bool(page.evaluate(SHOPIFY_JS))
+        mys = (page.evaluate(MYSHOPIFY_JS) or "").lower() if shop else ""
+        return page.url, shop, "kiểm tra bằng Chrome", mys
     except Exception as e:  # noqa: BLE001
-        return final, None, f"{note}; Chrome: {e.__class__.__name__}"
+        return final, None, f"{note}; Chrome: {e.__class__.__name__}", ""
     finally:
         page.close()
 
@@ -70,8 +84,8 @@ def resolve_all(db, groups, cfg, context):
     for domain, ads in groups.items():
         row = db.get_store(domain, cfg["store_check_hours"])
         if row is None:
-            final, shop, note = check(ads[0]["link_url"] or f"https://{domain}", context)
-            db.save_store(domain, final, shop, note)
+            final, shop, note, mys = check(ads[0]["link_url"] or f"https://{domain}", context)
+            db.save_store(domain, final, shop, note, mys)
             row = db.get_store(domain)
             fd = domain_of(final)
             label = "Shopify" if shop else "không phải Shopify" if shop is False else "chưa rõ"

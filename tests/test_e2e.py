@@ -22,6 +22,7 @@ ROUTES = {
     "/ads/library/": "adlib.html",
     "/store": "store.html",
     "/shops/track": "track.html",
+    "/collections/shops": "collections.html",
     "/shop/": "shop.html",
 }
 
@@ -61,7 +62,8 @@ class EndToEnd(unittest.TestCase):
         self.cdp_port = free_port()
         self.chrome = subprocess.Popen(
             [CHROME, "--headless=new", "--no-sandbox", f"--remote-debugging-port={self.cdp_port}",
-             f"--user-data-dir={self.tmp}/profile", "--window-size=1300,900", "about:blank"],
+             f"--user-data-dir={self.tmp}/profile", "--window-size=1300,900", "--no-proxy-server",
+             "--host-resolver-rules=MAP *.test 127.0.0.1", "about:blank"],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
         time.sleep(2)
@@ -81,6 +83,7 @@ class EndToEnd(unittest.TestCase):
         cfg_path.write_text(json.dumps({
             "adlibrary_url": self.base + adlib_path,
             "shophunter_track_url": self.base + "/shops/track",
+            "shophunter_collections_url": self.base + "/collections/shops",
             "cdp_url": f"http://127.0.0.1:{self.cdp_port}",
             "data_dir": str(Path(self.tmp) / "data"),
             "reports_dir": str(Path(self.tmp) / "reports"),
@@ -97,27 +100,43 @@ class EndToEnd(unittest.TestCase):
 
     def test_vietnamese_ad_library(self):
         _db, ads = self._run("/ads/library/vi/", no_shophunter=True)
-        self.assertEqual(set(ads), {"1111111111", "2222222222", "3333333333"})
+        self.assertEqual(len(ads), 5)
         self.assertEqual(ads["1111111111"]["started"], "2026-09-01")
         self.assertEqual(ads["1111111111"]["versions"], 3)
-        self.assertEqual(ads["1111111111"]["domain"], "127.0.0.1")
+        self.assertEqual(ads["1111111111"]["domain"], "posture.test")
         self.assertIn("Fix your posture", ads["1111111111"]["body"])
 
     def test_full_run(self):
         db, ads = self._run("/ads/library/")
-        self.assertEqual(set(ads), {"1111111111", "2222222222", "3333333333"})
+        self.assertEqual(len(ads), 5)
         a1 = ads["1111111111"]
         self.assertEqual(a1["started"], "2026-09-01")
         self.assertEqual(a1["versions"], 3)
         self.assertEqual(a1["page_name"], "Comfy Posture")
-        self.assertEqual(a1["domain"], "127.0.0.1")
+        self.assertEqual(a1["domain"], "posture.test")
         self.assertTrue(Path(a1["shot_path"]).exists())
         self.assertEqual(ads["3333333333"]["domain"], "")  # amazon link is excluded
 
-        self.assertEqual(db.get_store("127.0.0.1")["is_shopify"], 1)
-        sh = db.get_shophunter("127.0.0.1")
+        store = db.get_store("posture.test")
+        self.assertEqual(store["is_shopify"], 1)
+        self.assertEqual(store["myshopify"], "posture-store.myshopify.com")
+
+        # Way 1: our Recent Activity row turns Tracked -> View Shop (not axzenia.com's row)
+        sh = db.get_shophunter("posture.test")
         self.assertEqual(sh["status"], "ok", sh["error"])
-        self.assertTrue(sh["shop_url"].endswith("/shop/1"))  # our row, not other-shop.com's
+        self.assertTrue(sh["shop_url"].endswith("/shop/posture.test"), sh["shop_url"])
+        self.assertIsNone(sh["error"])
+
+        # "Not a Shopify Store" (also after retrying the myshopify URL): no data, no wrong page
+        zen = db.get_shophunter("zenblux.test")
+        self.assertEqual(zen["status"], "rejected")
+        self.assertIsNone(zen["shop_url"])
+
+        # Way 2: Tracked but no View Shop -> found by scrolling /collections/shops
+        nb = db.get_shophunter("nobtn.test")
+        self.assertEqual(nb["status"], "ok", nb["error"])
+        self.assertTrue(nb["shop_url"].endswith("/shop/nobtn.test"), nb["shop_url"])
+
         boxes = json.loads(sh["boxes_json"])
         self.assertIn(["Monthly Revenue", "$45.2K (+12%)"], boxes["Revenue Performance"]["pairs"])
         self.assertIn(["Products", "24"], boxes["Store Overview"]["pairs"])

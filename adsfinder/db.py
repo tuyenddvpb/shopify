@@ -62,6 +62,14 @@ class DB:
         self.conn = sqlite3.connect(str(Path(data_dir) / "adsfinder.db"))
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript(SCHEMA)
+        try:  # added in 0.2
+            self.conn.execute("ALTER TABLE stores ADD COLUMN myshopify TEXT")
+            # 0.1 could open the wrong store's View Shop: drop those cached results
+            self.conn.execute("DELETE FROM shophunter")
+            self.conn.execute("DELETE FROM stores")
+            self.conn.commit()
+        except sqlite3.OperationalError:
+            pass
 
     # runs
     def start_run(self, keywords):
@@ -119,10 +127,11 @@ class DB:
             return None
         return row
 
-    def save_store(self, domain, final_url, is_shopify, note=""):
+    def save_store(self, domain, final_url, is_shopify, note="", myshopify=""):
         self.conn.execute(
-            "INSERT OR REPLACE INTO stores (domain, final_url, is_shopify, checked_at, note) VALUES (?,?,?,?,?)",
-            (domain, final_url, 1 if is_shopify else 0 if is_shopify is False else None, now(), note),
+            """INSERT OR REPLACE INTO stores (domain, final_url, is_shopify, checked_at, note, myshopify)
+               VALUES (?,?,?,?,?,?)""",
+            (domain, final_url, 1 if is_shopify else 0 if is_shopify is False else None, now(), note, myshopify),
         )
         self.conn.commit()
 

@@ -17,6 +17,7 @@ DEFAULTS = {
     "cdp_url": "http://127.0.0.1:9222",
     # ShopHunter
     "shophunter_track_url": "https://app.shophunter.io/shops/track",
+    "shophunter_collections_url": "https://app.shophunter.io/collections/shops",
     "shophunter_wait_seconds": 180,      # how long to wait for "Tracked"
     "shophunter_cache_hours": 24,        # reuse results younger than this
     "max_stores_per_run": 15,

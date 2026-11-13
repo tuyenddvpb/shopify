@@ -80,7 +80,8 @@ def cmd_run(args, cfg):
                             continue
                         target = domain_of(info[d]["final_url"] or "") or d
                         log(f"ShopHunter: {target} ({len(groups[d])} ad)")
-                        res = shophunter.analyze(context, target, cfg, data / "shophunter", data / "debug")
+                        res = shophunter.analyze(context, target, cfg, data / "shophunter", data / "debug",
+                                                 myshopify=info[d].get("myshopify") or "")
                         db.save_shophunter(d, res)
                         log(f"  -> {res['status']}" + (f" ({res['error']})" if res.get("error") else ""))
                         done += 1

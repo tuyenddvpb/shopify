@@ -37,7 +37,11 @@ Bỏ trống từ khóa thì app lấy `keywords` trong `config.json`. Bạn cũ
 App sẽ:
 1. Mở Ad Library (US, ad đang chạy, chỉ video), cuộn để lấy tối đa `max_ads_per_keyword` ad, đọc page, ngày bắt đầu chạy, số phiên bản, link "Shop now" và chụp ảnh từng ad.
 2. Gộp ad theo store, kiểm tra store có phải Shopify không.
-3. Với mỗi store Shopify (tối đa `max_stores_per_run`): mở `app.shophunter.io/shops/track`, nhập link vào ô **Shopify Store URL**, chờ đến khi thấy **Tracked** / **View shop**, mở **View shop**, đọc các box **Store Overview**, **Revenue Performance** và chụp ảnh **Revenue Trends**.
+3. Với mỗi store Shopify (tối đa `max_stores_per_run`):
+   - Mở `app.shophunter.io/shops/track`, nhập link vào ô **Shopify Store URL**, bấm **Track Store**.
+   - Trong **Recent Activity**, tìm đúng dòng có domain của store. Dòng đó hiện **Tracked** màu xanh thì bấm **View Shop** của chính dòng đó. Dòng hiện **Not a Shopify Store** thì thử lại với domain `xxx.myshopify.com` của store (nếu tìm được); vẫn bị từ chối thì bỏ qua store.
+   - Nếu chờ mãi không có nút View Shop, mở `app.shophunter.io/collections/shops`, cuộn tìm khung có domain của store và bấm vào tên store.
+   - Trên trang shop: đọc các box **Store Overview**, **Revenue Performance** và chụp ảnh **Revenue Trends**. Nếu trang shop không hiện domain của store, report ghi chú "có thể đã mở nhầm store".
 4. Xuất `reports/report-<ngày giờ>-run<số>.html` rồi tự mở.
 
 File report là **một file duy nhất**, ảnh nằm sẵn bên trong. Có thể gửi qua Zalo hoặc email, hay mở trên điện thoại. Trong report có ô tìm kiếm, lọc theo từ khóa và sắp xếp theo doanh thu, số ad hoặc độ lâu của ad.
@@ -63,7 +67,7 @@ Nhấn `Ctrl+C` để dừng giữa chừng: app vẫn xuất report với dữ 
 | `max_ads_per_keyword` | 40 | |
 | `min_days_running` | 0 | bỏ ad chạy ít hơn số ngày này |
 | `max_stores_per_run` | 15 | giới hạn số store tra ShopHunter mỗi lượt |
-| `shophunter_wait_seconds` | 180 | thời gian chờ ShopHunter phân tích |
+| `shophunter_wait_seconds` | 180 | thời gian chờ dòng Recent Activity hiện Tracked |
 | `shophunter_cache_hours` | 24 | store đã tra trong khoảng này thì dùng lại |
 | `delay_seconds` | [2, 5] | nghỉ ngẫu nhiên giữa các thao tác |
 | `shophunter_boxes` | 3 box ở trên | tên các box cần đọc |
