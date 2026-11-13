@@ -69,6 +69,10 @@ class DB:
         self.conn = sqlite3.connect(str(Path(data_dir) / "adsfinder.db"))
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript(SCHEMA)
+        try:  # added in 0.4: run options, so --resume keeps --max-stores etc.
+            self.conn.execute("ALTER TABLE runs ADD COLUMN options TEXT")
+        except sqlite3.OperationalError:
+            pass
         try:  # added in 0.2
             self.conn.execute("ALTER TABLE stores ADD COLUMN myshopify TEXT")
             # 0.1 could open the wrong store's View Shop: drop those cached results
@@ -79,15 +83,27 @@ class DB:
             pass
 
     # runs
-    def start_run(self, keywords):
+    def start_run(self, keywords, options=None):
         cur = self.conn.execute(
-            "INSERT INTO runs (started_at, keywords) VALUES (?, ?)", (now(), json.dumps(keywords))
+            "INSERT INTO runs (started_at, keywords, options) VALUES (?, ?, ?)",
+            (now(), json.dumps(keywords), json.dumps(options or {})),
         )
         self.conn.commit()
         return cur.lastrowid
 
     def finish_run(self, run_id, report_path):
         self.conn.execute("UPDATE runs SET report_path=? WHERE id=?", (str(report_path), run_id))
+        self.conn.commit()
+
+    def run_options(self, run_id):
+        row = self.conn.execute("SELECT options FROM runs WHERE id=?", (run_id,)).fetchone()
+        try:
+            return json.loads(row["options"]) if row and row["options"] else {}
+        except ValueError:
+            return {}
+
+    def set_run_options(self, run_id, options):
+        self.conn.execute("UPDATE runs SET options=? WHERE id=?", (json.dumps(options), run_id))
         self.conn.commit()
 
     def set_run_keywords(self, run_id, keywords):

@@ -74,7 +74,8 @@ class EndToEnd(unittest.TestCase):
         self.http.shutdown()
         shutil.rmtree(self.tmp, ignore_errors=True)
 
-    def _run(self, adlib_path, no_shophunter=False, keywords=("posture corrector",), resume=False):
+    def _run(self, adlib_path, no_shophunter=False, keywords=("posture corrector",), resume=False,
+             max_stores=None):
         from adsfinder import __main__ as cli
         from adsfinder import config
         from adsfinder.db import DB
@@ -92,7 +93,7 @@ class EndToEnd(unittest.TestCase):
             "open_report": False,
         }))
         cfg = config.load(cfg_path)
-        args = Namespace(keywords=list(keywords), file=None, resume=resume, max_ads=None, max_stores=None,
+        args = Namespace(keywords=list(keywords), file=None, resume=resume, max_ads=None, max_stores=max_stores,
                          no_shophunter=no_shophunter, refresh=False, no_open=True)
         cli.cmd_run(args, cfg)
         self.cfg = cfg
@@ -114,7 +115,8 @@ class EndToEnd(unittest.TestCase):
             return real(page, kw, *a, **k)
 
         with mock.patch.object(adlibrary, "search", spy):
-            db, _ = self._run("/ads/library/", no_shophunter=True, keywords=["posture corrector", "flaky"])
+            db, _ = self._run("/ads/library/", no_shophunter=True, keywords=["posture corrector", "flaky"],
+                              max_stores=100)
             self.assertEqual(db.done_keywords(1), {"posture corrector"})   # flaky failed, not done
             seen.clear()
             db, _ = self._run("/ads/library/", no_shophunter=True, keywords=["neck massager"], resume=True)
@@ -122,6 +124,8 @@ class EndToEnd(unittest.TestCase):
         self.assertIsNone(db.get_run(2))                                    # same run continued
         self.assertEqual(json.loads(db.get_run(1)["keywords"]), ["posture corrector", "flaky", "neck massager"])
         self.assertEqual(db.done_keywords(1), {"posture corrector", "neck massager"})
+        self.assertEqual(db.run_options(1), {"max_stores_per_run": 100})      # --resume kept --max-stores
+        self.assertEqual(self.cfg["max_stores_per_run"], 100)
 
         # report with image files instead of embedded images
         path = report.build(db, 1, self.cfg, embed=False)

@@ -53,15 +53,17 @@ def cmd_run(args, cfg):
     from .browser import connect
 
     keywords = gather_keywords(args, cfg, use_config=not args.resume)
+    # options given on the command line; remembered per run so --resume keeps them
+    given = {}
     if args.max_ads:
-        cfg["max_ads_per_keyword"] = args.max_ads
+        given["max_ads_per_keyword"] = args.max_ads
     if args.max_stores is not None:
-        cfg["max_stores_per_run"] = args.max_stores
+        given["max_stores_per_run"] = args.max_stores
+    if getattr(args, "no_chrome_check", False):
+        given["store_check_chrome"] = False
 
     data = Path(cfg["data_dir"])
     util.DEBUG_DIR = data / "debug"
-    if getattr(args, "no_chrome_check", False):
-        cfg["store_check_chrome"] = False
     db = DB(data)
     done = set()
     if args.resume:
@@ -73,13 +75,19 @@ def cmd_run(args, cfg):
         keywords = list(dict.fromkeys(old + keywords))
         db.set_run_keywords(run_id, keywords)
         done = db.done_keywords(run_id)
+        options = {**db.run_options(run_id), **given}
+        db.set_run_options(run_id, options)
         log(f"Chạy tiếp lượt #{run_id}: {len(done)}/{len(keywords)} từ khóa đã xong.")
     else:
         if not keywords:
             sys.exit('Chưa có từ khóa. Ví dụ: python -m adsfinder run "posture corrector" '
                      'hoặc python -m adsfinder run --file keywords.txt')
-        run_id = db.start_run(keywords)
+        options = given
+        run_id = db.start_run(keywords, options)
         log(f"Bắt đầu lượt #{run_id}: {len(keywords)} từ khóa")
+    cfg.update(options)
+    if options:
+        log("Tùy chọn: " + ", ".join(f"{k}={v}" for k, v in options.items()))
 
     try:
         with sync_playwright() as p:
@@ -114,14 +122,19 @@ def cmd_run(args, cfg):
                     log("Bỏ qua ShopHunter (--no-shophunter).")
                 else:
                     todo = [d for d in groups if info[d]["is_shopify"] != 0]
+                    fresh = [] if args.refresh else [
+                        d for d in todo if db.get_shophunter(d, cfg["shophunter_cache_hours"])]
+                    left = [d for d in todo if d not in fresh]
+                    limit = cfg["max_stores_per_run"]
+                    log(f"ShopHunter: {len(todo)} store Shopify, {len(fresh)} đã có dữ liệu, "
+                        f"cần tra {len(left)}, lần này tra tối đa {limit}.")
                     done = 0
-                    for d in todo:
-                        if done >= cfg["max_stores_per_run"]:
-                            log(f"Đã đủ {done} store cho lượt này (max_stores_per_run).")
+                    for d in left:
+                        if done >= limit:
+                            log(f"Đã tra {done} store, chạm giới hạn {limit} (max_stores_per_run). "
+                                f"Còn {len(left) - done} store chưa tra: chạy "
+                                f"'python -m adsfinder run --resume --max-stores N' để tra tiếp.")
                             break
-                        if not args.refresh and db.get_shophunter(d, cfg["shophunter_cache_hours"]):
-                            log(f"ShopHunter: {d} đã có dữ liệu gần đây, dùng lại.")
-                            continue
                         target = domain_of(info[d]["final_url"] or "") or d
                         log(f"ShopHunter: {target} ({len(groups[d])} ad)")
                         with Watch(f"ShopHunter {target}", dump_after=cfg["shophunter_wait_seconds"] + 120):
