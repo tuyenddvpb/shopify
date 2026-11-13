@@ -178,6 +178,24 @@ main { display: grid; gap: 12px; padding: 12px 0 24px; grid-template-columns: re
 .err { color: var(--down); font-size: 12px; }
 .sec { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
 .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; }
+.c-info, .c-rev, .c-chart, .c-ov, .c-ads { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.c-ov:empty, .c-ads:empty, .c-chart:empty { display: none; }
+.thead { display: none; }
+@media (min-width: 1151px) {
+  body.rows main { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  body.rows .thead { display: grid; position: sticky; top: 49px; z-index: 4; background: var(--bg);
+    padding: 6px 12px 4px; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  body.rows .store, body.rows .thead { grid-template-columns: 230px 270px minmax(260px, 1fr) 220px 250px; column-gap: 16px; }
+  body.rows .store { display: grid; align-items: start; padding: 10px 12px; }
+  body.rows .c-ov:empty, body.rows .c-ads:empty, body.rows .c-chart:empty { display: flex; }
+  body.rows .c-chart img { max-height: 190px; width: auto; max-width: 100%; }
+  body.rows .rev { grid-template-columns: minmax(0, 1fr); }
+  body.rows .rev > div { display: grid; grid-template-columns: 56px auto minmax(0, 1fr); align-items: baseline; gap: 10px; }
+  body.rows .rev > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  body.rows .rev .c { text-align: right; }
+  body.rows .c-ov .sec, body.rows .c-ads .sec { display: none; }
+  body.rows .ads { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; }
 dialog img { max-width: 96vw; max-height: 92vh; border-radius: 8px; display: block; }
 dialog::backdrop { background: rgba(0,0,0,.78); }
@@ -196,10 +214,15 @@ dialog::backdrop { background: rgba(0,0,0,.78); }
     <option value="ads">Sắp xếp: số ad</option>
     <option value="days">Sắp xếp: chạy lâu nhất</option>
   </select>
+  <select id="view">
+    <option value="rows">Hiển thị: mỗi store 1 dòng</option>
+    <option value="grid">Hiển thị: lưới 4 cột</option>
+  </select>
   <label class="chk"><input type="checkbox" id="onlysh" checked> Chỉ store có dữ liệu ShopHunter</label>
   <span class="sub" id="count"></span>
 </div></div>
-<div class="wrap"><main id="list"></main></div>
+<div class="wrap"><div class="thead"><div>Store</div><div>Doanh thu</div><div>Revenue Trends</div><div>Store Overview</div><div>Ads</div></div>
+<main id="list"></main></div>
 <dialog id="zoom"><img alt=""></dialog>
 <script type="application/json" id="data">__DATA__</script>
 <script>
@@ -229,43 +252,51 @@ function kvBlock(title, rows) {
     '</div></div>';
 }
 
-function shBlock(s) {
+function shParts(s) {
   const sh = s.sh;
-  if (!sh) return '<p class="note">Chưa tra ShopHunter (vượt giới hạn số store mỗi lượt).</p>';
-  let h = '';
+  const parts = {rev: '', chart: '', ov: ''};
+  if (!sh) { parts.rev = '<p class="note">Chưa tra ShopHunter (vượt giới hạn số store mỗi lượt).</p>'; return parts; }
   const revName = DATA.meta.boxes.find(b => /revenue/i.test(b) && !DATA.meta.image_boxes.includes(b) && sh.boxes[b]);
-  if (revName) h += revenueBlock(sh.boxes[revName]);
+  if (revName) parts.rev = revenueBlock(sh.boxes[revName]);
   for (const [b, img] of Object.entries(sh.images))
-    h += `<div class="chart"><img loading="lazy" src="data:image/png;base64,${img}" alt="${esc(b)} ${esc(s.domain)}" data-zoom></div>`;
+    parts.chart += `<img loading="lazy" src="data:image/png;base64,${img}" alt="${esc(b)} ${esc(s.domain)}" data-zoom>`;
   for (const b of DATA.meta.boxes)
-    if (b !== revName && sh.boxes[b] && !sh.images[b]) h += kvBlock(b, sh.boxes[b]);
-  if (sh.error) h += `<p class="err">${esc(sh.error)}</p>`;
-  return h;
+    if (b !== revName && sh.boxes[b] && !sh.images[b]) parts.ov += kvBlock(b, sh.boxes[b]);
+  if (sh.error) parts.ov += `<p class="err">${esc(sh.error)}</p>`;
+  return parts;
 }
 
 function card(s, i) {
   const shots = s.ads.filter(a => a.shot).slice(0, 4).map(a => `
     <div class="ad"><img loading="lazy" src="data:image/jpeg;base64,${a.shot}" alt="Ad ${esc(a.id)}" data-zoom>
       <a href="https://www.facebook.com/ads/library/?id=${esc(a.id)}" target="_blank" rel="noopener">${a.days != null ? a.days + 'n' : 'Ad'}</a></div>`).join('');
+  const p = shParts(s);
   return `<section class="store">
-    <div class="hd"><span class="rank">#${i + 1}</span>
-      <h2 title="${esc(s.domain)}"><a href="${esc(s.store_url || 'https://' + s.domain)}" target="_blank" rel="noopener">${esc(s.domain)}</a></h2>
+    <div class="c-info">
+      <div class="hd"><span class="rank">#${i + 1}</span>
+        <h2 title="${esc(s.domain)}"><a href="${esc(s.store_url || 'https://' + s.domain)}" target="_blank" rel="noopener">${esc(s.domain)}</a></h2>
+      </div>
       <div class="links">${s.sh && s.sh.shop_url ? `<a href="${esc(s.sh.shop_url)}" target="_blank" rel="noopener">ShopHunter</a>` : ''}
         ${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">Trang ad</a>` : ''}</div>
+      <div class="chips">
+        <span class="chip">Tháng <b>${money(s.revenue)}</b></span>
+        <span class="chip">Ads <b>${s.ads_count}</b></span>
+        <span class="chip">Lâu nhất <b>${s.days ?? '—'} ngày</b></span>
+        ${s.versions > s.ads_count ? `<span class="chip">Phiên bản <b>${s.versions}</b></span>` : ''}
+      </div>
+      ${s.pages.length ? `<div class="note">Page: ${esc(s.pages.join(', '))}</div>` : ''}
+      ${s.body ? `<div class="body" title="${esc(s.body)}">“${esc(s.body)}”</div>` : ''}
     </div>
-    <div class="chips">
-      <span class="chip">Tháng <b>${money(s.revenue)}</b></span>
-      <span class="chip">Ads <b>${s.ads_count}</b></span>
-      <span class="chip">Lâu nhất <b>${s.days ?? '—'} ngày</b></span>
-      ${s.versions > s.ads_count ? `<span class="chip">Phiên bản <b>${s.versions}</b></span>` : ''}
-    </div>
-    ${shBlock(s)}
-    ${shots ? `<div><div class="sec">Ads (${s.ads_count})${s.pages.length ? ' · ' + esc(s.pages.join(', ')) : ''}</div><div class="ads">${shots}</div></div>` : ''}
-    ${s.body ? `<div class="body" title="${esc(s.body)}">“${esc(s.body)}”</div>` : ''}
+    <div class="c-rev">${p.rev}</div>
+    <div class="c-chart chart">${p.chart}</div>
+    <div class="c-ov">${p.ov}</div>
+    <div class="c-ads">${shots ? `<div class="sec">Ads (${s.ads_count})</div><div class="ads">${shots}</div>` : ''}</div>
   </section>`;
 }
 
 function render() {
+  document.body.classList.toggle('rows', $('#view').value === 'rows');
+  try { localStorage.setItem('af-view', $('#view').value); } catch (e) {}
   const q = $('#q').value.toLowerCase(), kw = $('#kw').value, only = $('#onlysh').checked, sort = $('#sort').value;
   let list = DATA.stores.filter(s =>
     (!kw || s.keywords.includes(kw)) &&
@@ -276,7 +307,8 @@ function render() {
   $('#count').textContent = `${list.length} / ${DATA.stores.length} store`;
   $('#list').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Không có store nào khớp bộ lọc.</div>';
 }
-['q', 'kw', 'sort', 'onlysh'].forEach(id => $('#' + id).addEventListener('input', render));
+try { const v = localStorage.getItem('af-view'); if (v) $('#view').value = v; } catch (e) {}
+['q', 'kw', 'sort', 'onlysh', 'view'].forEach(id => $('#' + id).addEventListener('input', render));
 document.addEventListener('click', e => {
   if (e.target.matches('[data-zoom]')) { const d = $('#zoom'); d.querySelector('img').src = e.target.src; d.showModal(); }
   else if (e.target.closest('dialog')) $('#zoom').close();
