@@ -72,14 +72,14 @@ class EndToEnd(unittest.TestCase):
         self.http.shutdown()
         shutil.rmtree(self.tmp, ignore_errors=True)
 
-    def test_full_run(self):
+    def _run(self, adlib_path, no_shophunter=False):
         from adsfinder import __main__ as cli
         from adsfinder import config
         from adsfinder.db import DB
 
         cfg_path = Path(self.tmp) / "config.json"
         cfg_path.write_text(json.dumps({
-            "adlibrary_url": self.base + "/ads/library/",
+            "adlibrary_url": self.base + adlib_path,
             "shophunter_track_url": self.base + "/shops/track",
             "cdp_url": f"http://127.0.0.1:{self.cdp_port}",
             "data_dir": str(Path(self.tmp) / "data"),
@@ -90,11 +90,21 @@ class EndToEnd(unittest.TestCase):
         }))
         cfg = config.load(cfg_path)
         args = Namespace(keywords=["posture corrector"], max_ads=None, max_stores=None,
-                         no_shophunter=False, refresh=False, no_open=True)
+                         no_shophunter=no_shophunter, refresh=False, no_open=True)
         cli.cmd_run(args, cfg)
-
         db = DB(cfg["data_dir"])
-        ads = {a["library_id"]: dict(a) for a in db.run_ads(1)}
+        return db, {a["library_id"]: dict(a) for a in db.run_ads(1)}
+
+    def test_vietnamese_ad_library(self):
+        _db, ads = self._run("/ads/library/vi/", no_shophunter=True)
+        self.assertEqual(set(ads), {"1111111111", "2222222222", "3333333333"})
+        self.assertEqual(ads["1111111111"]["started"], "2026-09-01")
+        self.assertEqual(ads["1111111111"]["versions"], 3)
+        self.assertEqual(ads["1111111111"]["domain"], "127.0.0.1")
+        self.assertIn("Fix your posture", ads["1111111111"]["body"])
+
+    def test_full_run(self):
+        db, ads = self._run("/ads/library/")
         self.assertEqual(set(ads), {"1111111111", "2222222222", "3333333333"})
         a1 = ads["1111111111"]
         self.assertEqual(a1["started"], "2026-09-01")

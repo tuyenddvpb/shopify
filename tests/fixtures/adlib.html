@@ -7,13 +7,22 @@ const ads = [
   {id:'3333333333', d:'Nov 10, 2026', page:'Big Mall', v:1, u:'https://www.amazon.com/dp/X'},
 ];
 const store = location.origin + '/store';
+const VI = location.pathname.includes('/vi');
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const T = VI ? {
+  id: 'ID thư viện: ', started: (d) => { const [m, dd, y] = d.replace(',', '').split(' '); return `Bắt đầu chạy vào ${dd} Th${months.indexOf(m) + 1}, ${y}`; },
+  versions: (n) => `${n} quảng cáo sử dụng mẫu quảng cáo và văn bản này`, sponsored: 'Được tài trợ', active: 'Đang hoạt động',
+} : {
+  id: 'Library ID: ', started: (d) => `Started running on ${d}`,
+  versions: (n) => `${n} ads use this creative and text`, sponsored: 'Sponsored', active: 'Active',
+};
 function card(a){
-  return `<div class="x1"><div class="x2"><div><span>Active</span></div>
-   <div><span>Library ID: ${a.id}</span></div>
-   <div><span>Started running on ${a.d}</span></div>
-   ${a.v>1?`<div><span>${a.v} ads use this creative and text</span></div>`:''}
+  return `<div class="x1"><div class="x2"><div><span>${T.active}</span></div>
+   <div><span>${T.id}${a.id}</span></div>
+   <div><span>${T.started(a.d)}</span></div>
+   ${a.v>1?`<div><span>${T.versions(a.v)}</span></div>`:''}
    <div><a href="https://www.facebook.com/ads/library/?id=${a.id}">See ad details</a></div></div>
-   <div class="x3"><a href="https://www.facebook.com/100${a.id}/">${a.page}</a><div>Sponsored</div>
+   <div class="x3"><a href="https://www.facebook.com/100${a.id}/">${a.page}</a><div>${T.sponsored}</div>
    <div>Fix your posture in 7 days. ${a.page} best seller.</div>
    <video src="data:video/mp4;base64,AAAA" poster="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="300" height="300"></video>
    <a href="https://l.facebook.com/l.php?u=${encodeURIComponent(a.u.replace('STORE', store))}&h=abc">Shop now</a></div></div>`;

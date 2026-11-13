@@ -51,17 +51,35 @@ def is_excluded(domain, excluded):
     return not domain or any(domain == d or domain.endswith("." + d) for d in excluded)
 
 
+_MONTHS = {m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+
+
 def parse_fb_date(s):
-    """'Nov 2, 2026' or 'November 2, 2026' -> date."""
+    """Ad Library start date in English or Vietnamese -> date.
+
+    'Nov 2, 2026', 'November 2, 2026', '2 Th11, 2026', '2 thg 11, 2026',
+    'ngày 2 tháng 11 năm 2026', '02/11/2026'."""
     if not s:
         return None
-    s = s.replace(".", "").strip()
-    for fmt in ("%b %d, %Y", "%B %d, %Y", "%d %b %Y", "%d %B %Y"):
-        try:
-            return datetime.strptime(s, fmt).date()
-        except ValueError:
-            pass
+    m = re.search(r"\b([A-Za-z]{3})[a-z]*\.?\s+(\d{1,2}),?\s+(\d{4})", s)
+    if m and m.group(1).lower() in _MONTHS:
+        return _mkdate(int(m.group(3)), _MONTHS[m.group(1).lower()], int(m.group(2)))
+    m = re.search(r"(\d{1,2})\s+([A-Za-z]{3})[a-z]*\.?,?\s+(\d{4})", s)
+    if m and m.group(2).lower() in _MONTHS:
+        return _mkdate(int(m.group(3)), _MONTHS[m.group(2).lower()], int(m.group(1)))
+    nums = re.findall(r"\d+", s)
+    for i, n in enumerate(nums):
+        if len(n) == 4 and i >= 2:  # day, month, year (Vietnamese order)
+            return _mkdate(int(n), int(nums[i - 1]), int(nums[i - 2]))
     return None
+
+
+def _mkdate(y, mo, d):
+    try:
+        return date(y, mo, d)
+    except ValueError:
+        return None
 
 
 def days_since(d, today=None):

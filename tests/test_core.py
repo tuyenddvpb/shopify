@@ -17,6 +17,9 @@ class UtilTests(unittest.TestCase):
         self.assertEqual(parse_fb_date("Nov 2, 2026"), date(2026, 11, 2))
         self.assertEqual(parse_fb_date("September 12, 2026"), date(2026, 9, 12))
         self.assertIsNone(parse_fb_date("yesterday"))
+        self.assertEqual(parse_fb_date("2 Th11, 2026"), date(2026, 11, 2))
+        self.assertEqual(parse_fb_date("2 thg 11, 2026"), date(2026, 11, 2))
+        self.assertEqual(parse_fb_date("ngày 2 tháng 11 năm 2026"), date(2026, 11, 2))
         self.assertEqual(days_since("2026-11-01", today=date(2026, 11, 13)), 12)
 
     def test_money(self):

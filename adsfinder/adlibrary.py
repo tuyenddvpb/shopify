@@ -5,35 +5,41 @@ from urllib.parse import urlencode
 from .browser import dump_debug
 from .util import days_since, domain_of, is_excluded, log, parse_fb_date, unwrap_fb_link, wait_for_user
 
-# Runs in the page. Every ad card shows "Library ID: <digits>"; climb from that
-# text to the largest ancestor that still holds exactly one Library ID: that's the card.
+# Runs in the page. Every ad card shows its Library ID ("Library ID: 123..." in
+# English, "ID thư viện: 123..." in Vietnamese). We match "ID" followed by a long
+# number so any Facebook language works, then climb to the largest ancestor that
+# still holds exactly one ID: that's the card.
 EXTRACT_JS = r"""
 () => {
-  const count = (el) => ((el.textContent || '').match(/Library ID:?\s*\d+/g) || []).length;
+  const ID = /ID[^\n\d]{0,30}?(\d{10,})/;
+  const IDG = /ID[^\n\d]{0,30}?\d{10,}/g;
+  const count = (el) => ((el.textContent || '').match(IDG) || []).length;
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const starts = [];
   let n;
   while ((n = walker.nextNode())) {
-    if (/Library ID/.test(n.nodeValue) && n.parentElement) starts.push(n.parentElement);
+    if (/ID/.test(n.nodeValue) && n.parentElement) starts.push(n.parentElement);
   }
   const seen = new Set();
   const out = [];
   for (const s of starts) {
     let el = s;
-    while (count(el) === 0 && el.parentElement) el = el.parentElement;   // number in a sibling span
+    for (let i = 0; i < 4 && count(el) === 0 && el.parentElement; i++) el = el.parentElement;  // number in a sibling span
+    if (count(el) === 0) continue;
     let card = el;
     while (card.parentElement && card.parentElement !== document.body && count(card.parentElement) === 1)
       card = card.parentElement;
     const text = card.innerText || card.textContent || '';
-    const idm = text.match(/Library ID:?\s*(\d+)/);
+    const idm = text.match(ID) || (card.textContent || '').match(ID);
     if (!idm || seen.has(idm[1])) continue;
     seen.add(idm[1]);
     const id = idm[1];
     card.setAttribute('data-af-id', id);
 
-    const started = (text.match(/Started running on\s+([A-Za-z]{3,9}\.? \d{1,2}, \d{4})/) || [])[1] || '';
-    const vm = text.match(/(\d+)\s+ads?\s+use(?:s)? this creative and text/i);
-    const versions = vm ? parseInt(vm[1], 10) : (/multiple versions/i.test(text) ? 2 : 1);
+    const sm = text.match(/(?:Started running on|Bắt đầu chạy(?:\s+(?:vào|từ))?(?:\s+ngày)?)\s*([^\n]{6,40})/i);
+    const started = sm ? sm[1] : '';
+    const vm = text.match(/(\d+)\s+(?:ads?\s+use|quảng cáo\s+(?:sử dụng|dùng))/i);
+    const versions = vm ? parseInt(vm[1], 10) : (/multiple versions|nhiều phiên bản/i.test(text) ? 2 : 1);
 
     const anchors = [...card.querySelectorAll('a[href]')];
     const decode = (h) => {
@@ -60,7 +66,7 @@ EXTRACT_JS = r"""
       }
     }
     const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-    const sp = lines.findIndex(l => /^Sponsored$/i.test(l));
+    const sp = lines.findIndex(l => /^(Sponsored|Được tài trợ)$/i.test(l));
     const body = (sp >= 0 ? lines.slice(sp + 1, sp + 6) : []).join(' ').slice(0, 400);
     const v = card.querySelector('video');
     let poster = v ? (v.poster || '') : '';
@@ -78,7 +84,7 @@ EXTRACT_JS = r"""
 }
 """
 
-COUNT_JS = r"() => ((document.body.innerText || '').match(/Library ID:?\s*\d+/g) || []).length"
+COUNT_JS = r"() => ((document.body.innerText || '').match(/ID[^\n\d]{0,30}?\d{10,}/g) || []).length"
 
 
 def search_url(keyword, cfg):
@@ -103,7 +109,7 @@ def _wait_results(page, timeout_s=45):
         if page.evaluate(COUNT_JS) > 0:
             return True
         body = page.evaluate("() => document.body.innerText || ''")
-        if "No ads match" in body or "0 results" in body or "No results" in body:
+        if any(t in body for t in ("No ads match", "0 results", "No results", "Không có quảng cáo", "0 kết quả")):
             return False
         page.wait_for_timeout(1000)
     return False
@@ -113,7 +119,7 @@ def search(page, keyword, cfg, shots_dir, debug_dir):
     log(f"Ad Library: tìm '{keyword}' ({cfg['country']})")
     page.goto(search_url(keyword, cfg), wait_until="domcontentloaded", timeout=60000)
     if not _wait_results(page):
-        log("  Không thấy ad nào (hoặc trang chưa tải).")
+        log("  Không nhận ra thẻ ad nào trên trang (không có kết quả, trang chưa tải xong, hoặc giao diện Facebook đã đổi).")
         dump_debug(page, debug_dir, f"adlib-{keyword}")
         return []
 

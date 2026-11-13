@@ -59,6 +59,9 @@ def cmd_run(args, cfg):
 
                 # 2. Stores
                 groups = stores.group_by_store(all_ads, cfg["exclude_domains"])
+                if not groups:
+                    log("Không có store nào để kiểm tra: không đọc được ad nào có link store. "
+                        "Xem ảnh và HTML trong data/debug/ rồi gửi lại để sửa.")
                 log(f"Kiểm tra {len(groups)} store...")
                 info = stores.resolve_all(db, groups, cfg, context)
 
