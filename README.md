@@ -109,6 +109,8 @@ Nhấn `Ctrl+C` để dừng giữa chừng: app vẫn xuất report với dữ 
 | `delay_seconds` | [2, 5] | nghỉ ngẫu nhiên giữa các thao tác |
 | `shophunter_boxes` | 3 box ở trên | tên các box cần đọc |
 | `shophunter_image_boxes` | `["Revenue Trends"]` | box nào chụp ảnh |
+| `store_check_workers` | 8 | số store kiểm tra Shopify cùng lúc |
+| `store_check_timeout` | 20 | giây tối đa cho mỗi store; quá thì ghi "chưa rõ" và đi tiếp |
 | `exclude_domains` | facebook, amazon,... | domain không coi là store |
 
 ## Khi có lỗi

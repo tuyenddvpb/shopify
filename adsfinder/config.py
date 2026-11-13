@@ -27,6 +27,8 @@ DEFAULTS = {
     # Pacing between actions, seconds [min, max]
     "delay_seconds": [2, 5],
     "store_check_hours": 72,
+    "store_check_workers": 8,            # parallel HTTP checks
+    "store_check_timeout": 20,           # seconds per store, hard limit
     "exclude_domains": [
         "facebook.com", "fb.com", "fb.me", "instagram.com", "messenger.com",
         "whatsapp.com", "amazon.com", "amzn.to", "walmart.com", "ebay.com",
