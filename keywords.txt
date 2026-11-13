@@ -1,0 +1,66 @@
+# Mỗi dòng một từ khóa. Dòng trống và dòng bắt đầu bằng # được bỏ qua.
+# Chạy: python -m adsfinder run --file keywords.txt --max-ads 30 --max-stores 100
+
+# Sức khỏe & giảm đau
+posture corrector
+neck massager
+back stretcher
+knee brace
+plantar fasciitis
+foot massager
+red light therapy
+heated eye mask
+sciatica relief
+compression socks
+
+# Làm đẹp & chăm sóc cá nhân
+hair growth oil
+scalp massager
+ice roller
+teeth whitening kit
+lint remover
+heatless curls
+nail drill
+electric callus remover
+facial steamer
+lash serum
+
+# Nhà cửa & bếp
+cordless vacuum
+garlic chopper
+spice organizer
+vegetable chopper
+sink organizer
+under sink organizer
+cordless blender
+air fryer liners
+self cleaning lint roller
+shower filter
+
+# Thú cưng
+pet hair remover
+dog harness
+cat water fountain
+dog grooming brush
+pet camera
+dog toothbrush
+cat litter mat
+
+# Xe hơi & công cụ
+car vacuum
+car seat gap filler
+phone mount car
+cordless drill
+magnetic wristband
+
+# Ngủ & thư giãn
+weighted blanket
+cooling pillow
+sunrise alarm clock
+white noise machine
+sleep mask
+
+# Thể thao & ngoài trời
+resistance bands
+massage gun
+portable blender
