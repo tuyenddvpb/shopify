@@ -1,5 +1,8 @@
 """Follow ad links to the real store and check whether it runs on Shopify."""
+import json
 import queue
+import urllib.error
+from urllib.parse import urlparse
 import re
 import threading
 import time
@@ -21,7 +24,10 @@ SHOPIFY_JS = r"""
 
 def shopify_in(html, headers):
     h = {k.lower(): v for k, v in (headers or {}).items()}
-    if "x-shopid" in h or "x-shopify-stage" in h or "shopify" in h.get("powered-by", "").lower():
+    if any(k in h for k in ("x-shopid", "x-shopify-stage", "x-sorting-hat-shopid", "x-shopify-request-id",
+                            "x-storefront-renderer-rendered")):
+        return True
+    if "shopify" in h.get("powered-by", "").lower() or "_shopify_" in h.get("set-cookie", ""):
         return True
     return "cdn.shopify.com" in html or "Shopify.theme" in html or "myshopify.com" in html
 
@@ -37,32 +43,66 @@ def myshopify_in(html):
     return m.group(1).lower() if m else ""
 
 
+def _read(resp, max_bytes, end):
+    chunks, size = [], 0
+    while size < max_bytes and time.monotonic() < end:
+        chunk = resp.read(65536)
+        if not chunk:
+            break
+        chunks.append(chunk)
+        size += len(chunk)
+    return b"".join(chunks).decode("utf-8", "replace")
+
+
 def fetch(url, timeout=12, max_bytes=400_000, deadline_s=20):
-    """GET a page. Stops reading after max_bytes or deadline_s, whichever first."""
+    """GET a page. Stops reading after max_bytes or deadline_s. Error pages
+    (403, 429, 503...) are returned too: their headers still show Shopify."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*"})
     end = time.monotonic() + deadline_s
-    with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 - http(s) store links
-        chunks, size = [], 0
-        while size < max_bytes and time.monotonic() < end:
-            chunk = resp.read(65536)
-            if not chunk:
-                break
-            chunks.append(chunk)
-            size += len(chunk)
-        return resp.geturl(), b"".join(chunks).decode("utf-8", "replace"), dict(resp.headers)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 - http(s) store links
+            return resp.geturl(), _read(resp, max_bytes, end), dict(resp.headers), resp.status
+    except urllib.error.HTTPError as e:
+        try:
+            body = _read(e, 100_000, end)
+        except Exception:  # noqa: BLE001
+            body = ""
+        return e.geturl() or url, body, dict(e.headers or {}), e.code
+
+
+def meta_json(url):
+    """Shopify stores answer /meta.json with their myshopify domain."""
+    u = urlparse(url)
+    try:
+        _final, body, _h, status = fetch(f"{u.scheme or 'https'}://{u.netloc}/meta.json",
+                                         max_bytes=50_000, deadline_s=10)
+        if status == 200:
+            data = json.loads(body)
+            if isinstance(data, dict) and str(data.get("myshopify_domain", "")).endswith(".myshopify.com"):
+                return data["myshopify_domain"].lower()
+    except Exception:  # noqa: BLE001
+        pass
+    return ""
 
 
 def http_check(url):
     """Plain HTTP check. Returns (final_url, is_shopify or None, note, myshopify, needs_chrome)."""
     try:
-        final, html, headers = fetch(url)
+        final, html, headers, status = fetch(url)
     except Exception as e:  # noqa: BLE001
-        return url, None, f"lỗi tải trang: {e.__class__.__name__}", "", True
+        final, html, headers, status = url, "", {}, None
+        err = e.__class__.__name__
+    else:
+        err = f"HTTP {status}" if status and status >= 400 else ""
     if shopify_in(html, headers):
         return final, True, "", myshopify_in(html), False
+    mys = meta_json(final)
+    if mys:
+        return final, True, "nhận ra qua /meta.json", mys, False
+    if err:
+        return final, None, f"lỗi tải trang: {err}", "", True
     # Tiny pages are usually JS redirects or bot challenges: let Chrome look.
-    small = len(html) < 6000
-    return final, False, "không thấy dấu hiệu Shopify", "", small
+    return final, False, "không thấy dấu hiệu Shopify", "", len(html) < 6000
 
 
 def _with_deadline(fn, arg, seconds):
@@ -88,23 +128,55 @@ def _with_deadline(fn, arg, seconds):
 PROBE_JS = "() => ({shop: (" + SHOPIFY_JS.strip() + ")(), mys: (" + MYSHOPIFY_JS + ")()})"
 
 
-def chrome_check(context, url, timeout_ms=20000):
+def chrome_check(context, url, timeout_ms=20000, cdp_url=None):
     page = context.new_page()
     page.set_default_timeout(timeout_ms)
     page.on("dialog", _dismiss)
+    # Last resort: if Playwright gets stuck on this tab, close the tab through
+    # Chrome's own HTTP endpoint so the pending call fails and the run goes on.
+    killer = None
+    tid = _target_id(context, page)
+    if cdp_url and tid:
+        killer = threading.Timer(timeout_ms / 1000 * 2 + 10, _close_target, args=(cdp_url, tid))
+        killer.daemon = True
+        killer.start()
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
         page.wait_for_timeout(2000)
-        # wait_for_function honours the timeout; a plain evaluate() can wait forever
-        probe = page.wait_for_function(PROBE_JS, timeout=timeout_ms).json_value()
+        # wait_for_function honours the timeout; a plain evaluate() can wait forever.
+        # Poll by interval: requestAnimationFrame stalls in background tabs.
+        probe = page.wait_for_function(PROBE_JS, timeout=timeout_ms, polling=250).json_value()
         shop = bool(probe.get("shop"))
         mys = (probe.get("mys") or "").lower() if shop else ""
         return page.url, shop, "kiểm tra bằng Chrome", mys
     finally:
+        if killer:
+            killer.cancel()
         try:
             page.close(run_before_unload=False)
         except Exception:  # noqa: BLE001
             pass
+
+
+def _target_id(context, page):
+    try:
+        cdp = context.new_cdp_session(page)
+        tid = cdp.send("Target.getTargetInfo")["targetInfo"]["targetId"]
+        cdp.detach()
+        return tid
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _close_target(cdp_url, tid):
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    for method in ("GET", "PUT"):
+        try:
+            opener.open(urllib.request.Request(f"{cdp_url}/json/close/{tid}", method=method), timeout=5)
+            log(f"  Tab bị kẹt, đã tự đóng ({tid[:8]}).")
+            return
+        except Exception:  # noqa: BLE001
+            continue
 
 
 def _dismiss(dialog):
@@ -184,7 +256,8 @@ def resolve_all(db, groups, cfg, context):
         log(f"  Chrome [{j}/{len(chrome_queue)}] {d}...")
         try:
             with Watch(f"mở {d} bằng Chrome"):
-                final, shop, note, mys = chrome_check(context, url, cfg["store_check_timeout"] * 1000)
+                final, shop, note, mys = chrome_check(context, url, cfg["store_check_timeout"] * 1000,
+                                                      cdp_url=cfg.get("cdp_url"))
         except Exception as e:  # noqa: BLE001
             shop = shop if shop is False else None
             note, mys = f"{note}; Chrome: {e.__class__.__name__}", ""

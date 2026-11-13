@@ -24,6 +24,19 @@ class Slow(BaseHTTPRequestHandler):
             self.send_response(200)
             self.end_headers()
             self.wfile.write(body)
+        elif self.path.startswith("/meta.json"):
+            body = b'{"id": 1, "name": "Meta Shop", "myshopify_domain": "meta-shop.myshopify.com"}'
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/blocked"):
+            self.send_response(403)
+            self.end_headers()
+            self.wfile.write(b"<html>Access denied</html>")
+        elif self.path.startswith("/freeze"):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"<html><body>loaded<script>setTimeout(() => { while (true) {} }, 50)</script></body></html>")
         elif self.path.startswith("/drip"):
             self.send_response(200)
             self.end_headers()
@@ -69,6 +82,13 @@ class StoreCheckTests(unittest.TestCase):
         self.assertIsNone(info["stall.example"]["is_shopify"])
         self.assertIn(info["drip.example"]["is_shopify"], (None, 0))
 
+    def test_meta_json_detects_shopify_behind_block(self):
+        # homepage answers 403 to scripts, but /meta.json gives the store away
+        final, shop, note, mys, chrome = stores.http_check(self.base + "/blocked")
+        self.assertTrue(shop)
+        self.assertEqual(mys, "meta-shop.myshopify.com")
+        self.assertFalse(chrome)
+
 
 @unittest.skipUnless(__import__("os").environ.get("CHROME_BIN"), "CHROME_BIN not set")
 class ChromeCheckTests(StoreCheckTests):
@@ -101,6 +121,16 @@ class ChromeCheckTests(StoreCheckTests):
                 with self.assertRaises(Exception):
                     stores.chrome_check(ctx, self.base + "/stall", 3000)
                 self.assertLess(time.monotonic() - t0, 20)
+                # a page whose JavaScript never yields: must not hold the run
+                t1 = time.monotonic()
+                try:
+                    stores.chrome_check(ctx, self.base + "/freeze", 3000, cdp_url=f"http://127.0.0.1:{cdp}")
+                except Exception:  # noqa: BLE001
+                    pass
+                self.assertLess(time.monotonic() - t1, 30)
+                # and Chrome still works afterwards
+                final, shop, *_ = stores.chrome_check(ctx, self.base + "/alertshop", 5000)
+                self.assertTrue(shop)
         finally:
             chrome.terminate()
             chrome.wait()
