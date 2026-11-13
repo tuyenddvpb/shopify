@@ -72,5 +72,24 @@ class ParseTests(unittest.TestCase):
         self.assertEqual(list(stores.group_by_store(ads, [])), ["b.com", "a.com"])
 
 
+class KeywordFileTests(unittest.TestCase):
+    def test_read_and_gather(self):
+        import tempfile
+        from argparse import Namespace
+        from pathlib import Path
+
+        from adsfinder.__main__ import gather_keywords, read_keywords
+
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "kw.txt"
+            f.write_text("\ufeff# my list\nposture corrector\n\n  neck massager  \nposture corrector\n", encoding="utf-8")
+            self.assertEqual(read_keywords(f), ["posture corrector", "neck massager", "posture corrector"])
+            cfg = {"keywords": ["from config"], "keywords_file": ""}
+            args = Namespace(keywords=["knee brace"], file=str(f))
+            self.assertEqual(gather_keywords(args, cfg), ["knee brace", "posture corrector", "neck massager"])
+            self.assertEqual(gather_keywords(Namespace(keywords=[], file=None), cfg), ["from config"])
+            self.assertEqual(gather_keywords(Namespace(keywords=[], file=None), cfg, use_config=False), [])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -9,6 +9,7 @@ DEFAULTS = {
     "adlibrary_url": "https://www.facebook.com/ads/library/",
     "country": "US",
     "keywords": [],
+    "keywords_file": "",                 # e.g. "keywords.txt", used when no keyword is given
     "search_type": "keyword_unordered",  # or "keyword_exact_phrase"
     "media_type": "video",               # "all", "image", "video"
     "max_ads_per_keyword": 40,
@@ -35,6 +36,8 @@ DEFAULTS = {
     "data_dir": "data",
     "reports_dir": "reports",
     "open_report": True,
+    # "auto": embed images in the HTML up to 40 stores, else write reports/assets/
+    "report_embed_images": "auto",
 }
 
 

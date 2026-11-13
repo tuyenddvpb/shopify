@@ -43,6 +43,13 @@ CREATE TABLE IF NOT EXISTS runs (
     keywords TEXT,
     report_path TEXT
 );
+CREATE TABLE IF NOT EXISTS run_keywords (
+    run_id INTEGER,
+    keyword TEXT,
+    ads INTEGER,
+    done_at TEXT,
+    PRIMARY KEY (run_id, keyword)
+);
 CREATE TABLE IF NOT EXISTS run_ads (
     run_id INTEGER,
     library_id TEXT,
@@ -83,6 +90,26 @@ class DB:
         self.conn.execute("UPDATE runs SET report_path=? WHERE id=?", (str(report_path), run_id))
         self.conn.commit()
 
+    def set_run_keywords(self, run_id, keywords):
+        self.conn.execute("UPDATE runs SET keywords=? WHERE id=?", (json.dumps(keywords), run_id))
+        self.conn.commit()
+
+    def mark_keyword_done(self, run_id, keyword, n_ads):
+        self.conn.execute(
+            "INSERT OR REPLACE INTO run_keywords (run_id, keyword, ads, done_at) VALUES (?,?,?,?)",
+            (run_id, keyword, n_ads, now()),
+        )
+        self.conn.commit()
+
+    def done_keywords(self, run_id):
+        rows = self.conn.execute("SELECT keyword FROM run_keywords WHERE run_id=?", (run_id,)).fetchall()
+        return {r["keyword"] for r in rows}
+
+    def runs_since(self, days):
+        since = (datetime.now() - timedelta(days=days)).isoformat(timespec="seconds")
+        return [r["id"] for r in self.conn.execute(
+            "SELECT id FROM runs WHERE started_at >= ? ORDER BY id", (since,)).fetchall()]
+
     def get_run(self, run_id=None):
         if run_id:
             return self.conn.execute("SELECT * FROM runs WHERE id=?", (run_id,)).fetchone()
@@ -112,13 +139,26 @@ class DB:
         )
         self.conn.commit()
 
-    def run_ads(self, run_id):
-        return self.conn.execute(
-            """SELECT a.*, GROUP_CONCAT(r.keyword, '|') AS run_keywords
-               FROM run_ads r JOIN ads a ON a.library_id = r.library_id
-               WHERE r.run_id=? GROUP BY a.library_id""",
-            (run_id,),
+    def run_ads(self, run_ids):
+        """Ads seen in one run (int) or several (list), each ad once."""
+        ids = [run_ids] if isinstance(run_ids, int) else list(run_ids)
+        if not ids:
+            return []
+        marks = ",".join("?" * len(ids))
+        kws = {}
+        for r in self.conn.execute(
+                f"SELECT DISTINCT library_id, keyword FROM run_ads WHERE run_id IN ({marks})", ids):
+            kws.setdefault(r["library_id"], []).append(r["keyword"])
+        rows = self.conn.execute(
+            f"SELECT * FROM ads WHERE library_id IN (SELECT library_id FROM run_ads WHERE run_id IN ({marks}))",
+            ids,
         ).fetchall()
+        out = []
+        for r in rows:
+            d = dict(r)
+            d["run_keywords"] = "|".join(sorted(kws.get(d["library_id"], [])))
+            out.append(d)
+        return out
 
     # stores
     def get_store(self, domain, max_age_hours=None):

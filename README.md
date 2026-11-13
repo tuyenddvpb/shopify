@@ -44,7 +44,40 @@ App sẽ:
    - Trên trang shop: đọc các box **Store Overview**, **Revenue Performance** và chụp ảnh **Revenue Trends**. Nếu trang shop không hiện domain của store, report ghi chú "có thể đã mở nhầm store".
 4. Xuất `reports/report-<ngày giờ>-run<số>.html` rồi tự mở.
 
-File report là **một file duy nhất**, ảnh nằm sẵn bên trong. Có thể gửi qua Zalo hoặc email, hay mở trên điện thoại. Trong report có ô tìm kiếm, lọc theo từ khóa và sắp xếp theo doanh thu, số ad hoặc độ lâu của ad.
+Khi report có dưới 40 store, nó là **một file duy nhất** với ảnh nằm sẵn bên trong. Có thể gửi qua Zalo hoặc email, hay mở trên điện thoại. Trong report có ô tìm kiếm, lọc theo từ khóa và sắp xếp theo doanh thu, số ad hoặc độ lâu của ad.
+
+## Chạy số lượng lớn
+
+**1. File từ khóa.** Tạo `keywords.txt`, mỗi dòng một từ khóa. Dòng trống và dòng bắt đầu bằng `#` được bỏ qua.
+
+```
+# Sức khỏe
+posture corrector
+neck massager
+knee brace
+```
+
+```
+python -m adsfinder run --file keywords.txt --max-stores 100
+```
+
+Hoặc đặt `"keywords_file": "keywords.txt"` trong `config.json`, sau đó chỉ cần `python -m adsfinder run`.
+
+**2. Chạy tiếp khi bị dừng.** Mất điện, đóng cửa sổ, `Ctrl+C`, hay một từ khóa bị lỗi, thì chạy:
+
+```
+python -m adsfinder run --resume
+```
+
+App tiếp tục lượt gần nhất: bỏ qua các từ khóa đã quét xong, quét lại từ khóa bị lỗi, rồi kiểm tra store và tra ShopHunter cho toàn bộ ads của lượt đó. Store đã tra trong 24 giờ thì không tra lại. Muốn thêm từ khóa vào lượt đang dở: `python -m adsfinder run --resume "từ khóa mới"` hoặc `--resume --file them.txt`.
+
+**3. Report cho nhiều store.**
+- Report chia trang: 25, 50 hoặc 100 store mỗi trang.
+- Từ 40 store trở lên, ảnh được lưu ra thư mục `reports\assets\` cạnh file HTML thay vì nhúng vào file, để file nhẹ và mở nhanh. Khi gửi cho người khác, gửi kèm cả thư mục `assets`, hoặc xuất bản nhúng ảnh bằng `python -m adsfinder report --embed`.
+- Gộp nhiều lượt chạy vào một report:
+  ```
+  python -m adsfinder report --days 7
+  ```
 
 Tùy chọn hay dùng:
 
@@ -54,7 +87,11 @@ Tùy chọn hay dùng:
 | `--max-stores 5` | số store tối đa tra ShopHunter |
 | `--no-shophunter` | chỉ lấy ads, không tra ShopHunter |
 | `--refresh` | tra lại ShopHunter dù store đã tra trong 24 giờ qua |
-| `python -m adsfinder report` | xuất lại report lượt gần nhất |
+| `--file keywords.txt` | đọc từ khóa từ file |
+| `--resume` | chạy tiếp lượt gần nhất |
+| `python -m adsfinder report` | xuất lại report lượt gần nhất (`--run 5` cho lượt số 5) |
+| `python -m adsfinder report --days 7` | gộp các lượt trong 7 ngày qua |
+| `report --embed` / `--no-embed` | nhúng ảnh vào HTML / lưu ảnh ra `reports\assets\` |
 
 Nhấn `Ctrl+C` để dừng giữa chừng: app vẫn xuất report với dữ liệu đã lấy được.
 

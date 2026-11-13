@@ -74,7 +74,7 @@ class EndToEnd(unittest.TestCase):
         self.http.shutdown()
         shutil.rmtree(self.tmp, ignore_errors=True)
 
-    def _run(self, adlib_path, no_shophunter=False):
+    def _run(self, adlib_path, no_shophunter=False, keywords=("posture corrector",), resume=False):
         from adsfinder import __main__ as cli
         from adsfinder import config
         from adsfinder.db import DB
@@ -92,11 +92,46 @@ class EndToEnd(unittest.TestCase):
             "open_report": False,
         }))
         cfg = config.load(cfg_path)
-        args = Namespace(keywords=["posture corrector"], max_ads=None, max_stores=None,
+        args = Namespace(keywords=list(keywords), file=None, resume=resume, max_ads=None, max_stores=None,
                          no_shophunter=no_shophunter, refresh=False, no_open=True)
         cli.cmd_run(args, cfg)
+        self.cfg = cfg
         db = DB(cfg["data_dir"])
         return db, {a["library_id"]: dict(a) for a in db.run_ads(1)}
+
+    def test_resume_and_report_modes(self):
+        from unittest import mock
+
+        from adsfinder import adlibrary, report
+
+        real = adlibrary.search
+        seen = []
+
+        def spy(page, kw, *a, **k):
+            seen.append(kw)
+            if kw == "flaky":
+                raise RuntimeError("page crashed")
+            return real(page, kw, *a, **k)
+
+        with mock.patch.object(adlibrary, "search", spy):
+            db, _ = self._run("/ads/library/", no_shophunter=True, keywords=["posture corrector", "flaky"])
+            self.assertEqual(db.done_keywords(1), {"posture corrector"})   # flaky failed, not done
+            seen.clear()
+            db, _ = self._run("/ads/library/", no_shophunter=True, keywords=["neck massager"], resume=True)
+        self.assertEqual(seen, ["flaky", "neck massager"])                 # finished keyword skipped
+        self.assertIsNone(db.get_run(2))                                    # same run continued
+        self.assertEqual(json.loads(db.get_run(1)["keywords"]), ["posture corrector", "flaky", "neck massager"])
+        self.assertEqual(db.done_keywords(1), {"posture corrector", "neck massager"})
+
+        # report with image files instead of embedded images
+        path = report.build(db, 1, self.cfg, embed=False)
+        html = path.read_text(encoding="utf-8")
+        self.assertNotIn("data:image", html)
+        self.assertIn("assets/ads/1111111111.jpg", html)
+        self.assertTrue((path.parent / "assets" / "ads" / "1111111111.jpg").exists())
+        # report across runs
+        path = report.build(db, db.runs_since(1), self.cfg, label="1 ngày qua")
+        self.assertIn("1 ngày qua", path.read_text(encoding="utf-8"))
 
     def test_vietnamese_ad_library(self):
         _db, ads = self._run("/ads/library/vi/", no_shophunter=True)

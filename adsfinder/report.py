@@ -1,6 +1,8 @@
-"""Build one self-contained HTML report for a run."""
+"""Build an HTML report for one run or several (last N days)."""
 import base64
 import json
+import re
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -10,11 +12,18 @@ from .util import days_since, money_to_float
 ADS_PER_STORE = 4
 
 
+EMBED_MAX_STORES = 40   # "auto": embed images up to this many stores, else write image files
+
+
 def _b64_file(path):
     try:
         return base64.b64encode(Path(path).read_bytes()).decode()
     except (OSError, TypeError):
         return None
+
+
+def _safe(name):
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", name)[:120]
 
 
 def _revenue(boxes):
@@ -38,8 +47,9 @@ def _revenue(boxes):
     return None
 
 
-def collect(db, run_id, shopify_only=True):
-    ads = [dict(a) for a in db.run_ads(run_id)]
+def collect(db, run_ids, shopify_only=True):
+    """Stores seen in the given run(s). Images are left as file paths / base64 for attach_images()."""
+    ads = [dict(a) for a in db.run_ads(run_ids)]
     stores = {}
     for ad in ads:
         if ad["domain"]:
@@ -73,7 +83,7 @@ def collect(db, run_id, shopify_only=True):
                     "id": a["library_id"],
                     "days": days_since(a["started"]) if a["started"] else None,
                     "versions": a["versions"],
-                    "shot": _b64_file(a["shot_path"]) if i < ADS_PER_STORE else None,
+                    "shot": a["shot_path"] if i < ADS_PER_STORE else None,
                 }
                 for i, a in enumerate(items)
             ],
@@ -90,24 +100,69 @@ def collect(db, run_id, shopify_only=True):
     return out
 
 
-def build(db, run_id, cfg):
-    run = db.get_run(run_id)
-    stores = collect(db, run_id)
+def attach_images(stores, embed, out_dir):
+    """Turn image refs into <img src> values: data: URIs, or files under out_dir/assets/."""
+    assets = Path(out_dir) / "assets"
+    for s in stores:
+        for a in s["ads"]:
+            path = a.pop("shot")
+            a["img"] = None
+            if not path or not Path(path).exists():
+                continue
+            if embed:
+                a["img"] = "data:image/jpeg;base64," + _b64_file(path)
+            else:
+                dest = assets / "ads" / Path(path).name
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                if not dest.exists():
+                    shutil.copyfile(path, dest)
+                a["img"] = f"assets/ads/{dest.name}"
+        sh = s["sh"]
+        if not sh:
+            continue
+        stamp = re.sub(r"\D", "", sh.get("fetched_at") or "")
+        for name, b64 in list(sh["images"].items()):
+            if embed:
+                sh["images"][name] = "data:image/png;base64," + b64
+            else:
+                dest = assets / "charts" / _safe(f"{s['domain']}-{name}-{stamp}.png")
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                if not dest.exists():
+                    dest.write_bytes(base64.b64decode(b64))
+                sh["images"][name] = f"assets/charts/{dest.name}"
+    return stores
+
+
+def build(db, run_ids, cfg, embed=None, label=None):
+    """run_ids: one id or a list. embed: True / False / None (= config, default auto)."""
+    ids = [run_ids] if isinstance(run_ids, int) else list(run_ids)
+    keywords = []
+    for rid in ids:
+        keywords += json.loads(db.get_run(rid)["keywords"])
+    stores = collect(db, ids)
+    if embed is None:
+        mode = cfg.get("report_embed_images", "auto")
+        embed = len(stores) <= EMBED_MAX_STORES if mode == "auto" else bool(mode)
+    out_dir = Path(cfg["reports_dir"])
+    out_dir.mkdir(parents=True, exist_ok=True)
+    attach_images(stores, embed, out_dir)
     meta = {
-        "run_id": run_id,
-        "keywords": json.loads(run["keywords"]),
+        "runs": ids,
+        "keywords": list(dict.fromkeys(keywords)),
         "country": cfg["country"],
         "generated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "label": label or (f"lượt #{ids[0]}" if len(ids) == 1 else f"{len(ids)} lượt"),
         "boxes": cfg["shophunter_boxes"],
         "image_boxes": cfg["shophunter_image_boxes"],
+        "embedded": embed,
     }
     payload = json.dumps({"meta": meta, "stores": stores}, ensure_ascii=False).replace("</", "<\\/")
     html = TEMPLATE.replace("__DATA__", payload)
-    out_dir = Path(cfg["reports_dir"])
-    out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"report-{datetime.now():%Y%m%d-%H%M}-run{run_id}.html"
+    suffix = f"run{ids[0]}" if len(ids) == 1 else f"runs{ids[0]}-{ids[-1]}"
+    path = out_dir / f"report-{datetime.now():%Y%m%d-%H%M}-{suffix}.html"
     path.write_text(html, encoding="utf-8")
-    db.finish_run(run_id, path)
+    if len(ids) == 1:
+        db.finish_run(ids[0], path)
     return path
 
 
@@ -177,6 +232,10 @@ main { display: grid; gap: 12px; padding: 12px 0 24px; grid-template-columns: re
 .note { color: var(--muted); font-size: 12px; }
 .err { color: var(--down); font-size: 12px; }
 .sec { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+.pager { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 4px 0 28px; color: var(--muted); }
+.pager button { font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--line);
+                border-radius: 8px; padding: 5px 12px; cursor: pointer; }
+.pager button:disabled { opacity: .4; cursor: default; }
 .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; }
 .c-info, .c-rev, .c-chart, .c-ov, .c-ads { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .c-ov:empty, .c-ads:empty, .c-chart:empty { display: none; }
@@ -218,11 +277,18 @@ dialog::backdrop { background: rgba(0,0,0,.78); }
     <option value="rows">Hiển thị: mỗi store 1 dòng</option>
     <option value="grid">Hiển thị: lưới 4 cột</option>
   </select>
+  <select id="per">
+    <option value="25">25 store / trang</option>
+    <option value="50">50 store / trang</option>
+    <option value="100">100 store / trang</option>
+    <option value="0">Tất cả</option>
+  </select>
   <label class="chk"><input type="checkbox" id="onlysh" checked> Chỉ store có dữ liệu ShopHunter</label>
   <span class="sub" id="count"></span>
 </div></div>
 <div class="wrap"><div class="thead"><div>Store</div><div>Doanh thu</div><div>Revenue Trends</div><div>Store Overview</div><div>Ads</div></div>
-<main id="list"></main></div>
+<main id="list"></main>
+<nav class="pager" id="pager"></nav></div>
 <dialog id="zoom"><img alt=""></dialog>
 <script type="application/json" id="data">__DATA__</script>
 <script>
@@ -232,7 +298,10 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&
 const money = (v) => v == null ? '—' : '$' + (v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : v.toFixed(0));
 const trend = (c) => /^\s*[-−▼↓]/.test(c) ? 'down' : /^\s*[+▲↑]/.test(c) ? 'up' : '';
 
-$('#sub').textContent = `Từ khóa: ${DATA.meta.keywords.join(', ')} · ${DATA.meta.country} · ${DATA.meta.generated} · ${DATA.stores.length} store Shopify`;
+const KW = DATA.meta.keywords;
+$('#sub').textContent = `${DATA.meta.label} · ${KW.length} từ khóa: ${KW.slice(0, 8).join(', ')}${KW.length > 8 ? '…' : ''} · ${DATA.meta.country} · ${DATA.meta.generated} · ${DATA.stores.length} store Shopify`;
+$('#sub').title = KW.join(', ');
+let page = 1;
 for (const k of DATA.meta.keywords) $('#kw').insertAdjacentHTML('beforeend', `<option>${esc(k)}</option>`);
 
 function revenueBlock(rows) {
@@ -259,7 +328,7 @@ function shParts(s) {
   const revName = DATA.meta.boxes.find(b => /revenue/i.test(b) && !DATA.meta.image_boxes.includes(b) && sh.boxes[b]);
   if (revName) parts.rev = revenueBlock(sh.boxes[revName]);
   for (const [b, img] of Object.entries(sh.images))
-    parts.chart += `<img loading="lazy" src="data:image/png;base64,${img}" alt="${esc(b)} ${esc(s.domain)}" data-zoom>`;
+    parts.chart += `<img loading="lazy" src="${esc(img)}" alt="${esc(b)} ${esc(s.domain)}" data-zoom>`;
   for (const b of DATA.meta.boxes)
     if (b !== revName && sh.boxes[b] && !sh.images[b]) parts.ov += kvBlock(b, sh.boxes[b]);
   if (sh.error) parts.ov += `<p class="err">${esc(sh.error)}</p>`;
@@ -267,8 +336,8 @@ function shParts(s) {
 }
 
 function card(s, i) {
-  const shots = s.ads.filter(a => a.shot).slice(0, 4).map(a => `
-    <div class="ad"><img loading="lazy" src="data:image/jpeg;base64,${a.shot}" alt="Ad ${esc(a.id)}" data-zoom>
+  const shots = s.ads.filter(a => a.img).slice(0, 4).map(a => `
+    <div class="ad"><img loading="lazy" src="${esc(a.img)}" alt="Ad ${esc(a.id)}" data-zoom>
       <a href="https://www.facebook.com/ads/library/?id=${esc(a.id)}" target="_blank" rel="noopener">${a.days != null ? a.days + 'n' : 'Ad'}</a></div>`).join('');
   const p = shParts(s);
   return `<section class="store">
@@ -304,11 +373,32 @@ function render() {
     (!q || (s.domain + ' ' + s.pages.join(' ') + ' ' + s.body).toLowerCase().includes(q)));
   const key = { revenue: s => s.revenue ?? -1, ads: s => s.ads_count, days: s => s.days ?? -1 }[sort];
   list.sort((a, b) => key(b) - key(a) || b.ads_count - a.ads_count);
+  const per = +$('#per').value || list.length || 1;
+  const pages = Math.max(1, Math.ceil(list.length / per));
+  page = Math.min(page, pages);
+  const start = (page - 1) * per;
   $('#count').textContent = `${list.length} / ${DATA.stores.length} store`;
-  $('#list').innerHTML = list.length ? list.map(card).join('') : '<div class="empty">Không có store nào khớp bộ lọc.</div>';
+  $('#list').innerHTML = list.length
+    ? list.slice(start, start + per).map((s, i) => card(s, start + i)).join('')
+    : '<div class="empty">Không có store nào khớp bộ lọc.</div>';
+  $('#pager').innerHTML = pages > 1
+    ? `<button data-go="-1" ${page === 1 ? 'disabled' : ''}>‹ Trước</button> Trang ${page} / ${pages} <button data-go="1" ${page === pages ? 'disabled' : ''}>Sau ›</button>`
+    : '';
 }
-try { const v = localStorage.getItem('af-view'); if (v) $('#view').value = v; } catch (e) {}
-['q', 'kw', 'sort', 'onlysh', 'view'].forEach(id => $('#' + id).addEventListener('input', render));
+$('#pager').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  page += +b.dataset.go;
+  render();
+  window.scrollTo({top: 0});
+});
+try {
+  const v = localStorage.getItem('af-view'); if (v) $('#view').value = v;
+  const n = localStorage.getItem('af-per'); if (n) $('#per').value = n;
+} catch (e) {}
+['q', 'kw', 'sort', 'onlysh', 'per'].forEach(id => $('#' + id).addEventListener('input', () => { page = 1; render(); }));
+$('#view').addEventListener('input', render);
+$('#per').addEventListener('input', () => { try { localStorage.setItem('af-per', $('#per').value); } catch (e) {} });
 document.addEventListener('click', e => {
   if (e.target.matches('[data-zoom]')) { const d = $('#zoom'); d.querySelector('img').src = e.target.src; d.showModal(); }
   else if (e.target.closest('dialog')) $('#zoom').close();

@@ -1,5 +1,6 @@
 """Command line: python -m adsfinder run "keyword 1" "keyword 2"."""
 import argparse
+import json
 import os
 import sys
 import webbrowser
@@ -20,15 +21,37 @@ def _open(path):
         pass
 
 
+def read_keywords(path):
+    """One keyword per line; blank lines and lines starting with # are skipped."""
+    p = Path(path)
+    if not p.exists():
+        sys.exit(f"Không thấy file từ khóa: {p}")
+    out = []
+    for line in p.read_text(encoding="utf-8-sig").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            out.append(line)
+    return out
+
+
+def gather_keywords(args, cfg, use_config=True):
+    kws = list(args.keywords or [])
+    path = args.file or (cfg.get("keywords_file") if use_config and not kws else None)
+    if path:
+        p = Path(path)
+        kws += read_keywords(p if p.exists() or p.is_absolute() else config_mod.ROOT / p)
+    if not kws and use_config:
+        kws = list(cfg["keywords"])
+    return list(dict.fromkeys(k.strip() for k in kws if k.strip()))  # dedupe, keep order
+
+
 def cmd_run(args, cfg):
     from playwright.sync_api import sync_playwright
 
     from . import adlibrary, shophunter, stores
     from .browser import connect
 
-    keywords = args.keywords or cfg["keywords"]
-    if not keywords:
-        sys.exit('Chưa có từ khóa. Ví dụ: python -m adsfinder run "posture corrector"')
+    keywords = gather_keywords(args, cfg, use_config=not args.resume)
     if args.max_ads:
         cfg["max_ads_per_keyword"] = args.max_ads
     if args.max_stores is not None:
@@ -36,8 +59,23 @@ def cmd_run(args, cfg):
 
     data = Path(cfg["data_dir"])
     db = DB(data)
-    run_id = db.start_run(keywords)
-    log(f"Bắt đầu lượt #{run_id}: {', '.join(keywords)}")
+    done = set()
+    if args.resume:
+        last = db.get_run()
+        if not last:
+            sys.exit("Chưa có lượt nào để chạy tiếp.")
+        run_id = last["id"]
+        old = json.loads(last["keywords"])
+        keywords = list(dict.fromkeys(old + keywords))
+        db.set_run_keywords(run_id, keywords)
+        done = db.done_keywords(run_id)
+        log(f"Chạy tiếp lượt #{run_id}: {len(done)}/{len(keywords)} từ khóa đã xong.")
+    else:
+        if not keywords:
+            sys.exit('Chưa có từ khóa. Ví dụ: python -m adsfinder run "posture corrector" '
+                     'hoặc python -m adsfinder run --file keywords.txt')
+        run_id = db.start_run(keywords)
+        log(f"Bắt đầu lượt #{run_id}: {len(keywords)} từ khóa")
 
     try:
         with sync_playwright() as p:
@@ -45,20 +83,21 @@ def cmd_run(args, cfg):
             page = context.new_page()
             try:
                 # 1. Ad Library
-                all_ads = []
-                for kw in keywords:
+                todo_kw = [k for k in keywords if k not in done]
+                for i, kw in enumerate(todo_kw, 1):
+                    log(f"[{len(done) + i}/{len(keywords)}]")
                     try:
                         ads = adlibrary.search(page, kw, cfg, data / "shots", data / "debug")
                     except Exception as e:  # noqa: BLE001
-                        log(f"  Lỗi khi tìm '{kw}': {e}")
-                        ads = []
+                        log(f"  Lỗi khi tìm '{kw}': {e} (chạy lại với --resume để thử lại)")
+                        continue
                     for ad in ads:
                         db.save_ad(run_id, kw, ad)
-                    all_ads += ads
+                    db.mark_keyword_done(run_id, kw, len(ads))
                     pause(cfg)
 
-                # 2. Stores
-                groups = stores.group_by_store(all_ads, cfg["exclude_domains"])
+                # 2. Stores (every ad of this run, including earlier sessions when resuming)
+                groups = stores.group_by_store(db.run_ads(run_id), cfg["exclude_domains"])
                 if not groups:
                     log("Không có store nào để kiểm tra: không đọc được ad nào có link store. "
                         "Xem ảnh và HTML trong data/debug/ rồi gửi lại để sửa.")
@@ -105,10 +144,17 @@ def cmd_report(args, cfg):
     from . import report
 
     db = DB(cfg["data_dir"])
-    run = db.get_run(args.run)
-    if not run:
-        sys.exit("Chưa có lượt chạy nào.")
-    path = report.build(db, run["id"], cfg)
+    if args.days:
+        ids = db.runs_since(args.days)
+        if not ids:
+            sys.exit(f"Không có lượt nào trong {args.days} ngày qua.")
+        label = f"{args.days} ngày qua ({len(ids)} lượt)"
+    else:
+        run = db.get_run(args.run)
+        if not run:
+            sys.exit("Chưa có lượt chạy nào." if not args.run else f"Không có lượt #{args.run}.")
+        ids, label = run["id"], None
+    path = report.build(db, ids, cfg, embed=args.embed, label=label)
     log(f"Report: {path}")
     if not args.no_open:
         _open(path)
@@ -133,6 +179,9 @@ def main(argv=None):
 
     r = sub.add_parser("run", help="chạy đủ các bước")
     r.add_argument("keywords", nargs="*", help="từ khóa (mặc định lấy trong config.json)")
+    r.add_argument("--file", "-f", help="file từ khóa, mỗi dòng một từ (vd keywords.txt)")
+    r.add_argument("--resume", action="store_true",
+                   help="chạy tiếp lượt gần nhất, bỏ qua từ khóa đã xong (có thể thêm từ khóa mới)")
     r.add_argument("--max-ads", type=int, help="số ad tối đa mỗi từ khóa")
     r.add_argument("--max-stores", type=int, help="số store tối đa tra ShopHunter")
     r.add_argument("--no-shophunter", action="store_true", help="chỉ lấy ads, không tra ShopHunter")
@@ -142,6 +191,12 @@ def main(argv=None):
 
     rp = sub.add_parser("report", help="xuất lại report của một lượt")
     rp.add_argument("--run", type=int, help="số lượt (mặc định lượt mới nhất)")
+    rp.add_argument("--days", type=int, help="gộp mọi lượt trong N ngày qua vào một report")
+    emb = rp.add_mutually_exclusive_group()
+    emb.add_argument("--embed", dest="embed", action="store_true", default=None,
+                     help="nhúng ảnh vào file HTML (một file duy nhất, dễ gửi)")
+    emb.add_argument("--no-embed", dest="embed", action="store_false",
+                     help="lưu ảnh ra reports/assets/ (file HTML nhẹ, mở nhanh)")
     rp.add_argument("--no-open", action="store_true")
     rp.set_defaults(func=cmd_report)
 
