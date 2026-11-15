@@ -15,7 +15,7 @@
         "background": "cream",
         "eyebrow": "Help",
         "heading": "Frequently asked questions",
-        "text": "<p>Quick answers about WarmLiners, sizing, shipping and returns. Still stuck? Email <a href=\"mailto:support@kindhandco.com\">support@kindhandco.com</a>.</p>",
+        "text": "<p>Quick answers about shipping, tracking and returns. Still stuck? Email <a href=\"mailto:support@kindhandco.com\">support@kindhandco.com</a>.</p>",
         "button_label": "",
         "button_link": ""
       }
@@ -34,50 +34,50 @@
         "question_1": {
           "type": "question",
           "settings": {
-            "question": "Who are WarmLiners for?",
-            "answer": "<p>Anyone whose hands get cold first: people who feel the cold in their fingers, people with stiff hands on chilly mornings, knitters, gardeners and dog walkers. Many customers buy them as a gift for a mom or grandmother.</p>"
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are processed in 1–3 business days. Delivery takes 7–15 business days to the US and 10–20 business days to Canada, the UK and Australia. Shipping is free and tracked on every order.</p>"
           }
         },
         "question_2": {
           "type": "question",
           "settings": {
-            "question": "Will my fingertips really get warm?",
-            "answer": "<p>Yes. The warming wires run along the fingers, not only the back of the hand, so the warmth reaches your fingertips. Choose from three warmth levels.</p>"
+            "question": "Where do you ship?",
+            "answer": "<p>We currently ship to the United States, Canada, the United Kingdom and Australia.</p>"
           }
         },
         "question_3": {
           "type": "question",
           "settings": {
-            "question": "Can I type and use my phone while wearing them?",
-            "answer": "<p>Yes. WarmLiners are thin and close-fitting, with touchscreen fingertips, so you can type, text and hold a coffee cup without taking them off.</p>"
+            "question": "How do I track my order?",
+            "answer": "<p>We email your tracking number as soon as your order ships. You can also use our <a href=\"/pages/track-order\">Track your order</a> page with your order number and email.</p>"
           }
         },
         "question_4": {
           "type": "question",
           "settings": {
-            "question": "How long does the battery last?",
-            "answer": "<p>It depends on the warmth level you choose: lower levels last longer. You'll find the run time for each level on the product page. Recharge the batteries with the included cable.</p>"
+            "question": "Do I have to pay import taxes or duties?",
+            "answer": "<p>Prices in the UK and Australia include VAT/GST. US and Canadian sales tax is added at checkout. Orders to Canada may be charged import taxes or duties by the carrier, which are paid by the customer.</p>"
           }
         },
         "question_5": {
           "type": "question",
           "settings": {
-            "question": "Do you have small sizes?",
-            "answer": "<p>Yes. Check the size guide on the product page and measure around your palm. If the size isn't right, email us and we'll help you exchange.</p>"
+            "question": "What is your return policy?",
+            "answer": "<p>You have 60 days from delivery. If you're not happy, email support@kindhandco.com with your order number and we'll help you with a return or refund. See our <a href=\"/policies/refund-policy\">Refund Policy</a> for details.</p>"
           }
         },
         "question_6": {
           "type": "question",
           "settings": {
-            "question": "Is this a medical device?",
-            "answer": "<p>No. Kindhand products are comfort wear, not medical devices. If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, please check with your doctor before using heated products, and always start on the lowest level.</p>"
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Email us as soon as possible. If your order hasn't shipped yet, we'll do our best to change or cancel it.</p>"
           }
         },
         "question_7": {
           "type": "question",
           "settings": {
-            "question": "What if they're not right for me?",
-            "answer": "<p>You have 60 days from delivery to try them. If you're not happy, email support@kindhandco.com and we'll help you return them for a refund. See our refund policy for details.</p>"
+            "question": "I have a question about a product",
+            "answer": "<p>Email support@kindhandco.com and a real person will reply within one business day.</p>"
           }
         }
       },
@@ -96,8 +96,8 @@
       "settings": {
         "background": "cream",
         "days": 60,
-        "heading": "Our 60-day comfort guarantee",
-        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
+        "heading": "Our 60-day guarantee",
+        "text": "<p>If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
       }
     }
   },

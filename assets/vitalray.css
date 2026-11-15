@@ -943,3 +943,44 @@ body { font-size: 1.7rem; }
 .jdgm-review-widget .jm-review-widget-minimal-header__title {
   font-family: var(--font-heading-family) !important; font-size: clamp(2.6rem, 3.4vw, 3.8rem) !important; color: #3B2A33;
 }
+
+/* ===== Kindhand multi-category store (kh-*) ===== */
+.kh-cats .vr-center { margin-bottom: 28px; }
+.kh-cats__grid { display: grid; gap: 20px; grid-template-columns: repeat(var(--kh-cols, 4), minmax(0, 1fr)); }
+@media screen and (max-width: 989px) { .kh-cats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+.kh-cats__tile { position: relative; display: block; aspect-ratio: 1 / 1; border-radius: var(--vr-radius); overflow: hidden; text-decoration: none; background: var(--vr-blush); box-shadow: var(--vr-shadow); }
+.kh-cats__img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--vr-ease); }
+.kh-cats__tile:hover .kh-cats__img { transform: scale(1.05); }
+.kh-cats__tile::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(180deg, rgba(59,42,51,0) 0%, rgba(59,42,51,.62) 100%); pointer-events: none; }
+.kh-cats__label { position: absolute; left: 0; right: 0; bottom: 16px; z-index: 1; text-align: center; color: #fff; font-family: var(--font-heading-family); font-size: clamp(1.7rem, 2vw, 2.3rem); font-weight: 500; }
+.kh-cats__blank { display: grid; place-items: center; width: 100%; height: 100%; font-family: var(--font-heading-family); font-size: 9rem; color: rgba(255,255,255,.55); }
+.kh-tone--0 { background: #e9c9b8; } .kh-tone--1 { background: #c9d6c3; } .kh-tone--2 { background: #e8d8c4; } .kh-tone--3 { background: #b9a2ad; }
+
+.kh-banner { display: grid; grid-template-columns: 55fr 45fr; min-height: 460px; }
+.kh-banner--hero { min-height: min(78vh, 640px); }
+.kh-banner--img-right { grid-template-columns: 45fr 55fr; }
+.kh-banner--img-right .kh-banner__media { order: 2; }
+.kh-banner--blush { background: #f6e3db; } .kh-banner--sand { background: #f3e6d3; } .kh-banner--sage { background: var(--vr-bg-sage); }
+.kh-banner--plum { background: var(--vr-ink); color: var(--vr-bg); }
+.kh-banner__media { position: relative; overflow: hidden; min-height: 280px; }
+.kh-banner__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.kh-banner__blank { display: block; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, #e9c9b8, #c4673f 140%); }
+.kh-banner--sage .kh-banner__blank { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 60%), linear-gradient(135deg, #c9d6c3, #56704f 140%); }
+.kh-banner__collage { position: absolute; inset: 0; display: grid; gap: 6px; grid-template-columns: repeat(var(--n, 3), 1fr); }
+.kh-banner__collage--1 { --n: 1; } .kh-banner__collage--2 { --n: 2; } .kh-banner__collage--3 { --n: 3; }
+.kh-banner__collage img, .kh-banner__collage .kh-banner__blank { position: relative; width: 100%; height: 100%; object-fit: cover; }
+.kh-banner__body { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 56px 48px; }
+.kh-banner__heading { font-family: var(--font-heading-family); font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; margin: 0; color: inherit; font-size: clamp(3.2rem, 4.4vw, 5.4rem); }
+.kh-banner--hero .kh-banner__heading { font-size: clamp(4rem, 6vw, 7.6rem); }
+.kh-banner__tagline { font-family: var(--font-heading-family); font-style: italic; font-size: clamp(1.8rem, 2vw, 2.4rem); margin: 14px 0 0; opacity: .85; }
+.kh-banner__text { max-width: 46ch; margin-top: 14px; font-size: 1.7rem; line-height: 1.6; opacity: .9; }
+.kh-banner__text p { margin: 0; }
+.kh-banner__btn { display: inline-block; margin-top: 26px; padding: 14px 34px; border-radius: 999px; background: var(--vr-ink); color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 1.4rem; transition: background .2s; }
+.kh-banner__btn:hover { background: var(--vr-coral-strong); }
+.kh-banner--plum .kh-banner__btn { background: var(--vr-coral-strong); }
+@media screen and (max-width: 749px) {
+  .kh-banner, .kh-banner--img-right { grid-template-columns: 1fr; min-height: 0; }
+  .kh-banner--img-right .kh-banner__media { order: 0; }
+  .kh-banner__media { aspect-ratio: 4 / 3; min-height: 0; }
+  .kh-banner__body { padding: 32px 20px 40px; }
+}

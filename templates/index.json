@@ -10,47 +10,17 @@
 {
   "sections": {
     "hero": {
-      "type": "vr-hero",
+      "type": "kh-promo-banner",
       "settings": {
-        "background": "cream",
-        "trust_text": "Thin heated gloves for hands that get cold first",
-        "heading": "Warm hands, <em>all the way to your fingertips</em>",
-        "subheading": "<p>WarmLiners are thin, rechargeable heated gloves that warm your fingers, not just your palms, so you can type, text, knit and walk the dog in comfort.</p>",
-        "button_label": "Shop WarmLiners",
-        "button_link": "/collections/all",
-        "card_icon": "shield",
-        "card_title": "60-day comfort guarantee",
-        "card_text": "Try them all winter long",
-        "pill_text": "A warm gift for Mom"
-      },
-      "blocks": {
-        "badge_1": {
-          "type": "badge",
-          "settings": {
-            "icon": "hand",
-            "text": "Warmth to the fingertips"
-          }
-        },
-        "badge_2": {
-          "type": "badge",
-          "settings": {
-            "icon": "check",
-            "text": "Thin enough to type and text"
-          }
-        },
-        "badge_3": {
-          "type": "badge",
-          "settings": {
-            "icon": "heart",
-            "text": "Sizes for smaller hands"
-          }
-        }
-      },
-      "block_order": [
-        "badge_1",
-        "badge_2",
-        "badge_3"
-      ]
+        "size": "hero",
+        "tone": "blush",
+        "image_side": "left",
+        "heading": "Welcome to our shop",
+        "tagline": "Everyday finds, made simple",
+        "text": "<p>Useful, well-made things for your home, kitchen and everyday routine. Free tracked shipping on every order.</p>",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/all"
+      }
     },
     "trust": {
       "type": "vr-trust-bar",
@@ -71,7 +41,7 @@
           "settings": {
             "icon": "return",
             "text": "60-day",
-            "subtext": "Comfort guarantee"
+            "subtext": "Easy returns"
           }
         },
         "item_3": {
@@ -98,42 +68,199 @@
         "item_4"
       ]
     },
+    "categories": {
+      "type": "kh-category-tiles",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Collections",
+        "heading": "Shop by category",
+        "columns": 4
+      },
+      "blocks": {
+        "tile_1": {
+          "type": "tile",
+          "settings": {
+            "collection": "home-living",
+            "title": ""
+          }
+        },
+        "tile_2": {
+          "type": "tile",
+          "settings": {
+            "collection": "kitchen",
+            "title": ""
+          }
+        },
+        "tile_3": {
+          "type": "tile",
+          "settings": {
+            "collection": "beauty-care",
+            "title": ""
+          }
+        },
+        "tile_4": {
+          "type": "tile",
+          "settings": {
+            "collection": "fashion-accessories",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "tile_1",
+        "tile_2",
+        "tile_3",
+        "tile_4"
+      ]
+    },
+    "trending": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "trending-now",
+        "title": "Trending now",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-5",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "banner_home": {
+      "type": "kh-promo-banner",
+      "settings": {
+        "size": "regular",
+        "tone": "sand",
+        "image_side": "right",
+        "collection": "home-living",
+        "heading": "Home & Living",
+        "tagline": "Make every room work for you",
+        "text": "<p>Smart storage, cozy comforts and little upgrades that make home feel easier.</p>",
+        "button_label": "Shop now",
+        "button_link": ""
+      }
+    },
+    "banner_kitchen": {
+      "type": "kh-promo-banner",
+      "settings": {
+        "size": "regular",
+        "tone": "sage",
+        "image_side": "left",
+        "collection": "kitchen",
+        "heading": "Kitchen",
+        "tagline": "Upgrade your kitchen life",
+        "text": "<p>Practical tools for everyday cooking, family dinners and easy clean-up.</p>",
+        "button_label": "Shop now",
+        "button_link": ""
+      }
+    },
+    "best": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "best-sellers",
+        "title": "Best sellers",
+        "heading_size": "h1",
+        "description": "Our customers keep coming back for these.",
+        "show_description": true,
+        "description_style": "body",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-5",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "banner_beauty": {
+      "type": "kh-promo-banner",
+      "settings": {
+        "size": "regular",
+        "tone": "blush",
+        "image_side": "right",
+        "collection": "beauty-care",
+        "heading": "Beauty & Care",
+        "tagline": "A little self-care, every day",
+        "text": "<p>Simple tools and essentials for your daily routine.</p>",
+        "button_label": "Shop now",
+        "button_link": ""
+      }
+    },
+    "banner_fashion": {
+      "type": "kh-promo-banner",
+      "settings": {
+        "size": "regular",
+        "tone": "plum",
+        "image_side": "left",
+        "collection": "fashion-accessories",
+        "heading": "Fashion & Accessories",
+        "tagline": "Comfort you can wear",
+        "text": "<p>Easy, comfortable pieces you will reach for again and again.</p>",
+        "button_label": "Shop now",
+        "button_link": ""
+      }
+    },
     "why": {
       "type": "vr-features",
       "settings": {
         "background": "cream",
-        "eyebrow": "Why Kindhand",
-        "heading": "Made for hands that feel the cold first",
-        "subheading": "Most heated gloves are built for ski slopes. WarmLiners are built for everyday life.",
+        "eyebrow": "Why shop with us",
+        "heading": "Simple shopping, done right",
+        "subheading": "",
         "columns": "3",
         "numbered": false,
         "video_ratio": "square",
-        "button_label": "Shop WarmLiners",
-        "button_link": "/collections/all"
+        "button_label": "",
+        "button_link": ""
       },
       "blocks": {
         "feature_1": {
           "type": "feature",
           "settings": {
-            "icon": "hand",
-            "title": "Warmth to the fingertips",
-            "text": "<p>Warming wires run along every finger, so the warmth reaches the places that get cold first.</p>"
+            "icon": "check",
+            "title": "Picked with care",
+            "text": "<p>We choose practical products that solve everyday problems, and we test them before they go on the shelf.</p>"
           }
         },
         "feature_2": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Thin enough to type",
-            "text": "<p>A slim, close fit with touchscreen fingertips. Wear them at your desk, on a walk or with your knitting.</p>"
+            "icon": "truck",
+            "title": "Free tracked shipping",
+            "text": "<p>Every order ships free with tracking to the US, Canada, the UK and Australia.</p>"
           }
         },
         "feature_3": {
           "type": "feature",
           "settings": {
             "icon": "heart",
-            "title": "Sized for real hands",
-            "text": "<p>Sizes from extra small, so they fit smaller hands without baggy fingertips.</p>"
+            "title": "60-day easy returns",
+            "text": "<p>Not happy within 60 days of delivery? Email us and we'll make it right.</p>"
           }
         }
       },
@@ -141,248 +268,6 @@
         "feature_1",
         "feature_2",
         "feature_3"
-      ]
-    },
-    "shop": {
-      "type": "vr-category-cards",
-      "disabled": true,
-      "settings": {
-        "background": "sage",
-        "eyebrow": "Shop",
-        "heading": "Comfort for every part of the day",
-        "subheading": "Warm days, restful nights and gifts for the makers you love."
-      },
-      "blocks": {
-        "card_1": {
-          "type": "card",
-          "settings": {
-            "tag": "Our favorite",
-            "title": "WarmLiners heated gloves",
-            "text": "Thin, rechargeable warmth for cold fingers.",
-            "link_label": "Shop now",
-            "link": "/collections/all"
-          }
-        },
-        "card_2": {
-          "type": "card",
-          "settings": {
-            "tag": "Day",
-            "title": "Daytime compression gloves",
-            "text": "Gentle, open-finger support for busy hands.",
-            "link_label": "Shop now",
-            "link": "/collections/all"
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "tag": "Night",
-            "title": "Night wrist sleeve",
-            "text": "Soft support to wear while you sleep.",
-            "link_label": "Shop now",
-            "link": "/collections/all"
-          }
-        },
-        "card_4": {
-          "type": "card",
-          "settings": {
-            "tag": "Gifts",
-            "title": "Comfort hook set",
-            "text": "Easy-grip crochet hooks for long projects.",
-            "link_label": "Shop now",
-            "link": "/collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "card_1",
-        "card_2",
-        "card_3",
-        "card_4"
-      ]
-    },
-    "compare": {
-      "type": "vr-comparison",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Compare",
-        "heading": "WarmLiners vs. bulky heated gloves",
-        "us_label": "Kindhand",
-        "them_label": "Bulky ski gloves",
-        "button_label": "Shop WarmLiners",
-        "button_link": "/collections/all"
-      },
-      "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "feature": "Warms the fingers, not only the palm",
-            "us": true,
-            "them": true
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "feature": "Thin enough to type and text",
-            "us": true,
-            "them": false
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "feature": "Fits under your everyday gloves",
-            "us": true,
-            "them": false
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "feature": "Sizes for smaller hands",
-            "us": true,
-            "them": false
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "feature": "Rechargeable batteries",
-            "us": true,
-            "them": true
-          }
-        }
-      },
-      "block_order": [
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5"
-      ]
-    },
-    "gift": {
-      "type": "vr-media-text",
-      "settings": {
-        "background": "blush",
-        "pattern": true,
-        "layout": "right",
-        "image_ratio": "portrait",
-        "use_product_image": false,
-        "product_image_index": 1,
-        "eyebrow": "Gifting",
-        "heading": "The gift of <em>warm hands</em>",
-        "text": "<p>For the mom who never takes off her coat, the grandmother who knits every evening, or the friend whose fingers turn white on winter walks. A practical gift she'll reach for every day.</p>",
-        "use_product_description": false,
-        "button_label": "Shop gifts",
-        "button_link": "/collections/all",
-        "card_icon": "heart",
-        "card_title": "Buy 2, save 15%",
-        "card_text": "One to keep, one to gift",
-        "card_position": "bottom"
-      },
-      "blocks": {
-        "benefit_1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "box",
-            "title": "Ready to give",
-            "text": "Arrives ready to wrap."
-          }
-        },
-        "benefit_2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "return",
-            "title": "Easy exchanges",
-            "text": "Wrong size? We'll help her swap it."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_1",
-        "benefit_2"
-      ]
-    },
-    "guarantee": {
-      "type": "vr-guarantee",
-      "settings": {
-        "background": "cream",
-        "days": 60,
-        "heading": "Our 60-day comfort guarantee",
-        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
-      }
-    },
-    "faq": {
-      "type": "vr-faq",
-      "settings": {
-        "background": "white",
-        "eyebrow": "FAQ",
-        "heading": "Questions, answered",
-        "subheading": "Can't find what you need? Email support@kindhandco.com. We reply within one business day.",
-        "button_label": "Contact us",
-        "button_link": "shopify://pages/contact"
-      },
-      "blocks": {
-        "question_1": {
-          "type": "question",
-          "settings": {
-            "question": "Who are WarmLiners for?",
-            "answer": "<p>Anyone whose hands get cold first: people who feel the cold in their fingers, people with stiff hands on chilly mornings, knitters, gardeners and dog walkers. Many customers buy them as a gift for a mom or grandmother.</p>"
-          }
-        },
-        "question_2": {
-          "type": "question",
-          "settings": {
-            "question": "Will my fingertips really get warm?",
-            "answer": "<p>Yes. The warming wires run along the fingers, not only the back of the hand, so the warmth reaches your fingertips. Choose from three warmth levels.</p>"
-          }
-        },
-        "question_3": {
-          "type": "question",
-          "settings": {
-            "question": "Can I type and use my phone while wearing them?",
-            "answer": "<p>Yes. WarmLiners are thin and close-fitting, with touchscreen fingertips, so you can type, text and hold a coffee cup without taking them off.</p>"
-          }
-        },
-        "question_4": {
-          "type": "question",
-          "settings": {
-            "question": "How long does the battery last?",
-            "answer": "<p>It depends on the warmth level you choose: lower levels last longer. You'll find the run time for each level on the product page. Recharge the batteries with the included cable.</p>"
-          }
-        },
-        "question_5": {
-          "type": "question",
-          "settings": {
-            "question": "Do you have small sizes?",
-            "answer": "<p>Yes. Check the size guide on the product page and measure around your palm. If the size isn't right, email us and we'll help you exchange.</p>"
-          }
-        },
-        "question_6": {
-          "type": "question",
-          "settings": {
-            "question": "Is this a medical device?",
-            "answer": "<p>No. Kindhand products are comfort wear, not medical devices. If you have Raynaud's, diabetes, nerve problems or reduced feeling in your hands, please check with your doctor before using heated products, and always start on the lowest level.</p>"
-          }
-        },
-        "question_7": {
-          "type": "question",
-          "settings": {
-            "question": "What if they're not right for me?",
-            "answer": "<p>You have 60 days from delivery to try them. If you're not happy, email support@kindhandco.com and we'll help you return them for a refund. See our refund policy for details.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "question_1",
-        "question_2",
-        "question_3",
-        "question_4",
-        "question_5",
-        "question_6",
-        "question_7"
       ]
     },
     "newsletter": {
@@ -397,14 +282,14 @@
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "Join the Kindhand list",
+            "heading": "Join our list",
             "heading_size": "h1"
           }
         },
         "paragraph_2": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Warm-hands tips, new arrivals and members-only offers. No spam.</p>"
+            "text": "<p>New arrivals, restocks and members-only offers. No spam.</p>"
           }
         },
         "email_form_3": {
@@ -422,12 +307,14 @@
   "order": [
     "hero",
     "trust",
+    "categories",
+    "trending",
+    "banner_home",
+    "banner_kitchen",
+    "best",
+    "banner_beauty",
+    "banner_fashion",
     "why",
-    "shop",
-    "compare",
-    "gift",
-    "guarantee",
-    "faq",
     "newsletter"
   ]
 }

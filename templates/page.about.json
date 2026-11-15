@@ -14,9 +14,9 @@
       "settings": {
         "background": "cream",
         "eyebrow": "Our story",
-        "heading": "Kind to hands that do so much",
-        "text": "<p>Kindhand started with a simple question: why are heated gloves made for ski slopes, when so many of us just want warm fingers on a morning walk or at our desk?</p>",
-        "button_label": "Shop WarmLiners",
+        "heading": "Everyday finds, <em>picked with care</em>",
+        "text": "<p>Kindhand started with a simple idea: shopping for the little things that make life easier should be easy too.</p>",
+        "button_label": "Shop all products",
         "button_link": "/collections/all"
       }
     },
@@ -29,15 +29,15 @@
         "image_ratio": "portrait",
         "use_product_image": false,
         "product_image_index": 1,
-        "eyebrow": "What we make",
-        "heading": "Thin, gentle comfort wear",
-        "text": "<p>We design everyday comfort wear for hands that get cold, stiff or tired: heated glove liners thin enough to type in, soft compression gloves for busy days and gentle sleeves for restful nights.</p><p>Everything is chosen to be simple to use, comfortable to wear for hours and easy to give as a gift.</p>",
+        "eyebrow": "What we do",
+        "heading": "Practical products, fairly priced",
+        "text": "<p>We look for useful products for the home, the kitchen and your daily routine, check them before they go on the shelf, and ship every order free with tracking.</p><p>If something isn't right, a real person replies within one business day.</p>",
         "use_product_description": false,
         "button_label": "",
         "button_link": "",
-        "card_icon": "heart",
-        "card_title": "Made to be worn",
-        "card_text": "Every day, all winter",
+        "card_icon": "truck",
+        "card_title": "Free tracked shipping",
+        "card_text": "On every order",
         "card_position": "bottom"
       },
       "blocks": {},
@@ -47,38 +47,38 @@
       "type": "vr-features",
       "settings": {
         "background": "cream",
-        "eyebrow": "Why Kindhand",
-        "heading": "Made for hands that feel the cold first",
-        "subheading": "Most heated gloves are built for ski slopes. WarmLiners are built for everyday life.",
+        "eyebrow": "Our promise",
+        "heading": "Simple shopping, done right",
+        "subheading": "",
         "columns": "3",
         "numbered": false,
         "video_ratio": "square",
-        "button_label": "Shop WarmLiners",
+        "button_label": "Shop all products",
         "button_link": "/collections/all"
       },
       "blocks": {
         "feature_1": {
           "type": "feature",
           "settings": {
-            "icon": "hand",
-            "title": "Warmth to the fingertips",
-            "text": "<p>Warming wires run along every finger, so the warmth reaches the places that get cold first.</p>"
+            "icon": "check",
+            "title": "Picked with care",
+            "text": "<p>Every product is chosen to solve a real everyday problem.</p>"
           }
         },
         "feature_2": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Thin enough to type",
-            "text": "<p>A slim, close fit with touchscreen fingertips. Wear them at your desk, on a walk or with your knitting.</p>"
+            "icon": "truck",
+            "title": "Free tracked shipping",
+            "text": "<p>To the US, Canada, the UK and Australia.</p>"
           }
         },
         "feature_3": {
           "type": "feature",
           "settings": {
             "icon": "heart",
-            "title": "Sized for real hands",
-            "text": "<p>Sizes from extra small, so they fit smaller hands without baggy fingertips.</p>"
+            "title": "60-day easy returns",
+            "text": "<p>Not happy? Email us within 60 days of delivery and we'll make it right.</p>"
           }
         }
       },
@@ -93,8 +93,8 @@
       "settings": {
         "background": "cream",
         "days": 60,
-        "heading": "Our 60-day comfort guarantee",
-        "text": "<p>Wear Kindhand every day. If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
+        "heading": "Our 60-day guarantee",
+        "text": "<p>If you're not happy within 60 days of delivery, email us and we'll make it right. See our refund policy for details.</p>"
       }
     }
   },
