@@ -80,29 +80,25 @@
         "tile_1": {
           "type": "tile",
           "settings": {
-            "collection": "home-living",
-            "title": ""
+            "collection": "home-living"
           }
         },
         "tile_2": {
           "type": "tile",
           "settings": {
-            "collection": "kitchen",
-            "title": ""
+            "collection": "kitchen"
           }
         },
         "tile_3": {
           "type": "tile",
           "settings": {
-            "collection": "beauty-care",
-            "title": ""
+            "collection": "beauty-care"
           }
         },
         "tile_4": {
           "type": "tile",
           "settings": {
-            "collection": "fashion-accessories",
-            "title": ""
+            "collection": "fashion-accessories"
           }
         }
       },
@@ -119,7 +115,6 @@
         "collection": "trending-now",
         "title": "Trending now",
         "heading_size": "h1",
-        "description": "",
         "show_description": false,
         "description_style": "body",
         "products_to_show": 8,
@@ -151,8 +146,7 @@
         "heading": "Home & Living",
         "tagline": "Make every room work for you",
         "text": "<p>Smart storage, cozy comforts and little upgrades that make home feel easier.</p>",
-        "button_label": "Shop now",
-        "button_link": ""
+        "button_label": "Shop now"
       }
     },
     "banner_kitchen": {
@@ -165,8 +159,7 @@
         "heading": "Kitchen",
         "tagline": "Upgrade your kitchen life",
         "text": "<p>Practical tools for everyday cooking, family dinners and easy clean-up.</p>",
-        "button_label": "Shop now",
-        "button_link": ""
+        "button_label": "Shop now"
       }
     },
     "best": {
@@ -175,7 +168,7 @@
         "collection": "best-sellers",
         "title": "Best sellers",
         "heading_size": "h1",
-        "description": "Our customers keep coming back for these.",
+        "description": "<p>Our customers keep coming back for these.</p>",
         "show_description": true,
         "description_style": "body",
         "products_to_show": 8,
@@ -207,8 +200,7 @@
         "heading": "Beauty & Care",
         "tagline": "A little self-care, every day",
         "text": "<p>Simple tools and essentials for your daily routine.</p>",
-        "button_label": "Shop now",
-        "button_link": ""
+        "button_label": "Shop now"
       }
     },
     "banner_fashion": {
@@ -221,8 +213,7 @@
         "heading": "Fashion & Accessories",
         "tagline": "Comfort you can wear",
         "text": "<p>Easy, comfortable pieces you will reach for again and again.</p>",
-        "button_label": "Shop now",
-        "button_link": ""
+        "button_label": "Shop now"
       }
     },
     "why": {
