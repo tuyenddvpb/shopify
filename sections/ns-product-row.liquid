@@ -14,6 +14,7 @@
     assign items = collections.all.products
   endif
 -%}
+{%- if items != blank or request.design_mode -%}
 <section class="ns-section ns-row" data-ns-row>
   <div class="page-width">
     <div class="ns-row__head">
@@ -45,6 +46,7 @@
     </ul>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

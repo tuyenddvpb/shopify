@@ -195,3 +195,13 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading { letter-spacing: -0.01em; }
 .vr-wp__eyebrow { color: var(--ns-tan-strong) !important; }
 .vr-wp__submit, .vr-wp__cta { background: var(--ns-brown) !important; }
 .vr-wp__code { border-color: var(--ns-tan) !important; }
+
+/* Fixes after first live check */
+.ns-logo { white-space: nowrap; }
+@media (max-width: 749px) {
+  .ns-logo__word { font-size: 2.1rem; }
+  .ns-logo__mark { width: 26px; height: 26px; }
+}
+.shopify-section-group-footer-group { margin-top: 80px; }
+.footer { margin-top: 0; }
+.ns-trust + .shopify-section, .shopify-section:has(.ns-trust) { margin-bottom: 0; }
