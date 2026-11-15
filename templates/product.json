@@ -12,34 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "rating": {
-          "type": "rating",
-          "settings": {},
-          "disabled": true
+        "title": {
+          "type": "title",
+          "settings": {}
         },
-        "vr_title": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'title', tag: 'h1' %}"
-          }
-        },
-        "perks": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'light', size: 18 %}<span><strong>Red + near-infrared</strong> 660nm &amp; 850nm in one wrap</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Cordless</strong> USB-C rechargeable, use it anywhere</span></li><li>{% render 'vr-icon', name: 'clock', size: 18 %}<span><strong>15-minute sessions</strong> with auto shut-off</span></li></ul>"
-          }
-        },
-        "vr_price": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'price' %}"
-          }
-        },
-        "vr_bundle": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'bundle' %}"
-          }
+        "price": {
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -48,656 +27,79 @@
             "swatch_shape": "circle"
           }
         },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false,
+            "show_dynamic_checkout": true,
             "show_gift_card_recipient": false
           }
         },
-        "vr_stock": {
+        "trust": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'stock' %}<ul class=\"vr-minitrust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free tracked shipping</li><li>{% render 'vr-icon', name: 'return', size: 18 %}90-day returns</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout</li></ul>"
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
           }
         },
-        "vr_specs": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'specs' %}"
-          }
-        },
-        "guarantee": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div class=\"vr-pdp-guarantee\"><span class=\"vr-icon\">{% render 'vr-icon', name: 'shield', size: 20 %}</span><div><strong>Try it for 90 days — risk-free</strong>Use it at home for up to 90 days after delivery. Not for you? Email us and send it back for a full refund of your purchase price. <a href=\"/policies/refund-policy\">Refund policy</a></div></div>"
-          }
-        },
-        "tab_box": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "What's in the box",
-            "icon": "box",
-            "content": "<ul><li>1 × VitalRay wrist wrap</li><li>1 × USB-C charging cable</li><li>1 × Quick-start guide</li></ul>",
-            "page": ""
-          }
-        },
-        "tab_use": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "How to use",
-            "icon": "stopwatch",
-            "content": "<ol><li>Slip your thumb through the loop and fasten the strap.</li><li>Press the button to start a 15-minute session and pick your intensity.</li><li>Relax — the wrap turns off automatically. Use once a day.</li></ol>",
-            "page": ""
-          }
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "tab_shipping": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p><strong>Free tracked shipping</strong> to the US, Canada, UK and Australia.</p><ul><li>Processing: 1–3 business days</li><li>Delivery: 7–15 business days</li></ul><p><strong>90-day money-back guarantee.</strong> See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
             "page": ""
           }
         },
-        "vr_assurance": {
-          "type": "custom_liquid",
+        "share": {
+          "type": "share",
           "settings": {
-            "custom_liquid": "{% render 'vr-buybox', product: product, part: 'assurance' %}"
-          }
-        },
-        "tab_faq": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Common questions",
-            "icon": "question_mark",
-            "content": "<p><strong>When will my order arrive?</strong><br>Orders ship within 1–3 business days and usually arrive 7–15 business days after shipping. You'll get a tracking link by email.</p><p><strong>What if it's not for me?</strong><br>You have 90 days from delivery to return it for a full refund of the purchase price. Email us first and we'll send return instructions.</p><p><strong>Is it safe to use at home?</strong><br>VitalRay uses red and near-infrared LEDs with no UV light, and every session switches off automatically after 15 minutes. If you're pregnant, have a medical condition or are sensitive to light, check with your doctor first.</p><p><strong>Can I use it on both hands?</strong><br>One wrap covers one hand and wrist at a time. Many people choose the 2-pack so both hands can have a session together.</p><p><strong>Still have a question?</strong><br>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> — we reply within 1 business day.</p>",
-            "page": ""
+            "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "rating",
-        "vr_title",
-        "perks",
-        "vr_price",
-        "vr_bundle",
+        "title",
+        "price",
         "variant_picker",
+        "quantity",
         "buy_buttons",
-        "vr_stock",
-        "guarantee",
-        "vr_assurance",
-        "vr_specs",
-        "tab_faq",
-        "tab_box",
-        "tab_use",
-        "tab_shipping"
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": false,
-        "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
         "mobile_thumbnails": "show",
-        "media_position": "left",
-        "image_zoom": "lightbox",
         "hide_variants": true,
-        "enable_video_looping": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "enable_video_looping": true
       }
     },
-    "details": {
-      "type": "vr-media-text",
+    "related": {
+      "type": "related-products",
       "settings": {
-        "background": "cream",
-        "pattern": false,
-        "layout": "left",
-        "image_ratio": "portrait",
-        "use_product_image": true,
-        "source_product": "",
-        "product_image_index": 2,
-        "eyebrow": "Meet VitalRay Wrist",
-        "heading": "Gentle red light care for <em>hard-working hands</em>",
-        "text": "",
-        "use_product_description": true,
-        "button_label": "",
-        "button_link": "",
-        "card_icon": "light",
-        "card_title": "660 + 850nm",
-        "card_text": "Red & near-infrared",
-        "card_position": "bottom"
-      }
-    },
-    "stats": {
-      "type": "vr-stats",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "value": "660 + 850",
-            "label": "Nanometer wavelengths",
-            "note": "Red & near-infrared"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "15 min",
-            "label": "Per session",
-            "note": "Auto shut-off timer"
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "value": "3",
-            "label": "Intensity levels",
-            "note": "Pick what feels right"
-          }
-        },
-        "s4": {
-          "type": "stat",
-          "settings": {
-            "value": "USB-C",
-            "label": "Rechargeable",
-            "note": "No cords while in use"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "background": "dark",
-        "eyebrow": "Inside the wrap",
-        "heading": "Small device. Thoughtful design.",
-        "subheading": "",
-        "footnote": "",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "wavelengths": {
-      "type": "vr-wavelengths",
-      "blocks": {
-        "s1": {
-          "type": "spec",
-          "settings": {
-            "title": "48 LED chips",
-            "text": "— red and near-infrared, spread across the wrist"
-          }
-        },
-        "s2": {
-          "type": "spec",
-          "settings": {
-            "title": "3 intensity levels",
-            "text": "— start low, adjust to what feels comfortable"
-          }
-        },
-        "s3": {
-          "type": "spec",
-          "settings": {
-            "title": "15-minute sessions",
-            "text": "— switches off automatically"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "The technology",
-        "heading": "Two wavelengths. <em>One wrap.</em>",
-        "subheading": "VitalRay pairs the two most-studied wavelengths in red light therapy research.",
-        "source_product": "vitalray-wrist",
-        "product_image_index": 3,
-        "badge_title": "Red + near-infrared",
-        "badge_text": "Dual-chip LEDs across the wrist",
-        "red_nm": "660nm",
-        "red_label": "Red light",
-        "red_text": "Visible red light that works close to the skin's surface.",
-        "nir_nm": "850nm",
-        "nir_label": "Near-infrared",
-        "nir_text": "Invisible near-infrared light that travels deeper into tissue than visible red light."
-      }
-    },
-    "science": {
-      "type": "vr-learn",
-      "blocks": {
-        "c1": {
-          "type": "card",
-          "settings": {
-            "icon": "light",
-            "title": "What it is",
-            "text": "<p>Red light therapy — also called <strong>photobiomodulation (PBM)</strong> — uses low-level red and near-infrared light from LEDs or lasers. It contains no UV light.</p>"
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "icon": "sparkle",
-            "title": "How it's studied",
-            "text": "<p>Researchers have studied red and near-infrared light for decades. Much of that work looks at how these wavelengths interact with cells, especially the <strong>mitochondria</strong> — the parts of cells that produce energy. Research is ongoing and results vary between studies.</p>"
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "icon": "hand",
-            "title": "At home",
-            "text": "<p>LED wraps like VitalRay use wavelengths common in research in a simple at-home format: low intensity, short sessions, used consistently. Check with your doctor first if you have a medical condition, are pregnant, or have an implanted device.</p>"
-          }
-        },
-        "s1": {
-          "type": "source",
-          "settings": {
-            "label": "Search PubMed for “photobiomodulation”",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=photobiomodulation",
-            "note": "the U.S. National Library of Medicine's research database"
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "s1"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "The science",
-        "heading": "About red light therapy",
-        "subheading": "A quick, plain-English look at the technology inside VitalRay Wrist.",
-        "sources_heading": "Want to read more?",
-        "disclaimer": "This information is educational and is not medical advice. VitalRay is not intended to diagnose, treat, cure or prevent any disease."
-      }
-    },
-    "lifestyle": {
-      "type": "vr-media-text",
-      "settings": {
-        "background": "sage",
-        "pattern": false,
-        "layout": "right",
-        "image": "shopify://shop_images/composite.png",
-        "image_ratio": "portrait",
-        "use_product_image": false,
-        "source_product": "",
-        "product_image_index": 2,
-        "eyebrow": "Everyday comfort",
-        "heading": "Made for hard-working hands",
-        "text": "<p>Typing, gripping, lifting, scrolling — your hands rarely get a day off. VitalRay makes it easy to give them a few quiet minutes of care, right at your desk.</p>",
-        "use_product_description": false,
-        "button_label": "",
-        "button_link": "",
-        "card_icon": "hand",
-        "card_title": "Either hand",
-        "card_text": "Adjustable strap & thumb loop",
-        "card_position": "top"
-      }
-    },
-    "timeline": {
-      "type": "vr-timeline",
-      "blocks": {
-        "t1": {
-          "type": "step",
-          "settings": {
-            "when": "Day 1",
-            "title": "Find your fit",
-            "text": "<ul><li>Charge the wrap fully</li><li>Start on the lowest intensity</li></ul>"
-          }
-        },
-        "t2": {
-          "type": "step",
-          "settings": {
-            "when": "Week 1–2",
-            "title": "Make it a habit",
-            "text": "<ul><li>Pair it with something you already do — coffee, TV, reading</li><li>One 15-minute session a day</li></ul>"
-          }
-        },
-        "t3": {
-          "type": "step",
-          "settings": {
-            "when": "Week 3+",
-            "title": "Keep it going",
-            "text": "<ul><li>Stay consistent — that's what matters most</li><li>Adjust intensity and mode to what feels best</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "Your routine",
-        "heading": "Building the habit",
-        "subheading": "Consistency matters more than intensity.",
-        "footnote": "Everyone is different. Talk to your doctor if you have a medical condition."
-      }
-    },
-    "steps": {
-      "type": "vr-features",
-      "blocks": {
-        "f1": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step1.mp4",
-            "title": "Wrap it on",
-            "text": "<p>Slide your thumb through the loop and secure the strap over your wrist.</p>"
-          }
-        },
-        "f2": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step2.mp4",
-            "title": "Press start",
-            "text": "<p>One button starts a 15-minute session. Choose your intensity level.</p>"
-          }
-        },
-        "f3": {
-          "type": "feature",
-          "settings": {
-            "icon": "✦",
-            "video": "shopify://files/videos/VitalRay step3.mp4",
-            "title": "Relax & repeat",
-            "text": "<p>Read, watch TV or work. Use it once a day and stay consistent.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "Easy as it gets",
-        "heading": "Three simple steps",
-        "subheading": "No appointments, no setup. Just wrap, press and relax.",
-        "columns": "3",
-        "numbered": true,
-        "video_ratio": "portrait",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "compare": {
-      "type": "vr-comparison",
-      "blocks": {
-        "r1": {
-          "type": "row",
-          "settings": {
-            "feature": "Red + near-infrared light",
-            "us": true,
-            "them": false
-          }
-        },
-        "r2": {
-          "type": "row",
-          "settings": {
-            "feature": "Cordless, use anywhere",
-            "us": true,
-            "them": false
-          }
-        },
-        "r3": {
-          "type": "row",
-          "settings": {
-            "feature": "Adjustable intensity",
-            "us": true,
-            "them": false
-          }
-        },
-        "r4": {
-          "type": "row",
-          "settings": {
-            "feature": "Built-in session timer",
-            "us": true,
-            "them": false
-          }
-        },
-        "r5": {
-          "type": "row",
-          "settings": {
-            "feature": "Reusable every day",
-            "us": true,
-            "them": true
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "Compare",
-        "heading": "Why choose VitalRay?",
-        "us_label": "VitalRay",
-        "them_label": "Heat packs & braces",
-        "button_label": "Try it risk-free",
-        "button_link": ""
-      }
-    },
-    "video_reviews": {
-      "type": "vr-video-reviews",
-      "blocks": {
-        "v1": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v2": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v3": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "v4": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        }
-      },
-      "block_order": [
-        "v1",
-        "v2",
-        "v3",
-        "v4"
-      ],
-      "settings": {
-        "background": "white",
-        "show_ratings": false,
-        "eyebrow": "Watch",
-        "heading": "See VitalRay <em>in action</em>",
-        "subheading": "Short videos about VitalRay. Tap a video to play.",
-        "button_label": "",
-        "button_link": "shopify://products/vitalray-wrist"
-      }
-    },
-    "179355318790bddd23": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_Tdjkhj": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_Tdjkhj"
-      ],
-      "settings": {
-        "include_margins": true
-      },
-      "disabled": true
-    },
-    "reviews": {
-      "type": "vr-testimonials",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Reviews",
-        "heading": "What customers say"
-      }
-    },
-    "guarantee": {
-      "type": "vr-guarantee",
-      "settings": {
-        "background": "cream",
-        "days": 90,
-        "heading": "Try it for 90 days, risk-free",
-        "text": "<p>Use VitalRay every day. If you're not happy with it within 90 days of delivery, contact us for a full refund. See our refund policy for details.</p>"
-      }
-    },
-    "faq": {
-      "type": "vr-faq",
-      "blocks": {
-        "q1": {
-          "type": "question",
-          "settings": {
-            "question": "What is red light therapy?",
-            "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>"
-          }
-        },
-        "q2": {
-          "type": "question",
-          "settings": {
-            "question": "How often should I use it?",
-            "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>"
-          }
-        },
-        "q3": {
-          "type": "question",
-          "settings": {
-            "question": "Does it get hot?",
-            "answer": "<p>You may feel gentle warmth. If it ever feels uncomfortable, lower the intensity or stop the session.</p>"
-          }
-        },
-        "q4": {
-          "type": "question",
-          "settings": {
-            "question": "Does it fit both hands?",
-            "answer": "<p>Yes. The adjustable strap and thumb loop fit the left or right hand and most adult hand sizes.</p>"
-          }
-        },
-        "q5": {
-          "type": "question",
-          "settings": {
-            "question": "Who should not use it?",
-            "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>"
-          }
-        },
-        "q6": {
-          "type": "question",
-          "settings": {
-            "question": "How does the 90-day guarantee work?",
-            "answer": "<p>If you're not happy within 90 days of delivery, email us with your order number and we'll refund you. See our refund policy for details.</p>"
-          }
-        },
-        "q7": {
-          "type": "question",
-          "settings": {
-            "question": "How long does shipping take?",
-            "answer": "<p>Orders are processed in 1–3 business days and usually arrive in 7–15 business days, with free tracking to the US, Canada, UK and Australia. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a>.</p>"
-          }
-        },
-        "q8": {
-          "type": "question",
-          "settings": {
-            "question": "Where do you ship?",
-            "answer": "<p>We ship to the United States, Canada, the United Kingdom and Australia. Shipping is always free and tracked.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6",
-        "q7",
-        "q8"
-      ],
-      "settings": {
-        "background": "white",
-        "eyebrow": "FAQ",
-        "heading": "Questions, answered",
-        "subheading": "Can't find what you need? Email support@vitalray.shop — we reply within one business day.",
-        "button_label": "Contact us",
-        "button_link": "shopify://pages/contact"
-      }
-    },
-    "sticky": {
-      "type": "vr-sticky-atc",
-      "settings": {
-        "enable": true,
-        "label": "Add to cart"
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
       }
     }
   },
   "order": [
     "main",
-    "details",
-    "stats",
-    "wavelengths",
-    "science",
-    "lifestyle",
-    "timeline",
-    "steps",
-    "compare",
-    "video_reviews",
-    "179355318790bddd23",
-    "reviews",
-    "guarantee",
-    "faq",
-    "sticky"
+    "related"
   ]
 }

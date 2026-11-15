@@ -1,0 +1,45 @@
+{%- liquid
+  assign img = section.settings.image
+  assign fallback = section.settings.fallback_asset | strip
+-%}
+<section class="ns-hero ns-hero--img-{{ section.settings.image_side }}" style="--ns-hero-bg: {{ section.settings.bg }};">
+  <div class="ns-hero__media">
+    {%- if img != blank -%}
+      {{ img | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 58vw, 100vw', widths: '600, 900, 1200, 1500, 1800', alt: img.alt | default: section.settings.heading }}
+    {%- elsif fallback != blank -%}
+      <img src="{{ fallback | asset_url }}" alt="" width="1600" height="1000" loading="eager" fetchpriority="high">
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'ns-placeholder' }}
+    {%- endif -%}
+    <svg class="ns-hero__curve" viewBox="0 0 120 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0H48C10 160 92 320 52 500S6 840 48 1000h72z" fill="var(--ns-hero-bg)"/><path d="M48 0C10 160 92 320 52 500S6 840 48 1000" fill="none" stroke="var(--ns-brown)" stroke-width="10"/></svg>
+  </div>
+  <div class="ns-hero__content">
+    {%- if section.settings.eyebrow != blank -%}<p class="ns-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="ns-hero__title">{{ section.settings.heading | newline_to_br }}</h2>
+    <span class="ns-hero__dots" aria-hidden="true">•••</span>
+    {%- if section.settings.text != blank -%}<div class="ns-hero__text">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a class="ns-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NS Hero",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "fallback_asset", "label": "Fallback image (theme asset file name)", "default": "ns-hero.jpg", "info": "Used when no image is picked. Leave blank to show a placeholder." },
+    { "type": "select", "id": "image_side", "label": "Image position", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
+    { "type": "color", "id": "bg", "label": "Text panel background", "default": "#FBEDE2" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Welcome\nto Nestlyday" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Clever finds for your home, kitchen and everyday life — all in one place. Free shipping on orders over $49.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "NS Hero" }]
+}
+{% endschema %}

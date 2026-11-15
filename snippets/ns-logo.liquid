@@ -1,0 +1,22 @@
+{%- comment -%}
+  Nestlyday logo: rounded "nest" house mark + wordmark.
+  Accepts: variant ('dark' default | 'light'), size (font size in px, default 28)
+{%- endcomment -%}
+{%- liquid
+  assign size = size | default: 28
+  assign mark = size | times: 1.25 | round
+  assign ink = '#3B2A1E'
+  assign accent = '#C08A55'
+  if variant == 'light'
+    assign ink = '#FBF7F1'
+    assign accent = '#E2B887'
+  endif
+-%}
+<span class="ns-logo" style="--ns-logo-size: {{ size }}px; --ns-logo-ink: {{ ink }}; --ns-logo-accent: {{ accent }};">
+  <svg class="ns-logo__mark" viewBox="0 0 48 48" width="{{ mark }}" height="{{ mark }}" aria-hidden="true" focusable="false">
+    <path d="M8 22.5 24 9l16 13.5" fill="none" stroke="{{ accent }}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12.5 21v13.5a5 5 0 0 0 5 5h13a5 5 0 0 0 5-5V21" fill="none" stroke="{{ ink }}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M17 31.5c2.2 2.6 4.6 3.9 7 3.9s4.8-1.3 7-3.9" fill="none" stroke="{{ accent }}" stroke-width="3.4" stroke-linecap="round"/>
+  </svg>
+  <span class="ns-logo__word">Nestly<span class="ns-logo__day">day</span></span>
+</span>

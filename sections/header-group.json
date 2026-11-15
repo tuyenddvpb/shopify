@@ -17,7 +17,7 @@
         "a1": {
           "type": "announcement",
           "settings": {
-            "text": "Free tracked shipping to US, CA, UK & AU",
+            "text": "Free shipping on orders over $49",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""
@@ -26,10 +26,10 @@
         "a2": {
           "type": "announcement",
           "settings": {
-            "text": "90-day money-back guarantee",
+            "text": "New finds added every week",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
-            "link": "shopify://pages/faq"
+            "link": "shopify://collections/all"
           }
         }
       },

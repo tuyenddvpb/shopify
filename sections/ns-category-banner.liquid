@@ -1,0 +1,44 @@
+{%- liquid
+  assign img = section.settings.image
+  assign fallback = section.settings.fallback_asset | strip
+  assign c = section.settings.collection
+  assign url = section.settings.button_link | default: c.url | default: routes.all_products_collection_url
+-%}
+<section class="ns-banner ns-banner--img-{{ section.settings.image_side }}" style="--ns-banner-bg: {{ section.settings.bg }};">
+  <div class="ns-banner__media">
+    {%- if img != blank -%}
+      {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 60vw, 100vw', widths: '600, 900, 1200, 1600', alt: img.alt | default: section.settings.heading }}
+    {%- elsif fallback != blank -%}
+      <img src="{{ fallback | asset_url }}" alt="" loading="lazy" width="1600" height="900">
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'ns-placeholder' }}
+    {%- endif -%}
+  </div>
+  <div class="ns-banner__content">
+    <h2 class="ns-banner__title">{{ section.settings.heading }}</h2>
+    {%- if section.settings.tagline != blank -%}<p class="ns-banner__tagline">— {{ section.settings.tagline }} —</p>{%- endif -%}
+    {%- if section.settings.text != blank -%}<div class="ns-banner__text">{{ section.settings.text }}</div>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}<a class="ns-btn ns-btn--sm" href="{{ url }}">{{ section.settings.button_label }}</a>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NS Category banner",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection (button link)" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "fallback_asset", "label": "Fallback image (theme asset)" },
+    { "type": "select", "id": "image_side", "label": "Image position", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#F6E4CC" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Kitchen" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Cook smarter, not harder" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "button_link", "label": "Button link (optional)" }
+  ],
+  "presets": [{ "name": "NS Category banner" }]
+}
+{% endschema %}

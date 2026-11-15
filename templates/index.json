@@ -10,562 +10,217 @@
 {
   "sections": {
     "hero": {
-      "type": "vr-hero",
+      "type": "ns-hero",
+      "settings": {
+        "fallback_asset": "ns-hero.jpg",
+        "image_side": "left",
+        "bg": "#FBEDE2",
+        "eyebrow": "",
+        "heading": "Welcome\nto Nestlyday",
+        "text": "<p>Clever finds for your home, kitchen and everyday life — all in one place. Free shipping on orders over $49.</p>",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "cats": {
+      "type": "ns-category-tiles",
+      "settings": {
+        "heading": "Shop by category"
+      },
       "blocks": {
-        "b1": {
-          "type": "badge",
+        "c1": {
+          "type": "tile",
           "settings": {
-            "icon": "check",
-            "text": "Cordless & rechargeable"
+            "collection": "home-living",
+            "title": "Home & Living",
+            "fallback_asset": "ns-cat-home.jpg"
           }
         },
-        "b2": {
-          "type": "badge",
+        "c2": {
+          "type": "tile",
           "settings": {
-            "icon": "check",
-            "text": "90-day guarantee"
+            "collection": "kitchen",
+            "title": "Kitchen",
+            "fallback_asset": "ns-cat-kitchen.jpg"
+          }
+        },
+        "c3": {
+          "type": "tile",
+          "settings": {
+            "collection": "beauty",
+            "title": "Beauty & Care",
+            "fallback_asset": "ns-cat-beauty.jpg"
+          }
+        },
+        "c4": {
+          "type": "tile",
+          "settings": {
+            "collection": "fashion",
+            "title": "Fashion",
+            "fallback_asset": "ns-cat-fashion.jpg"
           }
         }
       },
       "block_order": [
-        "b1",
-        "b2"
-      ],
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "trending": {
+      "type": "ns-product-row",
       "settings": {
-        "background": "cream",
-        "trust_text": "Designed for everyday hand & wrist comfort",
-        "heading": "Gentle red light care for hard-working hands",
-        "subheading": "<p>A cordless red & near-infrared light wrap you can use at home, at your desk or on the couch — just 15 minutes a day.</p>",
-        "button_label": "Shop VitalRay",
-        "button_link": "shopify://products/vitalray-wrist",
-        "image": "shopify://shop_images/hf_20261103_144442_df8d0102-d3b4-4c75-895d-1b62b453645a.png",
-        "product": "vitalray-wrist",
-        "card_icon": "clock",
-        "card_title": "15 min",
-        "card_text": "Daily session",
-        "pill_text": "Free tracked shipping"
+        "heading": "Trending now",
+        "collection": "",
+        "use_all": true,
+        "limit": 12
+      }
+    },
+    "b_kitchen": {
+      "type": "ns-category-banner",
+      "settings": {
+        "collection": "kitchen",
+        "fallback_asset": "ns-banner-kitchen.jpg",
+        "image_side": "right",
+        "bg": "#F6E4CC",
+        "heading": "Kitchen",
+        "tagline": "Upgrade your kitchen life",
+        "text": "<p>Handy tools and gadgets that make everyday cooking quicker, cleaner and more fun.</p>",
+        "button_label": "Shop now"
+      }
+    },
+    "r_kitchen": {
+      "type": "ns-product-row",
+      "settings": {
+        "heading": "Best of Kitchen",
+        "collection": "kitchen",
+        "use_all": false,
+        "limit": 10
+      }
+    },
+    "b_home_living": {
+      "type": "ns-category-banner",
+      "settings": {
+        "collection": "home-living",
+        "fallback_asset": "ns-banner-home.jpg",
+        "image_side": "left",
+        "bg": "#EFE3D3",
+        "heading": "Home & Living",
+        "tagline": "Make every corner cozy",
+        "text": "<p>Smart storage, cozy decor and little upgrades that make home feel like home.</p>",
+        "button_label": "Shop now"
+      }
+    },
+    "r_home_living": {
+      "type": "ns-product-row",
+      "settings": {
+        "heading": "Best of Home & Living",
+        "collection": "home-living",
+        "use_all": false,
+        "limit": 10
+      }
+    },
+    "b_beauty": {
+      "type": "ns-category-banner",
+      "settings": {
+        "collection": "beauty",
+        "fallback_asset": "ns-banner-beauty.jpg",
+        "image_side": "right",
+        "bg": "#F8E6DA",
+        "heading": "Beauty & Care",
+        "tagline": "Glow with confidence",
+        "text": "<p>Self-care picks for daily routines and special moments — great as gifts too.</p>",
+        "button_label": "Shop now"
+      }
+    },
+    "r_beauty": {
+      "type": "ns-product-row",
+      "settings": {
+        "heading": "Best of Beauty & Care",
+        "collection": "beauty",
+        "use_all": false,
+        "limit": 10
+      }
+    },
+    "b_fashion": {
+      "type": "ns-category-banner",
+      "settings": {
+        "collection": "fashion",
+        "fallback_asset": "ns-banner-fashion.jpg",
+        "image_side": "left",
+        "bg": "#EDE4D8",
+        "heading": "Fashion",
+        "tagline": "Everyday style, made easy",
+        "text": "<p>Comfortable pieces and accessories you will reach for again and again.</p>",
+        "button_label": "Shop now"
+      }
+    },
+    "r_fashion": {
+      "type": "ns-product-row",
+      "settings": {
+        "heading": "Best of Fashion",
+        "collection": "fashion",
+        "use_all": false,
+        "limit": 10
       }
     },
     "trust": {
-      "type": "vr-trust-bar",
+      "type": "ns-trust",
       "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "icon": "shield",
-            "text": "90-Day",
-            "subtext": "Money-back guarantee"
-          }
-        },
-        "i2": {
+        "t1": {
           "type": "item",
           "settings": {
             "icon": "truck",
-            "text": "Free tracked",
-            "subtext": "US, CA, UK & AU shipping"
+            "title": "Free shipping",
+            "text": "On orders over $49"
           }
         },
-        "i3": {
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
           "type": "item",
           "settings": {
             "icon": "lock",
-            "text": "Secure",
-            "subtext": "Encrypted checkout"
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
           }
         },
-        "i4": {
+        "t4": {
           "type": "item",
           "settings": {
             "icon": "chat",
-            "text": "Real humans",
-            "subtext": "Reply within 1 business day"
+            "title": "Real support",
+            "text": "Reply within 1 business day"
           }
         }
       },
       "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4"
-      ],
-      "settings": {
-        "background": "cream"
-      }
-    },
-    "featured": {
-      "type": "featured-product",
-      "blocks": {
-        "rating": {
-          "type": "rating",
-          "settings": {},
-          "disabled": true
-        },
-        "vr_title": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'title', tag: 'h2' %}"
-          }
-        },
-        "perks": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<ul class=\"vr-perks\" role=\"list\"><li>{% render 'vr-icon', name: 'light', size: 18 %}<span><strong>Red + near-infrared</strong> 660nm &amp; 850nm in one wrap</span></li><li>{% render 'vr-icon', name: 'battery', size: 18 %}<span><strong>Cordless</strong> USB-C rechargeable, use it anywhere</span></li><li>{% render 'vr-icon', name: 'clock', size: 18 %}<span><strong>15-minute sessions</strong> with auto shut-off</span></li></ul>"
-          }
-        },
-        "vr_price": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'price' %}"
-          }
-        },
-        "buy": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
-          }
-        },
-        "vr_stock": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{%- assign vr_p = all_products['vitalray-wrist'] -%}{% render 'vr-buybox', product: vr_p, part: 'stock' %}"
-          }
-        }
-      },
-      "block_order": [
-        "rating",
-        "vr_title",
-        "perks",
-        "vr_price",
-        "buy",
-        "vr_stock"
-      ],
-      "settings": {
-        "product": "vitalray-wrist",
-        "color_scheme": "scheme-5",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": true,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "why": {
-      "type": "vr-media-text",
-      "blocks": {
-        "b1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "light",
-            "title": "Dual-wavelength LEDs",
-            "text": "660nm red and 850nm near-infrared light across the whole wrist."
-          }
-        },
-        "b2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "bolt",
-            "title": "3 intensity levels",
-            "text": "Start low and adjust to what feels comfortable."
-          }
-        },
-        "b3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "clock",
-            "title": "15-minute timer",
-            "text": "Each session switches off automatically — nothing to watch."
-          }
-        },
-        "b4": {
-          "type": "benefit",
-          "settings": {
-            "icon": "battery",
-            "title": "Cordless, USB-C",
-            "text": "Charge it like your phone, then use it anywhere."
-          }
-        },
-        "b5": {
-          "type": "benefit",
-          "settings": {
-            "icon": "hand",
-            "title": "Fits either hand",
-            "text": "Soft adjustable strap with a thumb loop for a secure fit."
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4",
-        "b5"
-      ],
-      "settings": {
-        "background": "white",
-        "pattern": false,
-        "layout": "left",
-        "image_ratio": "square",
-        "use_product_image": true,
-        "source_product": "vitalray-wrist",
-        "product_image_index": 6,
-        "eyebrow": "What's inside",
-        "heading": "Everything you need, <em>in one wrap</em>",
-        "text": "<p>A lightweight, cordless wrap designed for at-home red light sessions.</p>",
-        "use_product_description": false,
-        "button_label": "Shop VitalRay",
-        "button_link": "shopify://products/vitalray-wrist",
-        "card_icon": "light",
-        "card_title": "660 + 850nm",
-        "card_text": "Red + near-infrared light",
-        "card_position": "bottom"
-      }
-    },
-    "video_reviews": {
-      "type": "vr-video-reviews",
-      "blocks": {
-        "video_AJTwCL": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_102645_480c2ca3-97b9-47fb-befb-beee0b4c850c.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "video_tNhbt6": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_102010_7c025908-1ada-4846-8a20-a718e2baacbc.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "video_7AzptF": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_101430_9001a563-73ed-4fb8-966c-b9f04263aae3.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        },
-        "video_cXaqcY": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hf_20261103_040302_9c5f5d96-e74f-4115-9a5a-16ce148ea92d.mp4",
-            "name": "",
-            "location": "",
-            "rating": 5,
-            "quote": "",
-            "verified": false
-          }
-        }
-      },
-      "block_order": [
-        "video_AJTwCL",
-        "video_tNhbt6",
-        "video_7AzptF",
-        "video_cXaqcY"
-      ],
-      "disabled": true,
-      "settings": {
-        "background": "white",
-        "show_ratings": false,
-        "eyebrow": "Watch",
-        "heading": "See VitalRay in action",
-        "subheading": "Short videos about VitalRay. Tap a video to play.",
-        "button_label": "Shop VitalRay",
-        "button_link": "shopify://products/vitalray-wrist"
-      }
-    },
-    "stats": {
-      "type": "vr-stats",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "value": "660 + 850",
-            "label": "Nanometer wavelengths",
-            "note": "Red & near-infrared"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "15 min",
-            "label": "Per session",
-            "note": "Auto shut-off timer"
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "value": "3",
-            "label": "Intensity levels",
-            "note": "Pick what feels right"
-          }
-        },
-        "s4": {
-          "type": "stat",
-          "settings": {
-            "value": "90 days",
-            "label": "To try it risk-free",
-            "note": "Money-back guarantee"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "background": "dark",
-        "eyebrow": "At a glance",
-        "heading": "Small device. Thoughtful design.",
-        "subheading": "",
-        "footnote": "",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "lifestyle": {
-      "type": "vr-media-text",
-      "blocks": {
-        "b1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "hand",
-            "title": "Slip it on",
-            "text": "Thumb through the loop, fasten the strap — done in seconds."
-          }
-        },
-        "b2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "bolt",
-            "title": "Press start",
-            "text": "One button starts a session at your chosen intensity."
-          }
-        },
-        "b3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Relax",
-            "text": "Keep reading, cooking or watching TV while it works."
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "background": "cream",
-        "pattern": true,
-        "layout": "right",
-        "image_ratio": "portrait",
-        "use_product_image": true,
-        "source_product": "vitalray-wrist",
-        "product_image_index": 5,
-        "eyebrow": "Everyday comfort",
-        "heading": "Your 15 minutes, <em>wherever you are</em>",
-        "text": "<p>Wear it while you cook, read or unwind after work. Slip it on, press start, and carry on with your day.</p>",
-        "use_product_description": false,
-        "button_label": "Shop VitalRay",
-        "button_link": "shopify://products/vitalray-wrist",
-        "card_icon": "clock",
-        "card_title": "Auto shut-off",
-        "card_text": "After every 15-minute session",
-        "card_position": "top"
-      }
-    },
-    "reviews": {
-      "type": "vr-testimonials",
-      "settings": {
-        "background": "white",
-        "eyebrow": "Reviews",
-        "heading": "What customers say"
-      }
-    },
-    "faq": {
-      "type": "vr-faq",
-      "blocks": {
-        "q1": {
-          "type": "question",
-          "settings": {
-            "question": "What is red light therapy?",
-            "answer": "<p>Red light therapy uses low-level red and near-infrared light. VitalRay combines 660nm red light and 850nm near-infrared light in a wearable wrap for at-home use.</p>"
-          }
-        },
-        "q2": {
-          "type": "question",
-          "settings": {
-            "question": "How often should I use it?",
-            "answer": "<p>Most people use it once a day for a 15-minute session. The wrap turns off automatically when the session ends.</p>"
-          }
-        },
-        "q3": {
-          "type": "question",
-          "settings": {
-            "question": "Who should not use it?",
-            "answer": "<p>Check with your doctor first if you are pregnant, have a pacemaker or other implanted device, are light-sensitive, or have a medical condition.</p>"
-          }
-        },
-        "q4": {
-          "type": "question",
-          "settings": {
-            "question": "What's your return policy?",
-            "answer": "<p>Every order comes with a 90-day money-back guarantee. See our refund policy for details.</p>"
-          }
-        },
-        "q5": {
-          "type": "question",
-          "settings": {
-            "question": "How long does shipping take?",
-            "answer": "<p>Orders are processed in 1–3 business days and usually arrive in 7–15 business days, with free tracking to the US, Canada, UK and Australia. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a>.</p>"
-          }
-        },
-        "q6": {
-          "type": "question",
-          "settings": {
-            "question": "Where do you ship?",
-            "answer": "<p>We ship to the United States, Canada, the United Kingdom and Australia. Shipping is always free and tracked.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6"
-      ],
-      "settings": {
-        "background": "cream",
-        "eyebrow": "FAQ",
-        "heading": "Questions, answered",
-        "subheading": "Can't find what you need? Email support@vitalray.shop — we reply within one business day.",
-        "button_label": "Contact us",
-        "button_link": "shopify://pages/contact"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join the VitalRay list",
-            "heading_size": "h1"
-          }
-        },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Routine tips, new products and members-only offers. No spam.</p>"
-          }
-        },
-        "email_form": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "heading",
-        "paragraph",
-        "email_form"
-      ],
-      "settings": {
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "1793881000eb6de34c": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1793881088f6b46923": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_cards_carousel_DTDRm6": {
-          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "show_sample_reviews": true,
-            "reviews_selection": "all",
-            "products": [],
-            "filter_pinned": false,
-            "filter_featured": false,
-            "filter_custom_tags": "",
-            "star_rating": "all",
-            "show_review_media": true,
-            "display_order": "media_first",
-            "no_image_fallback": "review_text_only",
-            "max_reviews": 20,
-            "review_length": "medium",
-            "text_size": "medium",
-            "image_ratio": "1",
-            "reviews_shown": 4,
-            "show_reviewer_name": true,
-            "show_product_name": true,
-            "hide_arrows_mobile": true,
-            "arrows_position": "sides",
-            "max_width": 1100,
-            "corner_styling": "soft",
-            "header_text_color": "#000000",
-            "text_color": "#000000",
-            "card_color": "#f9f9f9",
-            "stars_color": "",
-            "arrows_color": "#000000",
-            "transition_speed": 5,
-            "header_text": "Customers are saying",
-            "show_average_rating": true,
-            "rating_display": "default"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_cards_carousel_DTDRm6"
-      ],
-      "settings": {
-        "include_margins": true
-      },
-      "disabled": true
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
     }
   },
   "order": [
     "hero",
-    "trust",
-    "featured",
-    "why",
-    "video_reviews",
-    "stats",
-    "lifestyle",
-    "reviews",
-    "faq",
-    "newsletter",
-    "1793881000eb6de34c",
-    "1793881088f6b46923"
+    "cats",
+    "trending",
+    "b_kitchen",
+    "r_kitchen",
+    "b_home_living",
+    "r_home_living",
+    "b_beauty",
+    "r_beauty",
+    "b_fashion",
+    "r_fashion",
+    "trust"
   ]
 }

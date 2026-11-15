@@ -288,5 +288,15 @@
     set('[data-vr-eta-ship]', f(addBiz(now, n('ship-min'))) + ' – ' + f(addBiz(now, n('ship-max'))));
     set('[data-vr-eta-arrive]', f(addBiz(now, n('arrive-min'))) + ' – ' + f(addBiz(now, n('arrive-max'))));
   });
+
+  /* Nestlyday product rows: arrow buttons scroll the track by one viewport */
+  document.querySelectorAll('[data-ns-row]').forEach(function (row) {
+    var track = row.querySelector('[data-ns-track]');
+    if (!track) return;
+    var step = function (dir) { track.scrollBy({ left: dir * track.clientWidth * 0.9, behavior: 'smooth' }); };
+    var prev = row.querySelector('[data-ns-prev]'), next = row.querySelector('[data-ns-next]');
+    if (prev) prev.addEventListener('click', function () { step(-1); });
+    if (next) next.addEventListener('click', function () { step(1); });
+  });
 })();
 

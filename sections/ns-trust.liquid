@@ -1,0 +1,35 @@
+<section class="ns-trust">
+  <div class="page-width">
+    <ul class="ns-trust__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="ns-trust__item" {{ block.shopify_attributes }}>
+          <span class="ns-trust__icon">{% render 'vr-icon', name: block.settings.icon, size: 22 %}</span>
+          <span><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NS Trust strip",
+  "tag": "div",
+  "class": "section",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "truck", "options": [
+          { "value": "truck", "label": "Truck" }, { "value": "return", "label": "Return" }, { "value": "lock", "label": "Lock" },
+          { "value": "chat", "label": "Chat" }, { "value": "shield", "label": "Shield" }, { "value": "heart", "label": "Heart" }, { "value": "box", "label": "Box" } ] },
+        { "type": "text", "id": "title", "label": "Title", "default": "Free shipping" },
+        { "type": "text", "id": "text", "label": "Text", "default": "On orders over $49" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NS Trust strip", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}
