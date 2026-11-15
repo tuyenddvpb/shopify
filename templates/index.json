@@ -222,12 +222,9 @@
         "background": "cream",
         "eyebrow": "Why shop with us",
         "heading": "Simple shopping, done right",
-        "subheading": "",
         "columns": "3",
         "numbered": false,
-        "video_ratio": "square",
-        "button_label": "",
-        "button_link": ""
+        "video_ratio": "square"
       },
       "blocks": {
         "feature_1": {
