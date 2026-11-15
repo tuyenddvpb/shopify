@@ -245,7 +245,9 @@
         "eyebrow": "The difference",
         "heading": "Weed puller vs. <em>weeding by hand</em>",
         "us_label": "Weed Puller",
-        "them_label": "By hand"
+        "them_label": "By hand",
+        "button_label": "Shop the weed puller",
+        "button_link": "/products/stand-up-weed-puller-claw"
       },
       "blocks": {
         "b1": {
@@ -303,7 +305,9 @@
         "background": "white",
         "eyebrow": "Good to know",
         "heading": "Questions & answers",
-        "subheading": ""
+        "subheading": "",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
       },
       "blocks": {
         "b1": {
