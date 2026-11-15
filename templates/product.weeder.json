@@ -1,0 +1,427 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true
+      }
+    },
+    "roots": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "use_product_image": true,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Roots and all",
+        "heading": "Pull the weed, <em>not just the leaves</em>",
+        "text": "<p>Snipping weeds at the surface leaves the root behind — and the weed is back in a week. This stainless steel claw grips the plant at its base and lifts it out with the root, so a weed-free bed stays weed-free for longer.</p>"
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Roots and all",
+            "text": "The claw closes around the stem, so weeds lift out with the root"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "hand",
+            "title": "Clean hands",
+            "text": "The tool does the gripping — no muddy fingers"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Less bending",
+            "text": "Add the pole and weed standing up"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "why": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Why gardeners like it",
+        "heading": "Small tool, <em>big difference</em>",
+        "subheading": "",
+        "columns": "4",
+        "numbered": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Grabs the root",
+            "text": "<p>Four curved tines close around the stem so the root comes out with the plant.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Easier on your back",
+            "text": "<p>Use the claw for raised beds and pots, or add the pole to work standing up.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Stainless steel",
+            "text": "<p>Rust-resistant metal built for regular use outdoors.</p>"
+          }
+        },
+        "b4": {
+          "type": "feature",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Lightweight",
+            "text": "<p>The claw weighs about 141 g — easy to carry around the garden.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "how": {
+      "type": "vr-features",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "How it works",
+        "heading": "Weeding in <em>3 simple steps</em>",
+        "subheading": "Works best on moist soil — water dry beds first for easier pulling.",
+        "columns": "3",
+        "numbered": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "1",
+            "title": "Place",
+            "text": "<p>Center the claw over the weed so the plant sits between the tines.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "2",
+            "title": "Push & twist",
+            "text": "<p>Press it into the soil and give a small twist so the tines close around the root.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "3",
+            "title": "Lift",
+            "text": "<p>Pull up — the weed comes out with its root. Tap the claw to drop it in your bucket.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "bundle": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "use_product_image": true,
+        "product_image_index": 2,
+        "image_ratio": "square",
+        "eyebrow": "Choose your set",
+        "heading": "Claw only, or <em>claw + pole?</em>",
+        "text": "<p><strong>Weeding Claw</strong> — fits onto a handle you already have (3 cm socket) or use it for raised beds and planters.</p><p><strong>Claw + Stainless Steel Pole</strong> — a ready-to-use set with a segmented stainless steel pole, so you can clear the lawn and borders without bending down.</p>"
+      }
+    },
+    "compare": {
+      "type": "vr-comparison",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "The difference",
+        "heading": "Weed puller vs. <em>weeding by hand</em>",
+        "us_label": "Weed Puller",
+        "them_label": "By hand"
+      },
+      "blocks": {
+        "b1": {
+          "type": "row",
+          "settings": {
+            "feature": "Removes the root in one pull",
+            "us": true,
+            "them": false
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "feature": "Work standing up (with pole)",
+            "us": true,
+            "them": false
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "feature": "Hands stay clean",
+            "us": true,
+            "them": false
+          }
+        },
+        "b4": {
+          "type": "row",
+          "settings": {
+            "feature": "No kneeling on wet ground",
+            "us": true,
+            "them": false
+          }
+        },
+        "b5": {
+          "type": "row",
+          "settings": {
+            "feature": "Precise around your plants",
+            "us": true,
+            "them": true
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Good to know",
+        "heading": "Questions & answers",
+        "subheading": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "What kinds of weeds does it work on?",
+            "answer": "<p>It works best on small to medium weeds with a central stem or tap root, such as dandelions, clover and young thistles. Very deep roots in dry, hard soil may snap — water the area first for best results.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use it with my own handle?",
+            "answer": "<p>Yes. The claw has a socket of about 3 cm, which fits many standard wooden or metal garden handles. If you don't have one, choose the set with the stainless steel pole.</p>"
+          }
+        },
+        "b3": {
+          "type": "question",
+          "settings": {
+            "question": "How long is the pole?",
+            "answer": "<p>The segmented stainless steel pole is roughly 95–100 cm (37–39 in) when assembled, so most people can use it standing up.</p>"
+          }
+        },
+        "b4": {
+          "type": "question",
+          "settings": {
+            "question": "Will it rust?",
+            "answer": "<p>The claw and pole are stainless steel, which resists rust. Rinse off soil and let it dry after use to keep it in good condition.</p>"
+          }
+        },
+        "b5": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe to use?",
+            "answer": "<p>The tines are pointed so they can grip the soil — handle them with care and store the tool out of reach of small children.</p>"
+          }
+        },
+        "b6": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    },
+    "trust": {
+      "type": "ns-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping",
+            "text": "On orders over $49"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real support",
+            "text": "Reply within 1 business day"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "roots",
+    "why",
+    "how",
+    "bundle",
+    "compare",
+    "faq",
+    "trust",
+    "related"
+  ]
+}
