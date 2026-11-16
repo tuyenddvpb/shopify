@@ -1,0 +1,465 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true
+      }
+    },
+    "ponytail": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "use_product_image": true,
+        "product_image_index": 2,
+        "image_ratio": "square",
+        "eyebrow": "Hair up, sun out",
+        "heading": "Room for your <em>ponytail</em>",
+        "text": "<p>Most caps flatten your hair or leave nowhere for a high ponytail. This visor has an open top, so ponytails, messy buns and top knots sit right through — and it looks just as good from the side and back.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Open-top design",
+            "text": "Wear your hair up without squashing it"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Breathable weave",
+            "text": "Textured knit lets air move so you stay cooler"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "light",
+            "title": "Wide 3.7 in brim",
+            "text": "Shade for your eyes and face"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "fit": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Fit & details",
+        "heading": "Comfortable <em>all day</em>",
+        "subheading": "",
+        "columns": "4",
+        "numbered": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Soft stretch band",
+            "text": "<p>Elastic knit that follows your head shape without pinching or leaving marks.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Fits most adults",
+            "text": "<p>Stretches from about 21.7 to 23.2 in (55–59 cm) around the head.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "light",
+            "title": "3.7 in brim",
+            "text": "<p>A wide front brim that keeps the sun out of your eyes.</p>"
+          }
+        },
+        "b4": {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "2 visors per order",
+            "text": "<p>Pick a color pair and switch them up with your outfits.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "pack": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "use_product_image": true,
+        "product_image_index": 3,
+        "image_ratio": "square",
+        "eyebrow": "Travel-ready",
+        "heading": "Roll it, pack it, <em>go</em>",
+        "text": "<p>No bulky hat boxes. Roll or fold the visor into a beach tote, backpack or weekend suitcase — it springs back to its shape when you take it out.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "life": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "right",
+        "use_product_image": true,
+        "product_image_index": 4,
+        "image_ratio": "square",
+        "eyebrow": "Wear it anywhere",
+        "heading": "Made for <em>sunny days out</em>",
+        "text": "<p>From a morning run to a lazy afternoon by the water, it keeps the sun off your face and still looks put-together.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Beach & pool",
+            "text": "No back rim — lie back on your lounger comfortably"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "bolt",
+            "title": "Running & hiking",
+            "text": "The stretchy band stays put while you move"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "Travel & sightseeing",
+            "text": "Shade on long days out, with an easy, chic look"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Everyday errands",
+            "text": "Grab-and-go for dog walks, gardening and coffee runs"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "colors": {
+      "type": "ns-image-cards",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "6 color pairs",
+        "heading": "Pick your <em>pair</em>",
+        "subheading": "Every order comes with two visors in the colors shown."
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/60f59c80214200868944a148cd0c84b21d9b9609_852a0ccb-fb52-49cc-9009-75edfccd2a19.jpg",
+            "title": "White + Black",
+            "text": "<p>Crisp and classic — one light, one dark.</p>"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ac9fcd6449cb905407a7c95c70c2eda24e39fe7b_bfcefa70-7e90-4f0a-9374-7c25d52ea499.jpg",
+            "title": "Gray + Black",
+            "text": "<p>Easy neutrals for gym and street.</p>"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/c43179c7a69d81738d605cd4c69ace49f1552728_84069cb3-2f7f-42ff-b743-ec617210d02c.jpg",
+            "title": "Khaki + Black",
+            "text": "<p>Warm sand tone plus an everyday black.</p>"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/fb75a8194e6147daf04b432b3ca4622d603e08d0_ef6abbb7-776e-492c-a34f-25e4c62d21b8.jpg",
+            "title": "Gray + White",
+            "text": "<p>Soft, light shades for bright summer days.</p>"
+          }
+        },
+        "c5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/516fc91811c5561950a4517e0b20edb6491edd6c_08785ccf-e5ec-4ced-b486-31c27a1cf026.jpg",
+            "title": "Khaki + Beige",
+            "text": "<p>Beachy, earthy tones that go with linen.</p>"
+          }
+        },
+        "c6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/da330896375b0d67b23764ec7bac7bb451dbb7e9_3d1be1c1-525c-42af-8aee-6a8146c33473.jpg",
+            "title": "Black + Black",
+            "text": "<p>Two of the go-with-everything color.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Good to know",
+        "heading": "Questions & answers",
+        "subheading": "",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Will it fit my head?",
+            "answer": "<p>The knit band stretches from about 21.7 to 23.2 in (55–59 cm), which fits most adult heads comfortably.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I wear a high ponytail or bun?",
+            "answer": "<p>Yes — the top is open, so high ponytails, buns and top knots sit right through.</p>"
+          }
+        },
+        "b3": {
+          "type": "question",
+          "settings": {
+            "question": "Does it protect my scalp from the sun?",
+            "answer": "<p>The brim shades your eyes and face. Because the top is open, your scalp and parting are not covered — use sunscreen there on sunny days.</p>"
+          }
+        },
+        "b4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I pack it in a bag?",
+            "answer": "<p>Yes. Roll or fold it into a bag or suitcase; it springs back to shape when you take it out.</p>"
+          }
+        },
+        "b5": {
+          "type": "question",
+          "settings": {
+            "question": "How do I clean it?",
+            "answer": "<p>Hand wash in cool water with mild soap, reshape and let it air dry. Avoid the dryer.</p>"
+          }
+        },
+        "b6": {
+          "type": "question",
+          "settings": {
+            "question": "What comes in the order?",
+            "answer": "<p>Two visors in the color pair you choose.</p>"
+          }
+        },
+        "b7": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ]
+    },
+    "trust": {
+      "type": "ns-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping",
+            "text": "On orders over $49"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real support",
+            "text": "Reply within 1 business day"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ponytail",
+    "fit",
+    "pack",
+    "life",
+    "colors",
+    "faq",
+    "trust",
+    "related"
+  ]
+}
