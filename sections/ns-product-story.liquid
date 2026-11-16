@@ -1,0 +1,35 @@
+{%- comment -%}
+  Long-form product story. Renders the part of the product description after the
+  <!--story--> marker, full width, with styles for .ns-st-* blocks:
+    .ns-st-row (image + text, alternating), .ns-st-points, .ns-st-specs, .ns-st-faq, .ns-st-gallery
+  The part before the marker is shown in the buy box (see snippet usage in product templates).
+{%- endcomment -%}
+{%- liquid
+  assign parts = product.description | split: '<!--story-->'
+  assign story = ''
+  if parts.size > 1
+    assign story = parts | last
+  endif
+-%}
+{%- if story != blank -%}
+  <section class="vr-section vr-section--{{ section.settings.background }} ns-story">
+    <div class="vr-container ns-story__inner">
+      {{ story }}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "NS Product story",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select", "id": "background", "label": "Background", "default": "white",
+      "options": [ { "value": "white", "label": "White" }, { "value": "cream", "label": "Cream" } ]
+    }
+  ],
+  "presets": [ { "name": "NS Product story" } ]
+}
+{% endschema %}
