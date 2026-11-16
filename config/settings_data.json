@@ -146,13 +146,13 @@
           "enabled": true,
           "code": "WELCOME10",
           "offer": "10% off",
-          "eyebrow": "Welcome to VitalRay",
+          "eyebrow": "Welcome to Nestlyday",
           "heading": "Get 10% off your first order",
-          "text": "Join our list for your code, plus simple tips for your 15-minute routine. No spam — unsubscribe anytime.",
+          "text": "Join our list for your code, plus first dibs on new finds. No spam — unsubscribe anytime.",
           "button": "Get my code",
-          "fine_print": "By signing up you agree to receive marketing emails from VitalRay. One code per customer, first order only.",
+          "fine_print": "By signing up you agree to receive marketing emails from Nestlyday. One code per customer, first order only.",
           "delay": 12,
-          "redirect": "/products/vitalray-wrist"
+          "redirect": "/collections/all"
         }
       }
     },

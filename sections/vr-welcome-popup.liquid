@@ -10,7 +10,7 @@
     assign skip = true
   endif
   assign code = section.settings.code | strip | upcase
-  assign shop_url = section.settings.redirect | default: '/products/vitalray-wrist'
+  assign shop_url = section.settings.redirect | default: '/collections/all'
 -%}
 {%- if section.settings.enabled and code != blank and skip == false -%}
   <div class="vr-wp" data-vr-welcome data-delay="{{ section.settings.delay | default: 12 }}" hidden>
@@ -68,7 +68,7 @@
     { "type": "text", "id": "button", "label": "Button", "default": "Get my code" },
     { "type": "text", "id": "fine_print", "label": "Consent text", "default": "By signing up you agree to receive marketing emails from Nestlyday. One code per customer, first order only." },
     { "type": "range", "id": "delay", "label": "Open after (seconds)", "min": 3, "max": 60, "step": 1, "default": 12 },
-    { "type": "text", "id": "redirect", "label": "Shop link after signup", "default": "/products/vitalray-wrist" }
+    { "type": "text", "id": "redirect", "label": "Shop link after signup", "default": "/collections/all" }
   ]
 }
 {% endschema %}

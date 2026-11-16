@@ -6,7 +6,7 @@
         "background": "cream",
         "eyebrow": "Help center",
         "heading": "Frequently asked <em>questions</em>",
-        "text": "<p>Everything about orders, shipping and returns. Can't find it? Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a>.</p>"
+        "text": "<p>Everything about orders, shipping and returns. Can't find it? Email <a href=\"mailto:support@nestlyday.com\">support@nestlyday.com</a>.</p>"
       }
     },
     "orders": {
@@ -31,7 +31,7 @@
           "type": "question",
           "settings": {
             "question": "Can I change or cancel my order?",
-            "answer": "<p>Yes, as long as it hasn't shipped yet. Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> with your order number as soon as possible.</p>"
+            "answer": "<p>Yes, as long as it hasn't shipped yet. Email <a href=\"mailto:support@nestlyday.com\">support@nestlyday.com</a> with your order number as soon as possible.</p>"
           }
         },
         "q3": {
@@ -117,7 +117,7 @@
           "type": "question",
           "settings": {
             "question": "My item arrived damaged or wrong — what now?",
-            "answer": "<p>Email <a href=\"mailto:support@vitalray.shop\">support@vitalray.shop</a> within 30 days of delivery with your order number and a photo. We'll send a replacement or a full refund.</p>"
+            "answer": "<p>Email <a href=\"mailto:support@nestlyday.com\">support@nestlyday.com</a> within 30 days of delivery with your order number and a photo. We'll send a replacement or a full refund.</p>"
           }
         },
         "q3": {
