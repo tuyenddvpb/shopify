@@ -1,0 +1,460 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true
+      }
+    },
+    "hold": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/shaper-d02.gif",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Smooth & hold",
+        "heading": "A smoother line, <em>instantly</em>",
+        "text": "<p>Pull them on and the tall waistband gently smooths your tummy and waist, while the shaped back adds a little lift. A comfortable layer that makes dresses, skirts and jeans sit better.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Tummy smoothing",
+            "text": "Firm, even hold across the waist and lower belly"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Gentle lift",
+            "text": "Contoured back for a rounder shape"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Invisible under clothes",
+            "text": "Smooth finish under fitted outfits"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "why": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Why women like them",
+        "heading": "Comfortable shaping, <em>all day</em>",
+        "subheading": "",
+        "columns": "4",
+        "numbered": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "title": "Four-way stretch",
+            "text": "<p>Moves with you in every direction without pinching or digging in.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Breathable knit",
+            "text": "<p>A textured honeycomb panel lets air through on long days.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Stays in place",
+            "text": "<p>The high waistband is made to stay up when you sit, bend and walk.</p>"
+          }
+        },
+        "b4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand",
+            "title": "Soft on skin",
+            "text": "<p>Smooth, skin-friendly fabric for everyday wear.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "stretch": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/10021_25a6683d-7944-4155-bbd7-3a2b0a37a6c8.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Built to move",
+        "heading": "Like a spring, <em>without the squeeze</em>",
+        "text": "<p>The knit stretches in four directions and springs back, so you get support where you want it without that tight, restricted feeling. Easy to pull on, easy to wear from morning to night.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "colors": {
+      "type": "ns-image-cards",
+      "settings": {
+        "background": "white",
+        "eyebrow": "3 colors",
+        "heading": "Pick your <em>shade</em>",
+        "subheading": "Buy 2 or 4 pairs to rotate through the week and save."
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/10012_d2d89757-e313-49c8-8d6b-2b15b002e82e.png",
+            "title": "Black",
+            "text": "<p>The go-to under dark outfits and jeans.</p>"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/10007_7b4a0c89-ff4e-4ed2-9cfa-27645aa1c096.png",
+            "title": "Nude",
+            "text": "<p>Disappears under light and sheer clothes.</p>"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/10019_cccfb6e8-6daf-4a51-8a23-e8364e2542ea.png",
+            "title": "Red",
+            "text": "<p>A bold pop of color for fun days.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "fabric": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/shaper-d24.png",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "The fabric",
+        "heading": "Body-hugging, <em>highly stretchy</em>",
+        "text": "<p>A close, body-hugging fit with a moderate fabric thickness — supportive enough to smooth, light enough to wear under everyday clothes.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Body-hugging cut",
+            "text": "Follows your curves for a smooth finish"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "bolt",
+            "title": "High stretch",
+            "text": "Easy on, easy off"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Moderate thickness",
+            "text": "Supportive without feeling heavy"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "size": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/shaper-d25.png",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Find your fit",
+        "heading": "Choose your <em>size</em>",
+        "text": "<p>Sizes run from S to 5XL. Pick by weight, then check your waist measurement.</p><p><strong>Between sizes?</strong> Go with your waist. Choose the larger size for all-day comfort, or the smaller one for a firmer hold.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Good to know",
+        "heading": "Questions & answers",
+        "subheading": "",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Will these make me lose weight?",
+            "answer": "<p>No. Shapewear smooths and supports your shape while you wear it — it’s not a weight-loss or medical product.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I choose my size?",
+            "answer": "<p>Use the size chart: pick by weight, then check your waist. If you’re between sizes, size up for comfort or down for a firmer hold.</p>"
+          }
+        },
+        "b3": {
+          "type": "question",
+          "settings": {
+            "question": "Will they roll down?",
+            "answer": "<p>The high waistband is designed to stay in place when you sit and move. Getting the right size helps most — too small can make any shapewear roll.</p>"
+          }
+        },
+        "b4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I wear them all day?",
+            "answer": "<p>Yes, they’re made for everyday wear. If you’re new to shapewear, start with a few hours and build up.</p>"
+          }
+        },
+        "b5": {
+          "type": "question",
+          "settings": {
+            "question": "Do they show under clothes?",
+            "answer": "<p>They’re designed to be smooth under fitted outfits. Nude works best under light or sheer fabrics.</p>"
+          }
+        },
+        "b6": {
+          "type": "question",
+          "settings": {
+            "question": "How do I wash them?",
+            "answer": "<p>Hand wash in cold water with mild soap and lay flat to dry. Avoid the dryer and bleach.</p>"
+          }
+        },
+        "b7": {
+          "type": "question",
+          "settings": {
+            "question": "What’s in a 2- or 4-pair pack?",
+            "answer": "<p>2 or 4 pairs in the color and size you choose.</p>"
+          }
+        },
+        "b8": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ]
+    },
+    "trust": {
+      "type": "ns-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping",
+            "text": "On orders over $49"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real support",
+            "text": "Reply within 1 business day"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hold",
+    "why",
+    "stretch",
+    "colors",
+    "fabric",
+    "size",
+    "faq",
+    "trust",
+    "related"
+  ]
+}
