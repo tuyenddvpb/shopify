@@ -8,7 +8,7 @@
   assign parts = product.description | split: '<!--story-->'
   assign story = ''
   if parts.size > 1
-    assign story = parts | last
+    assign story = parts | last | replace: 'https://cdn.shopify.com/s/files/1/1092/4212/2609/files/', '/cdn/shop/files/' | replace: '<img ', '<img loading="lazy" '
   endif
 -%}
 {%- if story != blank -%}
