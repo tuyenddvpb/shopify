@@ -205,3 +205,17 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading { letter-spacing: -0.01em; }
 .shopify-section-group-footer-group { margin-top: 80px; }
 .footer { margin-top: 0; }
 .ns-trust + .shopify-section, .shopify-section:has(.ns-trust) { margin-bottom: 0; }
+
+/* ---------- Image cards (product infographics) ---------- */
+.ns-icards__grid{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:24px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ns-icards__grid--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px;margin-left:auto;margin-right:auto}
+.ns-icards__grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ns-icard{background:#fff;border:1px solid rgba(74,52,38,.1);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.vr-section--white .ns-icard{background:var(--ns-cream,#FBF7F1)}
+.ns-icard__media{aspect-ratio:1/1;background:#fff}
+.ns-icard__media img,.ns-icard__media svg{width:100%;height:100%;object-fit:cover;display:block}
+.ns-icard__title{font-family:Poppins,sans-serif;font-size:1.8rem;font-weight:600;margin:18px 20px 6px;color:#2E221A}
+.ns-icard__text{margin:0 20px 20px;font-size:1.5rem;line-height:1.55;color:rgba(46,34,26,.78)}
+.ns-icard__text p{margin:0}
+@media screen and (max-width:989px){.ns-icards__grid,.ns-icards__grid--4{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+@media screen and (max-width:599px){.ns-icards__grid,.ns-icards__grid--2,.ns-icards__grid--4{grid-template-columns:1fr}}

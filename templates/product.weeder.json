@@ -92,12 +92,13 @@
         "background": "cream",
         "pattern": false,
         "layout": "right",
-        "use_product_image": true,
+        "use_product_image": false,
         "product_image_index": 1,
         "image_ratio": "square",
         "eyebrow": "Roots and all",
-        "heading": "Pull the weed, <em>not just the leaves</em>",
-        "text": "<p>Snipping weeds at the surface leaves the root behind — and the weed is back in a week. This stainless steel claw grips the plant at its base and lifts it out with the root, so a weed-free bed stays weed-free for longer.</p>"
+        "heading": "Grab the weed <em>by the root</em>",
+        "text": "<p>Kneeling in the garden for an afternoon, sore back, muddy hands — and a week later the weeds are back. That usually happens because the root stayed in the ground.</p><p>This claw grips the weed at its base and lifts it out together with the root. No snapped stems, no leftover roots, one pull and it’s out.</p>",
+        "image": "shopify://shop_images/weeder-grab-root.gif"
       },
       "blocks": {
         "b1": {
@@ -119,9 +120,9 @@
         "b3": {
           "type": "benefit",
           "settings": {
-            "icon": "heart",
-            "title": "Less bending",
-            "text": "Add the pole and weed standing up"
+            "icon": "check",
+            "title": "One pull",
+            "text": "No snapped stems or leftover roots"
           }
         }
       },
@@ -415,15 +416,151 @@
         "image_ratio": "square",
         "show_secondary_image": true
       }
+    },
+    "standing": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/weeder-standing-up.gif",
+        "use_product_image": false,
+        "image_ratio": "square",
+        "eyebrow": "Less bending",
+        "heading": "Weed standing up, <em>not on your knees</em>",
+        "text": "<p>With the long pole you can weed standing up, or with only a little bending. Easier on your back and knees — handy if kneeling has become a chore, or you just want to garden the smart way.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "hand",
+            "title": "Clean hands",
+            "text": "The claw does the gripping, so your hands stay out of the mud — even on wet soil"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Comfortable grip",
+            "text": "An easy hold that lets you work through a bed without straining your hands"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Made to last",
+            "text": "Metal construction instead of plastic that cracks after one season"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "visuals": {
+      "type": "ns-image-cards",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "See it up close",
+        "heading": "Built for <em>stubborn roots</em>",
+        "subheading": ""
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/weeder-family.png",
+            "title": "Taproots & fibrous roots",
+            "text": "<p>Four curved tines are made for weeds like dandelion, thistle, wild onion, ivy and ferns.</p>"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/weeder-gift.png",
+            "title": "Out in 3 steps",
+            "text": "<p>Step on it, close the claw around the root, and lift. No digging around your plants.</p>"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/weeder-clean-hands.png",
+            "title": "Tool vs. by hand",
+            "text": "<p>Faster, cleaner and kinder to your hands than pulling weeds with your fingers.</p>"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/weeder-summer-garden.png",
+            "title": "The details",
+            "text": "<p>Metal socket with a screw hole, stainless steel pivot screw, flexible joint and a textured foot plate.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "specs": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/weeder-size-chart.jpg",
+        "use_product_image": false,
+        "image_ratio": "square",
+        "eyebrow": "Specifications",
+        "heading": "Size & <em>details</em>",
+        "text": "<p><strong>Material:</strong> metal (stainless steel)<br><strong>Color:</strong> black &amp; silver<br><strong>Claw weight:</strong> approx. 141.5 g<br><strong>Claw size:</strong> approx. 14.4 cm tall × 13.8 cm long (5.7 × 5.4 in)<br><strong>Socket:</strong> approx. 3 cm (1.2 in) — fits many standard handles<br><strong>Use:</strong> pulling weeds and loosening soil</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "gift": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "use_product_image": true,
+        "product_image_index": 3,
+        "image_ratio": "square",
+        "eyebrow": "A gift they'll use",
+        "heading": "For every <em>garden lover</em>",
+        "text": "<p>A practical gift for grandparents, parents, partners or friends who love their garden — something that makes weeding a little easier every week.</p><p>Get your garden ready for the season and enjoy beds that stay tidy.</p>",
+        "button_label": "Shop the weed puller",
+        "button_link": "/products/stand-up-weed-puller-claw"
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
     "roots",
+    "standing",
     "why",
     "how",
+    "visuals",
+    "specs",
     "bundle",
     "compare",
+    "gift",
     "faq",
     "trust",
     "related"
