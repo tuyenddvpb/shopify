@@ -1,0 +1,756 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign ns_parts = product.description | split: '<!--story-->' -%}<div class=\"product__description rte quick-add-hidden\">{{ ns_parts | first }}</div>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true
+      }
+    },
+    "trust": {
+      "type": "ns-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping",
+            "text": "On orders over $49"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real support",
+            "text": "Reply within 1 business day"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "app": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/Saf0650441034463f8bef7e3d821745bbt.webp",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "The app",
+        "heading": "Never miss <em>a visitor</em>",
+        "text": "<p>The camera watches your feeder around the clock, so you don’t have to. Open the app any time, or let it tap you on the shoulder when someone drops by.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "chat",
+            "title": "Arrival alerts",
+            "text": "A real-time notification when a bird lands, powered by motion detection"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "light",
+            "title": "Live view",
+            "text": "See what’s happening at the feeder right now, from anywhere"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "box",
+            "title": "Automatic capture",
+            "text": "Photos and video of each visit, saved to microSD or cloud storage"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Share with family",
+            "text": "Invite family members to watch on their own phones"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "daynight": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/ns-bird-day.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "landscape",
+        "eyebrow": "Picture",
+        "heading": "See every visit, <em>day and night</em>",
+        "text": "<p>A 3.6 mm wide-angle lens covers the whole perch with a 130° view, and night vision keeps watch after dark — in color when there’s a little light, infrared when there isn’t.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkle",
+            "title": "130° wide angle",
+            "text": "Frames the full perch tray"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "Color + IR night vision",
+            "text": "Early birds and night visitors included"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "bins": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/S00dcfa7368bd41aa8983abdc392bbabbQ.webp",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Built for birds",
+        "heading": "Two seed bins, <em>more visitors</em>",
+        "text": "<p>Seed bins on both sides of the camera hold plenty of food between refills, and the wide wooden perch gives small and medium songbirds room to land.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Bamboo & wood body",
+            "text": "Natural look that blends into the garden"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Easy refills",
+            "text": "Lift the roof and pour seed into both bins"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "setup": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Setup",
+        "heading": "How it <em>works</em>",
+        "subheading": "Setup takes about 10 minutes. Your first visitor could be today.",
+        "columns": "3",
+        "numbered": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "1",
+            "title": "Mount and connect",
+            "text": "<p>Hang it on a tree, post or wall, fix the solar panel in the sun, and connect to 2.4 GHz Wi-Fi.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "2",
+            "title": "Fill with seed",
+            "text": "<p>Lift the roof and add dry bird seed to both bins.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "3",
+            "title": "Enjoy every visit",
+            "text": "<p>Get alerts, watch live and save photos and video of your visitors.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "power": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/ns-bird-details.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "landscape",
+        "eyebrow": "Power",
+        "heading": "Powered by <em>the sun</em>",
+        "text": "<p>The included solar panel mounts on its own bracket and tops up the built-in battery in daylight. Place it where it gets a few hours of direct sun; for long cloudy spells, charge with the USB cable.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "light",
+            "title": "Solar panel included",
+            "text": "Separate panel with bracket and cable"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "battery",
+            "title": "Rechargeable battery",
+            "text": "USB charging as a backup"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "weather": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/ns-bird-weather.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Durability",
+        "heading": "Made for <em>the backyard</em>",
+        "text": "<p>The camera unit is rated IP66 by the supplier for rain and dust, and the feeder is made to live outdoors.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Weather-resistant camera",
+            "text": "IP66 rating per supplier"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Drainage holes",
+            "text": "Help keep seed from sitting in water"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "hand",
+            "title": "Easy to clean",
+            "text": "Parts come apart for quick cleaning"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Tip",
+            "text": "Mount it under a little cover to keep the bamboo looking good longer"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "squirrel": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "cream",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/ns-bird-squirrel.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Unwanted guests",
+        "heading": "Shoo squirrels <em>from your phone</em>",
+        "text": "<p>Spot a squirrel raiding the seed? Sound an alert or talk through the two-way audio to send it on its way — without leaving the couch.</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "gift": {
+      "type": "vr-features",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Gifting",
+        "heading": "A gift that keeps bringing <em>new moments</em>",
+        "subheading": "For anyone who loves spending time outdoors and noticing the small things.",
+        "columns": "4",
+        "numbered": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Bird lovers",
+            "text": "<p>A front-row seat to every visitor.</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "title": "Parents",
+            "text": "<p>A new backyard moment to share every day.</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Grandparents",
+            "text": "<p>Easy to enjoy from a phone or tablet.</p>"
+          }
+        },
+        "b4": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Nature lovers",
+            "text": "<p>Learn who’s visiting through the seasons.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "specs": {
+      "type": "vr-features",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Specifications",
+        "heading": "By the <em>numbers</em>",
+        "subheading": "",
+        "columns": "4",
+        "numbered": false
+      },
+      "blocks": {
+        "b1": {
+          "type": "feature",
+          "settings": {
+            "icon": "light",
+            "title": "3.6 mm · 130°",
+            "text": "<p>Wide-angle camera with live view</p>"
+          }
+        },
+        "b2": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "title": "Color + IR",
+            "text": "<p>Night vision</p>"
+          }
+        },
+        "b3": {
+          "type": "feature",
+          "settings": {
+            "icon": "chat",
+            "title": "2-way audio",
+            "text": "<p>Talk and sound alert</p>"
+          }
+        },
+        "b4": {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "microSD / cloud",
+            "text": "<p>Video storage</p>"
+          }
+        },
+        "b5": {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "title": "2.4 GHz",
+            "text": "<p>Wi-Fi only</p>"
+          }
+        },
+        "b6": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "IP66",
+            "text": "<p>Camera unit, per supplier</p>"
+          }
+        },
+        "b7": {
+          "type": "feature",
+          "settings": {
+            "icon": "battery",
+            "title": "Solar + battery",
+            "text": "<p>Panel and USB cable included</p>"
+          }
+        },
+        "b8": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand",
+            "title": "25 × 28 cm",
+            "text": "<p>About 9.8 × 11 in</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ]
+    },
+    "inbox": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "right",
+        "image": "shopify://shop_images/ns-bird-size.jpg",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "In the box",
+        "heading": "What’s <em>included</em>",
+        "text": "<p>Everything you need to get started:</p>",
+        "button_label": "",
+        "button_link": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Bamboo bird feeder",
+            "text": "With built-in Wi-Fi camera"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Solar panel",
+            "text": "With mounting bracket and cable"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "USB charging cable",
+            "text": "For backup charging"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "User manual",
+            "text": "App setup and mounting steps"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "faq": {
+      "type": "vr-faq",
+      "settings": {
+        "background": "cream",
+        "eyebrow": "Good to know",
+        "heading": "Questions? We’ve got <em>answers</em>",
+        "subheading": "",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact"
+      },
+      "blocks": {
+        "b1": {
+          "type": "question",
+          "settings": {
+            "question": "Does it require Wi-Fi?",
+            "answer": "<p>Yes. It needs a 2.4 GHz Wi-Fi signal at the mounting spot to stream live video and send alerts. 5 GHz-only networks are not supported, so check the signal in your yard first.</p>"
+          }
+        },
+        "b2": {
+          "type": "question",
+          "settings": {
+            "question": "Is a memory card included?",
+            "answer": "<p>Recording works with a microSD card or the app’s cloud storage. A memory card may not be included — add one if you want local recordings.</p>"
+          }
+        },
+        "b3": {
+          "type": "question",
+          "settings": {
+            "question": "Is bird identification free?",
+            "answer": "<p>Alerts, live view and recording work in the app. Automatic species identification may require a paid plan inside the app.</p>"
+          }
+        },
+        "b4": {
+          "type": "question",
+          "settings": {
+            "question": "How is it powered?",
+            "answer": "<p>By a built-in rechargeable battery, topped up by the included solar panel in daylight. In shade or long cloudy spells, recharge with the USB cable.</p>"
+          }
+        },
+        "b5": {
+          "type": "question",
+          "settings": {
+            "question": "Can it stay outside in the rain?",
+            "answer": "<p>Yes. The camera unit is rated IP66 by the supplier. The body is natural bamboo and wood, so a spot with a little cover helps it last.</p>"
+          }
+        },
+        "b6": {
+          "type": "question",
+          "settings": {
+            "question": "How is it mounted?",
+            "answer": "<p>Hang or fix it to a tree, post or wall with a clear view of the perch, and mount the solar panel nearby where it gets direct sun.</p>"
+          }
+        },
+        "b7": {
+          "type": "question",
+          "settings": {
+            "question": "What seed should I use?",
+            "answer": "<p>Any dry bird seed mix for small to medium songbirds. Clean the bins regularly to keep seed fresh.</p>"
+          }
+        },
+        "b8": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ]
+    },
+    "cta": {
+      "type": "vr-media-text",
+      "settings": {
+        "background": "white",
+        "pattern": false,
+        "layout": "left",
+        "image": "shopify://shop_images/S0b0088cf87d04acc9cf60aa1ab329abeG.webp",
+        "use_product_image": false,
+        "product_image_index": 1,
+        "image_ratio": "square",
+        "eyebrow": "Get yours",
+        "heading": "Your next backyard visitor could arrive <em>any moment</em>",
+        "text": "<p>Set it up this weekend and start meeting the birds that already live around you.</p>",
+        "button_label": "Shop now",
+        "button_link": "/products/smart-bamboo-bird-feeder-camera"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "sticky": {
+      "type": "vr-sticky-atc",
+      "settings": {
+        "enable": true,
+        "label": "Add to cart"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust",
+    "app",
+    "daynight",
+    "bins",
+    "setup",
+    "power",
+    "weather",
+    "squirrel",
+    "gift",
+    "specs",
+    "inbox",
+    "faq",
+    "cta",
+    "sticky",
+    "related"
+  ]
+}
