@@ -69,7 +69,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "What it does",
-            "icon": "check",
+            "icon": "check_mark",
             "content": "<p><strong>Removes peach fuzz and dead skin.</strong> Skin feels smoother and softer straight after use.</p><p><strong>Sonic vibration.</strong> Gentle vibration helps the edge glide evenly across the skin.</p><p><strong>Adjustable speeds.</strong> Start on the lowest setting and work up as you get used to it.</p><p><strong>Single-use safety tips.</strong> A guarded edge, swapped for a fresh one every session.</p><p><strong>Smoother makeup base.</strong> With the fuzz gone, foundation and powder go on more evenly.</p>"
           }
         },
@@ -77,7 +77,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Specifications",
-            "icon": "box",
+            "icon": "ruler",
             "content": "<p><strong>Type:</strong> sonic dermaplaning tool</p><p><strong>Speeds:</strong> multiple settings</p><p><strong>Power:</strong> cordless, rechargeable via USB</p><p><strong>Colors:</strong> Lavender, White</p><p><strong>Tips:</strong> single-use, guarded safety tips</p>"
           }
         },
@@ -85,7 +85,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "How to use",
-            "icon": "hand",
+            "icon": "question_mark",
             "content": "<p>Tie your hair back. Cleanse your face and pat it completely dry. Attach a new safety tip, switch on and choose the lowest speed. Hold the skin taut and the tool at about a 45° angle, then make short, light strokes over the cheeks, jawline, chin and forehead. Avoid the eyelids, lips, spots and any irritated skin. Switch off, throw the tip away and apply a gentle moisturizer. Skip exfoliating acids and heavy makeup for the rest of the day.</p>"
           }
         },
@@ -93,7 +93,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "What's included",
-            "icon": "gift",
+            "icon": "box",
             "content": "<p>Dermaplaning tool, single-use safety tips, charging base or cable, user manual. Exact contents depend on the set you choose and are listed in the order confirmation.</p>"
           }
         }
