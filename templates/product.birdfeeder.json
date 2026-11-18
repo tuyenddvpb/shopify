@@ -101,13 +101,13 @@
         "b6": {
           "type": "image",
           "settings": {
-            "image": ""
+            "image": "shopify://shop_images/ns-bird-ai-bluejay.png"
           }
         },
         "b7": {
           "type": "image",
           "settings": {
-            "image": ""
+            "image": "shopify://shop_images/ns-bird-ai-cardinal.png"
           }
         }
       },
@@ -253,7 +253,7 @@
         "eyebrow": "The app",
         "heading": "Never Miss a Visitor",
         "sub": "The camera watches your feeder around the clock so you don't have to.",
-        "image": "",
+        "image": "shopify://shop_images/ns-bird-ai-app.png",
         "narrow": false
       },
       "blocks": {
@@ -307,7 +307,7 @@
         "bg": "cream",
         "heading": "Ready to meet your backyard visitors?",
         "show_image": true,
-        "image": ""
+        "image": "shopify://shop_images/ns-bird-ai-giftbox.png"
       }
     },
     "ai": {
@@ -520,7 +520,7 @@
         "text": "<p>A thoughtful gift for anyone who loves spending time outdoors and noticing the small things.</p>",
         "note": "",
         "tags": "Bird lovers · Parents · Grandparents · Nature lovers",
-        "image": ""
+        "image": "shopify://shop_images/ns-bird-ai-gifting.png"
       },
       "blocks": {},
       "block_order": []
@@ -627,35 +627,35 @@
         "b2": {
           "type": "item",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ns-bird-ai-camera.png",
             "label": "Wi-Fi camera (pre-installed)"
           }
         },
         "b3": {
           "type": "item",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ns-bird-ai-solar.png",
             "label": "Solar panel"
           }
         },
         "b4": {
           "type": "item",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ns-bird-ai-bracket.png",
             "label": "Panel bracket"
           }
         },
         "b5": {
           "type": "item",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ns-bird-ai-cable.png",
             "label": "Charging cable"
           }
         },
         "b6": {
           "type": "item",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ns-bird-ai-manual.png",
             "label": "User manual"
           }
         }
