@@ -253,7 +253,7 @@
         "eyebrow": "The app",
         "heading": "Never Miss a Visitor",
         "sub": "The camera watches your feeder around the clock so you don't have to.",
-        "image": "shopify://shop_images/ns-bird-ai-app.png",
+        "image": "shopify://shop_images/ns-bird-app-v2.png",
         "narrow": false
       },
       "blocks": {
@@ -385,7 +385,7 @@
         "text": "<p>The included solar panel mounts on its own bracket and connects by cable to keep the camera charged with natural daylight.</p>",
         "note": "",
         "tags": "",
-        "image": "shopify://shop_images/ns-bird-real-solar.png"
+        "image": "shopify://shop_images/ns-bird-real-solar-v2.png"
       },
       "blocks": {
         "b1": {
@@ -423,7 +423,7 @@
         "eyebrow": "Durability",
         "heading": "Made for the Backyard",
         "sub": "Built to live outdoors through the seasons.",
-        "image": "shopify://shop_images/ns-bird-real-rain.png",
+        "image": "shopify://shop_images/ns-bird-real-rain-v2.png",
         "narrow": true
       },
       "blocks": {
