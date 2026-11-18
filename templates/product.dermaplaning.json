@@ -173,19 +173,27 @@
       "blocks": {
         "b1": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dm-result-glide.png"
+          }
         },
         "b2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dm-result-skin.png"
+          }
         },
         "b3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dm-result-makeup.png"
+          }
         },
         "b4": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dm-result-shelf.png"
+          }
         }
       },
       "block_order": [
@@ -206,7 +214,7 @@
         "text": "<p>A sonic dermaplaning tool lightly skims away peach fuzz and the dull top layer of dead skin in one step. The guarded tip and gentle vibration make it easy to get even strokes at home, without a spa appointment.</p><p>Most people use it about once a week to keep skin feeling smooth.</p>",
         "note": "Not for use over active breakouts, raised moles, broken or sunburned skin.",
         "tags": "",
-        "image": ""
+        "image": "shopify://shop_images/dm-simple.png"
       },
       "blocks": {
         "p1": {
@@ -243,7 +251,7 @@
         "bg": "cream",
         "heading": "Try it for 30 days. Not for you? Send it back.",
         "show_image": true,
-        "image": ""
+        "image": "shopify://shop_images/dm-buy.png"
       }
     },
     "spa": {
@@ -257,7 +265,7 @@
         "text": "<p>Dermaplaning is a popular add-on in facials. This tool lets you do a gentle version yourself, on your own schedule, in about five minutes. Follow with your usual serum and moisturizer.</p>",
         "note": "",
         "tags": "Weekly routine · Before makeup · Before events",
-        "image": ""
+        "image": "shopify://shop_images/dm-spa.png"
       },
       "blocks": {},
       "block_order": []
@@ -269,7 +277,7 @@
         "eyebrow": "Meet the tool",
         "heading": "Sonic Dermaplaning Tool",
         "sub": "One small tool for smoother-feeling skin and an easier makeup base.",
-        "image": "",
+        "image": "shopify://shop_images/dm-intro.png",
         "narrow": true
       },
       "blocks": {
@@ -393,7 +401,7 @@
         "b1": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/dm-step-cleanse.png",
             "title": "Cleanse",
             "text": "Wash your face and pat it completely dry."
           }
@@ -401,7 +409,7 @@
         "b2": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/dm-step-glide.png",
             "title": "Glide",
             "text": "Attach a new tip, pick the lowest speed and make short strokes at about 45° while holding the skin taut."
           }
@@ -409,7 +417,7 @@
         "b3": {
           "type": "step",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/dm-step-moisturize.png",
             "title": "Moisturize",
             "text": "Apply a gentle serum or moisturizer to finish."
           }
@@ -542,7 +550,7 @@
         "bg": "cream",
         "eyebrow": "Get yours",
         "heading": "Smoother Skin Starts This Week",
-        "image": ""
+        "image": "shopify://shop_images/dm-pair.png"
       }
     },
     "sticky": {
