@@ -11,7 +11,7 @@
       {%- endif -%}
       {%- if section.settings.tags != blank -%}<p class="ns-lp-tags">{{ section.settings.tags }}</p>{%- endif -%}
     </div>
-    <div class="ns-lp__frame ns-lp-split__media">{% render 'ns-lp-media', image: section.settings.image, ph: 'lifestyle-2', sizes: '(min-width: 990px) 50vw, 100vw' %}</div>
+    <div class="ns-lp__frame ns-lp-split__media">{% render 'ns-lp-media', image: section.settings.image, hint: section.settings.heading, sizes: '(min-width: 990px) 50vw, 100vw' %}</div>
   </div>
 </section>
 {% schema %}

@@ -6,7 +6,7 @@
     <div class="ns-lp-steps">
       {%- for block in section.blocks -%}
         <div class="ns-lp-step" {{ block.shopify_attributes }}>
-          <div class="ns-lp__frame ns-lp-step__media">{% render 'ns-lp-media', image: block.settings.image, ph: 'lifestyle-1', width: 800, sizes: '(min-width: 990px) 33vw, 100vw' %}</div>
+          <div class="ns-lp__frame ns-lp-step__media">{% render 'ns-lp-media', image: block.settings.image, hint: block.settings.title, width: 800, sizes: '(min-width: 990px) 33vw, 100vw' %}</div>
           <span class="ns-lp-step__num">{{ forloop.index }}</span>
           <h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p>
         </div>

@@ -10,7 +10,7 @@
       {%- if product -%}{% render 'ns-lp-form', product: product, fid: 'nslp-hero', select: false, qty: false, cls: 'ns-lp-form' %}{%- endif -%}
       {%- if section.settings.note != blank -%}<p class="ns-lp-hero__note">{{ section.settings.note }}</p>{%- endif -%}
     </div>
-    <div class="ns-lp-hero__media">{% render 'ns-lp-media', image: section.settings.image, ph: 'product-1', eager: true, sizes: '(min-width: 990px) 45vw, 100vw' %}</div>
+    <div class="ns-lp-hero__media">{% render 'ns-lp-media', image: section.settings.image, hint: section.settings.heading, eager: true, sizes: '(min-width: 990px) 45vw, 100vw' %}</div>
   </div>
 </section>
 {% schema %}

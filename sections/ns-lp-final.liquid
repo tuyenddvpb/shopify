@@ -4,7 +4,7 @@
     <div class="ns-lp-final__card">
       {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
-      <div class="ns-lp-final__media">{% render 'ns-lp-media', image: section.settings.image, ph: 'product-1', width: 700, sizes: '300px' %}</div>
+      <div class="ns-lp-final__media">{% render 'ns-lp-media', image: section.settings.image, hint: section.settings.heading, width: 700, sizes: '300px' %}</div>
       {%- if product -%}
         {%- assign v0 = product.selected_or_first_available_variant -%}
         <div class="ns-lp-final__price">{% if v0.compare_at_price > v0.price %}<s style="font-size:1.5rem;opacity:.6">{{ v0.compare_at_price | money }}</s>{% endif %}<span>{{ v0.price | money }}</span></div>

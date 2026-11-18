@@ -4,7 +4,7 @@
     {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
     <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
     {%- if section.settings.sub != blank -%}<p class="ns-lp__sub">{{ section.settings.sub }}</p>{%- endif -%}
-    <div class="ns-lp__frame ns-lp-wide__media{% if section.settings.narrow %} ns-lp-wide__media--narrow{% endif %}">{% render 'ns-lp-media', image: section.settings.image, ph: 'lifestyle-1', sizes: '(min-width: 1240px) 1200px, 100vw' %}</div>
+    <div class="ns-lp__frame ns-lp-wide__media{% if section.settings.narrow %} ns-lp-wide__media--narrow{% endif %}">{% render 'ns-lp-media', image: section.settings.image, hint: section.settings.heading, sizes: '(min-width: 1240px) 1200px, 100vw' %}</div>
     {%- if section.blocks.size > 0 -%}
       <div class="ns-lp-cols" style="text-align:left">
         {%- for block in section.blocks -%}

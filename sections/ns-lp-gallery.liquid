@@ -6,7 +6,7 @@
   </div>
   <div class="ns-lp-gallery__track">
     {%- for block in section.blocks -%}
-      <div class="ns-lp-gallery__item ns-lp__frame" {{ block.shopify_attributes }}>{% render 'ns-lp-media', image: block.settings.image, ph: 'lifestyle-2', width: 700, sizes: '330px' %}</div>
+      <div class="ns-lp-gallery__item ns-lp__frame" {{ block.shopify_attributes }}>{% render 'ns-lp-media', image: block.settings.image, hint: 'Backyard visitor', width: 700, sizes: '330px' %}</div>
     {%- endfor -%}
   </div>
 </section>

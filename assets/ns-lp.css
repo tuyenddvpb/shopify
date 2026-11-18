@@ -121,3 +121,7 @@
   .ns-lp-wide__media{aspect-ratio:4/3}
 }
 @media (max-width:599px){.ns-lp-box{grid-template-columns:repeat(2,1fr)}.ns-lp-specs{grid-template-columns:1fr}.ns-lp-spec{border-right:0!important}}
+.ns-lp-ph{width:100%;height:100%;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#eef1f6,#e2e7ef);color:#9aa4b6;text-align:center;padding:16px}
+.ns-lp-ph span{font-size:1.3rem;font-weight:600;letter-spacing:.02em;max-width:80%}
+.ns-lp--navy .ns-lp-ph{background:linear-gradient(135deg,#27315f,#202a56);color:rgba(255,255,255,.45)}
+.ns-lp-buy__media .ns-lp-ph{background:linear-gradient(135deg,#f6efe3,#efe5d5);color:#b9a98f}

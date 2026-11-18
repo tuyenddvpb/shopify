@@ -1,4 +1,4 @@
-{%- comment -%} Usage: render 'ns-lp-media', image: img, ph: 'lifestyle-1', width: 1400, sizes: '50vw', eager: false {%- endcomment -%}
+{%- comment -%} Usage: render 'ns-lp-media', image: img, hint: 'Caption for dummy', width: 1400, sizes: '50vw', eager: false {%- endcomment -%}
 {%- if image != blank -%}
   {%- liquid
     assign w = width | default: 1400
@@ -10,5 +10,8 @@
   -%}
   {{ image | image_url: width: w | image_tag: class: 'ns-lp__img', loading: ld, sizes: sizes, widths: '400, 700, 1000, 1400', alt: image.alt }}
 {%- else -%}
-  {{ ph | default: 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+  <div class="ns-lp-ph" role="img" aria-label="{{ hint | default: 'Image' | escape }}">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+    {%- if hint != blank -%}<span>{{ hint }}</span>{%- endif -%}
+  </div>
 {%- endif -%}
