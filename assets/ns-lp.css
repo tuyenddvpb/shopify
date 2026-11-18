@@ -136,7 +136,8 @@
   .ns-lp-hero--full .ns-lp-hero__bg:after{background:linear-gradient(180deg,rgba(12,18,44,0) 55%,rgba(27,36,82,1) 100%)}
   .ns-lp-hero--full .ns-lp-hero__grid{grid-template-columns:1fr;min-height:0;padding-top:8px}
 }
-.ns-lp-hero--full .ns-lp-hero__bg img{object-position:50% 12%}
+.ns-lp-hero--full .ns-lp-hero__bg img{object-position:50% 30%}
+@media (min-width:990px){.ns-lp-hero--full .ns-lp-hero__grid{min-height:700px}}
 @media (max-width:989px){.ns-lp-hero--full .ns-lp-hero__bg img{object-position:68% 40%}}
 
 @media (max-width:749px){.ns-lp-form,.ns-lp-form--wide{max-width:none;width:100%}}
