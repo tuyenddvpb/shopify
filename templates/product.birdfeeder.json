@@ -253,7 +253,7 @@
         "eyebrow": "The app",
         "heading": "Never Miss a Visitor",
         "sub": "The camera watches your feeder around the clock so you don't have to.",
-        "image": "shopify://shop_images/ns-bird-app-v2.png",
+        "image": "shopify://shop_images/ns-bird-app-v3.png",
         "narrow": false
       },
       "blocks": {
@@ -321,7 +321,7 @@
         "text": "<p>The companion app can suggest which species stopped by, so you get to know your regular visitors.</p>",
         "note": "Species identification may require a paid plan in the app. Alerts, live view and recording work without it.",
         "tags": "",
-        "image": "shopify://shop_images/ns-bird-real-phone.png"
+        "image": "shopify://shop_images/ns-bird-real-phone-v2.png"
       },
       "blocks": {},
       "block_order": []
@@ -337,7 +337,7 @@
         "b1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-real-mount.png",
+            "image": "shopify://shop_images/ns-bird-real-mount-v2.png",
             "title": "Mount and connect",
             "text": "Hang it on a tree, post or wall, fix the solar panel in the sun and connect to 2.4 GHz Wi-Fi."
           }
@@ -345,7 +345,7 @@
         "b2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-real-fill.png",
+            "image": "shopify://shop_images/ns-bird-real-fill-v2.png",
             "title": "Fill with bird seed",
             "text": "Lift the roof and add dry bird seed to both bins."
           }
@@ -353,7 +353,7 @@
         "b3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-real-enjoy.png",
+            "image": "shopify://shop_images/ns-bird-real-enjoy-v2.png",
             "title": "Enjoy every visit",
             "text": "Get notifications, watch live, and save photos and video."
           }
