@@ -71,43 +71,43 @@
         "b1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-day.jpg"
+            "image": "shopify://shop_images/ns-bird-cam-finch.png"
           }
         },
         "b2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-night-ir.jpg"
+            "image": "shopify://shop_images/ns-bird-cam-bluejay.png"
           }
         },
         "b3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Saf0650441034463f8bef7e3d821745bbt.webp"
+            "image": "shopify://shop_images/ns-bird-cam-goldfinch.png"
           }
         },
         "b4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-squirrel.jpg"
+            "image": "shopify://shop_images/ns-bird-cam-crow.png"
           }
         },
         "b5": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/S00dcfa7368bd41aa8983abdc392bbabbQ.webp"
+            "image": "shopify://shop_images/ns-bird-cam-chickadee.png"
           }
         },
         "b6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-bluejay.png"
+            "image": "shopify://shop_images/ns-bird-cam-bluebird.png"
           }
         },
         "b7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-cardinal.png"
+            "image": "shopify://shop_images/ns-bird-cam-cardinal.png"
           }
         }
       },
