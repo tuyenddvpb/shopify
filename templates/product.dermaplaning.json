@@ -70,7 +70,7 @@
           "settings": {
             "heading": "What it does",
             "icon": "check_mark",
-            "content": "<p><strong>Removes peach fuzz and dead skin.</strong> Skin feels smoother and softer straight after use.</p><p><strong>Sonic vibration.</strong> Gentle vibration helps the edge glide evenly across the skin.</p><p><strong>Adjustable speeds.</strong> Start on the lowest setting and work up as you get used to it.</p><p><strong>Single-use safety tips.</strong> A guarded edge, swapped for a fresh one every session.</p><p><strong>Smoother makeup base.</strong> With the fuzz gone, foundation and powder go on more evenly.</p>"
+            "content": "<p><strong>Removes peach fuzz and dead skin.</strong> Skin feels smoother and softer straight after use.</p><p><strong>Built-in LED light.</strong> Lights up the blade area so fine, pale hairs are easier to see.</p><p><strong>3 speeds.</strong> Gentle for beginners and sensitive skin, standard for regular use, and a stronger setting for areas like the T-zone.</p><p><strong>U-shaped blade, easy to swap.</strong> Comes with 5 spare blades so you can use a fresh one each session.</p><p><strong>Tidy brows too.</strong> Use the tip to clean up stray hairs around the brow line.</p>"
           }
         },
         "tab_specs": {
@@ -78,7 +78,7 @@
           "settings": {
             "heading": "Specifications",
             "icon": "ruler",
-            "content": "<p><strong>Type:</strong> sonic dermaplaning tool</p><p><strong>Speeds:</strong> multiple settings</p><p><strong>Power:</strong> cordless, rechargeable via USB</p><p><strong>Colors:</strong> Lavender, White</p><p><strong>Tips:</strong> single-use, guarded safety tips</p>"
+            "content": "<p><strong>Speeds:</strong> 3</p><p><strong>Light:</strong> built-in LED</p><p><strong>Battery:</strong> 330 mAh rechargeable, USB-C charging</p><p><strong>Power:</strong> 5 W</p><p><strong>Water resistance:</strong> IPX7-rated body (per supplier), rinse under the tap</p><p><strong>Size:</strong> about 6.3 × 1.1 in (159.7 × 27.1 mm)</p><p><strong>Color:</strong> Lavender</p>"
           }
         },
         "tab_how": {
@@ -86,7 +86,7 @@
           "settings": {
             "heading": "How to use",
             "icon": "question_mark",
-            "content": "<p>Tie your hair back. Cleanse your face and pat it completely dry. Attach a new safety tip, switch on and choose the lowest speed. Hold the skin taut and the tool at about a 45° angle, then make short, light strokes over the cheeks, jawline, chin and forehead. Avoid the eyelids, lips, spots and any irritated skin. Switch off, throw the tip away and apply a gentle moisturizer. Skip exfoliating acids and heavy makeup for the rest of the day.</p>"
+            "content": "<p>Tie your hair back. Cleanse your face and pat it completely dry. Make sure a clean blade is fitted, switch on and choose speed 1. Hold the skin taut and the tool at about a 45° angle, then make short, light strokes over the cheeks, jawline, chin and forehead. Avoid the eyelids, lips, spots and any irritated skin. Switch off, rinse the head, and apply a gentle moisturizer. Skip exfoliating acids and heavy makeup for the rest of the day.</p>"
           }
         },
         "tab_box": {
@@ -94,7 +94,7 @@
           "settings": {
             "heading": "What's included",
             "icon": "box",
-            "content": "<p>Dermaplaning tool, single-use safety tips, charging base or cable, user manual. Exact contents depend on the set you choose and are listed in the order confirmation.</p>"
+            "content": "<p>1 dermaplaning tool, 5 replacement blades, 1 protective cap, 1 cleaning brush, 1 charging base, 1 USB-C cable.</p>"
           }
         }
       },
@@ -174,25 +174,25 @@
         "b1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/dm-result-glide.png"
+            "image": "shopify://shop_images/dm2-result-glide.png"
           }
         },
         "b2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/dm-result-skin.png"
+            "image": "shopify://shop_images/dm2-result-skin.png"
           }
         },
         "b3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/dm-result-makeup.png"
+            "image": "shopify://shop_images/dm2-result-makeup.png"
           }
         },
         "b4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/dm-result-shelf.png"
+            "image": "shopify://shop_images/dm2-result-shelf.png"
           }
         }
       },
@@ -211,31 +211,31 @@
         "wide_media": false,
         "eyebrow": "At-home dermaplaning",
         "heading": "Dermaplaning Made Simple",
-        "text": "<p>A sonic dermaplaning tool lightly skims away peach fuzz and the dull top layer of dead skin in one step. The guarded tip and gentle vibration make it easy to get even strokes at home, without a spa appointment.</p><p>Most people use it about once a week to keep skin feeling smooth.</p>",
+        "text": "<p>A sonic dermaplaning tool lightly skims away peach fuzz and the dull top layer of dead skin in one step. The LED light helps you see what you're doing, and gentle vibration makes it easier to get even strokes at home, without a spa appointment.</p><p>Most people use it about once a week to keep skin feeling smooth.</p>",
         "note": "Not for use over active breakouts, raised moles, broken or sunburned skin.",
         "tags": "",
-        "image": "shopify://shop_images/dm-simple.png"
+        "image": "shopify://shop_images/dm2-simple.png"
       },
       "blocks": {
         "p1": {
           "type": "point",
           "settings": {
             "icon": "shield",
-            "text": "Guarded single-use tips"
+            "text": "LED light shows fine hairs"
           }
         },
         "p2": {
           "type": "point",
           "settings": {
             "icon": "bolt",
-            "text": "Adjustable sonic speeds"
+            "text": "3 speed settings"
           }
         },
         "p3": {
           "type": "point",
           "settings": {
             "icon": "battery",
-            "text": "Cordless and rechargeable"
+            "text": "USB-C rechargeable"
           }
         }
       },
@@ -251,7 +251,7 @@
         "bg": "cream",
         "heading": "Try it for 30 days. Not for you? Send it back.",
         "show_image": true,
-        "image": "shopify://shop_images/dm-buy.png"
+        "image": "shopify://shop_images/dm2-buy.png"
       }
     },
     "spa": {
@@ -265,7 +265,7 @@
         "text": "<p>Dermaplaning is a popular add-on in facials. This tool lets you do a gentle version yourself, on your own schedule, in about five minutes. Follow with your usual serum and moisturizer.</p>",
         "note": "",
         "tags": "Weekly routine · Before makeup · Before events",
-        "image": "shopify://shop_images/dm-spa.png"
+        "image": "shopify://shop_images/dm2-spa.png"
       },
       "blocks": {},
       "block_order": []
@@ -276,8 +276,8 @@
         "bg": "white",
         "eyebrow": "Meet the tool",
         "heading": "Sonic Dermaplaning Tool",
-        "sub": "One small tool for smoother-feeling skin and an easier makeup base.",
-        "image": "shopify://shop_images/dm-intro.png",
+        "sub": "Peach fuzz, dead skin and stray brow hairs, handled by one small tool.",
+        "image": "shopify://shop_images/dm2-hero.png",
         "narrow": true
       },
       "blocks": {
@@ -308,9 +308,9 @@
         "c4": {
           "type": "col",
           "settings": {
-            "icon": "clock",
-            "title": "Quick routine",
-            "text": "About five minutes, once a week, at home."
+            "icon": "light",
+            "title": "Built-in LED",
+            "text": "Lights the blade area so fine hairs are easier to see."
           }
         }
       },
@@ -351,7 +351,7 @@
         "r3": {
           "type": "row",
           "settings": {
-            "label": "Guarded safety tip",
+            "label": "Built-in LED light",
             "a": true,
             "b": false
           }
@@ -359,7 +359,7 @@
         "r4": {
           "type": "row",
           "settings": {
-            "label": "Sonic vibration for an even glide",
+            "label": "3 speed settings",
             "a": true,
             "b": false
           }
@@ -367,7 +367,7 @@
         "r5": {
           "type": "row",
           "settings": {
-            "label": "Fresh tip every session",
+            "label": "Spare blades included",
             "a": true,
             "b": false
           }
@@ -375,7 +375,7 @@
         "r6": {
           "type": "row",
           "settings": {
-            "label": "Adjustable speeds",
+            "label": "Rinsable, rechargeable body",
             "a": true,
             "b": false
           }
@@ -401,7 +401,7 @@
         "b1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/dm-step-cleanse.png",
+            "image": "shopify://shop_images/dm2-step-cleanse.png",
             "title": "Cleanse",
             "text": "Wash your face and pat it completely dry."
           }
@@ -409,15 +409,15 @@
         "b2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/dm-step-glide.png",
+            "image": "shopify://shop_images/dm2-step-glide.png",
             "title": "Glide",
-            "text": "Attach a new tip, pick the lowest speed and make short strokes at about 45° while holding the skin taut."
+            "text": "Choose speed 1 and make short strokes at about 45° while holding the skin taut."
           }
         },
         "b3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/dm-step-moisturize.png",
+            "image": "shopify://shop_images/dm2-step-moisturize.png",
             "title": "Moisturize",
             "text": "Apply a gentle serum or moisturizer to finish."
           }
@@ -476,14 +476,14 @@
           "type": "qa",
           "settings": {
             "q": "How do I charge it?",
-            "a": "It's cordless and recharges by USB. Charge it fully before the first use."
+            "a": "Charge it with the included USB-C cable from a wall adapter, laptop or power bank. Charge it fully before the first use."
           }
         },
         "b7": {
           "type": "qa",
           "settings": {
-            "q": "Can I reuse the tips?",
-            "a": "No. Each tip is for a single session, for hygiene and an even result. Use a fresh tip every time."
+            "q": "How often should I change the blade?",
+            "a": "For hygiene and an even result, fit a fresh blade every session or as soon as it feels less smooth. The kit includes 5 replacement blades."
           }
         },
         "b8": {
@@ -491,6 +491,20 @@
           "settings": {
             "q": "How long does shipping take?",
             "a": "Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49."
+          }
+        },
+        "b9": {
+          "type": "qa",
+          "settings": {
+            "q": "Can I use it in the shower?",
+            "a": "The supplier rates the body IPX7, so you can rinse it under the tap. For the best result, use it on clean, dry skin and rinse the head afterwards."
+          }
+        },
+        "b10": {
+          "type": "qa",
+          "settings": {
+            "q": "Can I use it on my eyebrows?",
+            "a": "Yes, for tidying stray hairs around the brow line. Go slowly with short strokes and keep well away from the eyes."
           }
         }
       },
@@ -502,6 +516,8 @@
         "b5",
         "b6",
         "b7",
+        "b9",
+        "b10",
         "b8"
       ]
     },
@@ -550,7 +566,7 @@
         "bg": "cream",
         "eyebrow": "Get yours",
         "heading": "Smoother Skin Starts This Week",
-        "image": "shopify://shop_images/dm-pair.png"
+        "image": "shopify://shop_images/dm2-in-box.png"
       }
     },
     "sticky": {
