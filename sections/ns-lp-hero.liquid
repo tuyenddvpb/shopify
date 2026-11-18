@@ -1,6 +1,6 @@
 {% render 'ns-lp-head' %}
 {%- if section.settings.topbar != blank -%}<div class="ns-lp ns-lp-topbar">{{ section.settings.topbar }}</div>{%- endif -%}
-<section class="ns-lp ns-lp-hero">
+<section class="ns-lp ns-lp-hero{% if section.settings.image == blank and section.settings.bg_image != blank %} ns-lp-hero--full{% endif %}">
   {%- if section.settings.bg_image != blank -%}<div class="ns-lp-hero__bg">{% render 'ns-lp-media', image: section.settings.bg_image, eager: true, sizes: '100vw' %}</div>{%- endif -%}
   <div class="ns-lp__wrap ns-lp-hero__grid">
     <div>
@@ -10,7 +10,9 @@
       {%- if product -%}{% render 'ns-lp-form', product: product, fid: 'nslp-hero', select: false, qty: false, cls: 'ns-lp-form' %}{%- endif -%}
       {%- if section.settings.note != blank -%}<p class="ns-lp-hero__note">{{ section.settings.note }}</p>{%- endif -%}
     </div>
+    {%- unless section.settings.image == blank and section.settings.bg_image != blank -%}
     <div class="ns-lp-hero__media">{% render 'ns-lp-media', image: section.settings.image, hint: section.settings.heading, eager: true, sizes: '(min-width: 990px) 45vw, 100vw' %}</div>
+    {%- endunless -%}
   </div>
 </section>
 {% schema %}
@@ -22,6 +24,6 @@
     { "type": "richtext", "id": "text", "label": "Text" },
     { "type": "text", "id": "note", "label": "Small note under buttons" },
     { "type": "image_picker", "id": "image", "label": "Image (right)" },
-    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional)" }
+    { "type": "image_picker", "id": "bg_image", "label": "Background image", "info": "Leave the right image empty to show this as a full-width banner." }
   ], "presets": [{ "name": "LP Hero" }] }
 {% endschema %}
