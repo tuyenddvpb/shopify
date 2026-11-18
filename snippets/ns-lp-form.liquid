@@ -2,7 +2,7 @@
 {%- assign p = product -%}
 {%- assign v0 = p.selected_or_first_available_variant -%}
 {%- form 'product', p, id: fid, class: cls -%}
-  {%- if select and p.has_only_default_variant == false -%}
+  {%- if select and p.has_only_default_variant == false and p.variants.size > 1 -%}
     <select name="id" class="ns-lp-select" aria-label="Choose option">
       {%- for v in p.variants -%}<option value="{{ v.id }}"{% if v.id == v0.id %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>{{ v.title }} — {{ v.price | money }}</option>{%- endfor -%}
     </select>

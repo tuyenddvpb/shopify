@@ -261,3 +261,6 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading { letter-spacing: -0.01em; }
   .ns-st-gallery{grid-template-columns:1fr 1fr}
 }
 @media screen and (max-width:599px){.ns-st-cards{grid-template-columns:1fr}.ns-st-specs th{width:42%}}
+
+/* Footer logo: dark accent so "day" stays readable on the tan footer */
+.footer .ns-logo__day{color:#4A3222}
