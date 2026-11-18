@@ -18,7 +18,7 @@
         "text": "<p>Watch live, get arrival alerts on your phone, and save photos and video of every visit with this solar-charged smart bird feeder.</p>",
         "note": "Free shipping on orders over $49 · 30-day returns",
         "image": "",
-        "bg_image": "shopify://shop_images/ns-bird-hero-garden-v2.png"
+        "bg_image": "shopify://shop_images/ns-bird-hero-garden-v3.png"
       }
     },
     "trust1": {
@@ -253,7 +253,7 @@
         "eyebrow": "The app",
         "heading": "Never Miss a Visitor",
         "sub": "The camera watches your feeder around the clock so you don't have to.",
-        "image": "shopify://shop_images/ns-bird-app-v3.png",
+        "image": "shopify://shop_images/ns-bird-app-v4.png",
         "narrow": false
       },
       "blocks": {
@@ -321,7 +321,7 @@
         "text": "<p>The companion app can suggest which species stopped by, so you get to know your regular visitors.</p>",
         "note": "Species identification may require a paid plan in the app. Alerts, live view and recording work without it.",
         "tags": "",
-        "image": "shopify://shop_images/ns-bird-real-phone-v2.png"
+        "image": "shopify://shop_images/ns-bird-real-phone-v3.png"
       },
       "blocks": {},
       "block_order": []
