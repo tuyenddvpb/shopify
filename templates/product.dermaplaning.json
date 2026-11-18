@@ -1,0 +1,571 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign ns_parts = product.description | split: '<!--story-->' -%}<div class=\"product__description rte quick-add-hidden\">{{ ns_parts | first }}</div>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "tab_what": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What it does",
+            "icon": "check",
+            "content": "<p><strong>Removes peach fuzz and dead skin.</strong> Skin feels smoother and softer straight after use.</p><p><strong>Sonic vibration.</strong> Gentle vibration helps the edge glide evenly across the skin.</p><p><strong>Adjustable speeds.</strong> Start on the lowest setting and work up as you get used to it.</p><p><strong>Single-use safety tips.</strong> A guarded edge, swapped for a fresh one every session.</p><p><strong>Smoother makeup base.</strong> With the fuzz gone, foundation and powder go on more evenly.</p>"
+          }
+        },
+        "tab_specs": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Specifications",
+            "icon": "box",
+            "content": "<p><strong>Type:</strong> sonic dermaplaning tool</p><p><strong>Speeds:</strong> multiple settings</p><p><strong>Power:</strong> cordless, rechargeable via USB</p><p><strong>Colors:</strong> Lavender, White</p><p><strong>Tips:</strong> single-use, guarded safety tips</p>"
+          }
+        },
+        "tab_how": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to use",
+            "icon": "hand",
+            "content": "<p>Tie your hair back. Cleanse your face and pat it completely dry. Attach a new safety tip, switch on and choose the lowest speed. Hold the skin taut and the tool at about a 45° angle, then make short, light strokes over the cheeks, jawline, chin and forehead. Avoid the eyelids, lips, spots and any irritated skin. Switch off, throw the tip away and apply a gentle moisturizer. Skip exfoliating acids and heavy makeup for the rest of the day.</p>"
+          }
+        },
+        "tab_box": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's included",
+            "icon": "gift",
+            "content": "<p>Dermaplaning tool, single-use safety tips, charging base or cable, user manual. Exact contents depend on the set you choose and are listed in the order confirmation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_what",
+        "tab_specs",
+        "tab_how",
+        "tab_box",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": true
+      }
+    },
+    "trust1": {
+      "type": "ns-lp-trust",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "text": "30-Day Returns"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping Over $49"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure Checkout"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "text": "Real Human Support"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "results": {
+      "type": "ns-lp-gallery",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "Smooth · Exfoliate · Glow",
+        "heading": "Smooth Skin in a Few Minutes"
+      },
+      "blocks": {
+        "b1": {
+          "type": "image",
+          "settings": {}
+        },
+        "b2": {
+          "type": "image",
+          "settings": {}
+        },
+        "b3": {
+          "type": "image",
+          "settings": {}
+        },
+        "b4": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "simple": {
+      "type": "ns-lp-split",
+      "settings": {
+        "bg": "white",
+        "layout": "right",
+        "wide_media": false,
+        "eyebrow": "At-home dermaplaning",
+        "heading": "Dermaplaning Made Simple",
+        "text": "<p>A sonic dermaplaning tool lightly skims away peach fuzz and the dull top layer of dead skin in one step. The guarded tip and gentle vibration make it easy to get even strokes at home, without a spa appointment.</p><p>Most people use it about once a week to keep skin feeling smooth.</p>",
+        "note": "Not for use over active breakouts, raised moles, broken or sunburned skin.",
+        "tags": "",
+        "image": ""
+      },
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "shield",
+            "text": "Guarded single-use tips"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "bolt",
+            "text": "Adjustable sonic speeds"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "battery",
+            "text": "Cordless and rechargeable"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "buy1": {
+      "type": "ns-lp-buy",
+      "settings": {
+        "bg": "cream",
+        "heading": "Try it for 30 days. Not for you? Send it back.",
+        "show_image": true,
+        "image": ""
+      }
+    },
+    "spa": {
+      "type": "ns-lp-split",
+      "settings": {
+        "bg": "sky",
+        "layout": "left",
+        "wide_media": false,
+        "eyebrow": "Self-care at home",
+        "heading": "The Spa Step, at Home",
+        "text": "<p>Dermaplaning is a popular add-on in facials. This tool lets you do a gentle version yourself, on your own schedule, in about five minutes. Follow with your usual serum and moisturizer.</p>",
+        "note": "",
+        "tags": "Weekly routine · Before makeup · Before events",
+        "image": ""
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "intro": {
+      "type": "ns-lp-wide",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "Meet the tool",
+        "heading": "Sonic Dermaplaning Tool",
+        "sub": "One small tool for smoother-feeling skin and an easier makeup base.",
+        "image": "",
+        "narrow": true
+      },
+      "blocks": {
+        "c1": {
+          "type": "col",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Removes peach fuzz",
+            "text": "Skims fine facial hair at the surface, so skin looks and feels smoother."
+          }
+        },
+        "c2": {
+          "type": "col",
+          "settings": {
+            "icon": "heart",
+            "title": "Smoother makeup",
+            "text": "Foundation and powder blend more evenly without fuzz catching them."
+          }
+        },
+        "c3": {
+          "type": "col",
+          "settings": {
+            "icon": "leaf",
+            "title": "Gentle exfoliation",
+            "text": "Lifts away the dull top layer of dead skin for a fresher feel."
+          }
+        },
+        "c4": {
+          "type": "col",
+          "settings": {
+            "icon": "clock",
+            "title": "Quick routine",
+            "text": "About five minutes, once a week, at home."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "compare": {
+      "type": "ns-lp-compare",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "Why sonic",
+        "heading": "Sonic Tool vs. a Regular Razor",
+        "col_a": "Sonic tool",
+        "col_b": "Manual razor",
+        "note": "Comparison with a standard manual face or body razor."
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Removes peach fuzz",
+            "a": true,
+            "b": true
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Exfoliates dead skin",
+            "a": true,
+            "b": false
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Guarded safety tip",
+            "a": true,
+            "b": false
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Sonic vibration for an even glide",
+            "a": true,
+            "b": false
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Fresh tip every session",
+            "a": true,
+            "b": false
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Adjustable speeds",
+            "a": true,
+            "b": false
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+      ]
+    },
+    "steps": {
+      "type": "ns-lp-steps",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "How to use",
+        "heading": "Bye, Bye, Peach Fuzz"
+      },
+      "blocks": {
+        "b1": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "title": "Cleanse",
+            "text": "Wash your face and pat it completely dry."
+          }
+        },
+        "b2": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "title": "Glide",
+            "text": "Attach a new tip, pick the lowest speed and make short strokes at about 45° while holding the skin taut."
+          }
+        },
+        "b3": {
+          "type": "step",
+          "settings": {
+            "image": "",
+            "title": "Moisturize",
+            "text": "Apply a gentle serum or moisturizer to finish."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "faq": {
+      "type": "ns-lp-faq",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "FAQs",
+        "heading": "Questions? We've Got Answers."
+      },
+      "blocks": {
+        "b1": {
+          "type": "qa",
+          "settings": {
+            "q": "What does dermaplaning do?",
+            "a": "It skims away fine facial hair (peach fuzz) and the dull top layer of dead skin, so skin feels smoother and makeup goes on more evenly."
+          }
+        },
+        "b2": {
+          "type": "qa",
+          "settings": {
+            "q": "Will my hair grow back thicker or darker?",
+            "a": "No. The tool cuts fine vellus hair at the surface and doesn't affect the root, so it grows back the same as before."
+          }
+        },
+        "b3": {
+          "type": "qa",
+          "settings": {
+            "q": "How often should I use it?",
+            "a": "About once a week is enough for most people. Give your skin time to recover between sessions."
+          }
+        },
+        "b4": {
+          "type": "qa",
+          "settings": {
+            "q": "Can I use it on my whole face?",
+            "a": "Use it on the cheeks, jawline, chin, upper-lip area and forehead. Avoid the eyelids, lips and the sides of the nose."
+          }
+        },
+        "b5": {
+          "type": "qa",
+          "settings": {
+            "q": "Can I use it if I have acne or sensitive skin?",
+            "a": "Don't use it over active breakouts, raised moles, broken, sunburned or irritated skin. If you have a skin condition or use prescription skincare, check with a dermatologist first."
+          }
+        },
+        "b6": {
+          "type": "qa",
+          "settings": {
+            "q": "How do I charge it?",
+            "a": "It's cordless and recharges by USB. Charge it fully before the first use."
+          }
+        },
+        "b7": {
+          "type": "qa",
+          "settings": {
+            "q": "Can I reuse the tips?",
+            "a": "No. Each tip is for a single session, for hygiene and an even result. Use a fresh tip every time."
+          }
+        },
+        "b8": {
+          "type": "qa",
+          "settings": {
+            "q": "How long does shipping take?",
+            "a": "Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ]
+    },
+    "trust2": {
+      "type": "ns-lp-trust",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "text": "30-Day Returns"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping Over $49"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure Checkout"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "text": "Real Human Support"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "final": {
+      "type": "ns-lp-final",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "Get yours",
+        "heading": "Smoother Skin Starts This Week",
+        "image": ""
+      }
+    },
+    "sticky": {
+      "type": "vr-sticky-atc",
+      "settings": {
+        "enable": true,
+        "label": "Add to cart"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust1",
+    "results",
+    "simple",
+    "buy1",
+    "spa",
+    "intro",
+    "compare",
+    "steps",
+    "faq",
+    "trust2",
+    "final",
+    "sticky"
+  ]
+}

@@ -141,3 +141,15 @@
 @media (max-width:989px){.ns-lp-hero--full .ns-lp-hero__bg img{object-position:68% 40%}}
 
 @media (max-width:749px){.ns-lp-form,.ns-lp-form--wide{max-width:none;width:100%}}
+/* comparison table */
+.ns-lp-cmp{width:100%;max-width:720px;margin:28px auto 0;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--lp-line);border-radius:16px;overflow:hidden;font-size:1.5rem;text-align:center}
+.ns-lp-cmp th,.ns-lp-cmp td{padding:14px 16px;border-bottom:1px solid var(--lp-line)}
+.ns-lp-cmp tbody tr:last-child th,.ns-lp-cmp tbody tr:last-child td{border-bottom:0}
+.ns-lp-cmp thead th{font-family:var(--lp-serif);font-size:1.6rem;color:var(--lp-ink);font-weight:600}
+.ns-lp-cmp tbody th{text-align:left;font-weight:600;color:var(--lp-ink)}
+.ns-lp-cmp .ns-lp-cmp__us{background:rgba(233,138,45,.08);width:26%}
+.ns-lp-cmp thead .ns-lp-cmp__us{background:var(--lp-orange);color:#fff}
+.ns-lp-cmp td:last-child{width:26%}
+.ns-lp-cmp__yes{color:#2f8f5b;font-size:2rem;font-weight:700}.ns-lp-cmp__no{color:#c0504a;font-size:1.8rem;font-weight:700}
+.ns-lp-cmp__note{font-size:1.25rem;opacity:.7;margin-top:12px}
+@media (max-width:599px){.ns-lp-cmp{font-size:1.35rem}.ns-lp-cmp th,.ns-lp-cmp td{padding:11px 10px}}
