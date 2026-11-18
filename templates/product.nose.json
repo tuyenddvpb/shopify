@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign ns_parts = product.description | split: '<!--story-->' -%}<div class=\"product__description rte quick-add-hidden\">{{ ns_parts | first }}</div>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "stars": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign r = product.metafields.reviews.rating.value -%}{%- assign rc = product.metafields.reviews.rating_count -%}{%- if rc and rc > 0 -%}<a href=\"#ns-reviews\" class=\"ns-stars\" aria-label=\"{{ r.rating | round: 1 }} out of 5 stars, {{ rc }} reviews\">{%- assign full = r.rating | round -%}{%- for i in (1..5) -%}<span class=\"ns-stars__s{% if i <= full %} is-on{% endif %}\">★</span>{%- endfor -%}<span class=\"ns-stars__t\">{{ r.rating | round: 1 }} · {{ rc }} reviews</span></a>{%- endif -%}<style>.ns-stars{display:inline-flex;align-items:center;gap:2px;text-decoration:none;color:inherit;font-size:1.5rem;margin:-4px 0 4px}.ns-stars__s{color:#d9d4cc;font-size:1.7rem;line-height:1}.ns-stars__s.is-on{color:#e0a43a}.ns-stars__t{margin-left:8px;font-size:1.35rem;opacity:.8;text-decoration:underline;text-underline-offset:3px}</style>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "stars",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true
+      }
+    },
+    "story": {
+      "type": "ns-product-story",
+      "settings": {
+        "background": "white"
+      }
+    },
+    "reviews_head": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"ns-reviews\" class=\"page-width\" style=\"text-align:center;scroll-margin-top:90px\"><h2 class=\"h2\" style=\"margin:0 0 6px\">Customer reviews</h2><p style=\"margin:0;font-size:1.35rem;opacity:.7\">Some reviews were left by buyers of this same product on AliExpress and were imported here. They are not marked as verified Nestlyday purchases.</p></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "jdgm_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "jdgm_widget"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "trust": {
+      "type": "ns-trust",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping",
+            "text": "On orders over $49"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "Easy returns",
+            "text": "30-day return window"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Cards, PayPal, Apple Pay"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real support",
+            "text": "Reply within 1 business day"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "show_secondary_image": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "story",
+    "reviews_head",
+    "reviews",
+    "trust",
+    "related"
+  ]
+}
