@@ -295,7 +295,7 @@
         "eyebrow": "Picture & night vision",
         "heading": "See Every Visit, Day and Night",
         "sub": "A 3.6 mm wide-angle lens covers the whole perch, with color and infrared night vision after dark.",
-        "image": "shopify://shop_images/ns-bird-day.jpg",
+        "image": "shopify://shop_images/ns-bird-real-quality.png",
         "narrow": false
       },
       "blocks": {},
@@ -307,7 +307,7 @@
         "bg": "cream",
         "heading": "Ready to meet your backyard visitors?",
         "show_image": true,
-        "image": "shopify://shop_images/ns-bird-ai-giftbox.png"
+        "image": "shopify://shop_images/ns-bird-real-gift.png"
       }
     },
     "ai": {
@@ -321,7 +321,7 @@
         "text": "<p>The companion app can suggest which species stopped by, so you get to know your regular visitors.</p>",
         "note": "Species identification may require a paid plan in the app. Alerts, live view and recording work without it.",
         "tags": "",
-        "image": "shopify://shop_images/Saf0650441034463f8bef7e3d821745bbt.webp"
+        "image": "shopify://shop_images/ns-bird-real-phone.png"
       },
       "blocks": {},
       "block_order": []
@@ -337,7 +337,7 @@
         "b1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-weather.jpg",
+            "image": "shopify://shop_images/ns-bird-real-mount.png",
             "title": "Mount and connect",
             "text": "Hang it on a tree, post or wall, fix the solar panel in the sun and connect to 2.4 GHz Wi-Fi."
           }
@@ -345,7 +345,7 @@
         "b2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/S00dcfa7368bd41aa8983abdc392bbabbQ.webp",
+            "image": "shopify://shop_images/ns-bird-real-fill.png",
             "title": "Fill with bird seed",
             "text": "Lift the roof and add dry bird seed to both bins."
           }
@@ -353,7 +353,7 @@
         "b3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-night-ir.jpg",
+            "image": "shopify://shop_images/ns-bird-real-enjoy.png",
             "title": "Enjoy every visit",
             "text": "Get notifications, watch live, and save photos and video."
           }
@@ -385,7 +385,7 @@
         "text": "<p>The included solar panel mounts on its own bracket and connects by cable to keep the camera charged with natural daylight.</p>",
         "note": "",
         "tags": "",
-        "image": "shopify://shop_images/ns-bird-details.jpg"
+        "image": "shopify://shop_images/ns-bird-real-solar.png"
       },
       "blocks": {
         "b1": {
@@ -423,7 +423,7 @@
         "eyebrow": "Durability",
         "heading": "Made for the Backyard",
         "sub": "Built to live outdoors through the seasons.",
-        "image": "shopify://shop_images/ns-bird-weather.jpg",
+        "image": "shopify://shop_images/ns-bird-real-rain.png",
         "narrow": true
       },
       "blocks": {
@@ -478,7 +478,7 @@
         "text": "<p>Mount it, pair it with the app, fill it up — that's it.</p>",
         "note": "",
         "tags": "",
-        "image": "shopify://shop_images/S40fdcb022dd849c2a456dffe051cda27y.webp"
+        "image": "shopify://shop_images/ns-bird-real-setup.png"
       },
       "blocks": {
         "b1": {
@@ -620,7 +620,7 @@
         "b1": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/S0b0088cf87d04acc9cf60aa1ab329abeG.webp",
+            "image": "shopify://shop_images/ns-bird-real-product.png",
             "label": "Bamboo bird feeder"
           }
         },
@@ -825,7 +825,7 @@
         "bg": "cream",
         "eyebrow": "Get yours",
         "heading": "Your Next Backyard Visitor Could Arrive Any Moment",
-        "image": "shopify://shop_images/S0b0088cf87d04acc9cf60aa1ab329abeG.webp"
+        "image": "shopify://shop_images/ns-bird-real-product.png"
       }
     },
     "sticky": {
