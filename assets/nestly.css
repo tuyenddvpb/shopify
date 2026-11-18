@@ -259,6 +259,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3, .vr-heading { letter-spacing: -0.01em; }
   .ns-st-row:nth-of-type(even) .ns-st-media{order:0}
   .ns-st-cards{grid-template-columns:1fr 1fr}
   .ns-st-gallery{grid-template-columns:1fr 1fr}
+  .ns-st-gallery figure:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}
 }
 @media screen and (max-width:599px){.ns-st-cards{grid-template-columns:1fr}.ns-st-specs th{width:42%}}
 
