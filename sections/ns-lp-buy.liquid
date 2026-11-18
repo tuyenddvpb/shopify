@@ -1,0 +1,17 @@
+{% render 'ns-lp-head' %}
+<section class="ns-lp ns-lp--{{ section.settings.bg }} ns-lp__pad ns-lp-buy">
+  <div class="ns-lp__wrap">
+    <h2 class="ns-lp-buy__h">{{ section.settings.heading }}</h2>
+    {%- if section.settings.show_image -%}<div class="ns-lp-buy__media">{% render 'ns-lp-media', image: section.settings.image, ph: 'product-3', sizes: '640px' %}</div>{%- endif -%}
+    {%- if product -%}{% render 'ns-lp-form', product: product, fid: section.id, select: true, qty: false, cls: 'ns-lp-form ns-lp-form--center' %}{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "LP Buy strip", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Background", "default": "cream", "options": [{"value":"white","label":"White"},{"value":"cream","label":"Cream"},{"value":"sky","label":"Light blue"},{"value":"navy","label":"Navy"}] },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Ready to order?" },
+    { "type": "checkbox", "id": "show_image", "label": "Show image", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Image" } ],
+  "presets": [{ "name": "LP Buy strip" }] }
+{% endschema %}

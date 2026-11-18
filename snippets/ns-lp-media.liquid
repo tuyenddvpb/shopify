@@ -1,0 +1,14 @@
+{%- comment -%} Usage: render 'ns-lp-media', image: img, ph: 'lifestyle-1', width: 1400, sizes: '50vw', eager: false {%- endcomment -%}
+{%- if image != blank -%}
+  {%- liquid
+    assign w = width | default: 1400
+    if eager
+      assign ld = 'eager'
+    else
+      assign ld = 'lazy'
+    endif
+  -%}
+  {{ image | image_url: width: w | image_tag: class: 'ns-lp__img', loading: ld, sizes: sizes, widths: '400, 700, 1000, 1400', alt: image.alt }}
+{%- else -%}
+  {{ ph | default: 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+{%- endif -%}

@@ -1,0 +1,33 @@
+{% render 'ns-lp-head' %}
+<section class="ns-lp ns-lp--{{ section.settings.bg }} ns-lp__pad ns-lp-split ns-lp-split--{{ section.settings.layout }}{% if section.settings.wide_media %} ns-lp-split--wide-media{% endif %}">
+  <div class="ns-lp__wrap ns-lp-split__grid">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<div class="ns-lp__sub">{{ section.settings.text }}</div>{%- endif -%}
+      {%- if section.settings.note != blank -%}<div class="ns-lp-note"><span>ⓘ</span><span>{{ section.settings.note }}</span></div>{%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="ns-lp-list">{%- for block in section.blocks -%}<li {{ block.shopify_attributes }}><span>{% render 'vr-icon', name: block.settings.icon, size: 15 %}</span>{{ block.settings.text }}</li>{%- endfor -%}</ul>
+      {%- endif -%}
+      {%- if section.settings.tags != blank -%}<p class="ns-lp-tags">{{ section.settings.tags }}</p>{%- endif -%}
+    </div>
+    <div class="ns-lp__frame ns-lp-split__media">{% render 'ns-lp-media', image: section.settings.image, ph: 'lifestyle-2', sizes: '(min-width: 990px) 50vw, 100vw' %}</div>
+  </div>
+</section>
+{% schema %}
+{ "name": "LP Image + text", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Background", "default": "sky", "options": [{"value":"white","label":"White"},{"value":"cream","label":"Cream"},{"value":"sky","label":"Light blue"},{"value":"navy","label":"Navy"}] },
+    { "type": "select", "id": "layout", "label": "Image position", "default": "right", "options": [{"value":"right","label":"Right"},{"value":"left","label":"Left"}] },
+    { "type": "checkbox", "id": "wide_media", "label": "Bigger image", "default": false },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "note", "label": "Info box text" },
+    { "type": "text", "id": "tags", "label": "Tag line (e.g. A · B · C)" },
+    { "type": "image_picker", "id": "image", "label": "Image" } ],
+  "blocks": [{ "type": "point", "name": "List item", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon name", "default": "check" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Point" } ] }],
+  "presets": [{ "name": "LP Image + text" }] }
+{% endschema %}

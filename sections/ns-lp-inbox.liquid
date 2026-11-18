@@ -1,0 +1,19 @@
+{% render 'ns-lp-head' %}
+<section class="ns-lp ns-lp--{{ section.settings.bg }} ns-lp__pad">
+  <div class="ns-lp__wrap ns-lp__center">
+    {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
+    <div class="ns-lp-box">{%- for block in section.blocks -%}<figure {{ block.shopify_attributes }}><div class="ns-lp__frame">{% render 'ns-lp-media', image: block.settings.image, ph: 'product-2', width: 500, sizes: '200px' %}</div><figcaption>{{ block.settings.label }}</figcaption></figure>{%- endfor -%}</div>
+  </div>
+</section>
+{% schema %}
+{ "name": "LP In the box", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Background", "default": "cream", "options": [{"value":"white","label":"White"},{"value":"cream","label":"Cream"},{"value":"sky","label":"Light blue"}] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's included" } ],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "label", "label": "Label", "default": "Item" } ] }],
+  "presets": [{ "name": "LP In the box" }] }
+{% endschema %}

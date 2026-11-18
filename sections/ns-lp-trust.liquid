@@ -1,0 +1,11 @@
+{% render 'ns-lp-head' %}
+<div class="ns-lp ns-lp-trust"><ul>
+  {%- for block in section.blocks -%}<li {{ block.shopify_attributes }}><span>{% render 'vr-icon', name: block.settings.icon, size: 17 %}</span>{{ block.settings.text }}</li>{%- endfor -%}
+</ul></div>
+{% schema %}
+{ "name": "LP Trust bar", "tag": "div",
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon name", "default": "check" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Benefit" } ] }],
+  "presets": [{ "name": "LP Trust bar" }] }
+{% endschema %}

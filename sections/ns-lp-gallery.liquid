@@ -1,0 +1,21 @@
+{% render 'ns-lp-head' %}
+<section class="ns-lp ns-lp--{{ section.settings.bg }} ns-lp__pad">
+  <div class="ns-lp__wrap ns-lp__center">
+    {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="ns-lp-gallery__track">
+    {%- for block in section.blocks -%}
+      <div class="ns-lp-gallery__item ns-lp__frame" {{ block.shopify_attributes }}>{% render 'ns-lp-media', image: block.settings.image, ph: 'lifestyle-2', width: 700, sizes: '330px' %}</div>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "LP Gallery strip", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Background", "default": "cream", "options": [{"value":"white","label":"White"},{"value":"cream","label":"Cream"},{"value":"sky","label":"Light blue"},{"value":"navy","label":"Navy"}] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Gallery" } ],
+  "blocks": [{ "type": "image", "name": "Image", "settings": [{ "type": "image_picker", "id": "image", "label": "Image" }] }],
+  "presets": [{ "name": "LP Gallery strip" }] }
+{% endschema %}

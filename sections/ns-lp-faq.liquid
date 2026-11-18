@@ -1,0 +1,19 @@
+{% render 'ns-lp-head' %}
+<section class="ns-lp ns-lp--{{ section.settings.bg }} ns-lp__pad">
+  <div class="ns-lp__wrap ns-lp__center">
+    {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
+    <div class="ns-lp-faq">{%- for block in section.blocks -%}<details {{ block.shopify_attributes }}><summary>{{ block.settings.q }}</summary><p>{{ block.settings.a }}</p></details>{%- endfor -%}</div>
+  </div>
+</section>
+{% schema %}
+{ "name": "LP FAQ", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Background", "default": "white", "options": [{"value":"white","label":"White"},{"value":"cream","label":"Cream"},{"value":"sky","label":"Light blue"}] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "FAQ" } ],
+  "blocks": [{ "type": "qa", "name": "Question", "settings": [
+    { "type": "text", "id": "q", "label": "Question", "default": "Question?" },
+    { "type": "textarea", "id": "a", "label": "Answer" } ] }],
+  "presets": [{ "name": "LP FAQ" }] }
+{% endschema %}

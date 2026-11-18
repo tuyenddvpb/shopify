@@ -1,0 +1,15 @@
+{%- comment -%} Compact buy form. Params: product, fid (unique), select (bool), qty (bool), cls {%- endcomment -%}
+{%- assign p = product -%}
+{%- assign v0 = p.selected_or_first_available_variant -%}
+{%- form 'product', p, id: fid, class: cls -%}
+  {%- if select and p.has_only_default_variant == false -%}
+    <select name="id" class="ns-lp-select" aria-label="Choose option">
+      {%- for v in p.variants -%}<option value="{{ v.id }}"{% if v.id == v0.id %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>{{ v.title }} — {{ v.price | money }}</option>{%- endfor -%}
+    </select>
+  {%- else -%}
+    <input type="hidden" name="id" value="{{ v0.id }}">
+  {%- endif -%}
+  {%- if qty -%}<input class="ns-lp-qty" type="number" name="quantity" value="1" min="1" aria-label="Quantity">{%- endif -%}
+  <button type="submit" name="add" class="ns-lp-btn"{% unless p.available %} disabled{% endunless %}>{% if p.available %}Add to cart{% else %}Sold out{% endif %}</button>
+  {{ form | payment_button }}
+{%- endform -%}

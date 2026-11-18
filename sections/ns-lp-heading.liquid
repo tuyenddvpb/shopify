@@ -1,0 +1,10 @@
+{% render 'ns-lp-head' %}
+<div class="ns-lp ns-lp-heading"><div class="ns-lp__wrap">
+  {%- if section.settings.eyebrow != blank -%}<p class="ns-lp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+  <h2 class="ns-lp__h">{{ section.settings.heading }}</h2>
+</div></div>
+{% schema %}
+{ "name": "LP Heading", "tag": "div",
+  "settings": [{ "type": "text", "id": "eyebrow", "label": "Eyebrow" },{ "type": "text", "id": "heading", "label": "Heading", "default": "Heading" }],
+  "presets": [{ "name": "LP Heading" }] }
+{% endschema %}
