@@ -620,42 +620,42 @@
         "b1": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-real-product.png",
+            "image": "shopify://shop_images/ns-bird-box-feeder.png",
             "label": "Bamboo bird feeder"
           }
         },
         "b2": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-camera.png",
+            "image": "shopify://shop_images/ns-bird-box-camera.png",
             "label": "Wi-Fi camera (pre-installed)"
           }
         },
         "b3": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-solar.png",
+            "image": "shopify://shop_images/ns-bird-box-solar.png",
             "label": "Solar panel"
           }
         },
         "b4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-bracket.png",
-            "label": "Panel bracket"
+            "image": "shopify://shop_images/ns-bird-box-bracket.png",
+            "label": "Bracket & mounting hardware"
           }
         },
         "b5": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-cable.png",
+            "image": "shopify://shop_images/ns-bird-box-cable.png",
             "label": "Charging cable"
           }
         },
         "b6": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ns-bird-ai-manual.png",
+            "image": "shopify://shop_images/ns-bird-box-manual.png",
             "label": "User manual"
           }
         }
