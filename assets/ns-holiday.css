@@ -48,7 +48,7 @@ html.ns-holiday .product-form__input--pill input[type=radio]:nth-of-type(2) + la
 
 /* Sale badges */
 html.ns-holiday .price .price__badge-sale,
-html.ns-holiday .card__badge .badge { background: var(--nh-green) !important; color: var(--nh-gold) !important; border: 1px solid var(--nh-gold) !important; }
+html.ns-holiday .card__badge .badge { background: var(--nh-red) !important; color: #fff !important; border: 0 !important; }
 
 /* Footer: pine green with matching wave */
 html.ns-holiday .footer::before {
