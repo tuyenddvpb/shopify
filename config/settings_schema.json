@@ -1466,5 +1466,17 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "Nestlyday seasonal",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "ns_holiday_mode",
+        "label": "Holiday mode (Christmas colors)",
+        "info": "Red, pine green and gold accents across the store. Turn off after the holidays.",
+        "default": false
+      }
+    ]
   }
 ]

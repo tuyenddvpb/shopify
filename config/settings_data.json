@@ -225,7 +225,8 @@
           "shadow": "#2e221a"
         }
       }
-    }
+    },
+    "ns_holiday_mode": true
   },
   "presets": {
     "Dawn": {

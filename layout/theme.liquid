@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}">
+<html class="js{% if settings.ns_holiday_mode %} ns-holiday{% endif %}" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -288,6 +288,7 @@
     {{ 'vitalray.css' | asset_url | stylesheet_tag }}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     {{ 'nestly.css' | asset_url | stylesheet_tag }}
+    {%- if settings.ns_holiday_mode -%}{{ 'ns-holiday.css' | asset_url | stylesheet_tag }}{%- endif -%}
     <script>document.documentElement.classList.add('vr-js');</script>
     <script src="{{ 'vitalray.js' | asset_url }}" defer="defer"></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">

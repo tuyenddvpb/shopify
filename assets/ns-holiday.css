@@ -1,0 +1,59 @@
+/* Nestlyday — Holiday mode (Christmas colors).
+   Loaded only when Theme settings > Nestlyday seasonal > "Holiday mode" is on.
+   Turn the setting off to return to the regular palette; nothing else needs changing. */
+
+html.ns-holiday {
+  --nh-red: #B3262E;
+  --nh-red-dark: #951E25;
+  --nh-green: #1F4D3A;
+  --nh-green-dark: #173B2C;
+  --nh-gold: #D4A64A;
+
+  /* re-map store tokens */
+  --ns-tan: var(--nh-green);          /* announcement bar, footer, header underline */
+  --ns-tan-strong: var(--nh-red);     /* eyebrows, small icons */
+  --ns-brown: var(--nh-red);          /* primary buttons */
+  --vr-coral: var(--nh-red);
+  --vr-coral-strong: var(--nh-red-dark);
+  --vr-coral-hover: var(--nh-red-dark);
+  --vr-sage: var(--nh-green);
+  --vr-coral-grad: linear-gradient(135deg, #B3262E 0%, #7E1A20 100%);
+  --lp-orange: var(--nh-red);         /* landing-page accent (bird feeder, dermaplaning) */
+}
+
+/* Announcement bar: pine green with a thin gold line */
+html.ns-holiday .announcement-bar-section .announcement-bar,
+html.ns-holiday .announcement-bar-section .utility-bar,
+html.ns-holiday .utility-bar { background: var(--nh-green) !important; border-bottom: 2px solid var(--nh-gold); }
+html.ns-holiday .announcement-bar__message::before { content: "\2744\FE0E  "; color: var(--nh-gold); }
+
+/* Buttons */
+html.ns-holiday .ns-btn:hover,
+html.ns-holiday .button:not(.button--secondary):not(.button--tertiary):not(.button--small):not(.quantity__button):hover { background: var(--nh-red-dark); }
+html.ns-holiday .product-form__submit {
+  background: var(--nh-red) !important; color: #fff !important; border-color: var(--nh-red) !important;
+  box-shadow: 0 8px 20px rgba(179, 38, 46, .25) !important;
+}
+html.ns-holiday .product-form__submit:hover { background: var(--nh-red-dark) !important; border-color: var(--nh-red-dark) !important; }
+html.ns-holiday .ns-lp-btn,
+html.ns-holiday .ns-lp .shopify-payment-button__button--unbranded { color: #fff; box-shadow: 0 6px 16px -8px rgba(179, 38, 46, .8); }
+
+/* Selected variant pill + "Holiday pick" style badge (where a page defines one) */
+html.ns-holiday .product-form__input--pill input[type=radio]:checked + label {
+  background: var(--nh-green) !important; border-color: var(--nh-green) !important; color: #fff !important;
+}
+html.ns-holiday .product-form__input--pill input[type=radio]:nth-of-type(2) + label::after {
+  background: var(--nh-green) !important; color: var(--nh-gold) !important; border: 1px solid var(--nh-gold);
+}
+
+/* Sale badges */
+html.ns-holiday .price .price__badge-sale,
+html.ns-holiday .card__badge .badge { background: var(--nh-green) !important; color: var(--nh-gold) !important; border: 1px solid var(--nh-gold) !important; }
+
+/* Footer: pine green with matching wave */
+html.ns-holiday .footer::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 40 C 320 0 560 0 760 22 S 1200 60 1440 18 V60 H0Z' fill='%23D9E4DC'/%3E%3Cpath d='M0 52 C 360 18 620 18 820 36 S 1220 66 1440 34 V60 H0Z' fill='%231F4D3A'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+}
+html.ns-holiday .footer .ns-logo__day { color: var(--nh-gold); }
+html.ns-holiday .footer-block__details-content .list-menu__item--link:hover { color: var(--nh-gold) !important; }
+html.ns-holiday .footer .newsletter-form__button { background: var(--nh-red); }
