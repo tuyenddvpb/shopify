@@ -19,7 +19,8 @@
         "heading": "Welcome\nto Nestlyday",
         "text": "<p>Clever finds for your home, kitchen and everyday life — all in one place. Free shipping on orders over $49.</p>",
         "button_label": "Shop now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "holiday_image": "shopify://shop_images/ns-hero-xmas.png"
       }
     },
     "cats": {

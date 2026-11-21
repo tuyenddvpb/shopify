@@ -1,6 +1,9 @@
 {%- liquid
   assign img = section.settings.image
   assign fallback = section.settings.fallback_asset | strip
+  if settings.ns_holiday_mode and section.settings.holiday_image != blank
+    assign img = section.settings.holiday_image
+  endif
 -%}
 <section class="ns-hero ns-hero--img-{{ section.settings.image_side }}" style="--ns-hero-bg: {{ section.settings.bg }};">
   <div class="ns-hero__media">
@@ -31,6 +34,7 @@
   "class": "section",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "image_picker", "id": "holiday_image", "label": "Holiday image", "info": "Shown instead of the image while Theme settings > Nestlyday seasonal > Holiday mode is on." },
     { "type": "text", "id": "fallback_asset", "label": "Fallback image (theme asset file name)", "default": "ns-hero.jpg", "info": "Used when no image is picked. Leave blank to show a placeholder." },
     { "type": "select", "id": "image_side", "label": "Image position", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
     { "type": "color", "id": "bg", "label": "Text panel background", "default": "#FBEDE2" },

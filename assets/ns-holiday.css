@@ -57,3 +57,16 @@ html.ns-holiday .footer::before {
 html.ns-holiday .footer .ns-logo__day { color: var(--nh-gold); }
 html.ns-holiday .footer-block__details-content .list-menu__item--link:hover { color: var(--nh-gold) !important; }
 html.ns-holiday .footer .newsletter-form__button { background: var(--nh-red); }
+
+/* Homepage hero */
+html.ns-holiday .ns-hero { --ns-hero-bg: var(--nh-green) !important; }
+html.ns-holiday .ns-hero__title { color: #FBF7F1; }
+html.ns-holiday .ns-hero__dots { color: var(--nh-gold); }
+html.ns-holiday .ns-hero__text { color: #E7EFE9; }
+html.ns-holiday .ns-hero .ns-eyebrow { color: var(--nh-gold); }
+html.ns-holiday .ns-hero__curve path:last-child { stroke: var(--nh-gold); }
+html.ns-holiday .ns-hero .ns-btn { background: var(--nh-red); color: #fff; box-shadow: 0 10px 24px -12px rgba(0,0,0,.45); }
+html.ns-holiday .ns-hero .ns-btn:hover { background: var(--nh-red-dark); }
+@media (max-width: 749px) {
+  html.ns-holiday .ns-hero__media::before { background: radial-gradient(120% 90px at 50% 0, var(--nh-green) 60%, var(--nh-gold) 61%, var(--nh-gold) 66%, transparent 67%); }
+}
