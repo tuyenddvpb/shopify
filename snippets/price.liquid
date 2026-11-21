@@ -22,6 +22,17 @@
   endif
 
   assign compare_at_price = target.compare_at_price
+  if target == product and product.price_varies
+    # Nestlyday: compare against the cheapest variant only, so a bundle's compare-at price
+    # never shows as a strikethrough next to the single-unit 'From' price.
+    assign compare_at_price = 0
+    for v in product.variants
+      if v.price == product.price_min and v.compare_at_price > v.price
+        assign compare_at_price = v.compare_at_price
+        break
+      endif
+    endfor
+  endif
   assign price = target.price | default: 1999
   assign price_min = product.price_min
   assign price_max = product.price_max
