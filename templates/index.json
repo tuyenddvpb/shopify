@@ -20,7 +20,12 @@
         "text": "<p>Clever finds for your home, kitchen and everyday life — all in one place. Free shipping on orders over $49.</p>",
         "button_label": "Shop now",
         "button_link": "shopify://collections/all",
-        "holiday_image": "shopify://shop_images/ns-hero-xmas.png"
+        "holiday_image": "shopify://shop_images/ns-hero-xmas.png",
+        "holiday_eyebrow": "Holiday gift guide",
+        "holiday_heading": "Gifts for Everyone\non Your List",
+        "holiday_text": "<p>Practical finds for the home, the kitchen and everyday life. Free shipping on orders over $49.</p>",
+        "holiday_button_label": "Shop holiday gifts",
+        "holiday_button_link": "shopify://collections/holiday-gifts"
       }
     },
     "cats": {

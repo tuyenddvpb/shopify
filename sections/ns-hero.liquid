@@ -1,8 +1,30 @@
 {%- liquid
   assign img = section.settings.image
   assign fallback = section.settings.fallback_asset | strip
-  if settings.ns_holiday_mode and section.settings.holiday_image != blank
-    assign img = section.settings.holiday_image
+  assign h_eyebrow = section.settings.eyebrow
+  assign h_heading = section.settings.heading
+  assign h_text = section.settings.text
+  assign h_label = section.settings.button_label
+  assign h_link = section.settings.button_link
+  if settings.ns_holiday_mode
+    if section.settings.holiday_image != blank
+      assign img = section.settings.holiday_image
+    endif
+    if section.settings.holiday_eyebrow != blank
+      assign h_eyebrow = section.settings.holiday_eyebrow
+    endif
+    if section.settings.holiday_heading != blank
+      assign h_heading = section.settings.holiday_heading
+    endif
+    if section.settings.holiday_text != blank
+      assign h_text = section.settings.holiday_text
+    endif
+    if section.settings.holiday_button_label != blank
+      assign h_label = section.settings.holiday_button_label
+    endif
+    if section.settings.holiday_button_link != blank
+      assign h_link = section.settings.holiday_button_link
+    endif
   endif
 -%}
 <section class="ns-hero ns-hero--img-{{ section.settings.image_side }}" style="--ns-hero-bg: {{ section.settings.bg }};">
@@ -17,12 +39,12 @@
     <svg class="ns-hero__curve" viewBox="0 0 120 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0H48C10 160 92 320 52 500S6 840 48 1000h72z" fill="var(--ns-hero-bg)"/><path d="M48 0C10 160 92 320 52 500S6 840 48 1000" fill="none" stroke="var(--ns-brown)" stroke-width="10"/></svg>
   </div>
   <div class="ns-hero__content">
-    {%- if section.settings.eyebrow != blank -%}<p class="ns-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-    <h2 class="ns-hero__title">{{ section.settings.heading | newline_to_br }}</h2>
+    {%- if h_eyebrow != blank -%}<p class="ns-eyebrow">{{ h_eyebrow }}</p>{%- endif -%}
+    <h2 class="ns-hero__title">{{ h_heading | newline_to_br }}</h2>
     <span class="ns-hero__dots" aria-hidden="true">•••</span>
-    {%- if section.settings.text != blank -%}<div class="ns-hero__text">{{ section.settings.text }}</div>{%- endif -%}
-    {%- if section.settings.button_label != blank -%}
-      <a class="ns-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+    {%- if h_text != blank -%}<div class="ns-hero__text">{{ h_text }}</div>{%- endif -%}
+    {%- if h_label != blank -%}
+      <a class="ns-btn" href="{{ h_link | default: routes.all_products_collection_url }}">{{ h_label }}</a>
     {%- endif -%}
   </div>
 </section>
@@ -35,6 +57,12 @@
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "image_picker", "id": "holiday_image", "label": "Holiday image", "info": "Shown instead of the image while Theme settings > Nestlyday seasonal > Holiday mode is on." },
+    { "type": "header", "content": "Holiday mode text", "info": "Used instead of the regular text while Holiday mode is on. Leave blank to keep the regular text." },
+    { "type": "text", "id": "holiday_eyebrow", "label": "Holiday eyebrow" },
+    { "type": "textarea", "id": "holiday_heading", "label": "Holiday heading" },
+    { "type": "richtext", "id": "holiday_text", "label": "Holiday text" },
+    { "type": "text", "id": "holiday_button_label", "label": "Holiday button label" },
+    { "type": "url", "id": "holiday_button_link", "label": "Holiday button link" },
     { "type": "text", "id": "fallback_asset", "label": "Fallback image (theme asset file name)", "default": "ns-hero.jpg", "info": "Used when no image is picked. Leave blank to show a placeholder." },
     { "type": "select", "id": "image_side", "label": "Image position", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
     { "type": "color", "id": "bg", "label": "Text panel background", "default": "#FBEDE2" },
