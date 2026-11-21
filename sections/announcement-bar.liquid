@@ -77,7 +77,10 @@
             data-autoplay="{{ section.settings.auto_rotate }}"
             data-speed="{{ section.settings.change_slides_speed }}"
           >
+            {%- assign ns_today = 'now' | date: '%Y-%m-%d' -%}
             {%- for block in section.blocks -%}
+              {%- if block.settings.show_from != blank and ns_today < block.settings.show_from -%}{%- continue -%}{%- endif -%}
+              {%- if block.settings.show_until != blank and ns_today > block.settings.show_until -%}{%- continue -%}{%- endif -%}
               <div
                 class="slideshow__slide slider__slide grid__item grid--1-col"
                 id="Slide-{{ section.id }}-{{ forloop.index }}"
@@ -244,6 +247,18 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "show_from",
+          "label": "Show from (YYYY-MM-DD)",
+          "info": "Optional. Store time zone. Used when the bar has 2+ announcements."
+        },
+        {
+          "type": "text",
+          "id": "show_until",
+          "label": "Show until (YYYY-MM-DD, inclusive)",
+          "info": "Optional. Hides this announcement automatically after this date."
         }
       ]
     }

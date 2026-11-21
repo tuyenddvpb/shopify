@@ -31,9 +31,32 @@
             "color_scheme": "scheme-4",
             "link": "shopify://collections/all"
           }
+        },
+        "xmas1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Order by Nov 30 for Christmas delivery (US)",
+            "text_alignment": "center",
+            "color_scheme": "scheme-4",
+            "link": "shopify://collections/all",
+            "show_until": "2026-11-30"
+          }
+        },
+        "xmas2": {
+          "type": "announcement",
+          "settings": {
+            "text": "Holiday orders placed now may arrive after Christmas — see shipping times",
+            "text_alignment": "center",
+            "color_scheme": "scheme-4",
+            "link": "shopify://policies/shipping-policy",
+            "show_from": "2026-12-01",
+            "show_until": "2026-12-24"
+          }
         }
       },
       "block_order": [
+        "xmas1",
+        "xmas2",
         "a1",
         "a2"
       ]
