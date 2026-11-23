@@ -1,0 +1,45 @@
+{%- comment -%} Card rail / grid. layout: rail (left intro + horizontal cards), grid (heading on top + 3 columns), gallery {%- endcomment -%}
+{% render 'ns-ks-head' %}
+{%- assign lay = section.settings.layout -%}
+<section class="ks ks__pad">
+  <div class="ks__wrap">
+    {%- capture intro -%}
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 class="ks__h{% if lay == 'grid' %} ks__h--md{% endif %}">{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}<p class="ks__p">{{ section.settings.text }}</p>{%- endif -%}
+      </div>
+    {%- endcapture -%}
+    {%- capture cards -%}
+      {%- for block in section.blocks -%}
+      <div class="ks-card{% if lay == 'grid' %} ks-step{% endif %}" {{ block.shopify_attributes }}>
+        <div class="ks-card__media">{%- if block.settings.badge != blank -%}<span class="ks-card__badge">{{ block.settings.badge }}</span>{%- endif -%}{% render 'ns-ks-img', img: block.settings.image, sizes: '(min-width: 750px) 320px, 80vw' %}</div>
+        {%- if block.settings.label != blank -%}<p class="ks-card__lbl">{{ block.settings.label }}</p>{%- endif -%}
+        {%- if block.settings.title != blank -%}<h3 class="ks-card__h">{{ block.settings.title }}</h3>{%- endif -%}
+        {%- if block.settings.text != blank -%}<p class="ks-card__t">{{ block.settings.text }}</p>{%- endif -%}
+      </div>
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- if lay == 'grid' -%}
+      {{ intro }}<div class="ks-steps">{{ cards }}</div>
+    {%- else -%}
+      <div class="{% if lay == 'gallery' %}ks-gal{% else %}ks-stages{% endif %}">{{ intro }}<div><div class="ks-rail">{{ cards }}</div>{%- if section.settings.hint != blank -%}<p class="ks-hint">{{ section.settings.hint }}</p>{%- endif -%}</div></div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Cards", "tag": "div",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Layout", "default": "rail", "options": [{"value":"rail","label":"Intro + scrolling cards"},{"value":"grid","label":"Heading + 3-column grid"},{"value":"gallery","label":"Intro + tall gallery cards"}] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "hint", "label": "Small note under cards" } ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "badge", "label": "Badge" },
+    { "type": "text", "id": "label", "label": "Small label" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KS Cards" }] }
+{% endschema %}

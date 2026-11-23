@@ -1,0 +1,2 @@
+{%- comment -%} Renders an image or a placeholder. Params: img, alt, sizes, loading {%- endcomment -%}
+{%- if img != blank -%}{{ img | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: sizes, widths: '400,700,1000,1400', alt: alt | default: img.alt }}{%- else -%}<div class="ks__ph">{{ 'image' | placeholder_svg_tag }}</div>{%- endif -%}

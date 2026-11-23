@@ -1,0 +1,28 @@
+{% render 'ns-ks-head' %}
+<section class="ks ks__pad">
+  <div class="ks__wrap ks-feat">
+    <div class="ks-feat__media">{% render 'ns-ks-img', img: section.settings.image, sizes: '(min-width: 990px) 50vw, 100vw' %}</div>
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ks__h">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ks__p">{{ section.settings.text }}</p>{%- endif -%}
+      <div class="ks-acc">
+        {%- for block in section.blocks -%}
+        <details {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}><summary><span class="ks-acc__n">{{ forloop.index }}</span>{{ block.settings.title }}</summary><div class="ks-acc__a">{{ block.settings.text }}</div></details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Feature accordion", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "image_picker", "id": "image", "label": "Image" } ],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Feature" },
+    { "type": "richtext", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KS Feature accordion" }] }
+{% endschema %}

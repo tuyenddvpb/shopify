@@ -1,0 +1,48 @@
+{% render 'ns-ks-head' %}
+{%- assign cols = section.settings.cols | split: '|' -%}
+<section class="ks ks__pad">
+  <div class="ks__wrap ks-cmp">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ks__h">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ks__p">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+    <div class="ks-cmp__scroll">
+      <table>
+        <thead><tr><th></th>{%- for c in cols -%}<th class="{% if forloop.first %}is-us{% endif %}">{{ c | strip }}</th>{%- endfor -%}</tr></thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+          {%- assign vals = block.settings.values | split: '|' -%}
+          <tr {{ block.shopify_attributes }}><th scope="row">{{ block.settings.label }}</th>
+            {%- for v in vals -%}
+              {%- assign raw = v | strip -%}{%- assign mark = raw | slice: 0, 2 -%}{%- assign txt = raw | slice: 2, 200 | strip -%}
+              <td class="{% if forloop.first %}is-us{% endif %}">
+                {%- case mark -%}
+                  {%- when 'y:' -%}<span class="ks-cmp__ic ks-cmp__ic--yes" aria-label="Yes">&#10003;</span>{{ txt }}
+                  {%- when 'n:' -%}<span class="ks-cmp__ic ks-cmp__ic--no" aria-label="No">&#10005;</span>{{ txt }}
+                  {%- when 'w:' -%}<span class="ks-cmp__ic ks-cmp__ic--warn" aria-label="Caution">!</span>{{ txt }}
+                  {%- else -%}{{ raw }}
+                {%- endcase -%}
+              </td>
+            {%- endfor -%}
+          </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+      {%- if section.settings.note != blank -%}<p class="ks-note">{{ section.settings.note }}</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Comparison", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "How it compares" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "cols", "label": "Column names, separated by |", "default": "Ours|Other" },
+    { "type": "text", "id": "note", "label": "Footnote" } ],
+  "blocks": [{ "type": "row", "name": "Row", "settings": [
+    { "type": "text", "id": "label", "label": "Row label", "default": "Feature" },
+    { "type": "text", "id": "values", "label": "Values separated by |. Prefix y: n: or w: for a check, cross or caution icon", "default": "y:|n:" } ] }],
+  "presets": [{ "name": "KS Comparison" }] }
+{% endschema %}

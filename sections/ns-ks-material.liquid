@@ -1,0 +1,23 @@
+{% render 'ns-ks-head' %}
+<section class="ks ks__pad" style="background:#1b1c1f">
+  <div class="ks__wrap ks-mat">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ks__h">{{ section.settings.heading }}</h2>
+      <div class="ks__p">{{ section.settings.text }}</div>
+    </div>
+    <div class="ks-mat__media">{% render 'ns-ks-img', img: section.settings.image, sizes: '(min-width: 990px) 50vw, 100vw' %}
+      {%- if section.settings.zoom != blank -%}<div class="ks-mat__zoom">{{ section.settings.zoom | image_url: width: 500 | image_tag: loading: 'lazy', alt: '' }}</div>{%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Material", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "image_picker", "id": "zoom", "label": "Round zoom image" } ],
+  "presets": [{ "name": "KS Material" }] }
+{% endschema %}

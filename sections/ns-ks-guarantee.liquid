@@ -1,0 +1,21 @@
+{% render 'ns-ks-head' %}
+<section class="ks ks--gold ks__pad">
+  <div class="ks__wrap">
+    {%- if section.settings.badge != blank -%}<span class="ks-guar__badge">{{ section.settings.badge }}</span>{%- endif -%}
+    <h2 class="ks__h ks__h--md" style="margin-top:14px">{{ section.settings.heading }}</h2>
+    <div class="ks-guar">
+      {%- for block in section.blocks -%}<div {{ block.shopify_attributes }}>{% render 'vr-icon', name: block.settings.icon, size: 40 %}<p class="ks-guar__h">{{ block.settings.title }}</p><p class="ks-guar__t">{{ block.settings.text }}</p></div>{%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Guarantee band", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Badge" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We've got you covered." } ],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon name", "default": "check" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KS Guarantee band" }] }
+{% endschema %}

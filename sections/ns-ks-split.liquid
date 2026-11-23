@@ -1,0 +1,22 @@
+{% render 'ns-ks-head' %}
+<section class="ks{% if section.settings.light %} ks--light{% endif %}">
+  <div class="ks-split{% if section.settings.image_left %} ks-split--rev{% endif %}">
+    <div class="ks-split__copy">
+      {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ks__h">{{ section.settings.heading }}</h2>
+      <div class="ks__p">{{ section.settings.text }}</div>
+    </div>
+    <div class="ks-split__media">{% render 'ns-ks-img', img: section.settings.image, sizes: '(min-width: 750px) 50vw, 100vw' %}</div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KS Split (dark)", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "checkbox", "id": "image_left", "label": "Image on the left", "default": false },
+    { "type": "checkbox", "id": "light", "label": "Light background", "default": false } ],
+  "presets": [{ "name": "KS Split (dark)" }] }
+{% endschema %}
