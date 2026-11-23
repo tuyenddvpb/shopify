@@ -1,4 +1,4 @@
-/* Nestlyday — dark long-form product page sections (ns-ks-*) */
+/* Nestlyday — dark long-form product page sections (ns-ks-*). Used by templates/product.sharpener.json */
 .ks{--ks-bg:#141517;--ks-bg2:#1b1c1f;--ks-card:#212226;--ks-line:#323338;--ks-text:#F3EFE8;--ks-mute:#B9B3A8;--ks-gold:#CDAE72;--ks-gold-dark:#B8975A;--ks-light:#EEEBE5;
   background:var(--ks-bg);color:var(--ks-text);font-family:var(--font-body-family);position:relative;overflow:hidden}
 .ks *{box-sizing:border-box}
