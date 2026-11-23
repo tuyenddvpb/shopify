@@ -14,7 +14,7 @@
 .ks--light .ks__p{color:#4A4B50}
 .ks--gold .ks__p{color:#2A2A2A}
 .ks__p p{margin:0 0 12px}
-.ks img{display:block;max-width:100%}
+.ks img{display:block;max-width:100%;height:auto}
 .ks__ph{background:#2a2b30;width:100%;height:100%}
 .ks__ph svg{width:100%;height:100%;fill:#55565c}
 .ks-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ks-gold);color:#141517;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:16px 34px;border-radius:999px;text-decoration:none;transition:background .2s}
