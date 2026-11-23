@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "style": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'vr-icon', name: 'truck', size: 18 %}<span id=\"ks-buy\"></span><style>[id^=\"shopify-section-template\"][id$=\"__main\"]{background:#141517}.ks-bul li:before{content:\"\\2713\"}</style>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "q3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Rolling sharpener vs. other methods",
+            "icon": "ruler",
+            "content": "<p><strong>vs. whetstones:</strong> test.</p>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "style",
+        "title",
+        "q3",
+        "buy_buttons"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "cover",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
