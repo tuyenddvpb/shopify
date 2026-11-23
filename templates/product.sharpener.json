@@ -269,7 +269,7 @@
         "heading": "Rolling Knife Sharpener Kit",
         "sub": "A roller, a magnetic angle block and diamond discs. That is the whole system.",
         "image": "shopify://shop_images/ks-wide.png",
-        "narrow": true
+        "narrow": false
       },
       "blocks": {
         "c1": {
@@ -295,21 +295,12 @@
             "title": "No water or power",
             "text": "Nothing to soak, plug in or clean up after."
           }
-        },
-        "c4": {
-          "type": "col",
-          "settings": {
-            "icon": "gift",
-            "title": "An easy gift",
-            "text": "Wood-grain roller and block that look good on the counter or under the tree."
-          }
         }
       },
       "block_order": [
         "c1",
         "c2",
-        "c3",
-        "c4"
+        "c3"
       ]
     },
     "compare": {
