@@ -1,0 +1,586 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"ns-pdp-trust\" role=\"list\"><li>{% render 'vr-icon', name: 'truck', size: 18 %}Free shipping on orders over $49 · tracked delivery</li><li>{% render 'vr-icon', name: 'return', size: 18 %}30-day returns — see our refund policy</li><li>{% render 'vr-icon', name: 'lock', size: 18 %}Secure checkout with cards, PayPal &amp; Apple Pay</li></ul>"
+          }
+        },
+        "description": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign ns_parts = product.description | split: '<!--story-->' -%}<div class=\"product__description rte quick-add-hidden\">{{ ns_parts | first }}</div>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free shipping</strong> on orders over $49 to the US, Canada, UK and Australia. Orders ship within 1–3 business days and usually arrive in 7–15 business days, with tracking.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "tab_what": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What it does",
+            "icon": "check_mark",
+            "content": "<p><strong>Sharpens straight-edge knives in a few minutes.</strong> The block keeps the blade at a fixed angle while you roll the diamond disc along the edge.</p><p><strong>Two angles.</strong> 15° for a fine, keen edge on Japanese and thin blades; 20° for a sturdy edge on everyday chef's knives and outdoor knives.</p><p><strong>Coarse to fine.</strong> Start on the coarse disc to reset a dull edge, then finish on the finer disc. The Complete Kit adds discs up to a polishing grit.</p><p><strong>No power, no water.</strong> Nothing to soak, plug in or set up.</p>"
+          }
+        },
+        "tab_specs": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Specifications",
+            "icon": "ruler",
+            "content": "<p><strong>Angles:</strong> 15° and 20° (two faces on the magnetic block)</p><p><strong>Roller:</strong> wood-grain body, stainless steel ends, swap-in sharpening discs</p><p><strong>Block:</strong> magnetic steel angle faces, non-slip feet</p><p><strong>Essential Kit discs:</strong> diamond 400 and 1000 grit</p><p><strong>Complete Kit discs:</strong> diamond 240, 600 and 1000 grit; whetstone 1200; fine 5000; polishing 10000</p><p><strong>Works with:</strong> straight-edge stainless and carbon steel knives</p><p><strong>Not for:</strong> serrated knives, scissors, ceramic blades</p>"
+          }
+        },
+        "tab_how": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to use",
+            "icon": "question_mark",
+            "content": "<p>Wipe the knife clean and dry. Place the blade flat against the magnetic face of the block, edge facing up: 20° for most kitchen knives, 15° for thin Japanese blades. Hold the block with one hand and roll the coarse disc back and forth along the edge, about 20–30 passes for a dull knife. Flip the knife and repeat on the other side. Switch to the finer disc and repeat with 10–15 passes per side. Wipe the blade before use. Keep fingers away from the edge and roll slowly.</p>"
+          }
+        },
+        "tab_box": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's included",
+            "icon": "box",
+            "content": "<p><strong>Essential Kit:</strong> 1 roller, 1 magnetic angle block (15°/20°), diamond discs 400 and 1000 grit.</p><p><strong>Complete Kit:</strong> 1 roller, 1 magnetic angle block (15°/20°), 6 discs: diamond 240, 600, 1000; whetstone 1200; 5000; polishing 10000.</p><p><strong>Gift Set:</strong> 2 Essential Kits, one to keep and one to give.</p><p>Ships in plain protective packaging, ready for your own gift wrap.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "trust",
+        "description",
+        "tab_what",
+        "tab_specs",
+        "tab_how",
+        "tab_box",
+        "tab_shipping",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "media_fit": "contain",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": true
+      }
+    },
+    "trust1": {
+      "type": "ns-lp-trust",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "text": "30-Day Returns"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping Over $49"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure Checkout"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "text": "Real Human Support"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "results": {
+      "type": "ns-lp-gallery",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "Reset · Sharpen · Slice",
+        "heading": "Dull Knife to Clean Slices"
+      },
+      "blocks": {
+        "b1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ks-roll.png"
+          }
+        },
+        "b2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ks-tomato.png"
+          }
+        },
+        "b3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ks-angle.png"
+          }
+        },
+        "b4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ks-dad.png"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "simple": {
+      "type": "ns-lp-split",
+      "settings": {
+        "bg": "white",
+        "layout": "right",
+        "wide_media": false,
+        "eyebrow": "The secret is the angle",
+        "heading": "The Same Angle, Every Pass",
+        "text": "<p>Most home sharpening goes wrong because the angle drifts. Here the knife sits flat on a magnetic block, so the disc meets the edge at the same angle on every pass, even if you've never sharpened a knife before.</p><p>Pick 20° for everyday chef's knives or 15° for thin Japanese blades.</p>",
+        "note": "For straight-edge knives only. Not for serrated knives, scissors or ceramic blades.",
+        "tags": "",
+        "image": "shopify://shop_images/ks-angle.png"
+      },
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "shield",
+            "text": "Magnetic angle block"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "bolt",
+            "text": "Diamond sharpening discs"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "check",
+            "text": "No water, no power"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "buy1": {
+      "type": "ns-lp-buy",
+      "settings": {
+        "bg": "cream",
+        "heading": "A practical gift for the cook in your life.",
+        "show_image": true,
+        "image": "shopify://shop_images/ks-gift.png"
+      }
+    },
+    "spa": {
+      "type": "ns-lp-split",
+      "settings": {
+        "bg": "sky",
+        "layout": "left",
+        "wide_media": false,
+        "eyebrow": "Holiday cooking",
+        "heading": "Ready for the Holiday Roast",
+        "text": "<p>Carving, slicing and chopping for a full table goes faster with a knife that actually cuts. A few minutes on the roller before the big meal and your knives are ready.</p>",
+        "note": "",
+        "tags": "Gift for Dad · Home cooks · BBQ fans",
+        "image": "shopify://shop_images/ks-holiday.png"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "intro": {
+      "type": "ns-lp-wide",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "Meet the kit",
+        "heading": "Rolling Knife Sharpener Kit",
+        "sub": "A roller, a magnetic angle block and diamond discs. That is the whole system.",
+        "image": "shopify://shop_images/ks-wide.png",
+        "narrow": true
+      },
+      "blocks": {
+        "c1": {
+          "type": "col",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Resets dull edges",
+            "text": "The coarse diamond disc brings back an edge on knives you had given up on."
+          }
+        },
+        "c2": {
+          "type": "col",
+          "settings": {
+            "icon": "hand",
+            "title": "No skill needed",
+            "text": "The block holds the angle. You just roll."
+          }
+        },
+        "c3": {
+          "type": "col",
+          "settings": {
+            "icon": "leaf",
+            "title": "No water or power",
+            "text": "Nothing to soak, plug in or clean up after."
+          }
+        },
+        "c4": {
+          "type": "col",
+          "settings": {
+            "icon": "gift",
+            "title": "An easy gift",
+            "text": "Wood-grain roller and block that look good on the counter or under the tree."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "compare": {
+      "type": "ns-lp-compare",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "How it compares",
+        "heading": "Rolling Sharpener vs. Pull-Through",
+        "col_a": "Rolling sharpener",
+        "col_b": "Pull-through",
+        "note": "Comparison with a typical handheld pull-through sharpener."
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Fixed, consistent angle",
+            "a": true,
+            "b": false
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Choice of 15° or 20°",
+            "a": true,
+            "b": false
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Coarse and fine diamond discs",
+            "a": true,
+            "b": true
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Gentle on the blade",
+            "a": true,
+            "b": false
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "No skill needed",
+            "a": true,
+            "b": true
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Swap-in replacement discs",
+            "a": true,
+            "b": false
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+      ]
+    },
+    "steps": {
+      "type": "ns-lp-steps",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "How to use",
+        "heading": "Sharp in Three Steps"
+      },
+      "blocks": {
+        "b1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ks-main.png",
+            "title": "Attach",
+            "text": "Lay the blade flat on the magnetic block, edge up. Choose 15° or 20°."
+          }
+        },
+        "b2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ks-roll.png",
+            "title": "Roll",
+            "text": "Roll the coarse disc along the edge, then flip the knife and repeat."
+          }
+        },
+        "b3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ks-tomato.png",
+            "title": "Refine",
+            "text": "Finish on the finer disc, wipe the blade, and slice."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "faq": {
+      "type": "ns-lp-faq",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "FAQs",
+        "heading": "Questions? We've Got Answers."
+      },
+      "blocks": {
+        "b1": {
+          "type": "qa",
+          "settings": {
+            "q": "Will it work on my knives?",
+            "a": "It works on most straight-edge kitchen and outdoor knives in stainless or carbon steel, including Japanese knives. It is not for serrated knives, scissors or ceramic blades."
+          }
+        },
+        "b2": {
+          "type": "qa",
+          "settings": {
+            "q": "Should I use 15° or 20°?",
+            "a": "Use 20° for most Western chef’s knives and outdoor knives: the edge is sturdier and lasts longer. Use 15° for thin Japanese blades when you want a finer edge. If you are unsure, start with 20°."
+          }
+        },
+        "b3": {
+          "type": "qa",
+          "settings": {
+            "q": "How long does it take?",
+            "a": "A dull kitchen knife usually takes a few minutes: about 20–30 passes per side on the coarse disc and 10–15 on the finer disc. Knives with chips take longer."
+          }
+        },
+        "b4": {
+          "type": "qa",
+          "settings": {
+            "q": "What is the difference between the kits?",
+            "a": "The Essential Kit has diamond discs in 400 and 1000 grit, enough to sharpen everyday kitchen knives. The Complete Kit has six discs, from a coarse 240 for damaged edges up to a 10000 polishing disc for a very smooth finish."
+          }
+        },
+        "b5": {
+          "type": "qa",
+          "settings": {
+            "q": "Is it hard to use?",
+            "a": "No. The magnetic block holds the knife at the angle for you, so you only need to roll the disc along the edge slowly and evenly."
+          }
+        },
+        "b6": {
+          "type": "qa",
+          "settings": {
+            "q": "Do I need water or oil?",
+            "a": "No. The discs are used dry. Wipe the blade and the discs with a dry cloth afterwards."
+          }
+        },
+        "b7": {
+          "type": "qa",
+          "settings": {
+            "q": "How often should I sharpen?",
+            "a": "For most home cooks, every few weeks is enough. Between sharpenings, a few light passes on the fine disc keeps the edge going."
+          }
+        },
+        "b8": {
+          "type": "qa",
+          "settings": {
+            "q": "Does it come in a gift box?",
+            "a": "It ships in plain protective packaging, so it is ready for your own gift wrap."
+          }
+        },
+        "b9": {
+          "type": "qa",
+          "settings": {
+            "q": "How long does shipping take?",
+            "a": "Orders ship within 1–3 business days and usually arrive 7–15 business days later, with tracking. Shipping is free on orders over $49."
+          }
+        },
+        "b10": {
+          "type": "qa",
+          "settings": {
+            "q": "Is it safe?",
+            "a": "Keep your fingers on top of the roller and the block, away from the edge, and roll slowly. Keep it out of reach of children."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10"
+      ]
+    },
+    "trust2": {
+      "type": "ns-lp-trust",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "text": "30-Day Returns"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping Over $49"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure Checkout"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "text": "Real Human Support"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "final": {
+      "type": "ns-lp-final",
+      "settings": {
+        "bg": "cream",
+        "eyebrow": "Sharp knives, happy cooks",
+        "heading": "Bring Your Knives Back to Sharp",
+        "image": "shopify://shop_images/ks-main.png"
+      }
+    },
+    "sticky": {
+      "type": "vr-sticky-atc",
+      "settings": {
+        "enable": true,
+        "label": "Add to cart"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust1",
+    "results",
+    "simple",
+    "buy1",
+    "spa",
+    "intro",
+    "compare",
+    "steps",
+    "faq",
+    "trust2",
+    "final",
+    "sticky"
+  ]
+}
