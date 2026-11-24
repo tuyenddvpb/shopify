@@ -210,3 +210,26 @@
 .ks-cmp-sec .ks-cmp__cell{flex-wrap:nowrap;align-items:flex-start;text-align:left}
 .ks-cmp-sec .ks-cmp__ic{flex:0 0 auto;line-height:1.5}
 @media (max-width:749px){.ks-cmp-sec thead .ks-cmp__head.is-us{border-radius:60px 60px 0 0}}
+/* Reviews carousel */
+.ks-rv-sec{background:#0D0E10}
+.ks-rv{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
+.ks-rv__stars{color:#E8A93A;font-size:22px;letter-spacing:4px;margin-bottom:10px}
+.ks-rv__quote{font-size:17px;line-height:1.6;color:#E4DED3;margin:6px 0 8px}
+.ks-rv__qname{font-weight:700;color:#F3EFE8;font-size:14px;margin:0}
+.ks-rv__rail{gap:18px;align-items:stretch;scrollbar-width:none}
+.ks-rv__rail::-webkit-scrollbar{display:none}
+.ks-rv__card{flex:0 0 280px;scroll-snap-align:start;background:#1A1B1E;border:1px solid #2A2B30;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.ks-rv__media{position:relative;aspect-ratio:4/3;background:#222;overflow:hidden}
+.ks-rv__card--media .ks-rv__media{aspect-ratio:auto;flex:1;min-height:420px}
+.ks-rv__media img,.ks-rv__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ks-rv__body{padding:16px 18px 20px}
+.ks-rv__rate{color:#E8A93A;font-size:15px;letter-spacing:2px}.ks-rv__rate .is-off{color:#4a4b50}
+.ks-rv__title{font-size:16px;font-weight:700;color:#F3EFE8;margin:6px 0 8px;line-height:1.3}
+.ks-rv__text{font-size:14px;line-height:1.6;color:#C9C4BA;margin:0 0 14px}
+.ks-rv__name{font-size:13px;font-weight:700;color:#F3EFE8;margin:0}.ks-rv__name span{display:block;font-weight:400;color:#9C978E;font-size:12px;margin-top:2px}
+.ks-rv__nav{display:flex;align-items:center;gap:12px;margin-top:20px}
+.ks-rv__bar{flex:1;height:2px;background:#2E2F34;position:relative}.ks-rv__bar span{position:absolute;left:0;top:0;bottom:0;background:#CDAE72;width:20%;transition:width .2s}
+.ks-rv__btn{width:42px;height:42px;border-radius:50%;border:1px solid #4A4B50;background:transparent;color:#F3EFE8;font-size:18px;cursor:pointer}
+.ks-rv__btn:hover{border-color:#CDAE72;color:#CDAE72}
+@media (max-width:989px){.ks-rv{grid-template-columns:1fr;gap:24px}}
+@media (max-width:749px){.ks-rv__card{flex-basis:78%}.ks-rv__card--media .ks-rv__media{min-height:360px}}

@@ -1,0 +1,76 @@
+{%- comment -%}
+  Review / "see it in action" carousel. Each card can hold a photo or a looping video.
+  Rating, title, text and name only show when filled in, so cards without a real review show media only.
+{%- endcomment -%}
+{% render 'ns-ks-head' %}
+{%- assign rv_count = 0 -%}
+{%- for block in section.blocks -%}{%- if block.settings.text != blank -%}{%- assign rv_count = rv_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+<section class="ks ks__pad ks-rv-sec" id="ks-rv-{{ section.id }}">
+  <div class="ks__wrap ks-rv">
+    <div class="ks-rv__intro">
+      {%- if section.settings.show_stars and rv_count > 0 -%}<div class="ks-rv__stars" aria-hidden="true">★★★★★</div>{%- endif -%}
+      {%- if section.settings.eyebrow != blank -%}<p class="ks__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="ks__h">{{ section.settings.heading }}</h2>
+      {%- if section.settings.quote != blank -%}<p class="ks-rv__quote">“{{ section.settings.quote }}”</p>{%- if section.settings.quote_name != blank -%}<p class="ks-rv__qname">{{ section.settings.quote_name }}</p>{%- endif -%}
+      {%- elsif section.settings.text != blank -%}<p class="ks__p">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+    <div class="ks-rv__right">
+      <div class="ks-rail ks-rv__rail" data-rail>
+        {%- for block in section.blocks -%}
+        {%- assign has_review = false -%}{%- if block.settings.text != blank -%}{%- assign has_review = true -%}{%- endif -%}
+        <article class="ks-rv__card{% unless has_review %} ks-rv__card--media{% endunless %}" {{ block.shopify_attributes }}>
+          <div class="ks-rv__media">
+            {%- if block.settings.video != blank -%}
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '600x' }}
+            {%- else -%}
+              {% render 'ns-ks-img', img: block.settings.image, sizes: '300px' %}
+            {%- endif -%}
+          </div>
+          {%- if has_review -%}
+          <div class="ks-rv__body">
+            {%- assign r = block.settings.rating | default: 5 -%}
+            <div class="ks-rv__rate" aria-label="{{ r }} out of 5 stars">{%- for i in (1..5) -%}<span{% if i > r %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>
+            {%- if block.settings.title != blank -%}<h3 class="ks-rv__title">{{ block.settings.title }}</h3>{%- endif -%}
+            <p class="ks-rv__text">{{ block.settings.text }}</p>
+            {%- if block.settings.name != blank -%}<p class="ks-rv__name">{{ block.settings.name }}{%- if block.settings.source != blank -%}<span>{{ block.settings.source }}</span>{%- endif -%}</p>{%- endif -%}
+          </div>
+          {%- endif -%}
+        </article>
+        {%- endfor -%}
+      </div>
+      <div class="ks-rv__nav">
+        <div class="ks-rv__bar"><span data-bar></span></div>
+        <button type="button" class="ks-rv__btn" data-prev aria-label="Previous">&larr;</button>
+        <button type="button" class="ks-rv__btn" data-next aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){var s=document.getElementById('ks-rv-{{ section.id }}');if(!s)return;var r=s.querySelector('[data-rail]'),b=s.querySelector('[data-bar]');
+    function step(){var c=r.querySelector('.ks-rv__card');return c?c.getBoundingClientRect().width+18:300}
+    function upd(){var m=r.scrollWidth-r.clientWidth;var v=m>0?r.scrollLeft/m:1;b.style.width=Math.max(12,Math.round((r.clientWidth/r.scrollWidth)*100+v*(100-(r.clientWidth/r.scrollWidth)*100)))+'%'}
+    s.querySelector('[data-prev]').addEventListener('click',function(){r.scrollBy({left:-step(),behavior:'smooth'})});
+    s.querySelector('[data-next]').addEventListener('click',function(){r.scrollBy({left:step(),behavior:'smooth'})});
+    r.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();})();
+  </script>
+</section>
+{% schema %}
+{ "name": "KS Reviews carousel", "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars above the heading", "info": "Only shows once at least one card has a review.", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "See it in action" },
+    { "type": "textarea", "id": "text", "label": "Text (shown when there is no featured quote)" },
+    { "type": "textarea", "id": "quote", "label": "Featured quote", "info": "Use a real customer review." },
+    { "type": "text", "id": "quote_name", "label": "Featured quote name" } ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [
+    { "type": "video", "id": "video", "label": "Video", "info": "Plays muted on a loop. Leave empty to show the image." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "header", "content": "Review (leave empty for a media-only card)" },
+    { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "title", "label": "Review title" },
+    { "type": "textarea", "id": "text", "label": "Review text", "info": "Real customer reviews only." },
+    { "type": "text", "id": "name", "label": "Reviewer name", "info": "For example: John R." },
+    { "type": "text", "id": "source", "label": "Source", "info": "For example: Verified buyer, or AliExpress buyer" } ] }],
+  "presets": [{ "name": "KS Reviews carousel" }] }
+{% endschema %}
