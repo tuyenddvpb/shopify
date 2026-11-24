@@ -70,12 +70,19 @@
           "settings": {
             "custom_liquid": "{%- assign r = product.metafields.reviews.rating.value -%}{%- assign rc = product.metafields.reviews.rating_count -%}{%- if rc and rc > 0 -%}<a href=\"#ns-reviews\" class=\"ns-stars\" aria-label=\"{{ r.rating | round: 1 }} out of 5 stars, {{ rc }} reviews\">{%- assign full = r.rating | round -%}{%- for i in (1..5) -%}<span class=\"ns-stars__s{% if i <= full %} is-on{% endif %}\">★</span>{%- endfor -%}<span class=\"ns-stars__t\">{{ r.rating | round: 1 }} · {{ rc }} reviews</span></a>{%- endif -%}<style>.ns-stars{display:inline-flex;align-items:center;gap:2px;text-decoration:none;color:inherit;font-size:1.5rem;margin:-4px 0 4px}.ns-stars__s{color:#d9d4cc;font-size:1.7rem;line-height:1}.ns-stars__s.is-on{color:#e0a43a}.ns-stars__t{margin-left:8px;font-size:1.35rem;opacity:.8;text-decoration:underline;text-underline-offset:3px}.product-form__submit{background:#e98a2d!important;color:#1f1a12!important;border-color:#e98a2d!important;font-weight:700}.product-form__submit:hover{filter:brightness(.95)}.product-form__input--pill input[type=radio]:nth-of-type(1)+label{position:relative;overflow:visible;margin-top:14px}.product-form__input--pill input[type=radio]:nth-of-type(1)+label::after{content:'\\2605  Holiday pick';position:absolute;z-index:3;top:-12px;right:12px;background:#e98a2d;color:#1f1a12;font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:20px;line-height:1.5;white-space:nowrap;pointer-events:none}html.ns-holiday .product-form__input--pill input[type=radio]:nth-of-type(1)+label::after{background:#1F4D3A;color:#D4A64A;border:1px solid #D4A64A}</style>"
           }
+        },
+        "bf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign ns_today = 'now' | date: '%Y-%m-%d' -%}{%- assign ns_gift = product.variants | where: 'id', 68970495541617 | first -%}{%- if ns_gift and ns_today <= '2026-12-01' -%}<p class=\"ns-bf\"><strong>Black Friday:</strong> Gift Set just {{ ns_gift.price | money_without_trailing_zeros }} — ends Dec 1</p><style>.ns-bf{margin:4px 0 2px;padding:9px 14px;border-radius:10px;background:#FBEDEE;border:1px solid #E8B9BC;color:#8E1F26;font-size:1.4rem;line-height:1.4}.ns-bf strong{text-transform:uppercase;letter-spacing:.04em;font-size:1.25rem}</style>{%- endif -%}"
+          }
         }
       },
       "block_order": [
         "title",
         "stars",
         "price",
+        "bf",
         "variant_picker",
         "quantity",
         "buy_buttons",
