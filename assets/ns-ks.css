@@ -233,3 +233,4 @@
 .ks-rv__btn:hover{border-color:#CDAE72;color:#CDAE72}
 @media (max-width:989px){.ks-rv{grid-template-columns:1fr;gap:24px}}
 @media (max-width:749px){.ks-rv__card{flex-basis:78%}.ks-rv__card--media .ks-rv__media{min-height:360px}}
+.ks-rv__right{min-width:0}
