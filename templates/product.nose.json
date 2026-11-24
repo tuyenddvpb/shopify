@@ -93,10 +93,10 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "thumbnail_slider",
-        "constrain_to_viewport": true,
         "media_size": "medium",
+        "constrain_to_viewport": true,
         "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": true
@@ -177,7 +177,8 @@
         "t2",
         "t3",
         "t4"
-      ]
+      ],
+      "settings": {}
     },
     "related": {
       "type": "related-products",
