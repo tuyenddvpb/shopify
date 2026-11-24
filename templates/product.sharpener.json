@@ -114,7 +114,9 @@
         "r6"
       ],
       "settings": {
-        "heading": ""
+        "heading": "",
+        "desktop_height": 650,
+        "mobile_ratio": "4/5"
       }
     },
     "main": {
