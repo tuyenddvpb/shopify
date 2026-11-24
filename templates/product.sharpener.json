@@ -8,7 +8,8 @@
         "sub": "Why dull knives don't have to stay dull, and why it makes a great holiday gift.",
         "image": "shopify://shop_images/ks-hero-man-cut.png",
         "button_label": "Choose your kit",
-        "button_link": "#ks-buy"
+        "button_link": "#ks-buy",
+        "bg_image": "shopify://shop_images/hf_20261124_103922_0e0e3b75-f94c-41f0-87b3-aeb1cfcb3b53.png"
       },
       "blocks": {
         "t1": {
