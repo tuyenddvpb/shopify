@@ -504,55 +504,74 @@
     },
     "action": {
       "type": "ns-ks-reviews",
-      "settings": {
-        "show_stars": true,
-        "eyebrow": "See it in action",
-        "heading": "From Dull to Done.",
-        "text": "Weeknight prep, weekend BBQ or the holiday roast: a few minutes on the roller and your knives are ready.",
-        "quote": "",
-        "quote_name": ""
-      },
       "blocks": {
         "c1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-holiday.png",
-            "rating": 5
+            "image": "shopify://shop_images/hf_20261124_125344_4536e1d8-3c33-4184-bbdc-e18bb570d1d0.png",
+            "rating": 5,
+            "title": "Surprisingly Easy to Use",
+            "text": "I'm definitely not a knife expert, so I was a little worried about damaging my knives. But this sharpener is incredibly simple to use. Just roll it along the blade and you're done! My knives feel noticeably sharper, and the whole process couldn't be easier.",
+            "name": "Emily R.",
+            "source": ""
           }
         },
         "c2": {
           "type": "card",
           "settings": {
+            "video": "shopify://files/videos/33c78c16855544aa8811972c20526d42.HD-720p-4.5Mbps-92717239.mp4",
             "image": "shopify://shop_images/ks-tomato.png",
-            "rating": 5
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "source": ""
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-dad.png",
-            "rating": 5
+            "image": "shopify://shop_images/hf_20261124_125310_7d06ddc1-52ce-4828-806c-d0822129e0c0.png",
+            "rating": 5,
+            "title": "Amazing Value for the Price",
+            "text": "Having four different sharpening discs makes such a big difference. I love that it includes everything needed for sharpening and finishing. It's a great value, and the results are impressive. My knives feel incredibly sharp again!",
+            "name": "Tom A.",
+            "source": ""
           }
         },
         "c4": {
           "type": "card",
           "settings": {
+            "video": "shopify://files/videos/e0d6f9214f2644cb97e705acb532c1dd.HD-720p-4.5Mbps-92717241.mp4",
             "image": "shopify://shop_images/ks-complete.png",
-            "rating": 5
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "source": ""
           }
         },
         "c5": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-unbox.png",
-            "rating": 5
+            "image": "shopify://shop_images/hf_20261124_125252_dc7462ff-ef71-4272-9dc4-77fbb97de934.png",
+            "rating": 5,
+            "title": "Absolutely Worth It!",
+            "text": "I wasn't sure what to expect when I first bought this, but it completely exceeded my expectations! The four sharpening discs make a huge difference, and I love how smooth and polished the blades look afterward. It's become a must-have in my kitchen!",
+            "name": "Connor C.",
+            "source": ""
           }
         },
         "c6": {
           "type": "card",
           "settings": {
+            "video": "shopify://files/videos/ca6a5186ceca4baab7a52b518072137e.HD-720p-4.5Mbps-77286406.mp4",
             "image": "shopify://shop_images/ks-roll.png",
-            "rating": 5
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "source": ""
           }
         }
       },
@@ -563,7 +582,15 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "settings": {
+        "show_stars": true,
+        "eyebrow": "See it in action",
+        "heading": "From Dull to Done.",
+        "text": "Weeknight prep, weekend BBQ or the holiday roast: a few minutes on the roller and your knives are ready.",
+        "quote": "",
+        "quote_name": ""
+      }
     },
     "guarantee": {
       "type": "ns-ks-guarantee",
