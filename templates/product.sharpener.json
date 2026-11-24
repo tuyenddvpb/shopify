@@ -503,62 +503,67 @@
       }
     },
     "action": {
-      "type": "ns-ks-cards",
+      "type": "ns-ks-reviews",
+      "settings": {
+        "show_stars": true,
+        "eyebrow": "See it in action",
+        "heading": "From Dull to Done.",
+        "text": "Weeknight prep, weekend BBQ or the holiday roast: a few minutes on the roller and your knives are ready.",
+        "quote": "",
+        "quote_name": ""
+      },
       "blocks": {
-        "g1": {
+        "c1": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/ks-holiday.png",
-            "badge": "",
-            "label": "",
-            "title": "Holiday carving",
-            "text": ""
+            "rating": 5
           }
         },
-        "g2": {
+        "c2": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/ks-tomato.png",
-            "badge": "",
-            "label": "",
-            "title": "Clean tomato slices",
-            "text": ""
+            "rating": 5
           }
         },
-        "g3": {
+        "c3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/hf_20261124_124140_4f87e26b-7401-465a-87b8-6cfff40c2763.png",
-            "badge": "",
-            "label": "",
-            "title": "Easy for anyone",
-            "text": ""
+            "image": "shopify://shop_images/ks-dad.png",
+            "rating": 5
           }
         },
-        "g4": {
+        "c4": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/ks-complete.png",
-            "badge": "",
-            "label": "",
-            "title": "Complete Kit",
-            "text": ""
+            "rating": 5
+          }
+        },
+        "c5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ks-unbox.png",
+            "rating": 5
+          }
+        },
+        "c6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ks-roll.png",
+            "rating": 5
           }
         }
       },
       "block_order": [
-        "g1",
-        "g2",
-        "g3",
-        "g4"
-      ],
-      "settings": {
-        "layout": "gallery",
-        "eyebrow": "See it in action",
-        "heading": "From Dull to Done.",
-        "text": "Weeknight prep, weekend BBQ or the holiday roast: a few minutes on the roller and your knives are ready.",
-        "hint": ""
-      }
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
     },
     "guarantee": {
       "type": "ns-ks-guarantee",
