@@ -155,3 +155,18 @@
   .ks-gal .ks-card{flex-basis:70%}
   .ks-mat__zoom{width:34%;right:6px}
 }
+
+/* Hero with a full-width background photo */
+.ks-hero--full{background:#0F1012!important}
+.ks-hero__stage{position:relative}
+.ks-hero--full .ks__wrap{position:relative;z-index:1}
+.ks-hero--full .ks-hero__grid{grid-template-columns:1fr 1fr;min-height:clamp(560px,46vw,720px);align-items:center}
+.ks-hero--full .ks-hero__copy{padding:70px 0}
+.ks-hero__full{position:absolute;inset:0;z-index:0}
+.ks-hero__full img{width:100%;height:100%;object-fit:cover;object-position:70% 40%}
+@media (max-width:749px){
+  .ks-hero--full .ks-hero__grid{min-height:0}
+  .ks-hero--full .ks-hero__copy{padding:40px 0 24px}
+  .ks-hero__full{position:relative;inset:auto}
+  .ks-hero__full img{aspect-ratio:4/5;height:auto;object-position:71% 50%}
+}
