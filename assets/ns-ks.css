@@ -37,7 +37,7 @@
 
 /* Numbered reasons */
 .ks-reasons{display:grid;gap:44px}
-.ks-reason{display:grid;grid-template-columns:42% 58%;background:var(--ks-light);min-height:420px}
+.ks-reason{display:grid;grid-template-columns:42% 58%;background:var(--ks-light)}
 .ks-reason__media{position:relative;overflow:hidden;background:#ddd}
 .ks-reason__media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .ks-reason__num{position:absolute;top:0;left:0;width:96px;height:96px;background:var(--ks-light);color:var(--ks-gold);font-family:'Oswald',sans-serif;font-weight:700;font-size:64px;line-height:96px;text-align:center;z-index:1}
@@ -142,7 +142,7 @@
   .ks-strip__row{justify-content:flex-start;padding:16px 20px}
   .ks-strip__item{font-size:14px;flex:1 1 100%}.ks-strip__row{padding:22px 20px}.ks-strip__item svg{width:26px;height:26px}
   .ks-reason{grid-template-columns:1fr;min-height:0}
-  .ks-reason__media{aspect-ratio:4/5}
+  .ks-reason__media{aspect-ratio:var(--ks-r-ar,4/5)}
   .ks-reason__num{width:68px;height:68px;font-size:44px;line-height:68px}
   .ks-reason__body{padding:26px 22px 30px}
   .ks-reason__t{font-size:15.5px}
@@ -172,6 +172,6 @@
 }
 
 /* Reason cards with video */
-.ks-reason{min-height:520px}
+.ks-reason{min-height:var(--ks-r-h,520px)}
 .ks-reason__media video,.ks-reason__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:749px){.ks-reason{min-height:0}}

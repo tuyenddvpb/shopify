@@ -1,5 +1,5 @@
 {% render 'ns-ks-head' %}
-<section class="ks ks--light ks__pad">
+<section class="ks ks--light ks__pad" style="--ks-r-h:{{ section.settings.desktop_height }}px;--ks-r-ar:{{ section.settings.mobile_ratio }}">
   <div class="ks__wrap">
     {%- if section.settings.heading != blank -%}<h2 class="ks__h ks__h--md" style="text-align:center;margin-bottom:34px">{{ section.settings.heading }}</h2>{%- endif -%}
     <div class="ks-reasons">
@@ -20,7 +20,14 @@
 </section>
 {% schema %}
 { "name": "KS Numbered reasons", "tag": "div",
-  "settings": [ { "type": "text", "id": "heading", "label": "Heading (optional)" } ],
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
+    { "type": "range", "id": "desktop_height", "label": "Card height on desktop", "min": 400, "max": 1000, "step": 10, "unit": "px", "default": 520 },
+    { "type": "select", "id": "mobile_ratio", "label": "Photo/video shape on mobile", "default": "4/5", "options": [
+      { "value": "1/1", "label": "Square (1:1)" },
+      { "value": "4/5", "label": "Portrait (4:5)" },
+      { "value": "3/4", "label": "Tall (3:4)" },
+      { "value": "9/16", "label": "Vertical video (9:16)" } ] } ],
   "blocks": [{ "type": "reason", "name": "Reason", "settings": [
     { "type": "video", "id": "video", "label": "Video", "info": "Plays muted on a loop. Leave empty to show the image." },
     { "type": "image_picker", "id": "image", "label": "Image" },
