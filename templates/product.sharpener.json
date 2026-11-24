@@ -386,7 +386,7 @@
         "t1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-angle.png",
+            "image": "shopify://shop_images/BG_a4fc2919-73c4-46e1-bb90-2678eb0255ad.png",
             "badge": "Step 1",
             "label": "",
             "title": "Secure",
@@ -396,7 +396,7 @@
         "t2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-roll.png",
+            "image": "shopify://shop_images/hf_20261124_115830_1d7fc908-5798-4136-bea4-361ddb0c06c3.png",
             "badge": "Step 2",
             "label": "",
             "title": "Roll",
@@ -406,7 +406,7 @@
         "t3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/ks-swap.png",
+            "image": "shopify://shop_images/BG-2.png",
             "badge": "Step 3",
             "label": "",
             "title": "Progress",
