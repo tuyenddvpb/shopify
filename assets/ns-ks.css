@@ -170,3 +170,8 @@
   .ks-hero__full{position:relative;inset:auto}
   .ks-hero__full img{aspect-ratio:1/1;height:auto;object-position:73% 50%}
 }
+
+/* Reason cards with video */
+.ks-reason{min-height:520px}
+.ks-reason__media video,.ks-reason__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:749px){.ks-reason{min-height:0}}
