@@ -168,5 +168,5 @@
   .ks-hero--full .ks-hero__grid{grid-template-columns:1fr;min-height:0}
   .ks-hero--full .ks-hero__copy{padding:40px 0 24px}
   .ks-hero__full{position:relative;inset:auto}
-  .ks-hero__full img{aspect-ratio:4/5;height:auto;object-position:71% 50%}
+  .ks-hero__full img{aspect-ratio:1/1;height:auto;object-position:73% 50%}
 }
