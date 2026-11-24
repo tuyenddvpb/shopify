@@ -494,8 +494,12 @@
         "eyebrow": "Why a rolling sharpener",
         "heading": "Easy Results. Less Guesswork.",
         "text": "How a rolling sharpener compares with other ways to sharpen at home.",
-        "cols": "Rolling sharpener|Pull-through|Whetstone|Sharpening service",
-        "note": "Typical ranges; prices for other methods vary by brand and location."
+        "cols": "Rolling sharpener|Pull-through sharpener|Whetstones|Sharpening service",
+        "note": "Typical ranges; prices for other methods vary by brand and location.",
+        "col1_img": "shopify://shop_images/ks-cmp-ours.png",
+        "col2_img": "shopify://shop_images/ks-cmp-pull.png",
+        "col3_img": "shopify://shop_images/ks-cmp-stones.png",
+        "col4_img": "shopify://shop_images/ks-cmp-service.png"
       }
     },
     "action": {
