@@ -51,47 +51,47 @@
           "settings": {
             "image": "shopify://shop_images/ks-tomato.png",
             "title": "It works",
-            "text": "Say goodbye to knives that squash tomatoes and slide off onions. A few minutes on the diamond discs brings a dull edge back, so slicing feels easy again."
+            "text": "Say goodbye to knives that squash tomatoes and slide off onions. The diamond discs take a dull blade back to sharp, so it slices like it should again. Clean cuts, every time."
           }
         },
         "r2": {
           "type": "reason",
           "settings": {
             "image": "shopify://shop_images/ks-roll.png",
-            "title": "It takes a few minutes",
-            "text": "No soaking a stone and no dropping knives off at a shop. Lay the knife on the block, roll, flip, and it's done before the pan heats up."
+            "title": "It takes about 5 minutes",
+            "text": "No soaking a stone. No dropping your knives off and waiting a week. Roll through the discs and the knife you gave up on is sharp again before the pan heats up."
           }
         },
         "r3": {
           "type": "reason",
           "settings": {
             "image": "shopify://shop_images/ks-angle.png",
-            "title": "It's really easy",
-            "text": "Not a knife person? The magnetic block holds the blade at 15° or 20° for you, so there's no angle to guess. Lay it flat, roll, flip."
+            "title": "It's sooo easy",
+            "text": "Not a knife person? Doesn't matter. The magnetic block holds your blade at 15° or 20°, so there's no angle to guess. Lay it flat, roll, flip, done."
           }
         },
         "r4": {
           "type": "reason",
           "settings": {
             "image": "shopify://shop_images/ks-dad.png",
-            "title": "It makes cooking more fun",
-            "text": "Once your knives cut cleanly again, prep goes faster and feels better. Tomatoes, herbs and onions slice instead of squash."
+            "title": "It makes cutting so satisfying",
+            "text": "Once your knives are truly sharp, you'll get it. Prep goes faster and cooking gets fun again when every blade in the kitchen glides through tomatoes, onions and herbs."
           }
         },
         "r5": {
           "type": "reason",
           "settings": {
             "image": "shopify://shop_images/ks-unbox.png",
-            "title": "Try it for 30 days",
-            "text": "Not happy with it? Contact us within 30 days of delivery and we'll sort out a return. Details are in our refund policy."
+            "title": "Love it or send it back",
+            "text": "Not happy with it? Contact us within 30 days of delivery and we'll help you with a return. See our refund policy for the details."
           }
         },
         "r6": {
           "type": "reason",
           "settings": {
             "image": "shopify://shop_images/ks-gift.png",
-            "title": "A gift they'll actually use",
-            "text": "For the home cook, the BBQ fan or the dad who has everything. It's practical, looks good on the counter, and gets used every week."
+            "title": "It's the gift every home cook needs",
+            "text": "For Dad, the grill master or the friend who cooks every night. Hand it over and watch them run every knife in the drawer through it. Practical, good-looking, and used every week."
           }
         }
       },
