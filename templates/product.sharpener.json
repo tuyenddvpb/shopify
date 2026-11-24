@@ -733,6 +733,15 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "jdgm_head": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"ns-reviews\" class=\"page-width\" style=\"text-align:center;scroll-margin-top:90px\"><h2 class=\"h2\" style=\"margin:0 0 6px\">Customer reviews</h2><p style=\"margin:0;font-size:1.35rem;opacity:.7\">Some reviews were left by buyers of this same product on AliExpress and were imported here. They are not marked as verified Nestlyday purchases.</p></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -746,6 +755,7 @@
     "material",
     "compare",
     "action",
+    "jdgm_head",
     "jdgm",
     "guarantee",
     "faq",
