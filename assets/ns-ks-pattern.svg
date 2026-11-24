@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none" stroke="#fff" stroke-width="1.4" stroke-opacity=".085" stroke-linecap="square">
+  <!-- Nestlyday geometric line tile (original) -->
+  <path d="M0 60 L60 0 M0 100 L100 0 M0 140 L60 80 L100 120 L220 0"/>
+  <path d="M480 300 L300 480 M480 340 L340 480 M480 380 L420 320 L380 360 L260 480"/>
+  <path d="M300 0 L340 40 L300 80 L340 120 L300 160 M330 0 L370 40 L330 80 L370 120 L330 160"/>
+  <path d="M120 300 L160 340 L120 380 L160 420 L120 460 M150 300 L190 340 L150 380 L190 420 L150 460"/>
+  <circle cx="380" cy="220" r="46"/><circle cx="380" cy="220" r="8"/>
+  <path d="M380 160 V196 M380 244 V280 M320 220 H356 M404 220 H440"/>
+  <path d="M60 230 h36 v36 h-36z M70 240 h16 v16 h-16z"/>
+  <path d="M220 200 l20 -20 l20 20 l-20 20z"/>
+  <path d="M200 60 h50 M200 72 h30 M30 420 h44 M30 432 h24 M420 420 v40 M432 420 v24"/>
+  <path d="M240 300 a40 40 0 0 1 80 0"/>
+  <path d="M0 240 H40 M440 0 L480 40"/>
+</svg>
