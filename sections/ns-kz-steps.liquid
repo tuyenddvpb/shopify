@@ -1,0 +1,28 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy kz__pad">
+  <div class="kz__wrap kz__center">
+    {% render 'ns-kz-heading', s: section.settings %}
+    <div class="kz-steps">
+      {%- for block in section.blocks -%}
+        {%- unless forloop.first -%}<span class="kz-step__arrow" aria-hidden="true">&#8250;&#8250;</span>{%- endunless -%}
+        <div class="kz-step" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw' }}{%- else -%}<div class="kz__ph"></div>{%- endif -%}
+          <div class="kz-step__b" style="text-align:left"><span class="kz-step__n">0{{ forloop.index }}</span><div><h3 class="kz-step__h">{{ block.settings.title }}</h3><p class="kz-step__t">{{ block.settings.text }}</p></div></div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KZ Steps", "tag": "div",
+  "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "header", "content": "Steps" } ],
+  "blocks": [{ "type": "step", "name": "Step", "limit": 3, "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Step" },
+    { "type": "textarea", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KZ Steps" }] }
+{% endschema %}

@@ -1,0 +1,42 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--{{ section.settings.bg }} kz__pad">
+  <div class="kz__wrap kz__center">
+    {% render 'ns-kz-heading', s: section.settings %}
+    <div class="kz-cards kz-cards--{{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+      <article class="kz-card" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}<div class="kz-card__media">{{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw', widths: '450,700,900' }}</div>{%- endif -%}
+        <div class="kz-card__body">
+          {%- if block.settings.icon != blank or section.settings.show_numbers -%}<div class="kz-card__top">{%- if block.settings.icon != blank -%}<span class="kz-card__icon">{% render 'vr-icon', name: block.settings.icon, size: 20 %}</span>{%- else -%}<span></span>{%- endif -%}{%- if section.settings.show_numbers -%}<span class="kz-card__num">0{{ forloop.index }}</span>{%- endif -%}</div>{%- endif -%}
+          {%- if block.settings.label != blank -%}<p class="kz-card__lbl">{{ block.settings.label }}</p>{%- endif -%}
+          {%- if block.settings.title != blank -%}<h3 class="kz-card__h">{{ block.settings.title }}</h3>{%- endif -%}
+          {%- if block.settings.text != blank -%}<p class="kz-card__t">{{ block.settings.text }}</p>{%- endif -%}
+          {%- if block.settings.title2 != blank -%}<div class="kz-card__alt">{%- if block.settings.label2 != blank -%}<p class="kz-card__lbl">{{ block.settings.label2 }}</p>{%- endif -%}<h3 class="kz-card__h" style="font-size:16px">{{ block.settings.title2 }}</h3><p class="kz-card__t">{{ block.settings.text2 }}</p></div>{%- endif -%}
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}<p class="kz-note">{{ section.settings.note }}</p>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "KZ Cards grid", "tag": "div",
+  "settings": [ { "type": "select", "id": "bg", "label": "Background", "default": "navy", "options": [{"value":"navy","label":"Navy"},{"value":"white","label":"White"},{"value":"grey","label":"Light grey"}] }, { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "select", "id": "columns", "label": "Columns", "default": "3", "options": [{"value":"2","label":"2"},{"value":"3","label":"3"}] },
+    { "type": "checkbox", "id": "show_numbers", "label": "Show card numbers", "default": false },
+    { "type": "text", "id": "note", "label": "Note under cards" } ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "icon", "label": "Icon name (optional)" },
+    { "type": "text", "id": "label", "label": "Small label" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "header", "content": "Second part (optional)" },
+    { "type": "text", "id": "label2", "label": "Small label 2" },
+    { "type": "text", "id": "title2", "label": "Title 2" },
+    { "type": "textarea", "id": "text2", "label": "Text 2" } ] }],
+  "presets": [{ "name": "KZ Cards grid" }] }
+{% endschema %}

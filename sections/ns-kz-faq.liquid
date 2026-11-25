@@ -1,0 +1,25 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--grey kz__pad">
+  <div class="kz__wrap kz-faq">
+    <div>
+      {% render 'ns-kz-heading', s: section.settings %}
+      {%- if section.settings.contact_label != blank -%}<a class="kz-contact" href="{{ section.settings.contact_link | default: '/pages/contact' }}">{% render 'vr-icon', name: 'mail', size: 16 %}{{ section.settings.contact_label }}</a>{%- endif -%}
+    </div>
+    <div>
+      {%- for block in section.blocks -%}<details {{ block.shopify_attributes }}><summary>{{ block.settings.q }}</summary><div class="kz-faq__a">{{ block.settings.a }}</div></details>{%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KZ FAQ", "tag": "div",
+  "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "text", "id": "contact_label", "label": "Contact button label", "default": "Contact us" },
+    { "type": "url", "id": "contact_link", "label": "Contact link" } ],
+  "blocks": [{ "type": "qa", "name": "Question", "settings": [
+    { "type": "text", "id": "q", "label": "Question", "default": "Question" },
+    { "type": "richtext", "id": "a", "label": "Answer" } ] }],
+  "presets": [{ "name": "KZ FAQ" }] }
+{% endschema %}

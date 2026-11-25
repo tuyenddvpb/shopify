@@ -1,0 +1,35 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy kz__pad">
+  <div class="kz__wrap kz__center">
+    {% render 'ns-kz-heading', s: section.settings %}
+    {%- if section.settings.badge_top != blank -%}
+    <svg class="kz-badge" viewBox="0 0 200 220" role="img" aria-label="{{ section.settings.badge_top }} {{ section.settings.badge_mid }} {{ section.settings.badge_bottom }}">
+      <defs><linearGradient id="kzg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4FF7A"/><stop offset="1" stop-color="#8DBA12"/></linearGradient></defs>
+      <path d="M100 6 L186 34 V110 C186 160 148 196 100 214 C52 196 14 160 14 110 V34 Z" fill="url(#kzg)"/>
+      <path d="M100 20 L172 44 V110 C172 152 141 182 100 198 C59 182 28 152 28 110 V44 Z" fill="#0E1A2B"/>
+      <text x="100" y="86" text-anchor="middle" font-family="Archivo,Arial" font-weight="900" font-size="34" fill="#fff">{{ section.settings.badge_top }}</text>
+      <rect x="18" y="98" width="164" height="36" rx="4" fill="url(#kzg)"/>
+      <text x="100" y="123" text-anchor="middle" font-family="Archivo,Arial" font-weight="900" font-size="19" fill="#0E1A2B">{{ section.settings.badge_mid }}</text>
+      <text x="100" y="158" text-anchor="middle" font-family="Archivo,Arial" font-weight="900" font-size="17" fill="#fff">{{ section.settings.badge_bottom }}</text>
+    </svg>
+    {%- endif -%}
+    <div class="kz-grid6">
+      {%- for block in section.blocks -%}<div {{ block.shopify_attributes }}>{% render 'vr-icon', name: block.settings.icon, size: 34 %}<h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>{%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KZ Guarantee", "tag": "div",
+  "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "text", "id": "badge_top", "label": "Badge top line", "default": "30-DAY" },
+    { "type": "text", "id": "badge_mid", "label": "Badge ribbon", "default": "RETURNS" },
+    { "type": "text", "id": "badge_bottom", "label": "Badge bottom line", "default": "POLICY" } ],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon name", "default": "shield" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KZ Guarantee" }] }
+{% endschema %}

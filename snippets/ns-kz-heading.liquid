@@ -1,0 +1,4 @@
+{%- comment -%} Params: s (section.settings), center (bool) {%- endcomment -%}
+{%- if s.eyebrow != blank -%}<p class="kz__eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+{%- if s.heading != blank or s.accent != blank -%}<h2 class="kz__h">{{ s.heading }}{%- if s.accent != blank -%} <span class="kz__accent">{{ s.accent }}</span>{%- endif -%}</h2>{%- endif -%}
+{%- if s.sub != blank -%}<p class="kz__sub">{{ s.sub }}</p>{%- endif -%}
