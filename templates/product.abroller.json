@@ -61,24 +61,24 @@
         "t_ship": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Shipping & returns",
+            "heading": "Shipping & guarantee",
             "icon": "truck",
-            "content": "<p><strong>Free U.S. shipping</strong> with tracking. Delivery times are shown at checkout.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
+            "content": "<p><strong>Free U.S. shipping</strong> with tracking. Delivery estimates are shown at checkout.</p><p><strong>30-day returns:</strong> contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
           }
         },
         "t_box": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "What's in the box",
-            "icon": "box",
-            "content": "<p><strong>Core Trainer:</strong> 1 four-wheel ab roller with forearm pads, adjustable handle and phone rest, plus 1 knee mat.</p><p><strong>Couple Set:</strong> 2 ab rollers and 2 knee mats.</p>"
+            "heading": "Designed around controlled core work",
+            "icon": "check_mark",
+            "content": "<p>A broad four-wheel base, padded forearm rests and a built-in phone rest bring practical details to your home workout. Internal springs assist the return phase of each rollout, and the handle adjusts to 3 positions.</p><p><strong>In the box:</strong> Core Trainer = 1 RELIFE ab roller + 1 knee mat. Couple Set = 2 rollers + 2 mats.</p>"
           }
         },
         "t_start": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "How to get started",
-            "icon": "check_mark",
+            "icon": "question_mark",
             "content": "<p>Use it on a flat, non-slip surface with the knee mat. Kneel, rest your forearms on the pads and hold the handle. Brace your core and roll forward a short distance, then guide the return. Start with a few slow reps and build up over time.</p>"
           }
         },
@@ -89,6 +89,12 @@
             "icon": "shield",
             "content": "<p>Stop if you feel pain, especially in your lower back or shoulders. If you have a back, joint or other health condition, are pregnant or recovering from surgery, check with a doctor before using. Not for children.</p>"
           }
+        },
+        "gifts": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"kz-gifts\"><p class=\"kz-gifts__h\"><span>Included with every order</span></p><div class=\"kz-gifts__row\"><div>{% render 'vr-icon', name: 'box', size: 26 %}<b>Knee mat</b><span>In the box</span></div><div>{% render 'vr-icon', name: 'truck', size: 26 %}<b>Free U.S. shipping</b><span>Tracked delivery</span></div><div>{% render 'vr-icon', name: 'return', size: 26 %}<b>30-day returns</b><span>See refund policy</span></div></div></div>\n<style>.kz-gifts{margin:6px 0 12px}.kz-gifts__h{text-align:center;font-family:'Archivo',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:15px;margin:0 0 10px}.kz-gifts__h span{background:#C8F03C;color:#0E1A2B;padding:3px 12px;border-radius:6px}.kz-gifts__row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kz-gifts__row div{background:#0F2A1E;border:2px solid #9BD12B;border-radius:12px;padding:12px 6px;text-align:center;color:#fff}.kz-gifts__row svg{color:#C8F03C;margin:0 auto 6px;display:block}.kz-gifts__row b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.04em}.kz-gifts__row span{font-size:11px;color:#BFD9C6}</style>"
+          }
         }
       },
       "block_order": [
@@ -98,6 +104,7 @@
         "price",
         "packages",
         "variant_picker",
+        "gifts",
         "buy_buttons",
         "trust",
         "t_ship",
@@ -119,10 +126,10 @@
     "marquee": {
       "type": "ns-kz-marquee",
       "settings": {
-        "eyebrow": "Designed for home training",
+        "eyebrow": "Trusted performance",
         "heading": "Built for",
-        "accent": "steady core work.",
-        "sub": "A compact trainer for focused, controlled rollouts, wherever you have a few feet of floor."
+        "accent": "real routines.",
+        "sub": "Compact training equipment designed for focused core work, wherever life takes you."
       },
       "blocks": {
         "w0": {
@@ -172,74 +179,55 @@
       ]
     },
     "action": {
-      "type": "ns-ks-reviews",
+      "type": "ns-kz-vcards",
       "settings": {
-        "show_stars": true,
-        "eyebrow": "See it in action",
-        "heading": "Where routine becomes habit.",
-        "text": "A few minutes, a few feet of floor, and a trainer that helps you keep your form. Swipe to see it in use."
+        "heading": "Where routine",
+        "accent": "becomes habit.",
+        "sub": "Build your core one smooth rollout at a time."
       },
       "blocks": {
-        "c0": {
+        "v0": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-woman-forearms.png",
+            "image": "shopify://shop_images/relife-plank.jpg",
+            "text": "Normal ab wheels can wobble and tip. Four wheels give a steadier base, so a home core routine feels simpler.",
+            "tags": "Home workout, Simple to use",
             "rating": 5
           }
         },
-        "c1": {
+        "v1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-man-phone.png",
+            "image": "shopify://shop_images/relife-elbowpad.jpg",
+            "text": "Rest your forearms on the padded supports and let your core do the work, with less load on your wrists.",
+            "tags": "Core engagement, Controlled reps",
             "rating": 5
           }
         },
-        "c2": {
+        "v2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-couple.png",
-            "rating": 5
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/abr-forearms.png",
-            "rating": 5
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/abr-phone.png",
-            "rating": 5
-          }
-        },
-        "c5": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/abr-step2.png",
+            "image": "shopify://shop_images/relife-matpair.jpg",
+            "text": "Steel springs assist the return of each rollout, so you can focus on a slow, controlled movement.",
+            "tags": "Forearm support, Core workout",
             "rating": 5
           }
         }
       },
       "block_order": [
-        "c0",
-        "c1",
-        "c2",
-        "c3",
-        "c4",
-        "c5"
+        "v0",
+        "v1",
+        "v2"
       ]
     },
     "compare": {
       "type": "ns-ks-compare",
       "settings": {
         "eyebrow": "The difference",
-        "heading": "Why a 4-wheel trainer?",
+        "heading": "Why choose the RELIFE trainer?",
         "text": "How the four-wheel design, forearm support and assisted return compare with the classic ab wheels most people start with.",
         "cols": "4-wheel trainer|Classic ab wheel|Wide dual-wheel",
-        "col1_img": "shopify://shop_images/abr-main.png",
+        "col1_img": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
         "note": "Comparison with typical ab wheels; features vary by model."
       },
       "blocks": {
@@ -308,12 +296,12 @@
       "type": "ns-kz-split",
       "settings": {
         "bg": "white",
-        "eyebrow": "See it in use",
+        "eyebrow": "See it in action",
         "heading": "Train at home.",
         "accent": "Build your rhythm.",
         "text": "<p>From the compact frame to the padded forearm rests, it is built to live in your living room and come out whenever you have a few minutes.</p>",
-        "image": "shopify://shop_images/abr-woman.png",
-        "tag": "Core training at home",
+        "image": "shopify://shop_images/relife-plank.jpg",
+        "tag": "Core training / RELIFE",
         "button_label": "Start your home routine",
         "button_link": "#kz-buy"
       }
@@ -378,7 +366,7 @@
       "type": "ns-kz-cards",
       "settings": {
         "bg": "white",
-        "eyebrow": "The Nestlyday advantage",
+        "eyebrow": "The RELIFE advantage",
         "heading": "Designed for controlled core work.",
         "sub": "Four practical design choices in one compact trainer.",
         "columns": "2"
@@ -387,7 +375,7 @@
         "a0": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-room.png",
+            "image": "shopify://shop_images/relife-stable.jpg",
             "label": "Wide rolling platform",
             "title": "A wider base. More control.",
             "text": "Four wheels give a broader footprint than a classic ab wheel, so you can focus on the movement instead of balancing."
@@ -396,7 +384,7 @@
         "a1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-forearms.png",
+            "image": "shopify://shop_images/relife-elbowpad.jpg",
             "label": "Padded forearm contact",
             "title": "Support where it matters.",
             "text": "Cushioned forearm rests give you a second contact point next to the handle, for a more supported position."
@@ -414,7 +402,7 @@
         "a3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/abr-phone.png",
+            "image": "shopify://shop_images/relife-phone.jpg",
             "label": "Smarter home setup",
             "title": "Keep your timer in sight.",
             "text": "The built-in phone rest keeps a timer or a workout video in view while you train."
@@ -440,7 +428,7 @@
         "s0": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/abr-step1.png",
+            "image": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
             "title": "Set your foundation.",
             "text": "Kneel on the mat, rest your forearms on the pads and hold the handle."
           }
@@ -448,7 +436,7 @@
         "s1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/abr-step2.png",
+            "image": "shopify://shop_images/relife-plank.jpg",
             "title": "Brace. Then roll.",
             "text": "Keep your core tight and roll forward a short distance under control."
           }
@@ -456,7 +444,7 @@
         "s2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/abr-step3.png",
+            "image": "shopify://shop_images/relife-spring.jpg",
             "title": "Guide the return.",
             "text": "Let the spring assist as you roll back. Reset and repeat at your own pace."
           }
@@ -471,7 +459,7 @@
     "jdgm_head": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{% render 'ns-kz-head' %}<div class=\"kz\" style=\"padding:64px 0 0\"><div class=\"kz__wrap kz__center\" id=\"ns-reviews\" style=\"scroll-margin-top:90px\"><p class=\"kz__eyebrow\">Nestlyday community</p><h2 class=\"kz__h\">Real people. Real routines.</h2><p class=\"kz__sub\">Reviews from Nestlyday customers who bought this trainer.</p></div></div>",
+        "custom_liquid": "{% render 'ns-kz-head' %}<div class=\"kz\" style=\"padding:64px 0 0\"><div class=\"kz__wrap kz__center\" id=\"ns-reviews\" style=\"scroll-margin-top:90px\"><p class=\"kz__eyebrow\">RELIFE community</p><h2 class=\"kz__h\">Real people. Real routines.</h2><p class=\"kz__sub\">Reviews from Nestlyday customers who bought this trainer.</p></div></div>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
@@ -642,8 +630,8 @@
         "heading": "Your next rep",
         "accent": "starts at home.",
         "text": "<p>Begin with a supported kneeling rollout, keep a comfortable range, and make core training part of your everyday routine.</p>",
-        "image": "shopify://shop_images/abr-room.png",
-        "tag": "Knee mat included",
+        "image": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
+        "tag": "Kneeling rollout · in motion",
         "media_right": true,
         "show_price": true,
         "button_label": "Choose your package",
@@ -657,6 +645,94 @@
         "enable": true,
         "label": "Add to cart"
       }
+    },
+    "target": {
+      "type": "ns-kz-target",
+      "settings": {
+        "heading": "Target the",
+        "accent": "core",
+        "sub": "Kneeling rollouts work the muscles along the front and sides of your midsection."
+      },
+      "blocks": {
+        "t0": {
+          "type": "area",
+          "settings": {
+            "area": "upper",
+            "label": "Upper abs"
+          }
+        },
+        "t1": {
+          "type": "area",
+          "settings": {
+            "area": "mid",
+            "label": "Mid abs"
+          }
+        },
+        "t2": {
+          "type": "area",
+          "settings": {
+            "area": "lower",
+            "label": "Lower abs"
+          }
+        },
+        "t3": {
+          "type": "area",
+          "settings": {
+            "area": "obliques",
+            "label": "Obliques"
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3"
+      ]
+    },
+    "strip": {
+      "type": "ns-kz-strip",
+      "settings": {},
+      "blocks": {
+        "s0": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure checkout",
+            "text": "Encrypted payments"
+          }
+        },
+        "s1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free U.S. shipping",
+            "text": "Track your order"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Dedicated support",
+            "text": "We're here to help"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "30-day returns",
+            "text": "Terms apply"
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ]
     }
   },
   "order": [
@@ -670,8 +746,10 @@
     "problems",
     "advantage",
     "steps",
+    "target",
     "jdgm_head",
     "jdgm",
+    "strip",
     "guarantee",
     "faq",
     "final",
