@@ -231,7 +231,9 @@
         "text": "How the four-wheel design, forearm support and assisted return compare with the classic ab wheels most people start with.",
         "cols": "4-wheel trainer|Classic ab wheel|Wide dual-wheel",
         "col1_img": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
-        "note": "Comparison with typical ab wheels; features vary by model."
+        "note": "Comparison with typical ab wheels; features vary by model.",
+        "col2_img": "shopify://shop_images/abr-cmp-classic.jpg",
+        "col3_img": "shopify://shop_images/abr-cmp-dual.jpg"
       },
       "blocks": {
         "r0": {
