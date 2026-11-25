@@ -6,6 +6,7 @@
 .ks--gold{background:var(--ks-gold);color:#17181A}
 .ks__wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 .ks__pad{padding:72px 0}
+.ks__wrap.ks__pad{padding:72px 20px}
 .ks__eyebrow{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ks-gold);margin:0 0 10px}
 .ks--gold .ks__eyebrow{color:#17181A}
 .ks__h{font-family:'Oswald',var(--font-heading-family),sans-serif;font-weight:700;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;font-size:clamp(34px,4.6vw,58px);margin:0 0 16px;color:inherit}
@@ -133,6 +134,7 @@
 }
 @media (max-width:749px){
   .ks__pad{padding:52px 0}
+  .ks__wrap.ks__pad{padding:52px 20px}
   .ks-hero{background-size:auto,auto,700px 700px,360px 360px;background-position:center,center,50% 80%,0 0}
   .ks-hero__grid{grid-template-columns:1fr;min-height:0;gap:8px}
   .ks-hero__copy{padding:44px 0 8px}
