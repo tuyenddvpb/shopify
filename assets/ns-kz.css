@@ -110,3 +110,7 @@
   .kz-grid6>div{border-right:0!important;border-bottom:1px solid rgba(175,216,42,.5)!important}
   .kz-grid6>div:last-child{border-bottom:0!important}
 }
+
+/* headings never break inside a word */
+.kz__h{word-break:normal;overflow-wrap:normal;hyphens:none}
+.kz-faq .kz__h,.kz-split .kz__h{font-size:clamp(30px,3.6vw,50px)}
