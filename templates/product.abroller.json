@@ -1,0 +1,680 @@
+{
+  "sections": {
+    "kz_overrides": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'ns-kz-head' %}<style>\n.ks-cmp-sec,.ks-rv-sec{background:radial-gradient(120% 90% at 50% 0,#17304F 0,#0E1A2B 60%)!important}\n.ks-cmp-sec__art{display:none}\n.ks-cmp-sec .ks__eyebrow,.ks-rv-sec .ks__eyebrow{color:#C8F03C}\n.ks-cmp-sec .ks__h,.ks-rv-sec .ks__h{font-family:'Archivo',sans-serif;font-weight:900}\n.ks-cmp-sec .ks__p,.ks-rv-sec .ks__p{color:#C9D3E1}\n.ks-cmp-sec .ks-cmp__head{background:#13233A!important;border-color:#2A3E5C!important;border-radius:14px 14px 0 0!important}\n.ks-cmp-sec thead .ks-cmp__head.is-us{background:#C8F03C!important;color:#0E1A2B!important;border-color:#C8F03C!important;border-radius:14px 14px 0 0!important}\n.ks-cmp-sec tbody td{background:#13233A!important;border-color:#2A3E5C!important;color:#C9D3E1}\n.ks-cmp-sec tbody td.is-us{background:#1A3326!important;border-left-color:#AFD82A!important;border-right-color:#AFD82A!important;color:#fff}\n.ks-cmp-sec tbody tr:last-child td.is-us{border-bottom-color:#AFD82A!important}\n.ks-cmp-sec .ks-cmp__ic--yes{color:#C8F03C}\n.ks-rv__card{background:#13233A;border-color:#2A3E5C}\n.ks-rv__bar span{background:#C8F03C}.ks-rv__btn:hover{border-color:#C8F03C;color:#C8F03C}\n</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "kzstyle": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'ns-kz-head' %}<span id=\"kz-buy\" style=\"position:relative;top:-90px;display:block\"></span><style>\n[id^=\"shopify-section-template\"][id$=\"__main\"]{background:#EEF1F5}\n[id^=\"shopify-section-template\"][id$=\"__main\"] .product__title h1{font-family:'Archivo',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(34px,4vw,54px);line-height:.98;letter-spacing:-.01em;color:#111827}\n[id^=\"shopify-section-template\"][id$=\"__main\"] variant-selects{display:none!important}\n[id^=\"shopify-section-template\"][id$=\"__main\"] .price{display:none}\nhtml.ns-holiday [id^=\"shopify-section-template\"][id$=\"__main\"] .product-form__submit,[id^=\"shopify-section-template\"][id$=\"__main\"] .product-form__submit{background:#C8F03C!important;border-color:#C8F03C!important;color:#0E1A2B!important;box-shadow:0 10px 24px -12px rgba(110,150,0,.7)!important;border-radius:10px;font-weight:800;font-size:16px;letter-spacing:.04em}\nhtml.ns-holiday [id^=\"shopify-section-template\"][id$=\"__main\"] .product-form__submit:hover{background:#AFD82A!important}\n.kz-sub{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:#111827;margin:-6px 0 10px;line-height:1.15}\n.kz-tag{font-weight:700;font-size:19px;color:#111827;margin:0 0 6px}\n.kz-intro{font-size:14.5px;line-height:1.6;color:#5B6474;margin:0 0 14px}\n.kz-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 16px}\n.kz-tiles div{background:#fff;border:1px solid #E1E6ED;border-radius:12px;padding:14px;text-align:center}\n.kz-tiles svg{color:#5E7E12;margin:0 auto 6px;display:block}\n.kz-tiles b{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#111827}\n.kz-tiles span{font-size:12.5px;color:#5B6474}\n.kz-pk-h{font-family:'Archivo',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;color:#111827;margin:6px 0 10px}\n.kzp{display:flex;gap:12px;align-items:center;background:#fff;border:2px solid #DDE3EA;border-radius:14px;padding:14px;margin-bottom:10px;cursor:pointer;position:relative;transition:border-color .15s,background .15s}\n.kzp.is-on{border-color:#86B81E;background:#F6FBE8}\n.kzp__r{flex:0 0 18px;height:18px;border-radius:50%;border:2px solid #9AA3B2}\n.kzp.is-on .kzp__r{border-color:#5E7E12;box-shadow:inset 0 0 0 4px #fff;background:#5E7E12}\n.kzp img{width:76px;height:76px;object-fit:cover;border-radius:10px;flex:0 0 76px}\n.kzp__n{font-family:'Archivo',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:#111827;display:block}\n.kzp__badge{display:inline-block;background:#FFF1D6;color:#9A5B00;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 8px;margin:2px 0 4px}\n.kzp ul{list-style:none;margin:2px 0 6px;padding:0;font-size:12.5px;color:#374151;line-height:1.5}\n.kzp__p{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#111827}\n.kzp__p s{font-family:Inter,sans-serif;font-weight:500;font-size:14px;color:#8A93A3;margin-left:6px}\n.kzp__save{display:inline-block;background:#B3262E;color:#fff;font-size:11px;font-weight:800;border-radius:4px;padding:2px 7px;margin-left:6px;vertical-align:middle}\n.kz-trust{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #DDE3EA;margin-top:8px}\n.kz-trust div{display:flex;gap:10px;align-items:flex-start;padding:14px 6px;border-bottom:1px solid #DDE3EA}\n.kz-trust div:nth-child(odd){border-right:1px solid #DDE3EA}\n.kz-trust svg{color:#5E7E12;flex:0 0 auto}\n.kz-trust b{display:block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#111827}\n.kz-trust span{font-size:12px;color:#5B6474}\n</style>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "intro": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"kz-sub\">2-in-1 Ab Roller &amp; Core Trainer</p><p class=\"kz-tag\">A steadier core workout. No gym required.</p><p class=\"kz-intro\">Four wide wheels, padded forearm rests and a spring-assisted return make each rollout feel more supported, so you can focus on control.</p>\n<div class=\"kz-tiles\"><div>{% render 'vr-icon', name: 'shield', size: 26 %}<b>Steadier base</b><span>Four-wheel stability</span></div><div>{% render 'vr-icon', name: 'hand', size: 26 %}<b>Forearm support</b><span>Less load on your wrists</span></div><div>{% render 'vr-icon', name: 'return', size: 26 %}<b>Spring return</b><span>Guided rollback</span></div><div>{% render 'vr-icon', name: 'clock', size: 26 %}<b>Short sessions</b><span>Fits a busy day</span></div></div>"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "packages": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"kz-pk-h\">Choose your package</p><div class=\"kzp-wrap\">\n{%- for v in product.variants -%}\n<div class=\"kzp{% if forloop.first %} is-on{% endif %}\" data-val=\"{{ v.option1 | escape }}\" role=\"radio\" tabindex=\"0\" aria-checked=\"{% if forloop.first %}true{% else %}false{% endif %}\">\n<span class=\"kzp__r\"></span>{%- if v.featured_image -%}<img src=\"{{ v.featured_image | image_url: width: 200 }}\" alt=\"\" width=\"76\" height=\"76\" loading=\"lazy\">{%- endif -%}\n<span><span class=\"kzp__n\">{% if forloop.first %}Core Trainer{% else %}Couple Set{% endif %}</span>\n{%- unless forloop.first -%}<span class=\"kzp__badge\">Train together</span>{%- endunless -%}\n<ul>{% if forloop.first %}<li>1 × 2-in-1 Ab Roller</li><li>+ Knee mat included</li><li>+ Free U.S. shipping</li>{% else %}<li>2 × 2-in-1 Ab Rollers</li><li>+ 2 knee mats</li><li>+ Free U.S. shipping</li>{% endif %}</ul>\n<span class=\"kzp__p\">{{ v.price | money }}{%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s><span class=\"kzp__save\">Save {{ v.compare_at_price | minus: v.price | money_without_trailing_zeros }}</span>{%- endif -%}</span></span>\n</div>\n{%- endfor -%}</div>\n<script>(function(){function sync(){var c=document.querySelector('variant-selects input[type=radio]:checked');if(!c)return;document.querySelectorAll('.kzp').forEach(function(k){var on=k.getAttribute('data-val')===c.value;k.classList.toggle('is-on',on);k.setAttribute('aria-checked',on?'true':'false')});}\nfunction pick(k){var v=k.getAttribute('data-val');var i=[].find.call(document.querySelectorAll('variant-selects input[type=radio]'),function(x){return x.value===v});if(i&&!i.checked){i.click();}setTimeout(sync,60);}\ndocument.addEventListener('click',function(e){var k=e.target.closest('.kzp');if(k)pick(k)});document.addEventListener('keydown',function(e){var k=e.target.closest&&e.target.closest('.kzp');if(k&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(k)}});\ndocument.addEventListener('change',function(e){if(e.target.closest&&e.target.closest('variant-selects'))setTimeout(sync,60)});\nif(document.readyState!=='loading')sync();else document.addEventListener('DOMContentLoaded',sync);})();</script>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"kz-trust\"><div>{% render 'vr-icon', name: 'lock', size: 22 %}<span><b>Secure checkout</b>Encrypted payments</span></div><div>{% render 'vr-icon', name: 'truck', size: 22 %}<span><b>Tracked shipping</b>Free U.S. shipping</span></div><div>{% render 'vr-icon', name: 'chat', size: 22 %}<span><b>Real support</b>We're here to help</span></div><div>{% render 'vr-icon', name: 'return', size: 22 %}<span><b>30-day returns</b>See our refund policy</span></div></div>"
+          }
+        },
+        "t_ship": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p><strong>Free U.S. shipping</strong> with tracking. Delivery times are shown at checkout.</p><p>Not happy? Contact us within 30 days of delivery. See our <a href=\"/policies/shipping-policy\">Shipping Policy</a> and <a href=\"/policies/refund-policy\">Refund Policy</a>.</p>"
+          }
+        },
+        "t_box": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's in the box",
+            "icon": "box",
+            "content": "<p><strong>Core Trainer:</strong> 1 four-wheel ab roller with forearm pads, adjustable handle and phone rest, plus 1 knee mat.</p><p><strong>Couple Set:</strong> 2 ab rollers and 2 knee mats.</p>"
+          }
+        },
+        "t_start": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to get started",
+            "icon": "check_mark",
+            "content": "<p>Use it on a flat, non-slip surface with the knee mat. Kneel, rest your forearms on the pads and hold the handle. Brace your core and roll forward a short distance, then guide the return. Start with a few slow reps and build up over time.</p>"
+          }
+        },
+        "t_safety": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Safety",
+            "icon": "shield",
+            "content": "<p>Stop if you feel pain, especially in your lower back or shoulders. If you have a back, joint or other health condition, are pregnant or recovering from surgery, check with a doctor before using. Not for children.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "kzstyle",
+        "title",
+        "intro",
+        "price",
+        "packages",
+        "variant_picker",
+        "buy_buttons",
+        "trust",
+        "t_ship",
+        "t_box",
+        "t_start",
+        "t_safety"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "constrain_to_viewport": true,
+        "media_size": "large",
+        "media_fit": "cover",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": true
+      }
+    },
+    "marquee": {
+      "type": "ns-kz-marquee",
+      "settings": {
+        "eyebrow": "Designed for home training",
+        "heading": "Built for",
+        "accent": "steady core work.",
+        "sub": "A compact trainer for focused, controlled rollouts, wherever you have a few feet of floor."
+      },
+      "blocks": {
+        "w0": {
+          "type": "item",
+          "settings": {
+            "text": "Four-wheel base"
+          }
+        },
+        "w1": {
+          "type": "item",
+          "settings": {
+            "text": "Forearm support"
+          }
+        },
+        "w2": {
+          "type": "item",
+          "settings": {
+            "text": "Spring-assisted return"
+          }
+        },
+        "w3": {
+          "type": "item",
+          "settings": {
+            "text": "Built-in phone rest"
+          }
+        },
+        "w4": {
+          "type": "item",
+          "settings": {
+            "text": "Knee mat included"
+          }
+        },
+        "w5": {
+          "type": "item",
+          "settings": {
+            "text": "3 handle positions"
+          }
+        }
+      },
+      "block_order": [
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5"
+      ]
+    },
+    "action": {
+      "type": "ns-ks-reviews",
+      "settings": {
+        "show_stars": true,
+        "eyebrow": "See it in action",
+        "heading": "Where routine becomes habit.",
+        "text": "A few minutes, a few feet of floor, and a trainer that helps you keep your form. Swipe to see it in use."
+      },
+      "blocks": {
+        "c0": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-woman-forearms.png",
+            "rating": 5
+          }
+        },
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-man-phone.png",
+            "rating": 5
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-couple.png",
+            "rating": 5
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-forearms.png",
+            "rating": 5
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-phone.png",
+            "rating": 5
+          }
+        },
+        "c5": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-step2.png",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    },
+    "compare": {
+      "type": "ns-ks-compare",
+      "settings": {
+        "eyebrow": "The difference",
+        "heading": "Why a 4-wheel trainer?",
+        "text": "How the four-wheel design, forearm support and assisted return compare with the classic ab wheels most people start with.",
+        "cols": "4-wheel trainer|Classic ab wheel|Wide dual-wheel",
+        "col1_img": "shopify://shop_images/abr-main.png",
+        "note": "Comparison with typical ab wheels; features vary by model."
+      },
+      "blocks": {
+        "r0": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel design",
+            "values": "4 wheels|2 wheels|2 wide wheels"
+          }
+        },
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Padded forearm rests",
+            "values": "y:|n:|n:"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Spring-assisted return",
+            "values": "y:|n:|w:Some models"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Built-in phone rest",
+            "values": "y:|n:|n:"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Handle grip",
+            "values": "y:|y:|y:"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Knee mat included",
+            "values": "y:|w:Sometimes|w:Sometimes"
+          }
+        }
+      },
+      "block_order": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ]
+    },
+    "bar": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'ns-kz-head' %}<div class=\"kz kz--navy\" style=\"padding:0 0 64px\"><div class=\"kz__wrap\"><div class=\"kz-bar\" style=\"margin-top:0\"><div><p class=\"kz-bar__eb\">Support your everyday training</p><p class=\"kz-bar__h\">Control starts at your core.</p><p class=\"kz-bar__p\">2-in-1 Ab Roller · <b>{{ product.selected_or_first_available_variant.price | money }}</b> · knee mat included</p></div><a class=\"kz-btn\" href=\"#kz-buy\">Get yours</a></div></div></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "inaction": {
+      "type": "ns-kz-split",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "See it in use",
+        "heading": "Train at home.",
+        "accent": "Build your rhythm.",
+        "text": "<p>From the compact frame to the padded forearm rests, it is built to live in your living room and come out whenever you have a few minutes.</p>",
+        "image": "shopify://shop_images/abr-woman.png",
+        "tag": "Core training at home",
+        "button_label": "Start your home routine",
+        "button_link": "#kz-buy"
+      }
+    },
+    "problems": {
+      "type": "ns-kz-cards",
+      "settings": {
+        "bg": "grey",
+        "eyebrow": "Sound familiar?",
+        "heading": "You want to train.",
+        "accent": "The setup gets in the way.",
+        "sub": "A core routine should fit your starting point, your space and your day.",
+        "columns": "3",
+        "show_numbers": true,
+        "note": "Less time working around your setup. More room for a steady routine."
+      },
+      "blocks": {
+        "p0": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-wobble.png",
+            "icon": "shield",
+            "title": "More focus on balance than your core?",
+            "text": "If a classic ab wheel wobbles, getting started can feel harder than it should.",
+            "label2": "Our approach",
+            "title2": "A broader base. A supported return.",
+            "text2": "Four wheels and a spring-assisted return help keep each rollout steady while you control the pace."
+          }
+        },
+        "p1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-wrists.png",
+            "icon": "hand",
+            "title": "Wrists doing all the work?",
+            "text": "Planks and hand-held rollers put a lot of load on your hands and wrists.",
+            "label2": "Our approach",
+            "title2": "Give your forearms a place to rest.",
+            "text2": "Padded forearm pads add a second point of contact alongside the handle."
+          }
+        },
+        "p2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-busy.png",
+            "icon": "clock",
+            "title": "Good intentions. A packed schedule.",
+            "text": "A trip to the gym can turn a short workout into an hour.",
+            "label2": "Our approach",
+            "title2": "Bring the setup closer to home.",
+            "text2": "A compact trainer you can keep in the living room, ready when you are."
+          }
+        }
+      },
+      "block_order": [
+        "p0",
+        "p1",
+        "p2"
+      ]
+    },
+    "advantage": {
+      "type": "ns-kz-cards",
+      "settings": {
+        "bg": "white",
+        "eyebrow": "The Nestlyday advantage",
+        "heading": "Designed for controlled core work.",
+        "sub": "Four practical design choices in one compact trainer.",
+        "columns": "2"
+      },
+      "blocks": {
+        "a0": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-room.png",
+            "label": "Wide rolling platform",
+            "title": "A wider base. More control.",
+            "text": "Four wheels give a broader footprint than a classic ab wheel, so you can focus on the movement instead of balancing."
+          }
+        },
+        "a1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-forearms.png",
+            "label": "Padded forearm contact",
+            "title": "Support where it matters.",
+            "text": "Cushioned forearm rests give you a second contact point next to the handle, for a more supported position."
+          }
+        },
+        "a2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/S9ef8b76e9e714f2091a5decfda3793a0e.webp",
+            "label": "Spring-assisted return",
+            "title": "Roll out. Guide the return.",
+            "text": "Built-in steel springs assist the way back. You stay in charge of the range and the pace."
+          }
+        },
+        "a3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/abr-phone.png",
+            "label": "Smarter home setup",
+            "title": "Keep your timer in sight.",
+            "text": "The built-in phone rest keeps a timer or a workout video in view while you train."
+          }
+        }
+      },
+      "block_order": [
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ]
+    },
+    "steps": {
+      "type": "ns-kz-steps",
+      "settings": {
+        "eyebrow": "Your first session",
+        "heading": "Get started in",
+        "accent": "3 simple steps.",
+        "sub": "Start small, stay controlled, and let consistency do the rest."
+      },
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/abr-step1.png",
+            "title": "Set your foundation.",
+            "text": "Kneel on the mat, rest your forearms on the pads and hold the handle."
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/abr-step2.png",
+            "title": "Brace. Then roll.",
+            "text": "Keep your core tight and roll forward a short distance under control."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/abr-step3.png",
+            "title": "Guide the return.",
+            "text": "Let the spring assist as you roll back. Reset and repeat at your own pace."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    },
+    "jdgm_head": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'ns-kz-head' %}<div class=\"kz\" style=\"padding:64px 0 0\"><div class=\"kz__wrap kz__center\" id=\"ns-reviews\" style=\"scroll-margin-top:90px\"><p class=\"kz__eyebrow\">Nestlyday community</p><h2 class=\"kz__h\">Real people. Real routines.</h2><p class=\"kz__sub\">Reviews from Nestlyday customers who bought this trainer.</p></div></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "jdgm": {
+      "type": "apps",
+      "blocks": {
+        "jdgm_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "jdgm_widget"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "guarantee": {
+      "type": "ns-kz-guarantee",
+      "settings": {
+        "heading": "We stand behind",
+        "accent": "every rep.",
+        "badge_top": "30-DAY",
+        "badge_mid": "RETURNS",
+        "badge_bottom": "POLICY"
+      },
+      "blocks": {
+        "g0": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "title": "30-day returns",
+            "text": "Contact us within 30 days of delivery. See our refund policy for the details."
+          }
+        },
+        "g1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Free U.S. shipping",
+            "text": "Free standard shipping with tracking on this trainer."
+          }
+        },
+        "g2": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure payment",
+            "text": "Checkout is processed securely by Shopify and the payment providers shown at checkout."
+          }
+        },
+        "g3": {
+          "type": "item",
+          "settings": {
+            "icon": "chat",
+            "title": "Real human support",
+            "text": "Questions about your order or how to use it? Email us and a person replies."
+          }
+        },
+        "g4": {
+          "type": "item",
+          "settings": {
+            "icon": "box",
+            "title": "Knee mat included",
+            "text": "Every trainer comes with its own knee mat for a more comfortable kneeling position."
+          }
+        },
+        "g5": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Clear safety guidance",
+            "text": "Simple start-up steps and safety notes, so you can begin at your own pace."
+          }
+        }
+      },
+      "block_order": [
+        "g0",
+        "g1",
+        "g2",
+        "g3",
+        "g4",
+        "g5"
+      ]
+    },
+    "faq": {
+      "type": "ns-kz-faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions?",
+        "accent": "Start here.",
+        "sub": "Know your equipment. Build your routine.",
+        "contact_label": "Contact Nestlyday"
+      },
+      "blocks": {
+        "q0": {
+          "type": "qa",
+          "settings": {
+            "q": "What is this trainer?",
+            "a": "<p>A four-wheel ab roller with padded forearm rests, a spring-assisted return, an adjustable handle and a built-in phone rest. A knee mat is included.</p>"
+          }
+        },
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "q": "How does the spring-assisted return work?",
+            "a": "<p>Steel springs inside the wheel housing help pull the roller back as you return to the start. You still control the speed and how far you roll.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "q": "Can beginners use it?",
+            "a": "<p>Yes. Start from your knees with a short range of motion and a few slow reps, then build up gradually. Stop if you feel pain.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "q": "Is it only for abs?",
+            "a": "<p>Rollouts mainly train your core, and your shoulders, arms and back work to stabilise you.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "q": "Does it need an app or batteries?",
+            "a": "<p>No. It is fully mechanical. The phone rest simply holds your own phone if you want a timer or video in view.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "q": "Will it give me visible abs?",
+            "a": "<p>No piece of equipment can promise that. Visible results depend on your overall routine, nutrition, sleep and starting point.</p>"
+          }
+        },
+        "q6": {
+          "type": "qa",
+          "settings": {
+            "q": "Who should check with a doctor first?",
+            "a": "<p>Anyone with back, shoulder, wrist or joint problems, people who are pregnant or recovering from surgery, or anyone unsure whether core exercise is right for them.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ]
+    },
+    "final": {
+      "type": "ns-kz-split",
+      "settings": {
+        "bg": "navy",
+        "eyebrow": "Train your way",
+        "heading": "Your next rep",
+        "accent": "starts at home.",
+        "text": "<p>Begin with a supported kneeling rollout, keep a comfortable range, and make core training part of your everyday routine.</p>",
+        "image": "shopify://shop_images/abr-room.png",
+        "tag": "Knee mat included",
+        "media_right": true,
+        "show_price": true,
+        "button_label": "Choose your package",
+        "button_link": "#kz-buy",
+        "small": "Choose your package and review shipping details before checkout."
+      }
+    },
+    "sticky": {
+      "type": "vr-sticky-atc",
+      "settings": {
+        "enable": true,
+        "label": "Add to cart"
+      }
+    }
+  },
+  "order": [
+    "kz_overrides",
+    "main",
+    "marquee",
+    "action",
+    "compare",
+    "bar",
+    "inaction",
+    "problems",
+    "advantage",
+    "steps",
+    "jdgm_head",
+    "jdgm",
+    "guarantee",
+    "faq",
+    "final",
+    "sticky"
+  ]
+}
