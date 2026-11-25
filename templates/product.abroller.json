@@ -181,9 +181,9 @@
     "action": {
       "type": "ns-kz-vcards",
       "settings": {
-        "heading": "Where routine",
-        "accent": "becomes habit.",
-        "sub": "Build your core one smooth rollout at a time."
+        "heading": "Where routine becomes habit",
+        "sub": "Build your core one smooth rollout at a time",
+        "swipe": "Swipe to view more"
       },
       "blocks": {
         "v0": {
@@ -192,7 +192,8 @@
             "image": "shopify://shop_images/relife-plank.jpg",
             "text": "Normal ab wheels can wobble and tip. Four wheels give a steadier base, so a home core routine feels simpler.",
             "tags": "Home workout, Simple to use",
-            "rating": 5
+            "rating": 5,
+            "show_stars": false
           }
         },
         "v1": {
@@ -201,7 +202,8 @@
             "image": "shopify://shop_images/relife-elbowpad.jpg",
             "text": "Rest your forearms on the padded supports and let your core do the work, with less load on your wrists.",
             "tags": "Core engagement, Controlled reps",
-            "rating": 5
+            "rating": 5,
+            "show_stars": false
           }
         },
         "v2": {
@@ -210,7 +212,8 @@
             "image": "shopify://shop_images/relife-matpair.jpg",
             "text": "Steel springs assist the return of each rollout, so you can focus on a slow, controlled movement.",
             "tags": "Forearm support, Core workout",
-            "rating": 5
+            "rating": 5,
+            "show_stars": false
           }
         }
       },
@@ -733,6 +736,56 @@
         "s2",
         "s3"
       ]
+    },
+    "community": {
+      "type": "ns-kz-community",
+      "settings": {
+        "eyebrow": "Our fitness community",
+        "heading": "",
+        "sub": "",
+        "btn_label": "",
+        "note": ""
+      },
+      "blocks": {
+        "s1": {
+          "type": "story",
+          "settings": {
+            "label_left": "",
+            "label_right": "",
+            "show_stars": false,
+            "rating": 5,
+            "icon1": "bolt",
+            "icon2": "trend"
+          }
+        },
+        "s2": {
+          "type": "story",
+          "settings": {
+            "label_left": "",
+            "label_right": "",
+            "show_stars": false,
+            "rating": 5,
+            "icon1": "bolt",
+            "icon2": "trend"
+          }
+        },
+        "s3": {
+          "type": "story",
+          "settings": {
+            "label_left": "",
+            "label_right": "",
+            "show_stars": false,
+            "rating": 5,
+            "icon1": "bolt",
+            "icon2": "trend"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
     }
   },
   "order": [
@@ -740,6 +793,7 @@
     "main",
     "marquee",
     "action",
+    "community",
     "compare",
     "bar",
     "inaction",
