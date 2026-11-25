@@ -1,0 +1,110 @@
+{%- comment -%}
+  Korzivo-style "Our fitness community" stories: wide photo/video with two corner labels,
+  stars, italic quote, name + badge, two highlight pills, CTA. Desktop 3-up, mobile swipe + dots.
+  Empty cards render only in the theme editor.
+{%- endcomment -%}
+{%- liquid
+  assign has_any = false
+  for block in section.blocks
+    if block.settings.video != blank or block.settings.image != blank or block.settings.quote != blank
+      assign has_any = true
+    endif
+  endfor
+-%}
+{%- if has_any or request.design_mode -%}
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy kz-cm" id="kz-cm-{{ section.id }}">
+  <div class="kz-cm__wrap">
+    <header class="kz-cm__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="kz-cm__eb">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="kz-cm__h">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.sub != blank -%}<p class="kz-cm__sub">{{ section.settings.sub }}</p>{%- endif -%}
+    </header>
+    <div class="kz-cm__list" role="region" tabindex="0" aria-label="{{ section.settings.heading | escape }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign b = block.settings
+          assign filled = false
+          if b.video != blank or b.image != blank or b.quote != blank
+            assign filled = true
+          endif
+        -%}
+        {%- if filled or request.design_mode -%}
+        <article class="kz-cm__card" {{ block.shopify_attributes }}>
+          <div class="kz-cm__photo">
+            {%- if b.video != blank -%}{{ b.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '900x' }}
+            {%- elsif b.image != blank -%}{{ b.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 85vw', alt: b.name }}
+            {%- else -%}<div class="kz-cm__ph">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>{%- endif -%}
+            {%- if b.label_left != blank or b.label_right != blank -%}
+            <div class="kz-cm__tags" aria-hidden="true">{%- if b.label_left != blank -%}<span>{{ b.label_left }}</span>{%- else -%}<i></i>{%- endif -%}{%- if b.label_right != blank -%}<span class="is-lime">{{ b.label_right }}</span>{%- endif -%}</div>
+            {%- endif -%}
+            <span class="kz-cm__grad" aria-hidden="true"></span>
+          </div>
+          <div class="kz-cm__content">
+            {%- if b.show_stars -%}<div class="kz-cm__stars" role="img" aria-label="{{ b.rating }} out of 5 stars">{%- for i in (1..5) -%}<span aria-hidden="true"{% if i > b.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>{%- endif -%}
+            {%- if b.quote != blank -%}<blockquote class="kz-cm__quote">{{ b.quote }}</blockquote>
+            {%- elsif request.design_mode -%}<blockquote class="kz-cm__quote kz-cm__hint">Customer quote goes here.</blockquote>{%- endif -%}
+            <div class="kz-cm__foot">
+              {%- if b.name != blank -%}
+              <div class="kz-cm__person"><strong>{{ b.name }}</strong>
+                {%- if b.badge != blank -%}<span class="kz-cm__ver"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#22C55E" stroke-width="2"/><path d="M7.5 12.5l3 3L16.5 9" fill="none" stroke="#22C55E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ b.badge }}</span>{%- endif -%}
+              </div>
+              {%- endif -%}
+              {%- if b.benefit1 != blank or b.benefit2 != blank -%}
+              <div class="kz-cm__benefits">
+                {%- if b.benefit1 != blank -%}<span>{% render 'ns-kz-cm-icon', name: b.icon1 %}{{ b.benefit1 }}</span>{%- endif -%}
+                {%- if b.benefit2 != blank -%}<span>{% render 'ns-kz-cm-icon', name: b.icon2 %}{{ b.benefit2 }}</span>{%- endif -%}
+              </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="kz-cm__dots" aria-hidden="true"></div>
+    {%- if section.settings.btn_label != blank -%}
+    <div class="kz-cm__cta">
+      <a class="kz-btn kz-cm__btn" href="{{ section.settings.btn_link | default: '#kz-buy' }}">{{ section.settings.btn_label }} <span aria-hidden="true">→</span></a>
+      {%- if section.settings.note != blank -%}<p class="kz-cm__note">{{ section.settings.note }}</p>{%- endif -%}
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+<script>
+(function(){
+  var root=document.getElementById('kz-cm-{{ section.id }}');if(!root)return;
+  var list=root.querySelector('.kz-cm__list'),dots=root.querySelector('.kz-cm__dots');
+  var cards=list.querySelectorAll('.kz-cm__card');if(!(cards.length>1))return;
+  cards.forEach(function(c,i){var d=document.createElement('button');d.type='button';d.tabIndex=-1;d.addEventListener('click',function(){list.scrollTo({left:c.offsetLeft-list.offsetLeft-20,behavior:'smooth'})});dots.appendChild(d)});
+  function upd(){var x=list.scrollLeft,best=0,bd=1e9;cards.forEach(function(c,i){var d=Math.abs(c.offsetLeft-list.offsetLeft-20-x);if(bd>d){bd=d;best=i}});dots.querySelectorAll('button').forEach(function(d,i){d.classList.toggle('is-on',i===best)})}
+  list.addEventListener('scroll',function(){window.requestAnimationFrame(upd)},{passive:true});upd();
+})();
+</script>
+{%- endif -%}
+{% schema %}
+{ "name": "KZ Community stories", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our fitness community" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "text", "id": "btn_label", "label": "Button label" },
+    { "type": "url", "id": "btn_link", "label": "Button link", "info": "Empty = scroll to the package selector." },
+    { "type": "inline_richtext", "id": "note", "label": "Text under button" },
+    { "type": "paragraph", "content": "Cards with no media and no quote are hidden on the live store. Use real customer content only." } ],
+  "blocks": [{ "type": "story", "name": "Story", "settings": [
+    { "type": "video", "id": "video", "label": "Video" },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Shown when no video is set. 5:4 works best." },
+    { "type": "text", "id": "label_left", "label": "Photo label, left" },
+    { "type": "text", "id": "label_right", "label": "Photo label, right" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": false },
+    { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+    { "type": "textarea", "id": "quote", "label": "Quote" },
+    { "type": "text", "id": "name", "label": "Name" },
+    { "type": "text", "id": "badge", "label": "Badge next to name", "info": "For example: Verified Customer" },
+    { "type": "text", "id": "benefit1", "label": "Highlight 1" },
+    { "type": "select", "id": "icon1", "label": "Highlight 1 icon", "default": "bolt", "options": [ { "value": "bolt", "label": "Bolt" }, { "value": "waist", "label": "Waist" }, { "value": "sun", "label": "Morning" }, { "value": "core", "label": "Core" }, { "value": "dumbbell", "label": "Dumbbell" }, { "value": "trend", "label": "Trend up" }, { "value": "heart", "label": "Heart" }, { "value": "clock", "label": "Clock" } ] },
+    { "type": "text", "id": "benefit2", "label": "Highlight 2" },
+    { "type": "select", "id": "icon2", "label": "Highlight 2 icon", "default": "trend", "options": [ { "value": "bolt", "label": "Bolt" }, { "value": "waist", "label": "Waist" }, { "value": "sun", "label": "Morning" }, { "value": "core", "label": "Core" }, { "value": "dumbbell", "label": "Dumbbell" }, { "value": "trend", "label": "Trend up" }, { "value": "heart", "label": "Heart" }, { "value": "clock", "label": "Clock" } ] } ] }],
+  "presets": [{ "name": "KZ Community stories", "blocks": [{ "type": "story" }, { "type": "story" }, { "type": "story" }] }] }
+{% endschema %}

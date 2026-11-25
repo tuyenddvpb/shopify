@@ -1,44 +1,78 @@
+{%- comment -%}
+  Korzivo-style "movement" rail: square media (video or image), lime rule, stars,
+  quote text, name + badge, topic pills. Desktop: 3-up grid. Mobile: swipe rail.
+  Empty cards render only in the theme editor, so the live page never shows blank boxes.
+{%- endcomment -%}
+{%- liquid
+  assign has_any = false
+  for block in section.blocks
+    if block.settings.video != blank or block.settings.image != blank or block.settings.text != blank or block.settings.name != blank
+      assign has_any = true
+    endif
+  endfor
+-%}
+{%- if has_any or request.design_mode -%}
 {% render 'ns-kz-head' %}
-<section class="kz kz--navy kz__pad">
-  <div class="kz__wrap kz__center">
-    {% render 'ns-kz-heading', s: section.settings %}
-    <div class="kz-vc">
+<section class="kz kz--navy kz-vr" id="kz-vr-{{ section.id }}">
+  <div class="kz-vr__inner">
+    <header class="kz-vr__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="kz__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 class="kz-vr__h">{{ section.settings.heading }}{%- if section.settings.accent != blank -%} {{ section.settings.accent }}{%- endif -%}</h2>
+      {%- if section.settings.sub != blank -%}<p class="kz-vr__intro">{{ section.settings.sub }}</p>{%- endif -%}
+    </header>
+    <div class="kz-vr__rail" role="region" tabindex="0" aria-label="{{ section.settings.heading | escape }}">
       {%- for block in section.blocks -%}
-      <article class="kz-vc__card" {{ block.shopify_attributes }}>
-        <div class="kz-vc__media">
-          {%- if block.settings.video != blank -%}{{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '700x' }}
-          {%- elsif block.settings.image != blank -%}{{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw' }}
-          {%- else -%}<div class="kz__ph"></div>{%- endif -%}
-        </div>
-        <div class="kz-vc__b">
-          {%- if block.settings.name != blank -%}<div class="kz-vc__stars" aria-label="{{ block.settings.rating }} out of 5">{%- for i in (1..5) -%}<span{% if i > block.settings.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>{%- endif -%}
-          {%- if block.settings.title != blank -%}<h3 class="kz-vc__h">{{ block.settings.title }}</h3>{%- endif -%}
-          <p class="kz-vc__t">{{ block.settings.text }}</p>
-          {%- if block.settings.name != blank -%}<p class="kz-vc__n">{{ block.settings.name }}{%- if block.settings.source != blank -%} <span>✓ {{ block.settings.source }}</span>{%- endif -%}</p>{%- endif -%}
-          {%- assign tags = block.settings.tags | split: ',' -%}
-          {%- if block.settings.tags != blank -%}<div class="kz-vc__tags">{%- for t in tags -%}<span>{{ t | strip }}</span>{%- endfor -%}</div>{%- endif -%}
-        </div>
-      </article>
+        {%- liquid
+          assign b = block.settings
+          assign filled = false
+          if b.video != blank or b.image != blank or b.text != blank or b.name != blank
+            assign filled = true
+          endif
+        -%}
+        {%- if filled or request.design_mode -%}
+        <article class="kz-vr__card" {{ block.shopify_attributes }}>
+          <div class="kz-vr__media">
+            {%- if b.video != blank -%}{{ b.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '700x' }}
+            {%- elsif b.image != blank -%}{{ b.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 85vw', alt: b.image.alt | default: section.settings.heading }}
+            {%- else -%}<div class="kz-vr__ph">{{ 'image' | placeholder_svg_tag }}<span>Add a video or image</span></div>{%- endif -%}
+          </div>
+          <div class="kz-vr__body">
+            {%- if b.show_stars -%}<div class="kz-vr__stars" role="img" aria-label="{{ b.rating }} out of 5 stars">{%- for i in (1..5) -%}<span aria-hidden="true"{% if i > b.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>{%- endif -%}
+            {%- if b.title != blank -%}<h3 class="kz-vr__title">{{ b.title }}</h3>{%- endif -%}
+            {%- if b.text != blank -%}<blockquote class="kz-vr__quote">{{ b.text }}</blockquote>
+            {%- elsif request.design_mode -%}<blockquote class="kz-vr__quote kz-vr__hint">Card text goes here.</blockquote>{%- endif -%}
+            {%- if b.name != blank -%}
+            <div class="kz-vr__cust"><strong>{{ b.name }}</strong>
+              {%- if b.source != blank -%}<span class="kz-vr__ver"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#16A34A"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ b.source }}</span>{%- endif -%}
+            </div>
+            {%- endif -%}
+            {%- if b.tags != blank -%}{%- assign tags = b.tags | split: ',' -%}<div class="kz-vr__topics">{%- for t in tags -%}<span>{{ t | strip }}</span>{%- endfor -%}</div>{%- endif -%}
+          </div>
+        </article>
+        {%- endif -%}
       {%- endfor -%}
     </div>
+    {%- if section.settings.swipe != blank -%}<p class="kz-vr__swipe">{{ section.settings.swipe }} <span aria-hidden="true">→</span></p>{%- endif -%}
   </div>
 </section>
+{%- endif -%}
 {% schema %}
 { "name": "KZ Video cards", "tag": "div",
   "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading" },
-    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "text", "id": "accent", "label": "Heading (continued)" },
     { "type": "textarea", "id": "sub", "label": "Subheading" },
-    { "type": "header", "content": "Cards" } ],
+    { "type": "text", "id": "swipe", "label": "Mobile swipe hint", "default": "Swipe to view more" },
+    { "type": "paragraph", "content": "Cards with no media, text or name are hidden on the live store." } ],
   "blocks": [{ "type": "card", "name": "Card", "settings": [
-    { "type": "video", "id": "video", "label": "Video", "info": "Plays muted on a loop. Leave empty to show the image." },
-    { "type": "image_picker", "id": "image", "label": "Image" },
-    { "type": "text", "id": "title", "label": "Title" },
-    { "type": "textarea", "id": "text", "label": "Text" },
-    { "type": "text", "id": "tags", "label": "Tags, separated by commas" },
-    { "type": "header", "content": "Customer review (optional, real reviews only)" },
+    { "type": "video", "id": "video", "label": "Video", "info": "Square video works best. Plays muted on a loop." },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Shown when no video is set." },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": false },
     { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
-    { "type": "text", "id": "name", "label": "Reviewer name" },
-    { "type": "text", "id": "source", "label": "Badge", "info": "For example: Verified buyer" } ] }],
-  "presets": [{ "name": "KZ Video cards" }] }
+    { "type": "text", "id": "title", "label": "Title (optional)" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "name", "label": "Name" },
+    { "type": "text", "id": "source", "label": "Badge next to name", "info": "For example: Verified Customer. Use only for real buyers." },
+    { "type": "text", "id": "tags", "label": "Tags, separated by commas" } ] }],
+  "presets": [{ "name": "KZ Video cards", "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }] }] }
 {% endschema %}
