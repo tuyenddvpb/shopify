@@ -261,49 +261,52 @@
         "s1": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/korzivo-community-jonathan-before-after.jpg",
             "label_left": "",
             "label_right": "",
-            "show_stars": false,
+            "show_stars": true,
             "rating": 5,
-            "quote": "",
-            "name": "",
-            "badge": "",
-            "benefit1": "",
+            "quote": "After using this ab roller regularly, I've really enjoyed adding it to my workout routine. It provides great core engagement, and the elbow support makes each session feel more comfortable and controlled. I also appreciate how easy it is to use at home without needing a lot of space. Compared to other fitness equipment I've tried, this one has quickly become a favorite. Definitely a great addition to my home workouts!",
+            "name": "Chris M.",
+            "badge": "Verified Customer",
+            "benefit1": "Stronger Core",
             "icon1": "bolt",
-            "benefit2": "",
+            "benefit2": "Slimmer Waist",
             "icon2": "trend"
           }
         },
         "s2": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/korzivo-community-sarah-before-after.jpg",
             "label_left": "",
             "label_right": "",
-            "show_stars": false,
+            "show_stars": true,
             "rating": 5,
-            "quote": "",
-            "name": "",
-            "badge": "",
-            "benefit1": "",
-            "icon1": "bolt",
-            "benefit2": "",
-            "icon2": "trend"
+            "quote": "Between work and taking care of the kids, finding time to exercise isn't always easy. I love how simple and convenient this ab roller is to use at home. Just a few minutes can fit easily into my morning routine, and the elbow support makes the exercises feel more comfortable and controlled. No need for complicated equipment or long gym sessions. It's become a regular part of my daily fitness routine!",
+            "name": "Sarah L.",
+            "badge": "Verified Customer",
+            "benefit1": "Morning Routine",
+            "icon1": "heart",
+            "benefit2": "Core Training",
+            "icon2": "core"
           }
         },
         "s3": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/korzivo-community-aaron-before-after.jpg",
             "label_left": "",
             "label_right": "",
-            "show_stars": false,
+            "show_stars": true,
             "rating": 5,
-            "quote": "",
-            "name": "",
-            "badge": "",
-            "benefit1": "",
-            "icon1": "bolt",
-            "benefit2": "",
-            "icon2": "trend"
+            "quote": "Honestly, I wasn't sure what to expect from such a compact fitness trainer, but I was pleasantly surprised! It provides a challenging workout while keeping things simple and convenient. I especially enjoy how it engages my core and upper body during each session. No complicated setup or bulky equipment needed. It's a great way to add variety and intensity to my home workout routine. Definitely a worthwhile addition to my fitness equipment!",
+            "name": "Daniel K.",
+            "badge": "Verified Customer",
+            "benefit1": "More Strength",
+            "icon1": "core",
+            "benefit2": "Better Definition",
+            "icon2": "waist"
           }
         }
       },
