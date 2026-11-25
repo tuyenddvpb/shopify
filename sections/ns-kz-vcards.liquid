@@ -1,0 +1,44 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy kz__pad">
+  <div class="kz__wrap kz__center">
+    {% render 'ns-kz-heading', s: section.settings %}
+    <div class="kz-vc">
+      {%- for block in section.blocks -%}
+      <article class="kz-vc__card" {{ block.shopify_attributes }}>
+        <div class="kz-vc__media">
+          {%- if block.settings.video != blank -%}{{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '700x' }}
+          {%- elsif block.settings.image != blank -%}{{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw' }}
+          {%- else -%}<div class="kz__ph"></div>{%- endif -%}
+        </div>
+        <div class="kz-vc__b">
+          {%- if block.settings.name != blank -%}<div class="kz-vc__stars" aria-label="{{ block.settings.rating }} out of 5">{%- for i in (1..5) -%}<span{% if i > block.settings.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>{%- endif -%}
+          {%- if block.settings.title != blank -%}<h3 class="kz-vc__h">{{ block.settings.title }}</h3>{%- endif -%}
+          <p class="kz-vc__t">{{ block.settings.text }}</p>
+          {%- if block.settings.name != blank -%}<p class="kz-vc__n">{{ block.settings.name }}{%- if block.settings.source != blank -%} <span>✓ {{ block.settings.source }}</span>{%- endif -%}</p>{%- endif -%}
+          {%- assign tags = block.settings.tags | split: ',' -%}
+          {%- if block.settings.tags != blank -%}<div class="kz-vc__tags">{%- for t in tags -%}<span>{{ t | strip }}</span>{%- endfor -%}</div>{%- endif -%}
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "KZ Video cards", "tag": "div",
+  "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent", "label": "Heading second line (accent color on dark)" },
+    { "type": "textarea", "id": "sub", "label": "Subheading" },
+    { "type": "header", "content": "Cards" } ],
+  "blocks": [{ "type": "card", "name": "Card", "settings": [
+    { "type": "video", "id": "video", "label": "Video", "info": "Plays muted on a loop. Leave empty to show the image." },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "tags", "label": "Tags, separated by commas" },
+    { "type": "header", "content": "Customer review (optional, real reviews only)" },
+    { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "name", "label": "Reviewer name" },
+    { "type": "text", "id": "source", "label": "Badge", "info": "For example: Verified buyer" } ] }],
+  "presets": [{ "name": "KZ Video cards" }] }
+{% endschema %}

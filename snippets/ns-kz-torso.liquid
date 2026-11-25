@@ -1,0 +1,33 @@
+{%- comment -%} Simple vector torso diagram. Param: area = upper | mid | lower | obliques {%- endcomment -%}
+{%- liquid
+  assign hi = '#E5483B'
+  assign lo = '#3A4456'
+  assign u = lo
+  assign m = lo
+  assign l = lo
+  assign o = lo
+  case area
+    when 'upper'
+      assign u = hi
+    when 'mid'
+      assign m = hi
+    when 'lower'
+      assign l = hi
+    when 'obliques'
+      assign o = hi
+  endcase
+-%}
+<svg viewBox="0 0 160 200" role="img" aria-label="{{ area }} abdominal muscles">
+  <defs><radialGradient id="kzt{{ area }}" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#2B3445"/><stop offset="1" stop-color="#151B26"/></radialGradient></defs>
+  <rect width="160" height="200" rx="12" fill="#0F1520"/>
+  <path d="M38 18 C58 8 102 8 122 18 L132 70 C134 110 126 150 116 188 L44 188 C34 150 26 110 28 70 Z" fill="url(#kzt{{ area }})" stroke="#4B5568" stroke-width="1.5"/>
+  <path d="M40 30 C60 40 100 40 120 30" fill="none" stroke="#4B5568" stroke-width="1.5"/>
+  <g stroke="#0F1520" stroke-width="2">
+    <rect x="58" y="58" width="21" height="22" rx="6" fill="{{ u }}"/><rect x="81" y="58" width="21" height="22" rx="6" fill="{{ u }}"/>
+    <rect x="58" y="83" width="21" height="22" rx="6" fill="{{ m }}"/><rect x="81" y="83" width="21" height="22" rx="6" fill="{{ m }}"/>
+    <rect x="59" y="108" width="20" height="22" rx="6" fill="{{ l }}"/><rect x="81" y="108" width="20" height="22" rx="6" fill="{{ l }}"/>
+    <path d="M62 134 H98 C96 152 90 166 80 176 C70 166 64 152 62 134 Z" fill="{{ l }}"/>
+    <path d="M40 70 C46 90 50 112 56 132 L56 66 C50 66 44 67 40 70 Z" fill="{{ o }}"/>
+    <path d="M120 70 C114 90 110 112 104 132 L104 66 C110 66 116 67 120 70 Z" fill="{{ o }}"/>
+  </g>
+</svg>

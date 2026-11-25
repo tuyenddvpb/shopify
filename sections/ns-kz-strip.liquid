@@ -1,0 +1,15 @@
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy" style="padding:28px 0;border-top:1px solid #2A3E5C;border-bottom:1px solid #2A3E5C">
+  <div class="kz__wrap"><div class="kz-strip">
+    {%- for block in section.blocks -%}<div {{ block.shopify_attributes }}>{% render 'vr-icon', name: block.settings.icon, size: 28 %}<span><b>{{ block.settings.title }}</b>{{ block.settings.text }}</span></div>{%- endfor -%}
+  </div></div>
+</section>
+{% schema %}
+{ "name": "KZ Trust strip", "tag": "div",
+  "settings": [],
+  "blocks": [{ "type": "item", "name": "Item", "settings": [
+    { "type": "text", "id": "icon", "label": "Icon name", "default": "lock" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+    { "type": "text", "id": "text", "label": "Text" } ] }],
+  "presets": [{ "name": "KZ Trust strip" }] }
+{% endschema %}
