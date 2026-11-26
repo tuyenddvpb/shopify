@@ -638,13 +638,14 @@
         "r1": {
           "type": "review",
           "settings": {
-            "badge": "",
-            "show_stars": false,
+            "image": "shopify://shop_images/relife-review-uniform-carlos.jpg",
+            "badge": "Verified Buyer",
+            "show_stars": true,
             "rating": 5,
-            "title": "",
-            "text": "",
-            "name": "",
-            "location": ""
+            "title": "A Game Changer for My Home Workouts!",
+            "text": "I've been looking for a simple way to improve my core workouts at home, and this has been a great addition to my routine. I love how it engages my abs while helping me maintain better control throughout each movement. It's easy to use, doesn't take up much space, and makes home workouts more enjoyable!",
+            "name": "Brandon W.",
+            "location": "Denver, CO"
           }
         },
         "r2": {
