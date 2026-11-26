@@ -384,9 +384,9 @@
         "text": "How the four-wheel design, forearm support and assisted return compare with the classic ab wheels most people start with.",
         "cols": "4-wheel trainer|Classic ab wheel|Wide dual-wheel",
         "col1_img": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
-        "note": "Comparison with typical ab wheels; features vary by model.",
         "col2_img": "shopify://shop_images/abr-cmp-classic.jpg",
-        "col3_img": "shopify://shop_images/abr-cmp-dual.jpg"
+        "col3_img": "shopify://shop_images/abr-cmp-dual.jpg",
+        "note": "Comparison with typical ab wheels; features vary by model."
       }
     },
     "bar": {
@@ -407,7 +407,7 @@
         "accent": "Build your rhythm.",
         "sub": "",
         "text": "<p>From the compact frame to the padded forearm rests, it is built to live in your living room and come out whenever you have a few minutes.</p>",
-        "image": "shopify://shop_images/relife-plank.jpg",
+        "image": "shopify://shop_images/KORZIVO_R1_Garage_40s_Square.webp",
         "tag": "Core training / RELIFE",
         "media_right": false,
         "show_price": false,
