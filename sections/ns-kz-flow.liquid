@@ -1,0 +1,105 @@
+{%- comment -%}
+  Korzivo-style review flow: left-aligned header + auto-scrolling row of review cards
+  (photo/video left, badge, stars, title, text, avatar + name + location right).
+  Cards with no media and no text render only in the theme editor.
+{%- endcomment -%}
+{%- liquid
+  assign n = 0
+  for block in section.blocks
+    if block.settings.video != blank or block.settings.image != blank or block.settings.text != blank
+      assign n = n | plus: 1
+    endif
+  endfor
+  assign show_cards = false
+  if n > 0 or request.design_mode
+    assign show_cards = true
+  endif
+-%}
+{% render 'ns-kz-head' %}
+<section class="kz kz--navy kz-fl" id="kz-fl-{{ section.id }}" data-speed="{{ section.settings.speed }}">
+  <div class="kz-fl__wrap" id="ns-reviews">
+    {%- if section.settings.eyebrow != blank -%}<p class="kz-fl__eb">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="kz-fl__h">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.intro != blank -%}<p class="kz-fl__intro">{{ section.settings.intro }}</p>{%- endif -%}
+  </div>
+  {%- if show_cards -%}
+  <div class="kz-fl__viewport" tabindex="0" role="region" aria-label="{{ section.settings.heading | escape }}">
+    <div class="kz-fl__track">
+      <div class="kz-fl__set">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign b = block.settings
+          assign filled = false
+          if b.video != blank or b.image != blank or b.text != blank
+            assign filled = true
+          endif
+        -%}
+        {%- if filled or request.design_mode -%}
+        <article class="kz-fl__card" {{ block.shopify_attributes }}>
+          <div class="kz-fl__photo">
+            {%- if b.video != blank -%}{{ b.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'metadata', image_size: '600x' }}
+            {%- elsif b.image != blank -%}{{ b.image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '220px', alt: b.name }}
+            {%- else -%}<div class="kz-fl__ph">{{ 'image' | placeholder_svg_tag }}</div>{%- endif -%}
+          </div>
+          <div class="kz-fl__panel">
+            {%- if b.badge != blank -%}<span class="kz-fl__badge"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ b.badge }}</span>{%- endif -%}
+            {%- if b.show_stars -%}<div class="kz-fl__stars" role="img" aria-label="{{ b.rating }} out of 5 stars">{%- for i in (1..5) -%}<span aria-hidden="true"{% if i > b.rating %} class="is-off"{% endif %}>★</span>{%- endfor -%}</div>{%- endif -%}
+            {%- if b.title != blank -%}<h3 class="kz-fl__title">{{ b.title }}</h3>{%- endif -%}
+            {%- if b.text != blank -%}<p class="kz-fl__text">{{ b.text }}</p>
+            {%- elsif request.design_mode -%}<p class="kz-fl__text" style="opacity:.45">Review text goes here.</p>{%- endif -%}
+            {%- if b.name != blank -%}
+            <div class="kz-fl__who">
+              {%- if b.avatar != blank -%}{{ b.avatar | image_url: width: 120 | image_tag: loading: 'lazy', class: 'kz-fl__av', alt: '' }}{%- endif -%}
+              <div><strong>{{ b.name }}</strong>{%- if b.location != blank -%}<small>{{ b.location }}</small>{%- endif -%}</div>
+            </div>
+            {%- endif -%}
+          </div>
+        </article>
+        {%- endif -%}
+      {%- endfor -%}
+      </div>
+    </div>
+  </div>
+  {%- if section.settings.swipe != blank -%}<p class="kz-fl__swipe">{{ section.settings.swipe }} <span aria-hidden="true">→</span></p>{%- endif -%}
+  <script>
+  (function(){
+    var root=document.getElementById('kz-fl-{{ section.id }}');if(!root)return;
+    var vp=root.querySelector('.kz-fl__viewport'),track=root.querySelector('.kz-fl__track'),set=root.querySelector('.kz-fl__set');
+    if(!vp||!set||!(set.children.length>1))return;
+    if(window.Shopify&&Shopify.designMode)return;
+    var dup=set.cloneNode(true);dup.setAttribute('aria-hidden','true');dup.querySelectorAll('[id]').forEach(function(e){e.removeAttribute('id')});track.appendChild(dup);
+    var speed=parseFloat(root.getAttribute('data-speed'))||30,paused=false,last=null,pos=0;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    ['mouseenter','touchstart','focusin'].forEach(function(ev){vp.addEventListener(ev,function(){paused=true},{passive:true})});
+    ['mouseleave','touchend','focusout'].forEach(function(ev){vp.addEventListener(ev,function(){paused=false;pos=vp.scrollLeft},{passive:true})});
+    function step(t){if(last===null)last=t;var dt=(t-last)/1000;last=t;
+      if(!paused){var w=set.offsetWidth;pos+=speed*dt;if(pos>=w)pos-=w;vp.scrollLeft=pos}
+      else if(vp.scrollLeft>=set.offsetWidth){vp.scrollLeft-=set.offsetWidth}
+      requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  })();
+  </script>
+  {%- endif -%}
+</section>
+{% schema %}
+{ "name": "KZ Review flow", "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "range", "id": "speed", "label": "Auto-scroll speed", "min": 10, "max": 80, "step": 5, "unit": "px", "default": 30 },
+    { "type": "text", "id": "swipe", "label": "Mobile swipe hint", "default": "Swipe to see more" },
+    { "type": "paragraph", "content": "Cards with no media and no text are hidden on the live store. Use real customer reviews only." } ],
+  "blocks": [{ "type": "review", "name": "Review", "settings": [
+    { "type": "video", "id": "video", "label": "Video" },
+    { "type": "image_picker", "id": "image", "label": "Photo", "info": "Shown when no video is set. Portrait works best." },
+    { "type": "text", "id": "badge", "label": "Badge", "info": "For example: Verified Buyer" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": false },
+    { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "textarea", "id": "text", "label": "Review text" },
+    { "type": "image_picker", "id": "avatar", "label": "Avatar" },
+    { "type": "text", "id": "name", "label": "Name" },
+    { "type": "text", "id": "location", "label": "Location" } ] }],
+  "presets": [{ "name": "KZ Review flow", "blocks": [{ "type": "review" }, { "type": "review" }, { "type": "review" }, { "type": "review" }] }] }
+{% endschema %}
