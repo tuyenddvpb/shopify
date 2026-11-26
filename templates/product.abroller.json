@@ -632,15 +632,6 @@
         "sub": "Kneeling rollouts work the muscles along the front and sides of your midsection."
       }
     },
-    "jdgm_head": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "{% render 'ns-kz-head' %}<div class=\"kz\" style=\"padding:64px 0 0\"><div class=\"kz__wrap kz__center\" id=\"ns-reviews\" style=\"scroll-margin-top:90px\"><p class=\"kz__eyebrow\">RELIFE community</p><h2 class=\"kz__h\">Real people. Real routines.</h2><p class=\"kz__sub\">Reviews from Nestlyday customers who bought this trainer.</p></div></div>",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "jdgm": {
       "type": "apps",
       "blocks": {
@@ -870,6 +861,52 @@
         "enable": true,
         "label": "Add to cart"
       }
+    },
+    "reviews_flow": {
+      "type": "ns-kz-flow",
+      "settings": {
+        "eyebrow": "RELIFE community",
+        "heading": "Real people. Real routines.",
+        "intro": "Reviews from Nestlyday customers who bought this trainer.",
+        "speed": 30,
+        "swipe": "Swipe to see more"
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "show_stars": false,
+            "rating": 5
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "show_stars": false,
+            "rating": 5
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "show_stars": false,
+            "rating": 5
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "show_stars": false,
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ]
     }
   },
   "order": [
@@ -885,7 +922,7 @@
     "advantage",
     "steps",
     "target",
-    "jdgm_head",
+    "reviews_flow",
     "jdgm",
     "strip",
     "guarantee",
