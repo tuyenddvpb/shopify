@@ -2,7 +2,7 @@
 <section class="kz kz--navy" style="padding:0 0 72px">
   <div class="kz__wrap">
     <div class="kz-tg">
-      <div class="kz-tg__copy"><h2 class="kz__h" style="font-size:clamp(28px,3vw,40px)">{{ section.settings.heading }}{%- if section.settings.accent != blank -%} <span class="kz__accent" style="display:inline">{{ section.settings.accent }}</span>{%- endif -%}</h2><p class="kz__p">{{ section.settings.sub }}</p></div>
+      <div class="kz-tg__copy"><h2 class="kz__h" style="font-size:clamp(28px,3vw,40px)">{{ section.settings.heading }}{%- if section.settings.accent != blank %} <span class="kz__accent" style="display:inline">{{ section.settings.accent }}</span>{%- endif -%}</h2><p class="kz__p">{{ section.settings.sub }}</p></div>
       <div class="kz-tg__grid">
         {%- for block in section.blocks -%}<div class="kz-tg__item" {{ block.shopify_attributes }}>{%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label, sizes: '(min-width: 990px) 20vw, 45vw' }}{%- else -%}<img src="{{ 'abr-tg-' | append: block.settings.area | append: '.jpg' | asset_url }}" alt="{{ block.settings.label | escape }}" width="560" height="679" loading="lazy">{%- endif -%}<span>{{ block.settings.label }}</span></div>{%- endfor -%}
       </div>
