@@ -481,7 +481,7 @@
         "a0": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/relife-stable.jpg",
+            "image": "shopify://shop_images/relife-r1-product-07.jpg",
             "icon": "",
             "label": "Wide rolling platform",
             "title": "A wider base. More control.",
@@ -494,7 +494,7 @@
         "a1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/relife-elbowpad.jpg",
+            "image": "shopify://shop_images/relife_AB_Roller_Product_Size.jpg",
             "icon": "",
             "label": "Padded forearm contact",
             "title": "Support where it matters.",
@@ -507,7 +507,7 @@
         "a2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/S9ef8b76e9e714f2091a5decfda3793a0e.webp",
+            "image": "shopify://shop_images/relife-r1-product-02.jpg",
             "icon": "",
             "label": "Spring-assisted return",
             "title": "Roll out. Guide the return.",
@@ -520,7 +520,7 @@
         "a3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/relife-phone.jpg",
+            "image": "shopify://shop_images/relife-r1-product-08.jpg",
             "icon": "",
             "label": "Smarter home setup",
             "title": "Keep your timer in sight.",
