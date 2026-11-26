@@ -632,6 +632,72 @@
         "sub": "Kneeling rollouts work the muscles along the front and sides of your midsection."
       }
     },
+    "reviews_flow": {
+      "type": "ns-kz-flow",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "badge": "",
+            "show_stars": false,
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "badge": "",
+            "show_stars": false,
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "badge": "",
+            "show_stars": false,
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "location": ""
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "badge": "",
+            "show_stars": false,
+            "rating": 5,
+            "title": "",
+            "text": "",
+            "name": "",
+            "location": ""
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
+      "settings": {
+        "eyebrow": "RELIFE community",
+        "heading": "Real people. Real routines.",
+        "intro": "Reviews from Nestlyday customers who bought this trainer.",
+        "speed": 30,
+        "swipe": "Swipe to see more"
+      }
+    },
     "jdgm": {
       "type": "apps",
       "blocks": {
@@ -846,7 +912,7 @@
         "accent": "starts at home.",
         "sub": "",
         "text": "<p>Begin with a supported kneeling rollout, keep a comfortable range, and make core training part of your everyday routine.</p>",
-        "image": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
+        "image": "shopify://shop_images/relife-r1-core-rollout-square-512.gif",
         "tag": "Kneeling rollout · in motion",
         "media_right": true,
         "show_price": true,
@@ -861,52 +927,6 @@
         "enable": true,
         "label": "Add to cart"
       }
-    },
-    "reviews_flow": {
-      "type": "ns-kz-flow",
-      "settings": {
-        "eyebrow": "RELIFE community",
-        "heading": "Real people. Real routines.",
-        "intro": "Reviews from Nestlyday customers who bought this trainer.",
-        "speed": 30,
-        "swipe": "Swipe to see more"
-      },
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "show_stars": false,
-            "rating": 5
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "show_stars": false,
-            "rating": 5
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "show_stars": false,
-            "rating": 5
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "show_stars": false,
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4"
-      ]
     }
   },
   "order": [
