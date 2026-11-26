@@ -554,7 +554,7 @@
         "s0": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/S66c783d425eb4b2e82f50dc109c7bf13d.webp",
+            "image": "shopify://shop_images/relife-r1-how-to-step-1.jpg",
             "title": "Set your foundation.",
             "text": "Kneel on the mat, rest your forearms on the pads and hold the handle."
           }
@@ -562,7 +562,7 @@
         "s1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/relife-plank.jpg",
+            "image": "shopify://shop_images/relife-r1-how-to-step-2.jpg",
             "title": "Brace. Then roll.",
             "text": "Keep your core tight and roll forward a short distance under control."
           }
@@ -570,7 +570,7 @@
         "s2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/relife-spring.jpg",
+            "image": "shopify://shop_images/relife-r1-how-to-step-3.jpg",
             "title": "Guide the return.",
             "text": "Let the spring assist as you roll back. Reset and repeat at your own pace."
           }
