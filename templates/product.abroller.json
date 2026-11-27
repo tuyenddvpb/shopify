@@ -635,6 +635,19 @@
     "reviews_flow": {
       "type": "ns-kz-flow",
       "blocks": {
+        "review_YDF9eX": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/relifeo-review-uniform-alex.jpg",
+            "badge": "Verified Buyer",
+            "show_stars": true,
+            "rating": 5,
+            "title": "Taking My Core Training to the Next Level!",
+            "text": "I've tried different ab workout equipment before, but I really like the design of this one. It makes core exercises feel more controlled and engaging, while the added elbow support is a nice touch. It's compact, convenient, and easy to incorporate into my regular workout schedule. Very happy with the design and overall experience!",
+            "name": "Kevin R.",
+            "location": "Austin, TX"
+          }
+        },
         "r1": {
           "type": "review",
           "settings": {
@@ -689,6 +702,7 @@
         }
       },
       "block_order": [
+        "review_YDF9eX",
         "r1",
         "r2",
         "r3",
