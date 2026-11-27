@@ -651,37 +651,40 @@
         "r2": {
           "type": "review",
           "settings": {
-            "badge": "",
-            "show_stars": false,
+            "image": "shopify://shop_images/relife-review-uniform-kevin.jpg",
+            "badge": "Verified Buyer",
+            "show_stars": true,
             "rating": 5,
-            "title": "",
-            "text": "",
-            "name": "",
-            "location": ""
+            "title": "Simple Design, Serious Core Workout!",
+            "text": "I was surprised by how effective this little machine is! It provides a challenging core workout and lets me focus on my abs, obliques, and lower abdominal muscles. The compact design is a huge plus, and I can easily fit a quick session into my daily routine.",
+            "name": "Jason M.",
+            "location": "San Diego, CA"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
-            "badge": "",
-            "show_stars": false,
+            "image": "shopify://shop_images/relife-review-uniform-ethan.jpg",
+            "badge": "Verified Buyer",
+            "show_stars": true,
             "rating": 5,
-            "title": "",
-            "text": "",
-            "name": "",
-            "location": ""
+            "title": "My New Favorite Home Fitness Equipment!",
+            "text": "The 2-in-1 design is what really caught my attention. It's stable, smooth, and surprisingly comfortable to use. I can feel my core working throughout the exercises, and I love that I don't need to go to the gym to get a good workout. Definitely a useful addition to my home gym!",
+            "name": "Ryan T.",
+            "location": "Orlando, FL"
           }
         },
         "r4": {
           "type": "review",
           "settings": {
-            "badge": "",
-            "show_stars": false,
+            "image": "shopify://shop_images/relife-review-uniform-daniel.jpg",
+            "badge": "Verified Buyer",
+            "show_stars": true,
             "rating": 5,
-            "title": "",
-            "text": "",
-            "name": "",
-            "location": ""
+            "title": "Comfortable, Sturdy, and Easy to Use!",
+            "text": "One thing I really appreciate is how comfortable and supportive this trainer feels. It's well-designed, easy to assemble, and provides a smooth workout experience. I can focus on my movements without constantly adjusting my position. Great equipment for anyone looking to train their core at home!",
+            "name": "Matthew P.",
+            "location": "Miami, FL"
           }
         }
       },
