@@ -236,3 +236,45 @@
 @media (max-width:989px){.ks-rv{grid-template-columns:1fr;gap:24px}}
 @media (max-width:749px){.ks-rv__card{flex-basis:78%}.ks-rv__card--media .ks-rv__media{min-height:360px}}
 .ks-rv__right{min-width:0}
+/* Rating badge (Judge.me metafields) */
+.ks-rate{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-size:14px;line-height:1;margin:2px 0 12px}
+.ks-rate:hover .ks-rate__txt{text-decoration:underline}
+.ks-rate__stars{position:relative;display:inline-block;color:#5a5b60;letter-spacing:2px;font-size:17px;white-space:nowrap}
+.ks-rate__fill{position:absolute;left:0;top:0;overflow:hidden;color:#E8B33C;white-space:nowrap}
+.ks-rate__txt{color:#D9D4CA}.ks-rate__txt b{color:#fff;font-weight:700}
+.ks-hero .ks-rate{margin:0 0 18px}
+/* Package cards */
+.ks-pk-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#CDAE72;font-weight:700;margin:8px 0 10px}
+.ks-pk{display:grid;gap:10px;margin:0 0 14px}
+.ks-pk__o{position:relative;display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:12px;border:1.5px solid #3a3b40;border-radius:12px;padding:14px 14px;background:#1b1c1f;cursor:pointer;transition:border-color .15s,background .15s;color:#F3EFE8}
+.ks-pk__o:hover{border-color:#6E5B3A}
+.ks-pk__o:focus-visible{outline:2px solid #CDAE72;outline-offset:2px}
+.ks-pk__o.is-on{border-color:#CDAE72;background:#24211B}
+.ks-pk__r{width:20px;height:20px;border-radius:50%;border:2px solid #6b6c72;display:block}
+.ks-pk__o.is-on .ks-pk__r{border-color:#CDAE72;box-shadow:inset 0 0 0 4px #24211B;background:#CDAE72}
+.ks-pk__n{display:block;font-weight:700;font-size:15px;color:#fff}
+.ks-pk__d{display:block;font-size:12.5px;color:#B9B3A8;margin-top:3px;line-height:1.35}
+.ks-pk__p{text-align:right;white-space:nowrap}
+.ks-pk__p b{display:block;font-size:16px;color:#fff}
+.ks-pk__p s{display:block;font-size:12.5px;color:#E36A5D;margin-top:2px}
+.ks-pk__b{position:absolute;top:-10px;right:14px;background:#CDAE72;color:#141517;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+/* Mobile: compact hero so the buy box starts within the first screen */
+@media (max-width:749px){
+  .ks-hero--full .ks-hero__stage{min-height:0}
+  .ks-hero--full .ks-hero__full{position:absolute;inset:0}
+  .ks-hero--full .ks-hero__full img{aspect-ratio:auto;height:100%;object-position:78% 30%}
+  .ks-hero--full .ks-hero__full::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,16,18,.92) 0%,rgba(15,16,18,.82) 48%,rgba(15,16,18,.25) 78%,rgba(15,16,18,.55) 100%)}
+  .ks-hero--full .ks-hero__copy{padding:26px 0 150px}
+  .ks-hero--full .ks-hero__badge{font-size:11px;padding:5px 12px;margin-bottom:12px}
+  .ks-hero--full .ks-hero__h{font-size:31px;margin-bottom:12px}
+  .ks-hero--full .ks-hero__sub{font-size:14.5px;margin-bottom:16px}
+  .ks-hero--full .ks-rate{margin-bottom:12px}
+  .ks-hero--full .ks-btn{padding:13px 24px;font-size:13px}
+  .ks-hero--full .ks-strip{display:none}
+}
+@media (max-width:749px){
+  .ks-hero--full .ks-hero__copy{padding:22px 0 104px}
+  .ks-pk{gap:9px}
+  .ks-pk__o{padding:10px 12px}
+  .ks-pk-h{margin:4px 0 8px}
+}

@@ -6,6 +6,7 @@
       <div class="ks-hero__copy">
         {%- if section.settings.badge != blank -%}<span class="ks-hero__badge">{{ section.settings.badge }}</span>{%- endif -%}
         <h1 class="ks-hero__h">{{ section.settings.heading }}</h1>
+        {%- if section.settings.show_rating and product -%}{% render 'ns-ks-rating', product: product %}{%- endif -%}
         {%- if section.settings.sub != blank -%}<p class="ks-hero__sub">{{ section.settings.sub }}</p>{%- endif -%}
         {%- if section.settings.button_label != blank -%}<a class="ks-btn" href="{{ section.settings.button_link | default: '#ks-buy' }}">{{ section.settings.button_label }}</a>{%- endif -%}
       </div>
@@ -26,6 +27,7 @@
     { "type": "text", "id": "badge", "label": "Badge" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Heading" },
     { "type": "text", "id": "sub", "label": "Subheading" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show star rating under the heading", "default": false, "info": "Uses the product review rating and links to the reviews." },
     { "type": "image_picker", "id": "image", "label": "Image (right side)" },
     { "type": "image_picker", "id": "bg_image", "label": "Full-width background image", "info": "Replaces the pattern and right-side image. Keep the left side clear for the text." },
     { "type": "text", "id": "button_label", "label": "Button label" },

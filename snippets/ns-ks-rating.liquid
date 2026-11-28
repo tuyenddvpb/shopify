@@ -1,0 +1,15 @@
+{%- comment -%}
+  Star rating badge from Judge.me metafields (reviews.rating / reviews.rating_count).
+  Params: product, class (optional extra class). Links to #ns-reviews. Renders nothing without reviews.
+{%- endcomment -%}
+{%- assign ns_r = product.metafields.reviews.rating.value -%}
+{%- assign ns_c = product.metafields.reviews.rating_count.value | default: 0 -%}
+{%- if ns_r and ns_c > 0 -%}
+  {%- assign ns_val = ns_r.rating | times: 1.0 -%}
+  {%- assign ns_max = ns_r.scale_max | times: 1.0 -%}
+  {%- assign ns_pct = ns_val | divided_by: ns_max | times: 100 | round: 1 -%}
+  <a class="ks-rate {{ class }}" href="#ns-reviews" aria-label="Rated {{ ns_val | round: 1 }} out of {{ ns_max | round }} from {{ ns_c }} reviews. Go to reviews">
+    <span class="ks-rate__stars" aria-hidden="true"><span class="ks-rate__fill" style="width:{{ ns_pct }}%">★★★★★</span>★★★★★</span>
+    <span class="ks-rate__txt"><b>{{ ns_val | round: 1 }}</b> · {{ ns_c }} {% if ns_c == 1 %}review{% else %}reviews{% endif %}</span>
+  </a>
+{%- endif -%}
